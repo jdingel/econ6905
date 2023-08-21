@@ -15,7 +15,7 @@ I will introduce concepts and models in a self-contained fashion, as I do *not* 
 Course materials: [github.com/jdingel/econ6905](http://github.com/jdingel/econ6905)\
 Class schedule: Thursdays 10:10 AM - 12:00 PM\
 Email: <jdingel@chicagobooth.edu> or <jid2106@columbia.edu>\
-Office: TBA\
+Office: IAB 1029
 Office hours: By appointment, please email
 
 ### Assessment
