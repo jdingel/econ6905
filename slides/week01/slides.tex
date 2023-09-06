@@ -1,0 +1,638 @@
+\documentclass[10pt,notes=hide]{beamer}
+
+\input{../week00/slides_settings.tex}
+\setbeamertemplate{footline}{\begin{center}\textcolor{gray}{Dingel -- Topics in Trade -- 
+Week 1 -- \insertframenumber}\end{center}}
+
+\begin{document}
+% -----------------------------------------
+%TITLE FRAME
+\begin{frame}[plain]
+\begin{center}
+\large
+\textcolor{columbiadarkblue}{ECON G6905\\
+Topics in Trade\\ 
+Jonathan Dingel\\
+Fall \the\year, Week 1}
+\vfill 
+\includegraphics[width=0.5\textwidth]{../images/Columbia_logo.png}
+\end{center}
+\note{
+
+}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Outline of today}
+\begin{itemize}
+	\item Introduction + logistics
+	\item Overview of the course
+	\item Brief introduction to trade theory
+	\item The CES Armington model of international trade
+\end{itemize}
+
+\note{
+save unreasonable properties for exact hat algebra in models with intermediate inputs a la Rodrigo for EHA week
+}
+
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Logistics}
+This class
+\begin{itemize}
+\item Thursdays, 10:10-12:00, IAB 1102
+\item Jonathan Dingel
+\begin{itemize}
+	\item Email: \href{mailto:jid2106@columbia.edu}{jid2106@columbia.edu}
+	\item Office: IAB 1029
+	\item Office hours: By appointment, please email
+\end{itemize}
+\item Course materials:
+\href{http://github.com/jdingel/econ6905}{github.com/jdingel/econ6905}
+and \href{https://courseworks2.columbia.edu}{courseworks2.columbia.edu}
+\end{itemize}
+Also relevant:
+\begin{itemize}
+\item Weinstein's G6903 Theory of International Trade (Wednesdays 10:10-12:00, IAB 1101)\\
+\item Trade Colloquium (Wednesdays, 12:00 - 1:00, IAB 1101)
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Assessment}
+My goal is to introduce some concepts and tools in international trade and economic geography so you can tackle relevant research questions
+\begin{itemize}
+\item Grades based on assignments (70\%) and a final exam (30\%)
+\item Three types of assignments
+\begin{itemize}
+\item Economics: Derive a theoretical result or survey an empirical literature.
+\item Programming: Write a function that solves for equilibrium or estimates a parameter.
+\item Referee report: Assess a recent working paper.
+\end{itemize}
+\item Final exam at end of semester
+\end{itemize}
+Grab assignments from GitHub.
+Submit your work via Courseworks.
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Coding}
+Submit transparent, self-contained code:
+\begin{itemize}
+\item Your code must reproduce your work in the ``just press play'' sense of the \href{https://www.aeaweb.org/journals/data/faq\#run}{AEA Data Editor}
+\item You may use Julia or Matlab. \href{https://tradediversion.net/2018/09/17/why-i-encourage-econ-phd-students-to-learn-julia/}{Use Julia}.
+\end{itemize}
+See my \href{http://www.jdingel.com/teaching/advice.html}{recommended resources} webpage for suggestions.
+\begin{itemize}
+\item Grant McDermott - \href{https://github.com/uo-ec607/lectures}{Data science for economists}
+\item Ivan Rudik - \href{https://github.com/AEM7130/class-repo}{AEM 7130 Dynamic Optimization}
+\item Paul Schrimpf and Jesse Perla - \href{https://github.com/ubcecon/ECON622/}{Computational Economics with Data Science Applications}
+\item Jesus Fernandez-Villaverde - \href{https://www.sas.upenn.edu/~jesusfv/teaching.html}{Computational Methods for Economists}
+\item Perla, Sargent, Stachurski - \href{https://julia.quantecon.org/intro.html}{Quantitative Economics}
+\end{itemize}
+How many have used: Matlab? Julia? Git? \href{https://tradediversion.net/2019/11/06/why-your-research-project-needs-build-automation/}{Build automation}?
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Objectives}
+\begin{itemize}
+\item My goal is to prepare students to tackle research questions in international trade and spatial economics
+\item Writing papers is about matching skills with opportunities
+\item In my experience, spotting opportunities is a hard-to-teach combination of insight and luck
+\item This class will aim to equip you with skills so your technical quiver is full when you spot a target
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Topics}
+\begin{enumerate}
+\item The CES Armington model
+\item Gravity regressions
+\item Increasing returns and home-market effects
+\item Non-homothetic preferences
+\item Agglomeration economies
+\item Quantitative spatial models
+\item Quantitative urban models
+\item Exact hat algebra and calibration
+\item The canonical urban model
+\item Spatial sorting of skills and sectors
+\item Discrete choice estimation and simulations
+\item Spatial policies
+\end{enumerate}
+See my comments on ``\href{https://tradediversion.net/2017/09/17/linkages-between-international-trade-and-urban-economics/}{Linkages between international trade and urban economics}''
+\note{
+	Some comments on the relationship between international trade and economic geography.
+	I work at the intersection. So do Redding, Arkolakis, Donaldson, Allen, Rossi-Hansberg and friends.
+	Many of our good job candidates (Nick T, Elisa G, etc) learned trade tools and wrote geography JMPs.
+}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Why trade and spatial are interesting}
+\begin{itemize}
+	\item International trade has long intellectual history (Smith, Ricardo) and is hot policy topic today (Brexit, Trump)
+	\item Healthy balance of theory and empirics (c.f. theory-dominated from 1817 to 1990s) in which each informs the other
+	\item Trade has tools and insights relevant for topics ranging from intracity commuting to national TFP growth
+	\item I used to say trade economists sometimes have a data advantage because governments track cross-border transactions
+	\item Spatial economics has long been a small field, but it's rapidly growing (e.g., \href{https://tradediversion.net/2019/11/11/the-rapid-rise-of-spatial-economics-among-jmcs/}{The rapid rise of spatial economics among JMCs}, \href{https://urbaneconomics.org/about/history.html}{UEA history})
+\end{itemize}
+\vspace{0.5cm}
+Why are you interested in trade and spatial?
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Trade's interplay between theory and empirics}
+Descriptive facts motivate theoretical work
+\begin{itemize}
+	\item Observed intra-industry trade motivated ``new trade theory'' (e.g., Krugman 1980)
+	\item Observed firm-level heterogeneity motivated ``new new trade theory'' (e.g., Melitz 2003)
+\end{itemize}
+Empirical evidence comes from wide range of methods
+\begin{itemize}
+	\item Descriptive statistics
+	\item Estimated/calibrated quantitative models
+	\item Applications employing sufficient statistics
+	\item Quasi-natural experiments (rare, but see Japanese autarky, Suez Canal, the telegraph, etc)
+\end{itemize}
+Testing is tricky: See \href{https://www.nber.org/papers/w8675}{Harrigan (2001)} and \href{https://www.nber.org/papers/w31321}{Adao et al (2023)}
+\begin{itemize}
+\item Is it a ``test''? Is there a clearly specified alternative hypothesis?
+\item How does the test isolate the distinctive GE prediction?
+\item Today, many have ``abandon[ed] testing altogether''
+\end{itemize}
+\note{
+	\begin{itemize}
+		\item Harrigan (page 28):
+		{\small ``Equation (29) simply says that productivity advantage in a sector is associated with export success in that sector,
+		a prediction that arises from any number of partial-equilibrium supply and demand models (for example, a simple Cournot reciprocal dumping model predicts that export success will be negatively related to marginal cost).
+		The critique is not that (29) is inconsistent with a Ricardian model, but that verification of $> 0$ is not evidence in favor of Ricardo over any other explanation.
+		A truly general equilibrium prediction of Ricardian models is that a productivity advantage in one sector can actually hurt export success in another sector, but Golub and Hsieh do not investigate this prediction.''}
+	\end{itemize}
+}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{International trade theory}
+\begin{itemize}
+	\item A dominant view is that international trade is an applied branch of general-equilibrium theory
+	\item Any GE model has preferences + technology + equilibrium
+	\item International trade theory focuses on locations, such that preferences (rarely) and technology (typically) are location-specific
+	\item Trade theory traditionally has ``international'' goods markets and ``domestic'' factor markets
+	\item Consumers have preferences over goods; factors are employed to produce goods
+	\item Questions: How does international integration affect the goods market, the factor market, and welfare?
+	\item One flavor of spatial economics is trade in goods plus mobile factors.
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Variants of trade models}
+One view: ``positive trade theory uses a variety of models, each one suited to a limited but still important range of questions''
+{\small (Jones and Neary 1980)}
+
+\bigskip
+\resizebox{\textwidth}{!}{
+\begin{tabular}{l lll}
+\toprule
+& Demand & Supply & Market structure \\
+\midrule
+Goods & General; & Constant returns  & Perfect competition; \\
+markets& CES preferences; & to scale; & Monopolistic competition; \\
+& Translog, NHCES, etc & Increasing returns &  Oligopoly \\
+\midrule
+Factor & Demand derived  & Often perfectly  & Almost always \\
+markets & from supply of goods & inelastic & competitive \\
+\bottomrule
+\end{tabular}
+}
+
+\bigskip
+If you stop at the goods market, it's partial-equilibrium.
+\note{Perfect competition: MC=MR=AR=AC}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Neoclassical trade models}
+\begin{itemize}
+\item ``Neoclassical trade models" are characterized by three key
+assumptions:
+\begin{itemize}
+	\item perfect competition
+	\item constant returns to scale
+	\item no distortions
+\end{itemize}
+\item Can accommodate decreasing returns to scale (DRS) using ``hidden'' factors in fixed supply;
+IRS is ``new trade theory''
+\item Given the generality of these assumptions, there is not a wealth of results, but one can obtain two canonical insights: 
+\begin{itemize}
+	\item gains from trade (Samuelson 1939)
+	\item law of comparative advantage (Deardorff 1980)
+\end{itemize}
+\item By contrast, we are going to dive deeply into one very specific neoclassical model
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{The CES Armington model}
+Features:
+\begin{itemize}
+\item Concise: A one-elasticity model
+\item Relevant: Same macro-level predictions as other, important gravity-based models
+\end{itemize}
+Shortcomings:
+\begin{itemize}
+\item Supply side (endowment economy) is wholly uninteresting 
+\item Preferences (national differentiation with IIA) are ad hoc
+\end{itemize}
+We will discuss
+\begin{itemize}
+\item Primitives
+\item Existence and uniqueness of equilibrium
+\item Solving for equilibrium
+\item Computing counterfactual outcomes
+\end{itemize}
+\note{
+	It's an endowment economy. A trade model without a production function: no comparative advantage, no returns to scale.
+}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Armington model with CES prefences}
+\begin{itemize}
+	\item Each country has its own ``signature'' good (others have zero productivity in this good; maximal absolute advantage)
+	\item Consumers in each country have identical CES preferences over the $N$ goods with elasticity $\sigma$
+	(see \href{http://www.columbia.edu/~jid2106/td/dixitstiglitzbasics.pdf}{Dingel 2009} for CES refresher)
+	\item Bilateral trade costs of the \href{https://tradediversion.net/2019/10/28/whats-an-iceberg-commuting-cost/}{iceberg} form $\tau_{ij}$
+	\item Demand: Consumer in $j$ with total expenditure $X_j$ spends $X_{ij}$ on good from $i$
+	\begin{equation*}
+	X_{ij}	= \frac{(p_i\tau_{ij} )^{1-\sigma}}{\sum_{\ell} (p_\ell\tau_{\ell j})^{1-\sigma}} X_j
+			= \frac{(p_i\tau_{ij} )^{1-\sigma}}{P_j^{1-\sigma}} X_j
+	\end{equation*}
+	\item Economy $i$ endowed with $Q_i$ units so GDP is $Y_i = p_i Q_i$
+	\begin{equation*}
+	X_{ij}	= \frac{Y_i^{1-\sigma}}{Q_i^{1-\sigma}} \frac{X_j}{P_j^{1-\sigma}}\tau_{ij}^{1-\sigma}
+	\end{equation*}
+	\item Balanced-trade equilibrium is $\{Y_i\}_{i=1}^{N}$ such that 
+	\begin{equation*}
+	X_i = Y_i = \sum_j X_{ij}
+	\end{equation*}
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Equilibrium system of equations}
+Combine the last two equations to get $N$ equations in $N$ unknowns:
+\begin{align*}
+Y_i 
+&=
+\sum_j X_{ij}
+\\
+&=
+\sum_j \frac{Y_i^{1-\sigma}}{Q_i^{1-\sigma}} \frac{Y_j}{P_j^{1-\sigma}}\tau_{ij}^{1-\sigma}
+\\
+&=
+\sum_j \frac{Y_i^{1-\sigma}}{Q_i^{1-\sigma}} \frac{Y_j}{\sum_{\ell} \left(\tau_{\ell j}Y_{\ell}/Q_{\ell}\right)^{1-\sigma}}\tau_{ij}^{1-\sigma}
+\end{align*}
+The $N$ unknowns can be $\{Y_i\}_{i=1}^{N}$ or $\{p_i\}_{i=1}^{N}$:
+$$
+p_i Q_i
+=
+\sum_j p_i^{1-\sigma} \frac{p_j Q_j}{\sum_{\ell} \left(p_{\ell} \tau_{\ell j}\right)^{1-\sigma}}\tau_{ij}^{1-\sigma}
+$$
+Denote ``trade elasticity'' by $\epsilon \equiv \sigma - 1$ and expenditure shares by $\lambda_{ij}$
+$$
+p_i Q_i
+=
+\sum_j \underbrace{\frac{p_i^{-\epsilon} \tau_{ij}^{-\epsilon}}{\sum_{\ell} \left(p_{\ell} \tau_{\ell j}\right)^{-\epsilon}}}_{\equiv \lambda_{ij}} p_j Q_j
+$$
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Existence and uniqueness}
+
+\begin{itemize}
+\item We want an equilibrium to exist:
+a model without an equilibrium leaves us little to analyze
+\item Should we want the equilibrium to be unique?
+\begin{itemize}
+\item Certainly relevant for computing outcomes
+\item May be relevant to identification (\href{https://www.aeaweb.org/articles?id=10.1257/jel.20181361}{Lewbel 2019}),
+but point identification concerns uniqueness of parameters given observable outcomes,
+not uniquness of outcomes
+\item May be relevant for counterfactual scenarios,
+but we can report sets of counterfactual equilibria
+(multiplicity seems more a threat to forecasting than counterfactual scenarios)
+\end{itemize}
+\end{itemize}
+\href{https://doi.org/10.1086/704385}{Allen, Arkolakis, Takahashi (2020)} show
+\begin{itemize}
+\item $\sigma \neq 0$: an interior equilibrium exists
+\item $\sigma \geq 0$: all equilibria are interior
+\item $\sigma \geq 1$: interior eqlbm is unique (aggregate demand slopes down)
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Solving for equilibrium numerically (1/2)}
+You want to find a fixed point $\{Y_i\}_{i=1}^{N}$ that satisfies
+$$
+Y_i
+=
+\sum_j \frac{\left(Y_i/Q_i\right)^{-\epsilon} \tau_{ij}^{-\epsilon}}{\sum_{\ell} \left(Y_{\ell} \tau_{\ell j} / Q_{\ell}\right)^{-\epsilon}} Y_j
+.$$
+Choose a numeraire to pin this down.
+
+You might define a differentiable objective function and find its minimum (the fixed point where it is zero).
+This can be slow.
+$$
+\min_{\{Y_{i}\}_{i=1}^{N}}
+\left(Y_i
+-
+\sum_j \frac{\left(Y_i/Q_i\right)^{-\epsilon} \tau_{ij}^{-\epsilon}}{\sum_{\ell} \left(Y_{\ell} \tau_{\ell j} / Q_{\ell}\right)^{-\epsilon}} Y_j
+\right)^2
+$$
+An iterative approach can be quite fast. \href{https://raw.githack.com/AEM7130/class-repo/master/lecture-notes/04-optimization/04-optimization.html\#40}{Function iteration} means
+\begin{itemize}
+\item Guess $\{Y_{i}^{s}\}_{i=1}^{N}$ starting with $s=0$.
+\item Compute implied LHS when using $\{Y_{i}^{s}\}_{i=1}^{N}$ in RHS
+\item Update $\mathbf{Y}^{s+1}$ based on convex combination of $\mathbf{Y}^{s}$ and implied $\mathbf{Y}$
+\item Iterate until $\mathbf{Y}^{s+1} = \mathbf{Y}^{s}$
+\end{itemize}
+
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Solving for equilibrium numerically (2/2)}
+
+As in Alvarez and Lucas (2007), define the excess demand function
+$$
+f_i(\mathbf{p}) 
+=
+\frac{1}{p_i} \sum_{j} \lambda_{ij} p_j Q_j - Q_i
+=
+\frac{1}{p_i} \sum_{j}
+\frac{\left(p_i\tau_{ij}\right)^{-\epsilon}}{\sum_{\ell} \left(p_{\ell} \tau_{\ell j}\right)^{-\epsilon}}
+p_j Q_j - Q_i
+$$
+Compute equilibrium by defining mapping with damper $\kappa \in (0,1]$:
+$$M_i(\mathbf{p}) = p_i \left[1 + \kappa f_i(\mathbf{p}) / Q_{i}\right]$$
+
+If we start with prices such that $\sum_{i=1}^{N} p_i Q_i = 1$, then
+\begin{align*}
+\sum_{i} M_i(\mathbf{p}) Q_i
+&=
+\sum_{i} p_i Q_i + \sum_{i} p_i \kappa f_i(\mathbf{p})
+=
+1 + \kappa \sum_{i} p_i \left[\frac{1}{p_i} \sum_{j} \lambda_{ij} p_j Q_j - Q_i\right]
+\\
+&=
+1 + \kappa \sum_{i} \sum_{j} \lambda_{ij} p_j Q_j - \kappa \sum_{i} p_i  Q_i
+=
+1
+\end{align*}
+This maps the set $\left\{\mathbf{p} \in \mathbb{R}^{N}_{+}: \sum_{i} p_i Q_i = 1\right\}$ to itself.
+Iteration converges to $M_{i}(\mathbf{p}) = p_i$ (see Alvarez and Lucas 2007).
+
+\note{
+You want to iterate on a contraction. 
+
+Look at Allen and Arkolakis's section on ``6.4 Computing the Equilibrium (Alvarez-Lucas)''
+
+Alvarez and Lucas:
+``country $i$'s labor excess demand per unit of labor, so the operator $M$ prescribes that the percentage increase in country $i$'s wage be in proportion to a scaled version of country $i$'s excess demand.''
+
+Pretty sure that $\sigma \geq 1$ suffices for the gross-substitutes property. $\frac{\partial f_i(\mathbf{w})}{\partial w_k} > 0 \ \forall k \neq i $}
+
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Introducing a production function}
+Switch from an endowment economy to a simple production function
+\begin{itemize}
+\item 
+One factor of production in fixed supply: $L_i$
+\item
+Constant returns to scale: $Q_i = A_i L_i$
+\item
+Perfect competition: $p_{i} = w_i / A_i$ and $Y_i = w_i L_i$
+\item
+(Choose units to define $T_i \equiv A_i^{\epsilon}$)
+\end{itemize}
+Our equilibrium system of equations is now
+$$
+w_i L_i
+=
+\sum_j \frac{T_i \left(w_i \tau_{ij}\right)^{-\epsilon}}{\sum_{\ell} T_{\ell} \left(w_{\ell} \tau_{\ell j}\right)^{-\epsilon}} w_j L_j
+$$
+
+\note{
+	There is no reason to rewrite from $A_i$ to $T_i$ on this slide.
+	I'm previewing a connection between this simple and other models that David Weinstein will teach you.
+}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Introducing asymmetric preferences}
+Consider an Armington model with asymmetric preferences:
+\begin{align*}
+	U_j &= \left(\sum_{i} \beta_{ij} q_{ij}^{(\sigma-1)/\sigma}\right)^{\sigma/(\sigma-1)}
+	\\
+	\Rightarrow
+	\frac{X_{ij}}{X_j} &= \beta_{ij} \left(\frac{p_{ij}}{P_j}\right)^{1-\sigma} 
+	=
+	\frac{w_i^{1-\sigma}}{P_j^{1-\sigma}}\beta_{ij}\tau_{ij}^{1-\sigma}
+\end{align*}
+Bilateral trade costs and bilateral preferences are observationally equivalent.
+
+\textcolor{gray}{(The CES price index $P_j$ on this slide differs from previous $P_j$.)}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Welfare}
+\begin{itemize}
+\item There is only one factor of production and it is inelastically supplied
+\item If we know the CES price index, we can study the real wage $w_i / P_i$, real income $w_i L_i / P_i$, and so forth for each country
+\item Real wage in country $j$ with symmetric preferences:
+$$
+\frac{w_j}{P_{j}}
+=
+\frac{w_j}{\left(\sum_{i=1}^{N} \left(p_{i}\tau_{ij}\right)^{\frac{1}{1-\sigma}}\right)^{1-\sigma}}
+=
+\frac{w_j}{\left(\sum_{i=1}^{N} \left(w_i \tau_{ij} / A_i\right)^{\frac{1}{1-\sigma}}\right)^{1-\sigma}}
+$$
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Counterfactual outcomes}
+Counterfactual scenarios:
+\begin{itemize}
+\item If our model has parameters $\{T_i,L_i,\tau_{ij},\epsilon\}$,
+a counterfactual scenario is an alternative parameter vector
+$\{T'_i,L'_i,\tau'_{ij},\epsilon'\}$.
+\item The model's baseline equilibrium outcomes are $\{w_{i}\}$
+and the counterfactual outcomes by primes are $\{w'_{i}\}$
+\item[] (Be careful with $\epsilon \to \epsilon'$ exercises)
+\end{itemize}
+We can address many counterfactuals even in this simple model. Examples:
+\begin{itemize}
+\item How large are the gains from trade relative to autarky?
+\item How much would countries gain from frictionless trade?
+\item Which countries gain from Chinese productivity growth?
+\item When is productivity growth immiserizing?
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Counterfactual outcomes by exact hat algebra}
+One way of stating counterfactual outcomes is ``exact hat algebra''
+(\href{https://doi.org/10.1016/B978-0-444-54314-1.00004-5}{Costinot and Rodriguez-Clare 2014})
+\begin{itemize}
+\item A counterfactual equilibrium can be expressed in terms of
+counterfactual endogenous outcomes relative to baseline endogenous outcomes,
+counterfactual exogenous parameters relative to baseline exogenous parameters,
+elasticities,
+and
+baseline equilibrium shares.
+\item \href{https://tradediversion.net/2018/05/07/on-hat-algebra/}{The name} refers to the ``hat algebra'' of Jones (1965):
+obtaining comparative statics by totally differentiating a model in logarithms
+\item It's ``exact'' because it's global (not only small changes) thanks to knowing the whole demand and supply system
+\item We will discuss the use (and misuse) of this technique (and its name) more later in the course
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Counterfactual Armington outcomes by EHA (1/2)}
+Start from the market-clearing condition and the gravity equation:
+\begin{equation*}
+w_i L_i
+=
+\sum_{j=1}^{N} \lambda_{ij} w_j L_j 
+\quad \quad
+\lambda_{ij} 
+=
+\frac{T_{i} \left(\tau_{ij}w_i\right)^{-\epsilon}}{\sum_{l=1}^{N} T_{l}  \left(\tau_{lj}w_l\right)^{-\epsilon}}
+\end{equation*}
+We consider a shock to $\hat{T}_{i} \equiv \frac{T'_{i}}{T_{i}}$.
+By assumption, $\hat{\tau}=1$ and $\hat{L}=1$.
+We want to solve for the endogenous variables $\hat{\lambda}_{ij}, \hat{X}_{ij}$ and $\hat{w}_{i}$.
+In the following derivation, 
+define ``sales shares'' by
+$\gamma_{ij}\equiv\frac{X_{ij}}{Y_{i}}$.
+\begin{align}
+w_i L_i
+&=
+\sum_{j=1}^{N} \lambda_{ij} w_j L_j,
+\quad
+w'_i L'_i
+=
+\sum_{j=1}^{N} \lambda'_{ij} w'_j L_j
+=
+\sum_{j=1}^{N} X'_{ij}
+\nonumber \\
+\hat{w}_i \hat{L}_i
+&= 
+\sum_{j=1}^{N} \frac{X'_{ij}}{w_i L_i}
+=
+\sum_{j=1}^{N} \frac{X_{ij}}{w_i L_i} \hat{X}_{ij}
+\equiv
+\sum_{j=1}^{N} \gamma_{ij} \hat{X}_{ij}  \label{eqn:20180428:1sector:hatincome}
+\end{align}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Counterfactual Armington outcomes by EHA (2/2)}
+
+\begin{align}
+\lambda_{ij} 
+&=
+\frac{T_{i} \left(\tau_{ij}w_i\right)^{-\epsilon}}{\sum_{l=1}^{N} T_{l}  \left(\tau_{lj}w_l\right)^{-\epsilon}},
+\quad
+\lambda'_{ij} 
+=
+\frac{T'_{i} \left(\tau_{ij}w'_i\right)^{-\epsilon}}{\sum_{l=1}^{N} T'_{l}  \left(\tau_{lj}w'_l\right)^{-\epsilon}}
+\nonumber \\
+\hat{\lambda}_{ij}
+\equiv 
+\frac{\lambda'_{ij}}{\lambda_{ij}}
+&=
+\hat{T}_{i} \hat{w}_{i}^{-\epsilon} \hat{\tau}_{ij}^{-\epsilon}
+\frac{\sum_{l=1}^{N} T_{l}  \left(\tau_{lj}w_l \right)^{-\epsilon}}
+	 {\sum_{l=1}^{N} T'_{l} \left(\tau_{lj}w'_l\right)^{-\epsilon}}
+=
+\frac{\hat{T}_{i} \hat{w}_{i}^{-\epsilon}\hat{\tau}_{ij}^{-\epsilon}}{\sum_{l=1}^{N} \lambda_{lj} \hat{T}_{l} \hat{w}_l^{-\epsilon} \hat{\tau}_{lj}^{-\epsilon}}
+\label{eqn:20180428:1sector:hatgravity}
+\end{align}
+Combining equations \eqref{eqn:20180428:1sector:hatincome} and \eqref{eqn:20180428:1sector:hatgravity}
+under the assumptions that $\hat{Y}_{i}=\hat{X}_{i}$ and $\hat{\tau}=\hat{L}=1$, we
+obtain a system of equation characterizing an equilibrium $\hat{w}_i$ as a
+function of shocks $\hat{T}_i$, initial equilibrium shares $\lambda_{ij}$ and
+$\gamma_{ij}$, and the trade elasticity $\epsilon$:
+\begin{equation}
+\hat{w}_i \hat{L}_i
+= 
+\sum_{j=1}^{N} \gamma_{ij} \hat{X}_{ij}
+=
+\sum_{j=1}^{N} \gamma_{ij} \hat{\lambda}_{ij} \hat{w}_{j}
+\nonumber 
+\Rightarrow
+\hat{w}_i
+= 
+\sum_{j=1}^{N}
+\frac{\gamma_{ij} \hat{T}_{i} \hat{w}_{i}^{-\epsilon} \hat{w}_{j} }
+{\sum_{l=1}^{N} \lambda_{lj} \hat{T}_{l} \hat{w}_l^{-\epsilon}}
+\label{eqn:20180428:1sector:hatequilibriumequations}
+\end{equation}
+Given a model parameterization that defines $\epsilon, \lambda_{ij}$, and $\gamma_{ij}$,
+we can choose arbitrary productivity shocks $\{\hat{T}_{i}\}_{i=1}^{N}$ and solve for $\{\hat{w}\}_{i=1}^{N}$.
+\textcolor{gray}{(This generalizes to arbitrary $\hat{\tau},\hat{L}$.)}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Counterfactual outcomes: Autarky and free trade}
+Autarky
+\begin{itemize}
+\item The autarky counterfactual scenario is the alternative parameter vector
+in which $\tau_{ij} = \infty \ i \neq j$
+($\{T_i,L_i,\{\tau_{ij}^{-1}\}=I_N,\epsilon\}$)
+\item Can compute by exact hat algebra: $\hat{\tau}_{ij} = \infty \text{ for } \ i \neq j$
+\end{itemize}
+Free trade
+\begin{itemize}
+\item Given $\{T_i,L_i,\tau_{ij},\epsilon\}$ where $\tau_{ii} = 1 \ \forall i$,
+the free-trade counterfactual scenario is the alternative parameter vector
+in which $\tau_{ij} = 1 \ \forall ij$
+($\{T_i,L_i,\mathbf{1}_{N \times N},\epsilon\}$)
+\item Cannot compute using only shares. Need level of $\tau_{ij}$.
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Special case: Symmetric trade costs}
+When $\tau_{ij} = \tau_{ji} \ \forall i,j$,
+we can rewrite the system in terms of market access $\Phi_i \equiv P_j^{1-\sigma}$
+(see Appendix A.1.3 of \href{http://www.jdingel.com/research/DingelMengHsiang.pdf}{Dingel, Meng, Hsiang}):
+\begin{align*}
+Y_i = w_i L_i  	&= \sum_j \left(\frac{w_i}{A_i}\right)^{-\epsilon}\tau_{ij}^{-\epsilon} \frac{w_j L_j}{\Phi_j}
+			= \left(\frac{w_i}{A_i}\right)^{-\epsilon} \Omega_i \\
+\Rightarrow \frac{w_i}{A_i}	&= \left(\frac{\Omega_i}{A_i L_i}\right)^{\frac{1}{\epsilon+1}} \\
+\Rightarrow \Phi_i 	&= \sum_j \tau_{ji}^{-\epsilon} \left(\frac{w_j}{A_j}\right)^{-\epsilon} 
+					= \sum_j \tau_{ji}^{-\epsilon} \left(A_j L_j / \Omega_j\right)^{\frac{\epsilon}{\epsilon+1}}\\
+					&= \sum_j \tau_{ji}^{-\epsilon} \left(A_j L_j / \Phi_j\right)^{\frac{\epsilon}{\epsilon+1}}
+\end{align*}
+The last equality exploits the fact that 
+we can normalize incomes such that $\Phi_i = \Omega_i$
+when trade is balanced and $\tau_{ij}^{-\epsilon}$ is symmetric
+(Anderson and van Wincoop 2003; Head and Mayer 2014).
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Multi-sector Armington model}
+\begin{itemize}{\small
+\item \textbf{Preferences}.
+Cobb-Douglas over sectors $s = 1, \dots, S$ and CES within:
+\begin{equation*}
+P_i = \prod_{s=1}^S P_{is}^{\alpha_{is}} \text{ and } P_{is} = \left(\sum_{i=1}^{N} p_i(\omega_s)^{1-\sigma_s} \right)^{1/(1-\sigma_s)}
+\end{equation*}
+\item \textbf{Production}.
+Sector-specific productivities $A_{is}$ and trade costs $\tau_{ijs}$.
+\item \textbf{Gravity equation}.
+Denote sales from $i$ to $j$ in sector $s$ by $X_{ijs}$ 
+and $j$'s total expenditure by $X_j \equiv \sum_{i=1}^{N} \sum_{s=1}^{S} X_{ijs}$.
+\begin{equation*}
+\lambda_{ijs} = \frac{X_{ijs}}{X_{js}}
+= \frac{T_{is} \left(\tau_{ijs}w_i\right)^{-\epsilon_s}}{\sum_{l=1}^{N} T_{ls}  \left(\tau_{ljs}w_l\right)^{-\epsilon_s}}
+=\frac{T_{is} \left(\tau_{ijs}w_i\right)^{-\epsilon_s}}{\Phi_{js}}.
+\end{equation*}
+\item \textbf{Equilibrium}.
+Labor-market clearing, goods-market clearing, and budget constraints mean
+total income $Y_i = w_i L_i$ and sectoral income $Y_{is} = w_i L_{is}$ satisfy
+$Y_{is} = \sum_{j=1}^{N} X_{ijs}$, $Y_i = \sum_{s=1}^{S} Y_{is}$, and $X_{is} = \alpha_{is} Y_i$ for all countries.
+\begin{equation*}
+	Y_{is} = \sum_{j=1}^{N} \lambda_{ijs} \alpha_{js} \sum_{s'=1}^{S} Y_{js'} .
+\end{equation*}
+}\end{itemize}
+\textcolor{gray}{(Recall $T_{is} = A_{is}^{\epsilon_s} = = A_{is}^{\sigma_1 - 1}$)}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Next week}
+Gravity
+\end{frame}
+% -----------------------------------------
+
+
+\end{document}
+
