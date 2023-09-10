@@ -39,7 +39,7 @@ X_{ij} &= \underbrace{\frac{Y_i}{\Omega_i}}_{S_i} \times \underbrace{\frac{X_j}{
 \quad 
 \Phi_j  = \sum_{\ell} \frac{Y_{\ell}}{\Omega_{\ell}} \phi_{\ell j}
 \end{align*}
-Naive gravity (``gold medal error'' of Baldwin and Taglioni):
+Naive gravity (``gold medal error'' of \href{https://www.nber.org/papers/w12516}{Baldwin and Taglioni}):
 \begin{equation*}
 X_{ij} = G \times Y_i^a \times Y_j^b \times \phi_{ij}
 \end{equation*}
@@ -79,7 +79,7 @@ X_{ij} = {\frac{Y_i}{\Omega_i}} \times {\frac{X_j}{\Phi_j}} \times \phi_{ij}
 \end{frame}
 % -----------------------------------------
 \begin{frame}{Evaluating gravity models based on predicting changes}
-Kehoe, Pujolas, Rossbach (2017) on applied general-equilibrium models:
+\href{https://doi.org/10.1146/annurev-economics-080614-115502}{Kehoe, Pujolas, Rossbach (2017)} on applied general-equilibrium models:
 \begin{itemize}
 \item ``AGE models do not have a good track record in predicting the impact of trade reforms on production and trade flows by industry''
 \item Typical AGE: ``the model exactly matches the data in the base period'' and ``Cobb-Douglas or fixed-coefficient forms, which makes it easy to calibrate factor and demand intensities directly from IO tables'' (cross-sectional fit is a given)
@@ -197,7 +197,7 @@ Now you have a structural gravity setting in which $\phi_{ij}=\beta_{ij}\tau_{ij
 \end{frame}
 % -----------------------------------------
 \begin{frame}{Logs vs levels and the Poisson PML estimator}
-Silva and Tenreyro (REStat 2006) raise logs vs levels issue:
+\href{https://personal.lse.ac.uk/tenreyro/LGW.html}{Silva and Tenreyro (REStat 2006)} raise logs vs levels issue:
 \begin{align*}
 X_{ij} &= \alpha_0 Y_i^{\alpha_1}  Y_j^{\alpha_2}  D_{ij}^{\alpha_3} \eta_{ij}
 \\
@@ -223,7 +223,7 @@ Contrast OLS and PPML first-order conditions:
   \sum_{k,n} \left[X_{ij} - \exp\left(\beta \mathbf{Z}_{ij}\right)\right] \mathbf{Z}_{ij}= 0
 \end{align*}
 The OLS FOC has a log difference; the PPML FOC has a level difference.
-{Sotelo (2019): ``when using PML methods to estimate gravity models, specifying the dependent variable as shares or as levels amounts to assigning different weights to each importer country.''\par}
+{\href{http://www-personal.umich.edu/~ssotelo/research/Sotelo_MPMLE.pdf}{Sotelo (2019)}: ``when using PML methods to estimate gravity models, specifying the dependent variable as shares or as levels amounts to assigning different weights to each importer country.''\par}
 \end{frame}
 % -----------------------------------------
 \begin{frame}{Zeros and PPML}
@@ -358,7 +358,7 @@ the overriding concern is that these observables cannot capture all trade costs 
 \end{frame}
 % -----------------------------------------
 \begin{frame}{Inferring from observed exchanges: Gravity residuals}
-Head and Ries (2001) suggest backing out the freeness of trade by assuming
+\href{https://www.aeaweb.org/articles?id=10.1257/aer.91.4.858}{Head and Ries (2001)} suggest backing out the freeness of trade by assuming
 $\phi_{ii}=1 \ \forall i$ (normalization) and $\phi_{ij}=\phi_{ji} \ \forall i,j$ (symmetry)
 \begin{columns}
 \begin{column}{.52\textwidth}
@@ -418,7 +418,7 @@ X_{ij} = {\frac{Y_i}{\Omega_i}} \times {\frac{X_j}{\Phi_j}} \times \phi_{ij}
 \end{frame}
 % -----------------------------------------
 \begin{frame}{Mis-specified gravity and trade elasticities}
-Yi (JPE 2003) motivates his paper with two puzzles:
+\href{https://doi.org/10.1086/344805}{Yi (JPE 2003)} motivates his paper with two puzzles:
 \begin{columns}
 \begin{column}{.49\textwidth}
 \begin{itemize}
@@ -467,7 +467,7 @@ $$\ln p_{jt}(u) -\ln p_{it}(u) = \ln \tau_{ijt}(u)$$
 	\item Need competitive market (otherwise: need pass-through rate)
 \end{itemize}
 Donaldson (2018) on salt in India differentiated by geographic origin tackles 1 and 2 explicitly\\
-Atkin and Donaldson (2015) work on 1-3
+\href{https://www.nber.org/papers/w21439}{Atkin and Donaldson (2015)} work on 1-3
 \begin{itemize}
 	\item CPI micro-data from Ethiopia and Nigeria (and US)
 	\item Neglecting 1-3 would underestimate cost of distance
@@ -488,13 +488,13 @@ Markups or costs? Authors say variation in retail prices related to exchange rat
 \end{frame}
 % -----------------------------------------
 \begin{frame}{Price gaps over time (1/3)}
-\begin{center}\includegraphics[width=\textwidth]{../images/Jensen_QJE2007_figure4} \\ \footnotesize{Robert Jensen, ``\href{http://qje.oxfordjournals.org/content/122/3/879.abstract}{The Digital Provide},'' \textit{QJE}, 2007}\end{center}
+\begin{center}\includegraphics[width=0.8\textwidth]{../images/Jensen_QJE2007_figure4} \\ \footnotesize{Robert Jensen, ``\href{http://qje.oxfordjournals.org/content/122/3/879.abstract}{The Digital Provide},'' \textit{QJE}, 2007}\end{center}
 \end{frame}
 % -----------------------------------------
 \begin{frame}{Price gaps over time (2/3)}
 \begin{minipage}{.47\textwidth}\vspace{0pt}\includegraphics[width=\textwidth]{../images/Steinwender_wp2015_fig1}\end{minipage}
 \begin{minipage}{.47\textwidth}\vspace{0pt}\includegraphics[width=\textwidth]{../images/Steinwender_wp2015_fig2}\end{minipage}
-\begin{center}\footnotesize{Steinwender, ``\href{https://sites.google.com/site/clsteinwender/home/research}{Information Frictions and the Law of One Price}'', 2015} \end{center}
+\begin{center}\footnotesize{Steinwender, ``\href{https://www.aeaweb.org/articles?id=10.1257/aer.20150681}{Real Effects of Information Frictions: When the States and the Kingdom Became United}'', \textit{AER} 2018} \end{center}
 \end{frame}
 % -----------------------------------------
 \begin{frame}{Price gaps over time (3/3)}
