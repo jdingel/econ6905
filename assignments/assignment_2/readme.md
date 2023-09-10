@@ -7,7 +7,7 @@ This assignment looks at the estimation of "gravity" regressions for commuting f
 
 ### Deliverables
 
-For this assignment, please produce the following five outputs that are described in detail below:
+For this assignment, please produce the following six outputs that are described in detail below:
 
 1.  A table reporting a log-linear gravity regression.
     The table should have four columns, each employing a different Stata estimator to estimate the same specification:`reg`, `xtreg`,`areg`, `reghdfe`.
@@ -26,6 +26,8 @@ You may consult your classmates while working on the assignment, but each indivi
 Please allow me to run your code on my machine by minimizing
 your use of machine-specific filepaths.
 Define a global variable for the filepath at the top of your scripts or, preferably, write everything using [relative filepaths](https://help.github.com/articles/about-readmes/#relative-links-and-image-paths-in-readme-files).
+Your R and Julia scripts should load all required packages (and your Stata script should list what packages are assumed).
+(In real replication packages, you need to provide [package installation tools](https://twitter.com/AeaData/status/1250118911313534979)).
 
 ### Instructions
 
