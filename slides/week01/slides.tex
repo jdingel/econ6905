@@ -1,9 +1,7 @@
 \documentclass[10pt,notes=hide]{beamer}
-
 \input{../week00/slides_settings.tex}
 \setbeamertemplate{footline}{\begin{center}\textcolor{gray}{Dingel -- Topics in Trade -- 
 Week 1 -- \insertframenumber}\end{center}}
-
 \begin{document}
 % -----------------------------------------
 %TITLE FRAME
@@ -17,9 +15,6 @@ Fall \the\year, Week 1}
 \vfill 
 \includegraphics[width=0.5\textwidth]{../images/Columbia_logo.png}
 \end{center}
-\note{
-
-}
 \end{frame}
 % -----------------------------------------
 \begin{frame}{Outline of today}
@@ -29,11 +24,6 @@ Fall \the\year, Week 1}
 	\item Brief introduction to trade theory
 	\item The CES Armington model of international trade
 \end{itemize}
-
-\note{
-save unreasonable properties for exact hat algebra in models with intermediate inputs a la Rodrigo for EHA week
-}
-
 \end{frame}
 % -----------------------------------------
 \begin{frame}{Logistics}
@@ -115,11 +105,6 @@ How many have used: Matlab? Julia? Git? \href{https://tradediversion.net/2019/11
 \item Spatial policies
 \end{enumerate}
 See my comments on ``\href{https://tradediversion.net/2017/09/17/linkages-between-international-trade-and-urban-economics/}{Linkages between international trade and urban economics}''
-\note{
-	Some comments on the relationship between international trade and economic geography.
-	I work at the intersection. So do Redding, Arkolakis, Donaldson, Allen, Rossi-Hansberg and friends.
-	Many of our good job candidates (Nick T, Elisa G, etc) learned trade tools and wrote geography JMPs.
-}
 \end{frame}
 % -----------------------------------------
 \begin{frame}{Why trade and spatial are interesting}
@@ -153,15 +138,6 @@ Testing is tricky: See \href{https://www.nber.org/papers/w8675}{Harrigan (2001)}
 \item How does the test isolate the distinctive GE prediction?
 \item Today, many have ``abandon[ed] testing altogether''
 \end{itemize}
-\note{
-	\begin{itemize}
-		\item Harrigan (page 28):
-		{\small ``Equation (29) simply says that productivity advantage in a sector is associated with export success in that sector,
-		a prediction that arises from any number of partial-equilibrium supply and demand models (for example, a simple Cournot reciprocal dumping model predicts that export success will be negatively related to marginal cost).
-		The critique is not that (29) is inconsistent with a Ricardian model, but that verification of $> 0$ is not evidence in favor of Ricardo over any other explanation.
-		A truly general equilibrium prediction of Ricardian models is that a productivity advantage in one sector can actually hurt export success in another sector, but Golub and Hsieh do not investigate this prediction.''}
-	\end{itemize}
-}
 \end{frame}
 % -----------------------------------------
 \begin{frame}{International trade theory}
@@ -179,7 +155,6 @@ Testing is tricky: See \href{https://www.nber.org/papers/w8675}{Harrigan (2001)}
 \begin{frame}{Variants of trade models}
 One view: ``positive trade theory uses a variety of models, each one suited to a limited but still important range of questions''
 {\small (Jones and Neary 1980)}
-
 \bigskip
 \resizebox{\textwidth}{!}{
 \begin{tabular}{l lll}
@@ -195,10 +170,8 @@ markets & from supply of goods & inelastic & competitive \\
 \bottomrule
 \end{tabular}
 }
-
 \bigskip
 If you stop at the goods market, it's partial-equilibrium.
-\note{Perfect competition: MC=MR=AR=AC}
 \end{frame}
 % -----------------------------------------
 \begin{frame}{Neoclassical trade models}
@@ -239,9 +212,6 @@ We will discuss
 \item Solving for equilibrium
 \item Computing counterfactual outcomes
 \end{itemize}
-\note{
-	It's an endowment economy. A trade model without a production function: no comparative advantage, no returns to scale.
-}
 \end{frame}
 % -----------------------------------------
 \begin{frame}{Armington model with CES prefences}
@@ -294,7 +264,6 @@ $$
 \end{frame}
 % -----------------------------------------
 \begin{frame}{Existence and uniqueness}
-
 \begin{itemize}
 \item We want an equilibrium to exist:
 a model without an equilibrium leaves us little to analyze
@@ -325,7 +294,6 @@ Y_i
 \sum_j \frac{\left(Y_i/Q_i\right)^{-\epsilon} \tau_{ij}^{-\epsilon}}{\sum_{\ell} \left(Y_{\ell} \tau_{\ell j} / Q_{\ell}\right)^{-\epsilon}} Y_j
 .$$
 Choose a numeraire to pin this down.
-
 You might define a differentiable objective function and find its minimum (the fixed point where it is zero).
 This can be slow.
 $$
@@ -342,11 +310,9 @@ An iterative approach can be quite fast. \href{https://raw.githack.com/AEM7130/c
 \item Update $\mathbf{Y}^{s+1}$ based on convex combination of $\mathbf{Y}^{s}$ and implied $\mathbf{Y}$
 \item Iterate until $\mathbf{Y}^{s+1} = \mathbf{Y}^{s}$
 \end{itemize}
-
 \end{frame}
 % -----------------------------------------
 \begin{frame}{Solving for equilibrium numerically (2/2)}
-
 As in Alvarez and Lucas (2007), define the excess demand function
 $$
 f_i(\mathbf{p}) 
@@ -359,7 +325,6 @@ p_j Q_j - Q_i
 $$
 Compute equilibrium by defining mapping with damper $\kappa \in (0,1]$:
 $$M_i(\mathbf{p}) = p_i \left[1 + \kappa f_i(\mathbf{p}) / Q_{i}\right]$$
-
 If we start with prices such that $\sum_{i=1}^{N} p_i Q_i = 1$, then
 \begin{align*}
 \sum_{i} M_i(\mathbf{p}) Q_i
@@ -375,17 +340,6 @@ If we start with prices such that $\sum_{i=1}^{N} p_i Q_i = 1$, then
 \end{align*}
 This maps the set $\left\{\mathbf{p} \in \mathbb{R}^{N}_{+}: \sum_{i} p_i Q_i = 1\right\}$ to itself.
 Iteration converges to $M_{i}(\mathbf{p}) = p_i$ (see Alvarez and Lucas 2007).
-
-\note{
-You want to iterate on a contraction. 
-
-Look at Allen and Arkolakis's section on ``6.4 Computing the Equilibrium (Alvarez-Lucas)''
-
-Alvarez and Lucas:
-``country $i$'s labor excess demand per unit of labor, so the operator $M$ prescribes that the percentage increase in country $i$'s wage be in proportion to a scaled version of country $i$'s excess demand.''
-
-Pretty sure that $\sigma \geq 1$ suffices for the gross-substitutes property. $\frac{\partial f_i(\mathbf{w})}{\partial w_k} > 0 \ \forall k \neq i $}
-
 \end{frame}
 % -----------------------------------------
 \begin{frame}{Introducing a production function}
@@ -406,11 +360,6 @@ w_i L_i
 =
 \sum_j \frac{T_i \left(w_i \tau_{ij}\right)^{-\epsilon}}{\sum_{\ell} T_{\ell} \left(w_{\ell} \tau_{\ell j}\right)^{-\epsilon}} w_j L_j
 $$
-
-\note{
-	There is no reason to rewrite from $A_i$ to $T_i$ on this slide.
-	I'm previewing a connection between this simple and other models that David Weinstein will teach you.
-}
 \end{frame}
 % -----------------------------------------
 \begin{frame}{Introducing asymmetric preferences}
@@ -424,7 +373,6 @@ Consider an Armington model with asymmetric preferences:
 	\frac{w_i^{1-\sigma}}{P_j^{1-\sigma}}\beta_{ij}\tau_{ij}^{1-\sigma}
 \end{align*}
 Bilateral trade costs and bilateral preferences are observationally equivalent.
-
 \textcolor{gray}{(The CES price index $P_j$ on this slide differs from previous $P_j$.)}
 \end{frame}
 % -----------------------------------------
@@ -518,7 +466,6 @@ w'_i L'_i
 \end{frame}
 % -----------------------------------------
 \begin{frame}{Counterfactual Armington outcomes by EHA (2/2)}
-
 \begin{align}
 \lambda_{ij} 
 &=
@@ -632,7 +579,4 @@ $Y_{is} = \sum_{j=1}^{N} X_{ijs}$, $Y_i = \sum_{s=1}^{S} Y_{is}$, and $X_{is} = 
 Gravity
 \end{frame}
 % -----------------------------------------
-
-
 \end{document}
-
