@@ -1,0 +1,201 @@
+\documentclass[11pt,notes=hide,aspectratio=169]{beamer}
+\input{../week00/slides_settings.tex}
+\setbeamertemplate{footline}{\begin{center}\textcolor{gray}{Dingel -- Topics in Trade -- Week 3 -- \insertframenumber}\end{center}}
+\begin{document}
+% -----------------------------------------
+%TITLE FRAME
+\begin{frame}[plain]
+\begin{center}
+\large
+\textcolor{columbiadarkblue}{ECON G6905\\
+Topics in Trade\\ 
+Jonathan Dingel\\
+Autumn \the\year, Week 3}
+\vfill 
+\includegraphics[width=0.4\textwidth]{../images/Columbia_logo.png}
+\end{center}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Today}
+\begin{itemize}
+	\item Topic: Increasing returns and the home-market effect
+	\item Main paper: Market Size and Trade in Medical Services
+	\item This puts the Armington model and estimated gravity regressions to work 
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Today: Does size matter?}
+\linespread{1.1}
+\begin{itemize}
+	\item In neoclassical trade models, the pattern of specialization is size-invariant:
+	\begin{itemize}
+		\item Ricardian: DFS (1977) $A(z)$ schedule independent of $L/L^{*}$
+		\item Heckscher-Ohlin: Factor intensity and abundance do not depend on size 
+		\item Relative size determines the cutoff good $z^{*}$ or the area of the FPE set, not the pattern of comparative advantage
+	\end{itemize}
+	\item In new trade theory, size can influence the pattern of specialization because there are economies of scale
+\begin{itemize}
+	\item Intuition: Size is advantageous when there are economies of scale
+	\item Implications: strategic trade policy, multiple equilibria
+	\item Formalizing the idea proved challenging
+	%\item With homogeneous demand, larger economy may capture IRS sector %See top of page 832 of Grossman and Rossi-Hansberg (QJE 2010)
+	%\item With heterogeneous demand, larger domestic market may yield competitive advantage
+\end{itemize}
+	\item A ``home-market effect'', in which an economy with greater domestic demand is a (net) exporter of that good, distinguishes new trade theories from neoclassical models
+	\item Empirical challenge is inferring ``greater demand'' from observed equilibrium
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{A short history of size in theory}
+\begin{itemize}
+	\item \href{https://books.google.com/books?id=fJM_cAAACAAJ}{Linder (1961)} posits that home demand is a source of comparative advantage such that rich countries will produce high-quality products
+	%\item %Corden (1970): http://tradediversion.net/2013/10/11/a-prescient-note-on-the-home-market-effect-by-max-corden/
+	\item '60s \& '70s: Theorists struggle to link market size and specialization
+	\item \href{https://assets.aeaweb.org/assets/production/journals/aer/top20/70.5.950-959.pdf}{Krugman (1980)} formalizes two-sector, two-country predictions for (1) exogenous demand differences and (2) country size differences
+	\item Widely used case is freely traded CRS good and costly-to-trade IRS varieties
+	\item Early 2000s: Empirical work correlates market size with sectoral composition
+	\item 2010s: Income-driven demand composition in theory and empirics
+%	\item Fajgelbaum, Grossman, Helpman (2011) link income levels to quality specialization
+%	\item Matsuyama (2015) links income levels to sectoral specialization
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Linder hypothesis}
+\linespread{0.95}
+Linder (1961) posits that home demand governs supply capability (p.87--90)
+\begin{quote}{\footnotesize
+[The] range of exportable products is determined by internal demand. It is a necessary, but not a sufficient condition, that a product be consumed (or invested) in the home country for this product to be a potential export product\dots In a world of imperfect knowledge, entrepreneurs will react to profit opportunities of which they are aware. These would tend to arise from domestic needs\dots An invention is, in itself, most likely to have been the outcome of an effort to solve some problem which has been acute in one's own environment\dots the production functions of goods demanded at home are the relatively most advantageous ones.
+}\end{quote}
+Linder hypothesis for trade flows (p.91--94)
+\begin{quote}{\small
+Internal demand determines which products may be imported\dots The range of potential exports is identical to, or included in, the range of potential imports\dots The more similar the demand structure of two countries, the more intensive, potentially, is the trade between these two countries\dots Similarity of average income levels could be used as an index of similarity of demand structures.
+}\end{quote}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{The gist of it}
+Krugman (1980)\\
+\hfill
+\includegraphics[height=.85\textheight]{../images/Krugman1980extension1.pdf} \hfill
+\includegraphics[height=.85\textheight]{../images/Krugman1980extension2.pdf}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{The home-market effect, weak and strong}
+Helpful typology from \href{https://academic.oup.com/qje/article/134/2/843/5298504}{Costinot, Donaldson, Kyle, and Williams (2019)}:
+\begin{itemize}
+	\item Weak home-market effect: Demand generates exports.\\Linder (1961): ``The range of exportable products is determined by internal demand.''
+	\item Strong home-market effect: Greater demand generates \textit{net} exports.\\ Krugman (1980): ``If two countries have the same composition of demand, the larger country will be a net exporter of the products whose production involves economies of scale.''
+	\item A weak home-market effect requires economies of scale; the strong HME requires sufficiently strong economies of scale
+	\item Krugman's choice of functional form yielded the strong home-market effect for all parameter values -- only CDKW formalize the weak HME
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{CDKW: The More We Die, The More We Sell?}
+Costinot, Donaldson, Kyle, Williams (2019):
+\begin{itemize}
+	\item Theory: Define ``home-market effect'' outside Krugman-like settings
+	\item Empirics: Use demographic differences as source of exogenous variation in demand for pharmaceutical drugs
+\end{itemize}
+This is the must-read paper on home-market effects\\
+\vspace{5mm}
+\footnotesize{See my blog post on ``\href{https://tradediversion.net/2019/09/23/market-size-effects-across-places-and-over-time/}{Market-size effects, across places and over time}''}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{CDKW: Theoretical environment}
+\begin{itemize}
+	\item Demand: Consumption in $j$ of varieties from $i$ targeting disease $n$ is
+	\begin{equation*}d_{ij}^n = d(p_{ij}^n/P_j^n) \theta_j^n D(P_j^n/P_j) D_j \end{equation*}
+	\item Supply: Perfect competition and iceberg trade costs yields supply curve
+	\begin{equation*} s_i^n = \eta_i^n s(p_i^n)\end{equation*}
+	\item Equilibrium: 
+	\begin{equation*} s_i^n = \sum_j \tau_{ij}^n d_{ij}^n \end{equation*}
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{CDKW: Estimating equation}
+\begin{itemize}
+	\item Reduced-form regression for exports from $i$ to $j$:
+	\begin{equation*}
+		\ln X_{ij}^n = \beta_X \theta_i^n + \beta_M \theta_j^n +  \delta_{ij} + \delta^n + \epsilon_{ij}^n
+	\end{equation*}
+ 	\item First-order approximation (log-linearization) around a symmetric equilibrium
+ 	\item Can be derived in perfect competition (with external economies), monopolistic competition (a la Krugman), Bertrand oligopoly, and monopoly settings
+ 	\item Empirical strategy is to proxy for $\theta_i^n$ using $i$'s age$\times$gender-predicted disease burden
+ 	\item $\beta_X > 0$ demonstrates a ``weak home-market effect''
+ 	\item $\beta_X > \beta_M > 0$ demonstrates a ``strong home-market effect''
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{CDKW in pictures}
+\begin{center}
+\includegraphics[height=.45\textheight]{../images/CDKW_figure1.pdf}\\
+\includegraphics[height=.45\textheight]{../images/CDKW_figure2.pdf}
+\includegraphics[height=.45\textheight]{../images/CDKW_figure3.pdf}
+\end{center}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{CDKW: Data}
+\begin{itemize}
+	\item Drug-level pharmaceutical sales for 56 countries; aggregated to countries based on drug's producer's headquarters
+	\item Predicted disease burden from combining WHO's age-gender disease burden in disability-adjusted life years with countries' population demographics
+	\item Theory vs data: Iceberg trade costs vs pricing to market?
+	\item Theory vs data: Multinational production?
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{CDKW: Is the world symmetric?}
+\vspace{-3mm}
+\begin{equation*}
+	\ln X_{ij}^n = \beta_X \theta_i^n + \beta_M \theta_j^n +  \delta_{ij} + \delta^n + \epsilon_{ij}^n
+\end{equation*}
+\vspace{-5mm}
+\begin{itemize}
+	\item A symmetric equilibrium with $\theta_i = 1 \ \forall i$ and $\tau_{ij} = \tau > 1 \ \forall i,j:i \neq j$
+	\item Symmetry allows omission of multilateral resistance terms
+	\item How do we define HME away from the symmetric equilibrium?
+\end{itemize}
+\begin{center}\includegraphics[width=.6\textwidth]{../images/CDKW_table1.pdf}\end{center}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{CDKW: Main result}
+\begin{center}\includegraphics[height=.9\textheight]{../images/CDKW_table3.pdf}\end{center}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{CDKW: Robustness checks}
+Attempt to relax symmetry assumption, address spatially correlated demand
+\begin{center}\includegraphics[height=.85\textheight]{../images/CDKW_table6.pdf}\end{center}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{CDKW: PPML and extensive margin}
+\begin{center}\includegraphics[height=.9\textheight]{../images/CDKW_table8.pdf}\end{center}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Home-markets effect in services trade}
+\href{http://www.jdingel.com/research/DGLM_MSTMS.pdf}{Dingel, Gottlieb, Lozinski, and Mourot (2023)}
+investigate market-size effects in trade in medical services between US regions
+\begin{itemize}
+\item Build procedure-level trade matrices from Medicare claims data
+\item Derive home-market effect in fixed-price model
+\item CDKW regression shows strong HME for medical services
+\item Larger market-size effects in less common procedures
+\end{itemize}
+Go to DGLM slidedeck.
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Home-market effects}
+\begin{itemize}
+	\item Home-market effects are a hallmark of new trade theory relative to neoclassical theories
+	\item Empirical evidence is still in its infancy
+	\item Home-market effects appear important to understanding:
+	\begin{itemize}
+		\item quality specialization within US manufacturing
+		\item global pharmaceutical sales
+		\item regional variation in medical services
+	\end{itemize}
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Next week}
+Up next: Non-homothetic preferences
+\end{frame}
+% -----------------------------------------
+\end{document}
