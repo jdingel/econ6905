@@ -1,0 +1,248 @@
+\documentclass[11pt,notes=hide,aspectratio=169]{beamer}
+\input{../week00/slides_settings.tex}
+\setbeamertemplate{footline}{\begin{center}\textcolor{gray}{Dingel -- Topics in Trade -- Week 4 -- \insertframenumber}\end{center}}
+\begin{document}
+% -----------------------------------------
+%TITLE FRAME
+\begin{frame}[plain]
+\begin{center}
+\large
+\textcolor{columbiadarkblue}{ECON G6905\\
+Topics in Trade\\ 
+Jonathan Dingel\\
+Autumn \the\year, Week 4}
+\vfill 
+\includegraphics[width=0.4\textwidth]{../images/Columbia_logo.png}
+\end{center}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Today: Non-homothetic preferences in trade}
+\begin{itemize}
+	\item Are income levels relevant for consumer expenditure allocations?
+	\item Non-homothetic preferences: The income elasticity of demand differs from one
+	\item {\small \href{https://www.nber.org/papers/w8675}{Harrigan (2001)}: ``The assumption of identical homothetic preferences is implausible, and uninteresting in the sense that there is no real theory behind it''}
+	\item Linder posited that income composition affects demand composition, which is what every household budget study finds (\href{http://www.cambridge.org/us/academic/subjects/economics/microeconomics/economics-and-consumer-behavior?format=PB&isbn=9780521296762}{Deaton and Muellbauer 1980})
+	\item There may not be a representative consumer when income distribution matters
+	\item This heterogeneous demand might predict intersectoral or intrasectoral variation in trade flows
+	\item {High-income economies might have comparative advantage in income-elastic goods due to a coincidental correlation or a causal home-market effect\par}
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Today}
+\begin{itemize}
+\item Caron, Fally, Markusen (2014): Intersectoral differences and correlation
+\item Matsuyama (2019): Intersectoral differences and causation
+\item A tangent: Structural transformation in closed and open economies
+\item Dingel (2017): Intrasectoral (quality) differences and causation
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Caron, Fally, Markusen (2014)}
+``\href{http://qje.oxfordjournals.org/content/129/3/1501}{International Trade Puzzles - A Solution Linking Production and Preferences}''
+\begin{enumerate}
+\item The factor content of a country's production and consumption are very similar
+(factor-service trade is too small; Trefler's ``case of the missing trade'')
+\item Aggregate trade-to-GDP ratios are low (``home bias puzzle'').
+\item Bilateral trade between countries with similar incomes is higher than predicted by supply-driven theories.
+\item Trade-to-GDP ratios are higher in higher-income countries.
+\end{enumerate}
+Income elasticities can help explain these patterns
+\begin{itemize}
+\item Sectoral income elasticity and skill intensity are positively correlated: countries have comparative advantage in what they demand (explains 1, 2, 3)
+\item Sectoral income elasticity and tradability are positively correlated: high-income countries have higher trade-to-GDP ratios
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Caron, Fally, Markusen (2014): Coincidental correlation}
+\begin{itemize}
+	\item Constant relative income elasticity (CRIE) preferences (Hanoch 1975):
+	$$U = \sum_k \alpha_{1,k} Q_{k}^{\frac{\sigma_k-1}{\sigma_k}} \implies x_{nk} = \lambda_n^{-\sigma_k} \alpha_{2,k}P_{nk}^{1-\sigma_k}$$
+	\item EK-CDK-CP multi-sector production with intermediates (no HME)
+	\item Sectoral gravity (with EK notation for $X_{ni}$ subscript order):
+	\begin{align*}
+	\frac{X_{nik}}{X_{nk}}
+	= 
+	\frac{S_{ik} d_{nik}^{-\theta_k}}{\Phi_{nk}} ; \quad \Phi_{nk} = \sum_i S_{ik} d_{nik}^{-\theta_k}
+	\end{align*}
+	\item Gravity with zero trade costs ($d_{nik}=1$) and no intermediates shows interaction of supply and demand characteristics
+\begin{align*}
+	\frac{X_{ni}}{X_n} 
+	= 
+	\sum_{k} \frac{X_{nik}}{X_{nk}} \frac{X_{nk}}{X_n} 
+	=
+	\sum_k \underbrace{\left(\frac{S_{ik}}{\sum_j S_{jk}}\right)}_{\textnormal{supply shifters}} \underbrace{\left(\frac{\alpha_{4,k} \lambda_n^{-\sigma_k}} {\sum_{k'} \alpha_{4,k'} \lambda_n^{-\sigma_{k'}}} \right)}_{\textnormal{demand shifters}}
+\end{align*}
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Caron, Fally, Markusen (2014): Demand estimation}
+\linespread{1.0}
+\begin{itemize}
+	\item Need estimated model to distinguish roles of trade costs and nonhomotheticity
+	\item Use GTAP data on 94 countries and 56 broad sectors (and 5 factors of production)
+	\item Sectoral gravity to obtain structural proxy for $\Phi_{nk}$
+	\begin{equation*}
+	\ln X_{nik} = \underbrace{\ln S_{ik}}_{ik \textnormal{ FE}} - \theta_k \underbrace{\ln d_{nik}}_{\textnormal{proxies}} + \underbrace{\ln\left(\frac{X_{nk}}{\Phi_{nk}} \right)}_{nk \textnormal{ FE}}
+	\Rightarrow
+	\hat{\Phi}_{nk} = \sum_i \exp \left( \widehat{\ln S_{ik}} - \hat{\theta}_k \ln d_{nik} \right)
+	\end{equation*}
+	\item Price indices closely related to inward MR, $P_{nk} = \alpha_{3,k} \Phi_{nk}^{-1/\theta_k}$
+	\item Sectoral expenditures to identify $\{\sigma_k, \lambda_n, \alpha_{5,k}, \theta_k\}$ via constrained NLS
+	\begin{align*}
+	\ln x_{nk} = {-\sigma_k}\ln \lambda_n + \ln \alpha_{5,k} + \frac{\sigma_k-1}{\theta_k} \ln \hat{\Phi}_{nk} + \epsilon_{nk} \\
+	\sum_k \exp \left[ {-\sigma_k}\ln \lambda_n + \ln \alpha_{5,k} + \frac{\sigma_k-1}{\theta_k} \ln \hat{\Phi}_{nk} \right] = e_n
+	\end{align*}
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Caron, Fally, Markusen (2014): Application to puzzles}
+\begin{itemize}
+	\item Compute factor intensities as the ratio of skilled labor, capital, or natural resources to total labor input
+	\item Correlation between a good's income elasticity of demand and its skilled-labor intensity in production is about 50\%
+	\item Income-elastic goods are systematically more traded (variation in the elasticity of trade costs to distance rather than $\theta_k$)
+	\item Quantitative account of the four puzzles (missing factor content, income-openness relationship, etc.)
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Causal HME in theory: Matsuyama (2019)}
+\begin{itemize}
+	\item \href{https://onlinelibrary-wiley-com.proxy.uchicago.edu/doi/10.3982/ECTA13765}{Matsuyama (2019)}: Intersectoral specialization, causal home-market effect
+	\item Continuum of SDS sectors -- lower tier looks like Krugman (1980)
+	\item Direct implicitly additive CES utility with sector-specific income elasticity parameters (see \href{https://ideas.repec.org/a/ecm/emetrp/v43y1975i3p395-419.html}{Hanoch 1975} or \href{http://faculty.wcas.northwestern.edu/~kmatsu/}{Matsuyama's Canon lecture})
+	\item Ranking sectors by income elasticities, the economy with higher standard of living is a net exporter in higher-ranked sectors
+	\item Comparative statics for productivity improvements and trade costs
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Brief discussion of implicit additive separability}
+\begin{itemize}
+	\item Recall utility functions $U(x)$ and indirect utility $V(p,y)$
+	\item Explicitly additively separable function $U: \mathbb{R}_{+}^{J} \to \mathbb{R}$ is $U(x) = \sum_j u_j(x_j)$
+	\item Bergson (\href{https://www.jstor.org/stable/2967658}{[Burk] 1936}): If $U$ is quasi-concave, increasing, and explicitly additively separable,
+	then it is homothetic if and only if
+	$u_j(x_j) = \alpha_j \frac{x_j^{\rho}}{\rho} + \beta_j \ \forall j$
+	\item Pigou's Law (1910) (\href{https://www.jstor.org/stable/2231258}{Deaton 1974}): If the (direct) utility function is additively separable, then the income elasticity of a good is (approximately) proportionate to the price elasticity of that good
+	\item An implicitly additively separable utility function is
+	$\sum_{j=1}^{J} f_j\left(x_j; U\right)=1$
+	\item \href{https://ideas.repec.org/a/mcb/jmoncb/v27y1995i4p1241-77.html}{Kimball (1995)} preferences are popular example:
+	$$
+	\min_{y_j} \int_{0}^{1} p_j y_j \textrm{d}j \text{ s.t. } \int_{0}^{1} \Upsilon \left(\frac{y_j}{Y}\right) \textrm{d}j = 1 
+	\quad \Upsilon(1) = 1, \Upsilon^{'}>0, \Upsilon^{''}<0
+	$$
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Matsuyama (2019): Non-homothetic CES preferences}
+``Non-homothetic CES'' is an implicitly additive direct utility function with a constant elasticity of substitution (Hanoch 1975). Popularized by Comin, Lashkari, Mestieri (2021)
+\begin{equation*}
+\left[\int_{I}\left(\beta_{s}\right)^{1/\eta}\left(\tilde{U}^{k}\right)^{\frac{\epsilon(s) - \eta}{\eta}}\left(C^k_s\right)^{\frac{\eta-1}{\eta}}\textrm{d} s\right]^{\frac{\eta}{\eta-1}}
+\equiv 1
+\qquad
+\beta_{s} > 0, \eta > 0, \eta \neq 1, \frac{\epsilon(s)-\eta}{1-\eta} >0
+\end{equation*}
+$\epsilon(s) = 1 \ \forall s$ is homothetic CES.\\
+$\epsilon(s)$ increasing in $s$ means
+$\left(\beta_{s}\right)^{1/\eta}\left(\tilde{U}^{k}\right)^{\frac{\epsilon(s) - \eta}{\eta}}$
+is isoelastic in $\tilde{U}^{k}$ and LSM in $(s,\tilde{U}^{k})$
+\smallskip
+Other applications:
+\begin{itemize}
+\item {\small Finlay and Williams ``Housing Demand, Inequality, and Spatial Sorting'' (2023)}
+\item {\small Comin, Mestieri, Danieli ``Income-driven Labor Market Polarization'' (2020)}
+\end{itemize}
+Go to \href{https://shorturl.at/txBKR}{Matsuyama's 2018 slide deck}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Structural transformation in closed and open economies}
+A warning to empiricists (Matsuyama \textit{JEEA} 2009)
+\begin{quote}
+This paper presents a simple model of the world economy, in which productivity gains in manufacturing are responsible for the global trend of manufacturing decline, and yet, in a cross-section of countries, faster productivity gains in manufacturing do not necessarily imply faster declines in manufacturing.
+In doing so, it aims to draw attention to the common pitfall of using the cross-country evidence to test a closed economy model, and argues for a global perspective; in order to understand cross-country patterns of structural change, one needs a world economy model in which the interdependence across countries is explicitly spelled out.
+\end{quote}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Matsuyama (\textit{JET} 1992) overview}
+{\small ``Agricultural productivity, comparative advantage, and economic growth''}
+\begin{itemize}
+\item Model of endogenous growth driven by learning by doing in the manufacturing sector
+\item Income elasticity of demand for agricultural output $<1$
+\item Closed economy: Agricultural productivity raises growth
+\item Small open economy: Agricultural productivity lowers growth
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Matsuyama (1992) setup/mechanics}
+Learning by doing in manufacturing
+\begin{align*}
+X_t^A 
+&=
+A G(1-n_t)
+\quad
+X_t^M 
+=
+M_t F(n_t)
+\quad
+\dot{M}_t 
+=
+\delta X_t^M \quad \delta>0
+\\
+A G'(1-n_t)
+&=
+p_t M_t F'(n_t)
+&(4)
+\end{align*}
+Stone-Geary preferences with necessity $\gamma$ where $AG(1)>\gamma L > 0$.
+\begin{align*}
+C_t^A &= \gamma L + \beta p_t C_t^M 
+& (7)
+\end{align*}
+Closed-economy has $C_t^M=X_t^M$ and $C_t^A=X_t^A$. Combining with equations (4) and (7), equilibrium $n_t$ satisfies
+$$
+\phi(n_t)
+\equiv
+G(1-n_t)-\beta G'(1-n_t)F(n_t)/F'(n_t)
+=
+\gamma L / A
+$$
+Unique solution $n_t = v(A)$ with $v'()>0$.
+Higher $A$ raises \textit{level} of manufacturing and thus economic growth \textit{rate}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Matsuyama (1992): small open economy}
+World economy has $A^{*}$ and $M_{0}^{*}$.
+World relative price satisfies
+$$
+A^{*} G'(1-n^{*})
+=
+p_t M_t^{*} F'(n^{*})
+$$
+SOE allocation must satisfy
+$$
+A G'(1-n_t)
+=
+p_t M_t F'(n_t)
+$$
+Take ratio, set $t=0$, find $n_0 \lessgtr n^{*}$.
+\smallskip
+Growth rate result: When the Home initially has a comparative advantage in manufacturing,
+its manufacturing productivity will grow faster than the rest of the world
+and accelerate over time.
+\smallskip
+{\small ``a caution to the readers of the recent empirical work, which, in order to test implications of closed economy models of endogenous growth,
+uses cross-country data and treats all economies in the sample as if they were isolated from each other''\par}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Quality specialization}
+\begin{itemize}
+	\item High-income countries export products at higher prices
+	\item High-income countries import products at higher prices
+	\item Is it correlated comparative advantage or a causal home-market effect?
+	\item \href{https://academic.oup.com/restud/article/84/4/1551/2684498}{Dingel (2017)} extends \href{http://www.journals.uchicago.edu/doi/abs/10.1086/662628}{Fajgelbaum, Grossman, Helpman (2011)} to empirically pursue this question
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Next week}
+Up next: Agglomeration economies
+\end{frame}
+% -----------------------------------------
+\end{document}
