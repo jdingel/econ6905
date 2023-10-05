@@ -121,11 +121,6 @@ V_r = -\lambda l^c <0
 \implies
 V_r = - V_w l^c
 \end{equation*}
-%\item Example. $u(x, l^c, s)=s $
-%\end{itemize}
-item]{The Lagrangian is $\mathcal{L} = V(w, r, s) - \lambda(x(w, r, s) + rl^c(w, r, s) - w - I)$. Solving for the FOCs, we get $V_w = \lambda >0$ and $V_r = -\lambda l^c <0$.}
-item]{The third equation is a version of Roy's identity. Recall Roy's identity expresses Marshallian demand in terms of derivatives of the indirect utility function: $x_{i} = - \frac{\partial V}{\partial p_{i}} / \frac{\partial V}{\partial y}$}
-item]{Roy's identity is the French economist Rene Roy. Roy model of occupational choice is a British guy.}
 \end{frame}
 \begin{frame}
 \frametitle{Example: Cobb-Douglas preferences}
@@ -181,8 +176,6 @@ C(X,w,r,s)
 c(w,r,s)
 =(s^{\theta_F})^{-1}w^\alpha r^{1-\alpha} \mathcal{A}
 \end{equation*}
-%pg 68 card notes 101
-% Unit cost $c(w,r,s)=(s^{\theta_F})^{-1}w^\alpha r^{1-\alpha} \mathcal{A}$ \medskip
 Then 
 \begin{align*}
 C_w(X,w,r,s) = \alpha \frac{\left(X (s^{\theta_F})^{-1}w^\alpha r^{1-\alpha} \mathcal{A} \right)}{w} = N \\
@@ -194,9 +187,6 @@ c_w = N/X >0
 \qquad
 c_r = L^p/X >0
 \end{equation*}
-%\begin{itemize}
-%\item 
-%\end{itemize}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -290,14 +280,6 @@ c_r V_w - c_w V_r = \lambda L^p/X + \lambda l^c N/X = \lambda L/X =V_w L/X
 \end{frame}
 \begin{frame}
 \frametitle{Aside: example values for matrix elements}
-%\begin{align*}
-%c_w &= \alpha \frac{\left((s^{\theta_F})^{-1}w^\alpha r^{1-\alpha} (\alpha^{-\alpha} (1-\alpha)^{-(1-\alpha)}) \right)}{w} \\
-%c_r &= (1-\alpha) \frac{\left( (s^{\theta_F})^{-1}w^\alpha r^{1-\alpha} (\alpha^{-\alpha} (1-\alpha)^{-(1-\alpha)}) \right)}{r} \\
-%c_s &= \theta_F \frac{\left( (s^{\theta_F})^{-1}w^\alpha r^{1-\alpha} (\alpha^{-\alpha} (1-\alpha)^{-(1-\alpha)})\right)}{s} \\
-%V_w &= \gamma^\gamma (1-\gamma)^{(1-\gamma)} s^{\theta_W} 1^{-\gamma} r^{-(1-\gamma)} \\
-%V_r &= \gamma^\gamma (1-\gamma)^{(1-\gamma)} s^{\theta_W} 1^{-\gamma} r^{-(1-\gamma)} (1-\gamma)\left(\frac{w + I}{r}\right) \\
-%V_s &= \theta_W \frac{\left( \gamma^\gamma (1-\gamma)^{(1-\gamma)} s^{\theta_W} 1^{-\gamma} r^{-(1-\gamma)}  \left(w + I\right) \right)}{s}
-%\end{align*}
 \begin{align*}
 c_w &= \alpha \frac{(s^{\theta_F})^{-1}w^\alpha r^{1-\alpha} \mathcal{A}}{w} \\
 c_r &= (1-\alpha) \frac{(s^{\theta_F})^{-1}w^\alpha r^{1-\alpha} \mathcal{A}}{r} \\
@@ -396,67 +378,6 @@ N \frac{V_s}{V_w} = N l^cr'(s) + L^p r'(s)  = L r'(s)
 Aggregate WTP is how the total value of all land changes as $s$ changes
 \end{itemize}
 \end{frame}
-\begin{comment}
-\begin{frame}{Valuing amenities}
-How do we infer the value of amenities in the more general case?
-\begin{itemize}
-\item $\Omega(s) = V(w(s), r(s), s)$ represents total utility of living in city $s$ 
-\item If all cities have equal utility, then 
-\begin{align}
-\Omega'(s) &= V_ww'(s) + V_r r'(s) + V_s  = 0 \text{ in equilibrium} \nonumber\\
- V_s &= - V_ww'(s) - V_r r'(s) \nonumber\\
-  V_s &= - V_ww'(s) +l^c V_w r'(s) \nonumber\\
- &\Rightarrow \frac{V_s}{V_w} = l^cr'(s) - w'(s) \label{eq_WTP}
-\end{align}
-\item So WTP for the amenity is extra land cost for consumers less lower wages in a higher-amenity city
-\end{itemize}
-item]{Eqn tells us that workers' WTP for the higher levels of amenity $s$ can be derived from combination of extra land cost and reduced wages}
-\end{frame}
-\begin{frame}{Valuing amenities}
-We can get more insight from looking at firms:
-\begin{itemize}
-\item Firms face $c(w(s), r(s), s) = 1$ across cities, so 
-\begin{align}
-c_w w'(s) + c_r r'(s) + c_s = 0 \label{eq_cost_totaldif}
-\end{align}
-\item Consider 2 cases \\$\;$\\
-\begin{enumerate}
-\item $c_s = 0$ (no productivity effects of higher amenity levels)\\$\;$\\
-\item $c_s \neq 0$\\$\;$\\
-\end{enumerate}
-\end{itemize}
-\end{frame}
-\begin{frame}{Valuing consumer amenities ($c_s = 0$)}
-\begin{itemize}
-\item In the case when $c_s = 0$, 
-\begin{align*}
-w'(s) &= \frac{-c_r}{c_w} r'(s)\\
-&= \frac{-L^p}{N} r'(s)
-\end{align*}
-\item Combine \eqref{eq_WTP} and \eqref{eq_cost_totaldif} to get the WTP of the $N$ people in a given city:
-\begin{equation*}
-N \frac{V_s}{V_w} = N l^cr'(s) + L^p r'(s)  = L r'(s)
-\end{equation*}
-%N.B. $w'(s)=\frac{1-\alpha}{\alpha} \frac{w}{r} r'(s)$
-Thus, in this case, aggregate WTP can be derived from looking at how the total value of all land changes as $s$ changes
-\end{itemize}
-item]{So when firms use land but productivity is not affected by level of $s$, the aggregate WTP can be derived from looking at how the total value of all land changes as $s$ changes}
-\end{frame}
-\begin{frame}
-\frametitle{Valuing amenities, $c_s \neq 0$}
-\begin{itemize}
-\item Define ``social value" $SV$ as the sum of aggregate worker WTP and cost-induced savings. Then the change in $SV$ given changes $s$ is
-\begin{align}
-d SV &= N \frac{V_s}{V_w} - X c_s \nonumber\\
-&= N ( l^cr'(s) - w'(s)) - X (- c_w w'(s) - c_r r'(s)) \nonumber\\
-&= N l^cr'(s) - N w'(s)) + X  \frac{N}{X} w'(s) + X  \frac{L^p}{X} r'(s) \nonumber\\
-&\Rightarrow d SV  = L r'(s)
-\end{align}
-\item So the change in social value is the change in total value of land
-\end{itemize}
-item]{General case encompasses all special cases}
-\end{frame}
-\end{comment}
 % -----------------------------------------
 \begin{frame}{Inferring and valuing amenities}
 \begin{columns}
@@ -697,7 +618,6 @@ Solving for optimal and equilibrium city sizes
     \item ``Although utility levels will be equalized between cities, wage rates and housing prices will vary with city type and size.''
 \end{itemize}
 \end{frame}
-% -----------------------------------------
 % -----------------------------------------
 \begin{frame}{Developing-economy cities}
 \begin{itemize}{\small
