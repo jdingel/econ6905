@@ -1,0 +1,662 @@
+\documentclass[11pt,notes=hide,aspectratio=169]{beamer}
+\input{../week00/slides_settings.tex}
+\setbeamertemplate{footline}{\begin{center}\textcolor{gray}{Dingel -- Topics in Trade -- Week 5 -- \insertframenumber}\end{center}}
+\begin{document}
+% -----------------------------------------
+%TITLE FRAME
+\begin{frame}[plain]
+\begin{center}
+\large
+\textcolor{columbiadarkblue}{ECON G6905\\
+Topics in Trade\\ 
+Jonathan Dingel\\
+Autumn \the\year, Week 5}
+\vfill 
+\includegraphics[width=0.4\textwidth]{../images/Columbia_logo.png}
+\end{center}
+\end{frame}
+% -----------------------------------------
+\begin{frame}[plain]
+\begin{center}
+\includegraphics[height=0.8\textheight]{../images/noaa_nightlights_4096.jpg} \\
+{\small
+Image from \href{ftp://public.sos.noaa.gov/land/earth_night/nightlights/4096.jpg}{NOAA} \\
+(Defense Meteorological Program Operational Linescan System)\\
+Donaldson \& Storeygard, ``\href{https://www.aeaweb.org/articles?id=10.1257/jep.30.4.171}{The View from Above: \\ Applications of Satellite Data in Economics}'', \textit{JEP}, 2016
+\par}
+\end{center}
+\end{frame}
+% -----------------------------------------
+\begin{frame}[plain]
+\begin{center}
+\includegraphics[height=0.8\textheight]{../images/ISS027-E-020129_lrg.jpg} \\
+Image from \href{https://visibleearth.nasa.gov/view.php?id=50671
+}{NASA}
+\end{center}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Today: Agglomeration economies}
+Gross metropolitan product per capita rises with metro population:
+\begin{center}
+\includegraphics[height=.65\textheight]{../images/GlaeserGottlieb2009_fig1.pdf}
+\end{center}
+\href{https://www.sciencedirect.com/science/article/pii/0304393288901687}{Lucas (1988)} on local external economies:
+``What can people be paying Manhattan or downtown Chicago rents \textbf{for}, if not being near other people?''
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Today's agenda}
+\begin{itemize}
+\item Spatial equilibrium in the Rosen-Roback framework
+\item Spatial equilibrium and the marginal resident
+\item Evidence of agglomeration economies
+\item Spatial equilibrium with increasing returns (Henderson 1974)
+\item Developing-economy cities
+\item What is a city?
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Spatial equilibrium}
+Fundamentally, spatial equilibrium is a no-arbitrage condition.
+\href{https://www.aeaweb.org/articles?id=10.1257/jel.47.4.983}{Glaeser and Gottlieb (\textit{JEL} 2009)}:
+\begin{quote}
+The high mobility of labor leads urban economists to assume a spatial equilibrium, where elevated New York incomes do not imply that New Yorkers are better off. Instead, welfare levels are equalized across space and high incomes are offset by negative urban attributes such as high prices or low amenities.
+\end{quote}
+\vspace{-4mm}
+\begin{itemize}
+	\item The benchmark model of spatial equilibrium is dubbed the ``Rosen-Roback'' model, due to the theory of equalizing differences (Sherwin Rosen 1974) applied to cities for both workers and firms (Jennifer Roback 1982)
+	\item I borrow my exposition of Rosen-Roback model from \href{https://scholar.princeton.edu/sites/default/files/zidar/files/zidar_eco524_s2020_lec2.pdf}{Owen Zidar's slides}
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}
+\frametitle{Rosen-Roback framework}
+Goals
+\begin{itemize}
+\item How does change in amenity $s$ alter local prices (wages, rents)?
+\item Infer the value of amenities
+\end{itemize}
+Markets
+\begin{itemize}
+\item Labor: price $w$, quantity $N$
+\item Land: price $r$, quantity $L=L^w + L^p$ for workers and production
+\item Goods: price $p=1$, quantity $X$
+\end{itemize}
+Agents
+\begin{itemize}
+\item Workers (homogenous, perfectly mobile)
+\item Firm (perfectly competitive, CRS)
+\end{itemize}
+Indifference conditions
+\begin{itemize}
+\item Workers have same indirect utility in all locations
+\item Firm has zero profit (i.e., unit costs equal 1)
+\end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Workers: Indirect Utility Condition}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Workers: Preferences and budget constraint}
+Utility is $u(x, l^c, s)$
+\begin{itemize}
+\item  $x$ is consumption of private good
+\item  $l^c$ is consumption of land
+\item  $s$ is amenity
+\end{itemize}
+Budget constraint is $x + rl^c - w - I = 0$
+\begin{itemize}
+\item $I$ is non-labor income that is independent of location %(e.g., share of national land portfolio)
+\item $w$ is labor income (note: no hours margin)
+\end{itemize}
+Indirect utility is
+\begin{align*}
+V(w, r, s)  = \max_{x, l^c} u(x, l^c, s) \text{ s.t. }  x + rl^c - w - I = 0
+\end{align*}
+Let $\lambda  = \lambda(w, r, s)$ be the marginal utility of a dollar of income, then 
+\begin{equation*}
+V_w = \lambda >0
+\qquad 
+V_r = -\lambda l^c <0 
+\qquad 
+\implies
+V_r = - V_w l^c
+\end{equation*}
+\end{frame}
+\begin{frame}
+\frametitle{Example: Cobb-Douglas preferences}
+Utility is Cobb Douglas over goods and land with an amenity shifter: 
+$$u(x, l^c, s)=s^{\theta_W} x^{\gamma} (l^c)^{1-\gamma}$$
+\vspace{-7mm}
+\begin{itemize}
+\item Then $x=\gamma \left(\frac{w + I}{1} \right)$ and $l^c=(1-\gamma)\left(\frac{w + I}{r}\right)$ \medskip
+\item Let $\Gamma \equiv \gamma^\gamma (1-\gamma)^{(1-\gamma)}$ so that indirect utility is
+\begin{equation*}
+V(w, r, s)  = 
+\underbrace{\Gamma}_{\text{constant}} 
+\underbrace{s^{\theta_W}}_{\text{amenities}} 
+\underbrace{1^{-\gamma} r^{-(1-\gamma)}}_{\text{prices}}
+\underbrace{(w + I)}_{\text{income}}
+\end{equation*}
+\item MU of income is $\lambda(w, r, s)$ 
+\begin{align*}
+V_w &= \lambda = \Gamma s^{\theta_W} r^{-(1-\gamma)}  \\
+V_r &= -\lambda l^c =  -\Gamma s^{\theta_W} r^{-(1-\gamma)} (1-\gamma)\left(\frac{w + I}{r}\right) \\
+\Rightarrow  V_r &= - V_w l^c 
+\end{align*}
+\end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Firms: No Profit Condition}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Firms: Unit cost function}
+CRS production with cost function $C(X, w,r,s)$ 
+\begin{itemize}
+\item  $X$ is output
+\item Unit cost $c(w, r, s)=\frac{C(X,w,r,s)}{X}$
+\item $L^p$ is total amount of land used by firms
+\item $N$ is total employment \medskip
+\end{itemize}
+From Shepard's Lemma, we have
+\begin{align*}
+c_w &= N/X >0 \\
+c_r &= L^p/X >0
+\end{align*}
+\end{frame}
+\begin{frame}
+\frametitle{Example: Cobb-Douglas production}
+Suppose the production function is
+$$X=f(N,L^p)= s^{\theta_F} N^\alpha L^{1-\alpha}$$
+Let $\mathcal{A} \equiv \alpha^{-\alpha} (1-\alpha)^{-(1-\alpha)}$.
+Then the cost function is
+\begin{equation*}
+C(X,w,r,s) 
+= X (s^{\theta_F})^{-1}w^\alpha r^{1-\alpha} \mathcal{A}
+\implies
+c(w,r,s)
+=(s^{\theta_F})^{-1}w^\alpha r^{1-\alpha} \mathcal{A}
+\end{equation*}
+Then 
+\begin{align*}
+C_w(X,w,r,s) = \alpha \frac{\left(X (s^{\theta_F})^{-1}w^\alpha r^{1-\alpha} \mathcal{A} \right)}{w} = N \\
+C_r(X,w,r,s) = (1-\alpha) \frac{\left(X (s^{\theta_F})^{-1}w^\alpha r^{1-\alpha} \mathcal{A} \right)}{r} = L^p
+\end{align*}
+Dividing both sides by $X$ gives:
+\begin{equation*}
+c_w = N/X >0
+\qquad
+c_r = L^p/X >0
+\end{equation*}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Equilibrium}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Exogenous Model Parameters}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Model recap}
+\begin{columns}
+\begin{column}{0.49\textwidth}
+Workers parameters: $s,\theta_W, \gamma, I$
+\begin{itemize}
+\item $s$ is level of amenities
+\item $\theta_W$ is value of $s$ for utility
+\item $\gamma$ is goods share of expenditure
+\item $1-\gamma$ is land share
+\item $I$ is non-labor income
+\end{itemize}
+\end{column}
+\begin{column}{0.49\textwidth}
+Firm Parameters: $s$, ${\theta_F}$, $\alpha$ 
+\begin{itemize}
+\item $s$ is level of amenities
+\item $\theta_F$ is value of $s$ for productivity
+\item $\alpha$ is output elasticity of labor
+\item $1-\alpha$ is output elasticity of land
+\end{itemize}
+\vfill
+\end{column}
+\end{columns}
+\begin{center}
+Endogenous outcomes:
+\begin{itemize}
+\item Labor: price $w$, quantity $N$
+\item Land: price $r$, quantities $L^w, L^p$ for workers and production
+\item Goods: price $p=1$, quantity $X$ 
+\end{itemize}
+\end{center}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Equilibrium: Indifference Conditions}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Equilibrium concept: Two key indifference conditions}
+ In equilibrium, workers and firms are indifferent across cities with different levels of $s$ and endogenously varying wages $w(s)$ and rents $r(s)$:
+\begin{align} 
+c(w(s), r(s), s) &= 1 \label{eq_cond_cost} \\
+V(w(s), r(s), s) &= V^0 \label{eq_cond_V}
+\end{align}
+where $V^0$ is the equilibrium level of indirect utility.
+\bigskip
+Specifically, in our example: \\
+\textit{Given $s,\theta_W, \theta_F, \gamma, I, \alpha$, equilibrium is defined by local prices and quantities $\{w,r,N,L^w,L^p,X\}$ such that \eqref{eq_cond_cost} and \eqref{eq_cond_V} hold and land markets clear.}
+\bigskip
+N.B. We will mainly be focusing on prices: $w(s)$ and $r(s)$.
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Solving Model}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Solving for effect of amenity changes on prices}
+\begin{itemize}
+\item Differentiate \eqref{eq_cond_cost} and \eqref{eq_cond_V} with respect to $s$ and rearrange, we have:
+\begin{align*}
+\begin{bmatrix}
+c_w & c_r \\
+V_w & V_r
+\end{bmatrix}
+\begin{bmatrix}
+w'(s) \\
+r'(s)
+\end{bmatrix} = 
+\begin{bmatrix}
+-c_s\\
+-V_s
+\end{bmatrix}
+\end{align*}
+\item Solving for $w'(s), r'(s)$, we have
+\begin{align*}
+w'(s) = \frac{V_r c_s - c_r V_s}{c_r V_w - c_w V_r} \\
+r'(s) = \frac{V_s c_w - c_s V_w}{c_r V_w - c_w V_r} 
+\end{align*}
+\item Note we can rewrite
+\begin{align*}
+c_r V_w - c_w V_r = \lambda L^p/X + \lambda l^c N/X = \lambda L/X =V_w L/X
+\end{align*}
+\end{itemize}
+\end{frame}
+\begin{frame}
+\frametitle{Aside: example values for matrix elements}
+\begin{align*}
+c_w &= \alpha \frac{(s^{\theta_F})^{-1}w^\alpha r^{1-\alpha} \mathcal{A}}{w} \\
+c_r &= (1-\alpha) \frac{(s^{\theta_F})^{-1}w^\alpha r^{1-\alpha} \mathcal{A}}{r} \\
+c_s &= \theta_F \frac{ (s^{\theta_F})^{-1}w^\alpha r^{1-\alpha} \mathcal{A}}{s} \\
+V_w &=s^{\theta_W} 1^{-\gamma} r^{-(1-\gamma)}  \Gamma \\
+V_r &= -s^{\theta_W} 1^{-\gamma} r^{-(1-\gamma)}\Gamma (1-\gamma)\left(\frac{w + I}{r}\right)   \\
+V_s &= \theta_W \frac{\left(  s^{\theta_W} 1^{-\gamma} r^{-(1-\gamma)}\Gamma  \left(w + I\right) \right)}{s}
+\end{align*}
+\end{frame}
+\begin{frame}
+\frametitle{Effect of amenity changes on prices}
+\begin{itemize}
+\item Price changes
+\begin{align*}
+w'(s) &= \frac{(V_rc_s - c_rV_s) X}{ \lambda L} \\
+r'(s) &= \frac{(V_sc_w - c_sV_w) X}{ \lambda L} 
+\end{align*}
+\item Special cases of interest:
+\begin{enumerate}
+\item Amenity only valued by consumers: $\theta_F=0 \Rightarrow c_s = 0$
+\item Amenity only has productivity effect: $\theta_W=0 \Rightarrow  V_s = 0$
+\item Firms use no land $1-\gamma=0$ and amenity is non-productive $\theta_F=0$: $c(w(s))=1$, $c_r = c_s = 0$
+\end{enumerate}
+\end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Comparative Statics and Value of Amenities}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Price effects under different assumptions about amenities}
+\begin{frame}
+\frametitle{1. Amenity only valued by consumers: $\theta_F=0 \Rightarrow c_s = 0$}
+\begin{itemize}
+\item When $c_s = 0$, higher $s$ $\Rightarrow$ higher $r$, lower $w$
+\item Workers are willing to pay more in land rents and receive less in wages to have access to higher levels of amenities
+\end{itemize}
+\begin{figure}
+\includegraphics[height=.7\textheight]{../images/Zidar_rosenroback_fig1.pdf}
+\end{figure}
+\end{frame}
+\begin{frame}
+\frametitle{2. Amenity only valued by firms: $\theta_W=0 \Rightarrow  V_s = 0$}
+\begin{itemize}
+\item When $V_s = 0$, higher $s$ $\Rightarrow$ higher $r$ and higher $w$
+\item Firms are willing to pay more in land rents and wages to access higher productivity due to amenities
+\end{itemize}
+\begin{figure}
+\includegraphics[height=.7\textheight]{../images/Zidar_rosenroback_fig2.pdf}
+\end{figure}
+item]{Example: see economies of agglomeration}
+\end{frame}
+\begin{frame}{3. Firms don't use land nor value amenity}
+\begin{itemize}
+\item Firms don't use land ($\alpha=1$) nor value amenity ($\theta_F=0$)
+\item Only production input is labor and firms are indifferent across locations, so wages must be the same across cities: $c(w(s))=1$\\$\;$\\
+\item Since  $c_r = c_s = 0$, 
+\begin{align*}
+w'(s) &= 0 \\
+r'(s) &= \frac{V_sc_w}{- c_wV_r} = \frac{V_s}{ l^c V_w}, \text{ since } V_r = -l^c V_w
+\end{align*} 
+\item So the rise in total cost of land for a worker living in a city with higher $s$ is 
+\begin{align*}
+l^c r'(s) &=  \frac{V_s}{ V_w}
+\end{align*} 
+\end{itemize}
+\end{frame}
+\begin{frame}{3. Firms don't use land nor value amenity}
+\begin{itemize}
+\item $\frac{V_s}{ V_w} =$ marginal WTP for a change in $s$ so the marginal value of a change in the amenity is ``fully capitalized" in rents
+\end{itemize}
+\begin{figure}
+\includegraphics[height=.6\textheight]{../images/Zidar_rosenroback_fig3.pdf}
+\end{figure}
+$\frac{V_s}{ V_w} = \theta_W \frac{\left(w + I\right)}{s}$ is increasing in income, decreasing in level of amenities
+\end{frame}
+\begin{frame}{Valuing consumer amenities}
+\begin{itemize}
+\item General case: Start from equal-utility condition $V_0 = V(w(s), r(s), s)$
+\begin{align}
+0 &= V_ww'(s) + V_r r'(s) + V_s
+\nonumber \\
+\frac{V_s}{V_w} 
+&=
+l^cr'(s) - w'(s) \label{eq_WTP}
+\end{align}
+\item WTP for amenity is extra land cost for consumers plus lower wages
+\item Zero-profit condition:
+\begin{equation}
+c_w w'(s) + c_r r'(s) + c_s = 0 \label{eq_cost_totaldif}
+\end{equation}
+\item When $c_s = 0$, 
+$w'(s) = \frac{-c_r}{c_w} r'(s) = \frac{-L^p}{N} r'(s)$
+\item Combine \eqref{eq_WTP} and \eqref{eq_cost_totaldif} to get the WTP of the $N$ people in a given city:
+\begin{equation*}
+N \frac{V_s}{V_w} = N l^cr'(s) + L^p r'(s)  = L r'(s)
+\end{equation*}
+Aggregate WTP is how the total value of all land changes as $s$ changes
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Inferring and valuing amenities}
+\begin{columns}
+\begin{column}{0.49\textwidth}
+Cobb-Douglas preferences:
+$V_0  = 
+\Gamma
+s^{\theta_W}
+r^{-(1-\gamma)}
+(w + I)$
+implies
+$
+s^{\theta_W} = \frac{V_0}{\Gamma} \frac{r^{1-\gamma}}{w+I} 
+$
+\smallskip
+More generally,
+$\hat{s}_j^{\theta_W} \approx s_y \hat{p}_j - s_w (1-\tau')\hat{w}_j$
+where $p$ are all local prices and $\tau'$ is the marginal tax rate,
+$s_y$ and $s_w$ are national shares (my bad notation), and $\hat{x}_j = \frac{\textrm{d} x_j}{x}$ are local deviations
+{\scriptsize \textcolor{gray}{
+Albouy (2012) ``Are Big Cities Bad Places to Live?''
+and
+Albouy (2016) ``What are cities worth? Land rents, local productivity, and the total value of amenities''
+}\par}
+\end{column}
+\begin{column}{0.40\textwidth}
+\includegraphics[width=\textwidth]{../images/Albouy2012_fig1.pdf}
+\end{column}
+\end{columns}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{What's an amenity?}
+Urban economists use the word ``amenity'' in two imperfectly aligned ways:
+\begin{enumerate}
+\item Amenities are place-specific services/flows that are not explicitly transacted and hence do not appear in the budget constraint
+\item Amenities are place-specific residuals because the researcher lacks expenditure/price data
+\end{enumerate}
+Traditional view:
+\begin{itemize}
+\item Clean air, lack of severe snow storms, and sunny days (Roback 1982)
+\end{itemize}
+Recent literature on ``consumption amenities''
+\begin{itemize}
+\item Restaurants and retail (variety-adjusted price indices)
+\end{itemize}
+If an amenity is a non-tradable with crummy price data, then housing is an amenity in some empirical settings
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Endogenous amenities}
+Thus far, $s$ was an exogenous characteristic of a location.
+\begin{itemize}
+\item Sunshine doesn't respond to population composition
+\item Crime rates, school quality, and variety of restaurants are endogenous
+\item Endogenous amenities mean endogeneity problems
+\item See Milena Almagro's \href{https://m-almagro.github.io/UEA_Summer_School_2023.pdf}{UEA summer school lecture}
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Spatial equilibrium and the marginal resident}
+Thus far, local labor supply is perfectly elastic
+(all workers are indifferent at $V_0$)
+\begin{itemize}
+\item No notion of welfare or spatial inequality for workers
+\item All workers adjust to shocks similarly
+\item Incidence of shocks/amenities is on land prices
+\end{itemize}
+\medskip
+The concept of spatial equilibrium is a no-arbitrage condition:
+the marginal resident must be indifferent
+\begin{itemize}
+\item Moretti (2011) and Diamond (2016): discrete-choice problem with idiosyncratic preferences so there are inframarginal residents
+\item Inferring and valuing amenities with heterogeneous individuals is harder
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+% -----------------------------------------
+\begin{frame}{Evidence of agglomeration economies}
+People are concentrated. Are industries concentrated? Yes.
+\begin{itemize}{\small
+	\item Ellison and Glaeser (1997) ``dartboard approach'' to address internal vs external economies
+	\item Duranton and Overman (2005) for continuous space
+}\end{itemize}
+Identify agglomeration channels empirically
+\begin{itemize}{\small
+	\item Estimate directly (faces peer-effects problem)
+	\item Infer from observed spatial equilibrium
+	\item Test for multiple equilibria
+	\item \href{https://www.journals.uchicago.edu/doi/abs/10.1086/653714}{Greenstone, Hornbeck, Moretti (2010)} use ``million-dollar plants'' to estimate agglomeration economies
+  (cf \href{https://onlinelibrary.wiley.com/doi/abs/10.1111/ecin.12339}{Patrick 2016})
+	\item Combes and Gobillon - ``\href{https://www.sciencedirect.com/science/article/pii/B9780444595171000052}{The Empirics of Agglomeration Economies}'' (\textit{Handbook} 2015)
+	\item Lin and Rauch - ``\href{https://www.sciencedirect.com/science/article/pii/S0166046220303136}{What future for history dependence in spatial economics?}''
+}\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Bleakley and Lin 2012: Portage and Path Dependence}
+\begin{columns}
+\begin{column}{.45\textwidth}
+\includegraphics[width=0.95\textwidth]{../images/BleakleyLin2012_Figure4.pdf}
+\end{column}
+\begin{column}{.40\textwidth}
+{\tiny Table 1: Proximity to Historical Portage Site and Contemporary Population Density\par}
+\includegraphics[width=0.95\textwidth]{../images/BleakleyLin2012_Table1a.pdf} \\
+\includegraphics[width=0.95\textwidth]{../images/BleakleyLin2012_Table2a.pdf}
+\end{column}
+\end{columns}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Davis \& Weinstein: ``Bones, Bombs, and Breakpoints''}
+{\small Does a temporary shock have permanent effects? After the Allied bombing in WWII, most cities returned to their rank in the distribution of city sizes within about 15 years \par}
+\includegraphics[width=.40\textwidth]{../images/DavisWeinstein2002_fig1.pdf}
+\includegraphics[width=.50\textwidth]{../images/DavisWeinstein2002_fig2.pdf}\\
+{Also, \href{https://www.sciencedirect.com/science/article/pii/S0304387810000817}{Miguel and Roland (\textit{JDE} 2011)}: ``even the most intense bombing in human history did not generate local poverty traps in Vietnam''\par}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{(Homogeneous) agglomeration: Henderson (1974)}
+``The Sizes and Types of Cities'' addresses basic, fundamental questions about a system of cities in general equilibrium
+\begin{itemize}
+\item Why do cities exist? 
+\only<2>{\textcolor{gray}{``because there are technological economies of scale in production or consumption''}}
+\item Are cities too large or too small?
+\only<2>{\textcolor{gray}{a stability argument says that cities tend to be too large}}
+\item Why do cities of different sizes exist?
+\only<2>{\textcolor{gray}{
+``because cities of different types specialize in the production of different traded goods''}}
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Henderson (1974) environment}
+\begin{itemize}
+\item Factors: land $L$, labor $N$, capital $K$
+\item Tradables production (external economies a la Chipman)
+\begin{equation*}
+    X_1^{1-\rho_1} = L_{1}^{\alpha_1} K_{1}^{\beta_1} N_{1}^{\gamma_1}
+    \qquad
+    \alpha_1 + \beta_1 + \gamma_1 = 1,
+    \rho_1\in(0,1)
+\end{equation*}
+\item Housing production
+\begin{equation*}
+    X_3 = L_{3}^{\alpha_3} K_{3}^{\beta_3} N_{3}^{\gamma_3}
+    \qquad
+    \alpha_3 + \beta_3 + \gamma_3 = 1,
+\end{equation*}
+\item Land sites produced by labor
+\begin{equation*}
+    L =  N_0^{1/(1-z)}
+    \qquad
+    z < 0, z'(N)<0
+\end{equation*}
+\item Clear factor markets with prices $p_N, p_K, p_L$
+\begin{equation*}
+    N_0 + N_1 + N_3  = N , \quad
+    K_1 + K_3  = K , \quad
+    L_1 + L_3  = L 
+\end{equation*}
+\item Cobb-Douglas preferences ($U=x_1^a x_2^b x_3^c$) with income $y$, import of good 2, and prices $q$ deliver indirect utility
+\begin{equation*}
+    U \propto y q_1^{-a} q_2^{-b} q_3^{-c}
+\end{equation*}
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Capitalists and workers}
+Different (stark) assumptions about capital ownership: 
+\begin{itemize}
+\item each laborer owns equal capital stock (Assumption A)
+\item capital owners live outside of cities (Assumption B)
+\end{itemize}
+Utility components for labor income and capital income
+\begin{align*}
+U_N &
+\propto p_N q_1^{-a} q_2^{-b} q_3^{-c}
+\\
+U_K &
+\propto \bar{p}_K \frac{\bar{K}}{\bar{N}} q_1^{-a} q_2^{-b} q_3^{-c}
+\end{align*}
+Solving for optimal and equilibrium city sizes
+\begin{itemize}
+    \item Optimum: maximize $U_N + U_K$, given the determination of $U_N$, $U_K$, and $p_K$ through simultaneous location and investment of labor and capital in cities in the economy 
+    \item Equilibrium: atomistic choices of capital owners, firms, and laborers
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Utility and factor prices}
+\begin{columns}
+\begin{column}{.48\textwidth}
+\includegraphics[width=1.0\textwidth]{../images/Henderson1974_fig1.pdf}
+\end{column}
+\begin{column}{.5\textwidth}
+\begin{itemize}
+\item $\alpha_1 > \rho_1$ (site intensity vs IRS) is sufficient for both $p_K$ and $U_N$ to exhibit interior maxima
+\item $p_K$ curve has peak to right of $U_N$ and $U_K$ peak because $U_K$ is $p_K$ deflated by $q_3^{-c}$
+\item Assumption B curves peak to right of Assumption A curves because capitalist income doesn't bid up housing prices
+\item Why isn't ``two identical cities at point C'' stable?
+\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Optimal city size}
+\begin{columns}
+\begin{column}{.48\textwidth}
+\includegraphics[width=1.0\textwidth]{../images/Henderson1974_fig2.pdf}
+\end{column}
+\begin{column}{.5\textwidth}
+\begin{itemize}
+\item For Assumption A, maximize the vertical sum of $U_N$ and $U_K$
+\item Planner has total population $N$ and faces integer constraint
+\item Start second city when $N$ is twice $N(U_N^*,U_K^*)$
+\item[] (Starting second city earlier is not a stable optimum)
+\item Figure 3 is more complicated due to Assumption B and the worker vs capitalist disagreement on optimal city size
+\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Equilibrium city size}
+\begin{columns}
+\begin{column}{.48\textwidth}
+\includegraphics[width=1.0\textwidth]{../images/Henderson1974_fig4.pdf}
+\end{column}
+\begin{column}{.5\textwidth}
+\begin{itemize}
+\item Why is $N(\text{small})$ a bit of a fudge?
+\item Atomistic equilibrium with particular dynamics is at $N(E)$, way past both peaks
+\item City corporation attains optimal city sizes under Assumption B
+\item City corporation achieves $N(J)$ under Assumption A
+\end{itemize}
+{\footnotesize BDRN (2014): ``there is a coordination failure in city formation so that any population size between optimal city size and grossly oversized cities -- leaving their residents with zero consumption -- can occur in equilibrium.''\par}
+\end{column}
+\end{columns}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Henderson (1974) on heterogeneous cities}
+\begin{itemize}
+    \item ``Our second type of city specializes in the production of another type of traded good, say, $X_2$.''
+    \item ``Different types of cities differ in size because production parameters, in particular $\alpha_i$ and $\rho_i$, differ between the traded goods of each type of city.''
+    \item ``Although utility levels will be equalized between cities, wage rates and housing prices will vary with city type and size.''
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Developing-economy cities}
+\begin{itemize}{\small
+\item World Bank projects 2.7 billion more urban residents in developing economies by 2050
+\item Cities still require agglomeration and dispersion forces, but the technologies and conditions might differ
+\item Gollin, Jedwab, Vollrath ``Urbanization with and without Industrialization'' (2016) on `consumption cities' in resource exporters
+\item Jedwab, Loungani, Yezer: cities in rich countries are tall and sprawl; in poor countries they crowd
+\item Typically, urban wages are much higher than rural wages
+\item \href{https://doi.org/10.1016/j.jue.2020.103301}{Gollin, Kirchberg, Lagakos (2021)}: observed private consumption and amenities are higher in urban areas of 20 SSA countries (they avoid using prices)
+\item Henderson and Turner (2020): higher incidence of lifestyle diseases, poorer child health outcomes and greater exposure to
+crime
+\item See Bryan, Glaeser, Tsivanidis (2019) ``\href{https://doi.org/10.1146/annurev-economics-080218-030303}{Cities in the Developing World}''
+}\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{What is a city?}
+\begin{itemize}
+	\item Municipality versus county versus metropolitan area versus commuting zone
+	\item An integrated labor market defined by commuting ties? (c.f. Monte et al 2018)
+	\item What to do absent commuting flows? (Dingel, Miscio, Davis 2021)
+	\item Discretization vs continuous linkages (Duranton and Overman 2005)
+	\item Know the modifiable areal unit problem (MAUP)
+	\item (Related: Are agglomeration economies about size or density?)
+\end{itemize}
+\includegraphics[height=0.50\textheight]{../images/RozenfeldRybskiGabaixMakse2011_fig6.pdf}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Data on lights at night}
+\begin{itemize}
+	\item Defense Meteorological Satellite Program-Operational Linescan System (DMSP-OLS) for 1992-2011
+	versus
+	Visible Infrared Imaging Radiometer Suite (VIIRS) for 2011 onwards
+	\item Lights are more useful for predicting GDP in cross section than time series (\href{https://www.mdpi.com/2072-4292/11/9/1057}{Chen and Nordhaus 2019} on both DMSP and VIIRS)
+	\item Chen and Nordhaus 2019: high-resolution VIIRS lights better predict MSA GDP than state GDP (urban vs rural; lights do not explain value-added GDP in agriculture and forestry)
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Next week}
+Up next: Quantitative spatial models
+\end{frame}
+% -----------------------------------------
+\end{document}
