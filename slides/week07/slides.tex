@@ -1,0 +1,646 @@
+\documentclass[11pt,notes=hide,aspectratio=169]{beamer}
+\input{../week00/slides_settings.tex}
+\setbeamertemplate{footline}{\begin{center}\textcolor{gray}{Dingel -- Topics in Trade -- Week 7 -- \insertframenumber}\end{center}}
+\begin{document}
+% -----------------------------------------
+%TITLE FRAME
+\begin{frame}[plain]
+\begin{center}
+\large
+\textcolor{columbiadarkblue}{ECON G6905\\
+Topics in Trade\\ 
+Jonathan Dingel\\
+Autumn \the\year, Week 7}
+\vfill 
+\includegraphics[width=0.4\textwidth]{../images/Columbia_logo.png}
+\end{center}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{This week: Quantitative urban models}
+Subset of QSMs featuring commuting (choose residence-workplace pair)
+\begin{itemize}
+\item QSM's gravity equation features cross-hauling of homogeneous labor
+\item Contrast with the canonical urban model (see week 9)\\
+\item[] \textcolor{gray}{Link to Davis (1995) on intra-industry trade}
+\end{itemize}
+\smallskip
+While GE machinery developed recently, gravity is a staple of urban economics:
+\begin{itemize}{\small
+\item Gerald A. P. Carrothers (1956) ``\href{https://doi.org/10.1080/01944365608979229}{An Historical Review of the Gravity and Potential Concepts of Human Interaction}'', \textit{Journal of the American Institute of Planners}, 22:2, 94-102.
+\item Waldo Tobler (1975), ``\href{https://pure.iiasa.ac.at/id/eprint/241/1/RR-75-019.pdf}{Spatial Interaction Patterns}''. ``\textcolor{gray}{A table of county-to-county interactions in the United States, for example, would yield nearly $10^7$ numbers, an incomprehensible amount.}''
+\item Colwell, P.F. (1982), ``\href{https://doi.org/10.1111/j.1467-9787.1982.tb00775.x}{Central Place Theory and The Simple Economic Foundations of the Gravity Model}'' \textit{Journal of Regional Science}, 22: 541-546.
+}\end{itemize}
+\end{frame}
+% -----------------------------------------
+%---------------------------------------------------------------------
+\begin{frame}{Baseline model: Economic environment}
+\textcolor{gray}{This is Dingel and Tintelnot (2023) with ARSW (2015) notation for $\beta$, $z$, $d$}
+\begin{itemize}
+\item
+Each location has productivity $A$ and land endowment $T$
+\item 
+Measure $L$ individuals w/ one unit of labor
+and hired by 
+competitive firms producing freely traded goods differentiated by location of production
+\item
+Individuals have Cobb-Douglas preferences over goods ($\beta$) and land ($1-\beta$) 
+\item
+Commuting costs: $d_{ij} = \underbrace{\bar{d}_{ij}}_{\text{time}} \times \underbrace{\lambda_{ij}}_{\text{disutility}}$
+\item
+Individuals have idiosyncratic tastes for pairs of residential and workplace locations,
+such that
+$o$'s utility from living in $i$ and working in $j$ is
+\begin{equation*}
+U_{ij}^{o} = \epsilon \ln\left(\frac{w_j}{r_i^{1-\beta} P^\beta d_{ij}}\right) + z_{ij}^{o}
+\qquad
+z_{ij}^{o} \stackrel{\text{iid}}{\sim} \text{T1EV}
+\end{equation*}
+\end{itemize}
+\end{frame}
+%---------------------------------------------------------------------
+\begin{frame}{Baseline model: Equilibrium}
+Given economic primitives ($\beta$, $\epsilon$, $\sigma$,$L$,$\{A_n\}$,$\{T_k\}$,$\{d_{ij}\}$),
+an equilibrium is a set of wages $\{w_j\}$, rents $\{r_i\}$, and labor allocation $\{\ell_{ij}\}$
+such that
+\begin{align}
+\text{labor allocation (gravity):}&&
+\frac{\ell_{ij}}{L}
+&=
+\frac
+{w_{j}^\epsilon \left(r_{i}^{1-\beta} d_{ij}\right)^{-\epsilon}}
+{\sum_{k',n'}w_{j'}^\epsilon \left(r_{i'}^{1-\beta}  d_{k'n'}\right)^{-\epsilon}}
+\label{eqn:cont_laborallocation}
+&\forall k,n
+\\
+\text{goods markets:}&&
+A_n \sum_k \frac{\ell_{ij}}{\bar{d}_{ij}} 
+&=
+\frac{\left({w_j}/{A_n}\right)^{-\sigma}}{P^{1-\sigma}} Y % \sum_{k',n'} \frac{\ell_{k'n'}}{d_{k'n'}} w_{j'} 
+&\forall n
+\label{eqn:tradeeqlbm:goodsmarketclearing}
+\\
+\text{land markets:}&&
+T_k
+&=
+\frac{1-\beta}{r_i} \sum_n \underbrace{\frac{\ell_{ij}}{\bar{d}_{ij}} w_j}_{y_{ij}}
+&\forall k,n
+\label{eqn:tradeeqlbm:landsmarketclearing} 
+\end{align}
+$\left(\frac{1+\epsilon}{\sigma + \epsilon}\right) \left(\frac{(1-\beta) \epsilon}{1+(1-\beta) \epsilon}\right) \leq \frac{1}{2} \implies$ unique equilibrium (Allen Arkolakis Li 2023)
+\end{frame}
+% -------------------------------------------------------------------------------
+\begin{frame}{Baseline model: Counterfactual outcomes by exact hat algebra}
+\vspace{-1cm}
+\begin{align}
+\hat{w}_{n}
+&=
+\textcolor{red}{\hat{A}_n}
+\left(\sum_{k} \hat{y}_{ij}\textcolor{blue}{\frac{y_{ij}}{\sum_{k'} y_{k'n}}}\right)^{\frac{1}{1-\sigma}}
+\left(\sum_{n'} \left(\frac{\hat{w}_{n'}}{\textcolor{red}{\hat{A}_{n'}}}\right)^{1-\sigma} \sum_{k} \textcolor{blue}{\frac{y_{kn'}}{Y}} \right)^{\frac{1}{1-\sigma}}
+\hat{Y}^{\frac{1}{\sigma-1}}\\
+\hat{r}_{k}
+&=
+\textcolor{red}{\hat{T}_{k}}^{-1} \sum_{n}\hat{y}_{ij}\textcolor{blue}{\frac{y_{ij}}{\sum_{n'}y_{kn'}}}
+\\
+\hat{\ell}_{ij} 
+&=
+\left\{
+\begin{aligned}
+&1, \; \text{if} \; \ell_{ij}=0 \\
+&\frac{\hat{w}_{n}^{\varepsilon}\left(\hat{r}_{k}^{1-\beta} \textcolor{red}{\hat{\bar{d}}_{ij}\hat{ \lambda}_{ij}} \right)^{-\varepsilon}}{\sum_{k',n'} \hat{w}_{n'}^{\varepsilon}\left(\hat{r}_{k'}^{1-\beta} \textcolor{red}{\hat{\bar{d}}_{k'n'}\hat{ \lambda}_{k'n'}} \right)^{-\varepsilon} \textcolor{blue}{\frac{\ell_{k'n'}}{L}}} \qquad \text{ if } \ell_{ij} > 0 \\
+\end{aligned}
+\right.
+\end{align}
+Compute $\hat{w}_n$, $\hat{r}_k$, $\hat{\ell}_{ij}$, and 
+$\hat{y}_{ij} = \hat{\ell}_{ij} \hat{w}_{n} / \hat{\bar{d}}_{ij}$
+given 
+elasticities $\beta$, $\sigma$ and $\epsilon$, 
+baseline shares \textcolor{blue}{$\frac{\ell_{ij}}{L}$}
+and \textcolor{blue}{$\frac{y_{ij}}{Y}$},
+and
+relative exogeneous parameters
+\textcolor{red}{$\hat{A}_{n}$}, \textcolor{red}{$\hat{T}_{k}$}, \textcolor{red}{$\hat{\bar{d}}_{ij}$} and \textcolor{red}{$\hat{ \lambda}_{ij}$}.
+\hypertarget{appendix:calibratedshares}{}
+\end{frame}
+%---------------------------------------------------------------------
+% -----------------------------------------
+\begin{frame}{Ahlfeldt, Redding, Sturm, Wolf (Ecma, 2015)}
+ARSW is often referred to as ``the Berlin Wall paper'':
+\begin{itemize}
+\item Develop a quantitative model of the city to identify intra-city agglomeration and dispersion forces
+\item Estimate using 1936, 1986 and 2006 data for thousands of city blocks on land prices, workplace employment, and employment by residence
+\item Use the division of Berlin after WWII and its reunification in 1989 as sources of exogenous variation in the surrounding concentration of economic activity
+\end{itemize}
+Won the \href{https://www.econometricsociety.org/society/awards}{2018 Frisch Medal} for best applied paper in \textit{Econometrica}:
+{\small ``The paper provides an outstanding example of how to credibly and transparently use a quasi-experimental approach to structurally estimate model parameters that can serve as critical inputs for counterfactual policy analyses.''
+(\textcolor{red}{c.f.} \href{https://www.dropbox.com/s/8kwtwn30dyac18s/intro.pdf?dl=0}{Haile})\par}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Dividing Berlin}
+\begin{itemize}
+{\small
+\item A protocol signed during WWII organized Germany into American, British, French, and Soviet occupation zones
+\item Although 200km inside the Soviet zone, Berlin was to be jointly occupied and organized into four sectors (initially three roughly equal-sized, then British sector was split between French and British)
+\item Protocol envisioned a joint city administration (``Kommandatura''), but Cold War:
+	\begin{itemize}
+	\item East and West Germany founded as separate states and separate city governments created in East and West Berlin in 1949
+	\item The adoption of Soviet-style policies of command and control in East Berlin limited economic interactions with West Berlin
+	\item To stop civilians leaving for West Germany, the East German authorities constructed the Berlin Wall in 1961
+	\end{itemize}
+\item Germany reunified in 1989
+}
+\end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{ARSW model: Overview}
+\begin{itemize}
+\item The city consists of a set of discrete blocks indexed by $i$ 
+\item Single, freely traded (numeraire) final good \textcolor{gray}{$(\sigma = \infty)$}
+\item Floor space can be used for residential or commercial use
+\item Firms choose a block of production and inputs of labor and floor space 
+\item Workers choose block of residence, block of employment, and consumption of the final good 
+\item Reservation level of utility $(\bar{U})$ for living outside the city
+\item[] {\small Individuals who choose Berlin and realize utility below the city-wide average cannot leave.\par}
+\end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{ARSW model: Workers }
+\begin{itemize}
+\item Aggregate consumption index for worker $o$ residing in block $i$ and working in block $j$:
+\begin{equation*}
+C_{ijo} = \frac{B_{i} z_{ijo}}{d_{ij}}
+\left( \frac{c_{ij}}{\beta} \right)^{\beta } \left( \frac{\ell
+_{ij }}{1-\beta} \right)^{1-\beta },\qquad 0<\beta <1
+\end{equation*}
+\vspace{-5mm}
+\begin{columns}
+\begin{column}{0.50\textwidth}
+\begin{itemize}
+\item Consumption of numeraire final good $c_{ij}$
+\item Residential floor space $\ell_{ij}$ at price $Q_{i}$
+\end{itemize}
+\end{column}
+\begin{column}{0.40\textwidth}
+\begin{itemize}
+\item Residential amenity $B_{i}$
+\item Commuting costs $d_{ij}$
+\item Idiosyncratic shock $z_{ijo}$ 
+\end{itemize}
+\end{column}
+\end{columns}
+\item Indirect utility given wage $w_j$ at workplace $j$
+\begin{equation*}
+U_{ijo} = z_{ijo} B_{i} w_{j} Q_{i}^{\beta-1} / d_{ij},
+\end{equation*}
+\item Idiosyncratic part of worker productivity is Fr\'{e}chet distributed:
+\begin{equation*}
+F(z_{ijo})=e^{-T_{i} E_{j} z_{ijo}^{-\epsilon }},\qquad T_{i}, E_{j} >0,\ \epsilon >1
+\end{equation*}
+\end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{ARSW model: Location decisions}
+\begin{itemize}
+\item Probability worker chooses to live in $i$ and work in $j$ is
+\begin{equation*} \label{eq:com_prob}
+\pi _{ij}= \frac{T_{i} E_{j} \left( d_{ij}
+Q_{i}^{1-\beta} \right)^{-\epsilon} \left( B_{i} w_{j} \right)^{\epsilon}}{%
+\sum_{r=1}^{S} \sum_{s=1}^{S} T_{r} E_{s} \left( d_{rs} Q_{r}^{1-\beta}
+\right)^{-\epsilon} \left( B_{r} w_{s} \right)^{\epsilon}} \equiv \frac{\Phi_{ij}}{\Phi} .
+\end{equation*}
+\item Residential and workplace choice probabilities
+\begin{equation*} \label{eq:ch_prob}
+\pi_{Ri} = \sum_{j=1}^{S} \pi_{ij} = \frac{\sum_{j=1}^{S} \Phi_{ij}}{\Phi}, \qquad  \pi_{Mj} = \sum_{i=1}^{S} \pi_{ij} = \frac{\sum_{i=1}^{S} \Phi_{ij}}{\Phi}.
+\end{equation*}
+\item Conditional on living in block $i$, the probability that a worker commutes to block $j$ follows a gravity equation:
+\begin{equation*}
+\pi _{ij|i}=\frac{ E_{j} \left( w_{j} / d_{ij} \right)^{\epsilon}}{
+\sum_{s=1}^{S} E_{s} \left( w_{s} / d_{is} \right)^{\epsilon}},
+\end{equation*}
+\end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{ARSW model: Commuting }
+\begin{itemize}
+\item Employment in block $j$ equals the sum across all blocks $i$ of people living in residence times the probability of commuting from $i$ to $j$:
+\begin{equation*} \label{eq:wbo}
+H_{Mj}=\sum_{i=1}^{S} \frac{E_{j}\left(
+w_{j}/d_{ij}\right) ^{\epsilon }}{\sum_{s=1}^{S}E_{s}\left( w_{s}/d_{is}\right)
+^{\epsilon }} H_{Ri}, \qquad d_{ij} = e^{\kappa \tau_{ij}}.
+\end{equation*} \smallskip
+\item This labor-supply equation will be useful to determine equilibrium wages. 
+\end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{ARSW model: Consumers}
+\begin{itemize}
+\item Consumers decide before idiosyncratic shocks  $z_{ijo}$  are realized whether to move to the city or not.
+\item Population mobility implies that expected utility equals reservation utility level:
+\begin{equation*} \label{eq:pm}
+\mathbb{E} \left[ U \right]  = \gamma \left[ \sum_{r=1}^{S} \sum_{s=1}^{S} T_{r} E_{s} \left( d_{rs}
+Q_{r}^{1-\beta} \right)^{-\epsilon} \left( B_{r} w_{s} \right)^{\epsilon} %
+\right]^{1/\epsilon} = \bar{U},  
+\end{equation*}
+\item Residential amenities are influenced by both fundamentals ($b_{i}$) and spillovers ($\Omega_{i}$)
+\[
+ B_{i} = b_{i} \Omega_{i}^{\eta}, \qquad \Omega_{i} \equiv \left[ \sum\limits_{s=1}^{S} e^{-\rho \tau_{is}} \left( \frac{H_{Rs}}{K_s} \right) \right].
+\]
+\end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{ARSW model: Production}
+\begin{itemize}
+\item A single final good (numeraire) is produced under conditions of perfect competition, constant returns to scale and zero trade costs with a larger economy:
+\[
+y_{j} = A_{j} \left( H_{Mj} \right)^{\alpha} \left( L_{Mj} \right)^{1-\alpha},\qquad 0<\alpha <1,
+\]
+\item $H_{Mj}$ is workplace employment 
+\item $L_{Mj}$ is measure of floor space used commercially
+\item Productivity ($A_j$) depends on fundamentals ($a_j$) and spillovers ($\Upsilon_{j}$):
+\[
+A_{j} = a_{j} \Upsilon_{j}^{\lambda}, \qquad \Upsilon_{j} \equiv \left[ \sum\limits_{s=1}^{S} e^{-\delta \tau_{is}} \left( \frac{H_{Ms}}{K_s} \right) \right],
+\]
+\item $\delta$ is the rate of decay of spillovers
+\item $\lambda$ captures the relative importance of spillovers
+\textcolor{gray}{(Pardon the clash with $\lambda_{ij}$)}
+\end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{ARSW model: Land prices}
+\begin{itemize}
+\item The share of floor space used commerically:
+\begin{equation*} \label{eq_na}
+\theta_i = 1 \quad \text{if} \qquad q_i> \xi_i Q_i,
+\end{equation*}
+\[
+\theta_i \in [0,1] \quad  \text{if} \qquad q_i = \xi_i Q_i,
+\]
+\[
+\theta_i = 0 \quad  \text{if} \qquad q_i < \xi_i Q_i.
+\]
+\item $\xi_i \geq 1$ represents the tax equivalent of regulations restricting commercial land use
+\item Assume observed land price is maximum of commerical and residential price: $\mathbb{Q}_{i} = \max\{q_i,Q_i\}$
+\end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{ARSW model: Production}
+\begin{itemize}
+\item Firms choose a block of production, effective employment and commercial land use to maximize profits taking as given goods and factor prices, productivity and the locations of other firms/workers
+\item Zero profits imply for the price of commercial land $q_{j}$:
+\begin{equation*} \label{eq:zp}
+q_{j}=(1-\alpha )\left( \frac{\alpha }{w_{j}}\right) ^{\frac{\alpha }{%
+1-\alpha }}A_{j}^{\frac{1}{1-\alpha }}.
+\end{equation*}
+\end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{ARSW model: Land Market Clearing}
+\begin{itemize}
+\item Utility max implies demand for residential floor space:
+\begin{equation*} \label{eq:res_mc}
+(1-\theta_{i}) L_{i} = \frac{ (1-\beta) \mathbb{E}(w \mid i) }{Q_i} H_{Ri}.
+\end{equation*}
+\item Profit max implies demand for commercial floor space:
+\begin{equation*} \label{eq:com_mc}
+\theta_{i} L_{i} = H_{Mi} \left( \frac{(1-\alpha) A_{i}}{q_{i}} \right)^{\frac{1}{\alpha}}.
+\end{equation*}
+\item Floor space $L$ supplied by a competitive construction sector using geographic land $K$ and capital $M$ as inputs
+\begin{equation*}
+L_{i} = \varphi_{i} K_{i}^{1-\mu} , \qquad \varphi_{i}=M_{i}^{\mu},
+\end{equation*}
+\item Density of development $(\varphi_{i})$ from land market clearing:
+\[
+\varphi_{i} = \frac{L_{i}}{K_{i}^{1-\mu}} = \frac{(1-\theta_{i}) L_{i} + \theta_{i} L_{i}}{K_{i}^{1-\mu}}
+\]
+\end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Equilibrium with exogenous locational characteristics}
+\begin{itemize}
+\item \textbf{Proposition 1:} Given the model's parameters $[\alpha,\beta,\mu,\epsilon,\kappa]$, the reservation utility $\bar{U}$, and vectors of exogenous location characteristics $[T,E,A,B,\phi,K,\xi,\tau]$, there exists a unique general equilibrium vector $[\pi_{M},\pi_{R},H,Q,q,w,\theta]$, where $H$ denotes total city population. 
+\item These seven components are determined by the system of seven equations: 
+commercial land market clearing, %\eqref{eq:com_mc},
+residential land market clearing, %\eqref{eq:res_mc},
+zero profits, %\eqref{eq:zp},
+no arbitrage between alternative uses of land, %\eqref{eq_na},
+residential choice probability $\pi_{Ri}$, % in \eqref{eq:ch_prob}),
+workplace choice probability $\pi_{Mi}$, % in \eqref{eq:ch_prob})),
+and indifference with reservation utility. %\eqref{eq:pm}. 
+\end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Overview of remainder of paper}
+\begin{itemize}
+\item Relate land prices to distance to pre-war CBD
+\item Estimate the model without any agglomeration effects. In counterfactuals, this model ``is unable to account quantitatively for the observed impact of division and reunification on the pattern of economic activity within West Berlin.''
+\item Estimate model with local production and residential amenity externalities. These are interesting in their own right and improve model fit (they also create possibility of multiple equilibria, which must be handled carefully)
+\end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Data}
+\begin{itemize}
+\item Data on land prices, workplace employment, residence employment and bilateral travel times
+\item Data for Greater Berlin in 1936 and 2006 and data for West Berlin in 1986 by
+	\begin{itemize}
+	\item Pre-war districts (``Bezirke''), 20 in Greater Berlin, 12 in West Berlin
+	\item Statistical areas (``Gebiete''), around 90 in West Berlin
+	\item Statistical blocks, around 9,000 in West Berlin
+	\end{itemize}
+\item Land prices: official assessed land value of a representative undeveloped property or the fair market value of a developed property if not developed
+\item Geographical Information Systems (GIS) data on\\
+{\small land area, land use, building density, proximity to U-Bahn (underground) and S-Bahn (suburban) stations, schools, parks, lakes, canals and rivers, Second World War destruction, location of government buildings and urban regeneration programs\par}
+\end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Land prices in Berlin in 1936}
+Land prices are normalized to have a mean of 1 in each year.
+\begin{figure}
+\centering
+\includegraphics[height=.92\textheight]{../images/ARSW_Map3d1.pdf}
+\end{figure}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Land prices in West Berlin in 1936}
+\begin{figure}
+\centering
+\includegraphics[height=.95\textheight]{../images/ARSW_Map3d2.pdf}
+\end{figure}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Land prices in West Berlin in 1986}
+\begin{figure}
+\centering
+\includegraphics[height=.95\textheight]{../images/ARSW_Map3d3.pdf}
+\end{figure}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Land prices in Berlin in 2006}
+\begin{figure}
+\centering
+\includegraphics[height=.95\textheight]{../images/ARSW_Map3d4.pdf}
+\end{figure}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Land prices in West Berlin in 2006}
+\begin{figure}
+\centering
+\includegraphics[height=.95\textheight]{../images/ARSW_Map3d5.pdf}
+\end{figure}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Diff-in-diffs specification}
+\begin{itemize}
+\item Estimate difference-in-differences specification for division and reunification separately (for areas in West Berlin):
+\begin{equation*}
+\Delta \ln Q_{i} = \psi + \sum_{k=1}^{K} \mathbf{1}_{ik} \beta_{k} + \ln X_{i} \zeta + \chi_{i},\label{emprent3}
+\end{equation*}
+\item $\mathbf{1}_{ik}$ is a $(0,1)$ dummy which equals one if block $i$ lies within distance grid cell $k$ from the pre-war CBD and zero otherwise
+\item Observable block characteristics ($X_{i}$): Land area, land use, distance to nearest U-Bahn station, S-Bahn station, school, lake, river or canal, and park, war destruction, government buildings and urban regeneration programs
+\end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Division and Pre-War CBD}
+\begin{figure}
+\centering
+\includegraphics[height=.95\textheight]{../images/ARSW_centraldivision.pdf}
+\end{figure}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Diff-in-diffs West Berlin 1936-86}
+\begin{figure}
+\centering
+\includegraphics[width=1\textwidth]{../images/ARSW_Table1.pdf}
+\end{figure}
+\end{frame}
+\begin{frame}{Diff-in-diffs West Berlin 1986-2006}
+\begin{figure}
+\centering
+\includegraphics[width=1\textwidth]{../images/ARSW_Table2.pdf}
+\end{figure}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Land prices over time}
+1928--1936 is placebo test.
+Most of 1936--1986 change occurs by 1966.
+\begin{center}
+\includegraphics[height=.90\textheight]{../images/ARSW_Figure3.pdf}
+\end{center}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Gravity regression for commuting}
+Log commuters from residence district $I$ to workplace district $J$ (Jensen's inequality):
+\begin{equation*}
+\ln \pi_{IJ} = - \nu \tau_{IJ}  + \vartheta_{I} + \varsigma_{J} + e_{IJ},
+\end{equation*}
+where $\tau_{IJ}$ is transit minutes, $\nu = \epsilon \kappa$, and 
+$\vartheta_{I}$ and  $\varsigma_{J}$ are fixed effects
+\begin{center}
+\includegraphics[height=.75\textheight]{../images/ARSW_Table3.pdf}
+\end{center}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Backing out productivities}
+\begin{itemize}
+\item Composites:
+$\tilde{A}_{i} \equiv A_i E_i^{\alpha/\epsilon}$,
+$\tilde{a}_{i} \equiv a_i E_i^{\alpha/\epsilon}$
+$\omega_{j} \equiv \tilde{w}_{j}^{\epsilon} = E_j w_{j}^{\epsilon}$
+\item Using estimated $\nu$, and data on residence and workplace employment, one can solve for transformed wages $E_j w_{j}^{\epsilon}$ from commuting equation (summed over origins)
+\item Recover overall productivity $A_{j}$ from zero-profit equation:
+\begin{equation*}
+\ln\left(\frac{\tilde{A}_{it}}{\bar{\tilde{A}_{t}}} \right) = (1-\alpha) \ln \left(\frac{\mathbb{Q}_{it}}{\bar{\mathbb{Q}}_t} \right) + \frac{\alpha}{\epsilon} \ln \left(\frac{\omega_{it}}{\bar{\omega}_t} \right)
+\end{equation*}
+where $\bar{\tilde{A}}_t = \exp(1/S \sum_{s=1}^{S} \ln \tilde{A}_{st})$ (geometric mean)
+\item High floor prices and wages require high final good productivity for zero profits to be satisfied 
+\end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Backing out amenities}
+\begin{itemize}
+\item Composites:
+$\tilde{B}_{i} \equiv b_i T_i^{1/\epsilon}\zeta_{Ri}^{1-\beta}$,
+$\tilde{b}_{i} \equiv b_i T_i^{1/\epsilon}\zeta_{Ri}^{1-\beta}$,
+where
+$\zeta_{Ri} = 1$ or $\zeta_{Ri} = \xi_{i}$ based on land use
+\item Recover amenities $B_{i}$ from residential choice probabilities:
+\begin{equation*}
+\ln\left(\frac{\tilde{B}_{it}}{\bar{\tilde{B}}_{t}} \right) = \frac{1}{\epsilon} \ln \left(\frac{H_{Rit}}{\bar{H}_{Rt}} \right) +  (1-\beta) \ln \left(\frac{\mathbb{Q}_{it}}{\bar{\mathbb{Q}}_t} \right)
+- \frac{1}{\epsilon} \ln \left(\frac{W_{it}}{\bar{W}_t} \right)
+\end{equation*}
+where $W_{it} = \sum_{s=1}^{S} \omega_{st} / e^{\nu \tau_{ist}}$  and variables with an upper bar denote that variable's geometric mean.
+\item High floor prices and high residence employment must be explained either by high wage commuting access or high amenities.  
+\item (So far not making assumptions about the relative importance of production and residential externalities versus fundamentals) 
+\end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Backing out amenities and productivities }
+\begin{itemize}
+\item Set $\alpha, \beta, \mu$ ``to central estimates from the existing empirical literature''
+\item Use estimate of $\nu = \epsilon \kappa = 0.07$ from gravity regression
+\item ``To calibrate the value of the Fréchet shape parameter ($\epsilon$), we use our data on the dispersion of log wages by workplace across the districts of West Berlin for 1986.''
+\item \textcolor{red}{``}This value of $\epsilon = 6.83$ for commuting decisions is broadly in line with the range of estimates for the Fréchet shape parameter for international trade flows.\textcolor{red}{''}
+\item Table IV columns 1-4 show changes in amenities and productivities over time.
+\item Table IV columns 5-6 show the impact of the division and reunification on West Berlin land-price gradient, holding productivity and amenities constant at their 1936 values. Poor fit ($-.408 \neq -.800$; $-.010 \neq +.398$)
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Changes in fundamentals and counterfactuals with exogenous $A$, $B$}
+\begin{figure}
+\centering
+\includegraphics[height=.95\textheight]{../images/ARSW_Table4.pdf}
+\end{figure}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{ARSW (2015) Section 7: Estimation of structural model}
+\begin{center}{\small
+\begin{tabular}{llll} \toprule
+Assumed Parameter & & Source & Value \\ \midrule
+Residential land & $ 1-\beta $ & Davis \& Ortalo-Magne (2011) & 0.25 \\
+Commercial land & $1-\alpha$ & Valentinyi-Herrendorf (2008) & 0.20 \\
+Fr\'{e}chet Scale & $T$ & (normalization) & 1 \\
+Expected Utility & $\bar{u}$ & (normalization) & 1000 \\ \bottomrule
+\end{tabular}
+\begin{tabular}{ll} \toprule
+Estimated Parameter \\ \midrule
+Production externalities elasticity & $\lambda$ \\
+Production externalities decay & $\delta$ \\
+Residential externalities elasticity & $\eta$ \\
+Residential externalities decay & $\rho$ \\
+Commuting semi-elasticity & $\nu=\epsilon \kappa$ \\
+Commuting heterogeneity & $\epsilon$ \\ \bottomrule
+\end{tabular}
+}\end{center}
+\end{frame}
+\begin{frame}{GMM estimation procedure}
+\begin{itemize}
+\item Use exogenous variation from Berlin's division and reunification \textcolor{red}{``}to structurally estimate\textcolor{red}{''} the agglomeration parameters $\{\lambda,\delta,\eta,\rho\}$.
+\begin{align*}
+\Delta \ln\left(\frac{a_{it}}{\bar{a}_{t}} \right) 
+&=
+(1-\alpha) \Delta \ln \left(\frac{\mathbb{Q}_{it}}{\bar{\mathbb{Q}}_t} \right) + \frac{\alpha}{\epsilon} \Delta \ln \left(\frac{\omega_{it}}{\bar{\omega}_t} \right) - \lambda \Delta \ln \left( \frac{\Upsilon_{it}}{\bar{\Upsilon}_{t}} \right)
+\\
+\Delta \ln\left(\frac{b_{it}}{\bar{b}_{t}} \right) 
+&=
+\frac{1}{\epsilon} \Delta \ln \left(\frac{H_{Rit}}{\bar{H}_{Rt}} \right) +  (1-\beta) \Delta \ln \left(\frac{\mathbb{Q}_{it}}{\bar{\mathbb{Q}}_t} \right) \\
+&\quad
++ \frac{1}{\epsilon} \Delta \ln \left(\frac{W_{it}}{\bar{W}_t} \right)   - \eta \Delta \ln \left( \frac{\Omega_{it}}{\bar{\Omega}_{t}} \right)
+\end{align*}
+\item Production externalities $\Upsilon_{it}$ depend on travel-time weighted sum of observed workplace employment densities
+\item Residential externalities $\Omega_{it}$ depend on travel-time weighted sum of observed residence employment densities
+\item Adjusted fundamentals relative to geometric mean are ``structural residuals''
+\end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Moment conditions}
+\begin{itemize}
+\item Changes in adjusted fundamentals uncorrelated with exogenous change in surrounding economic activity from division/reunification
+\begin{equation*}
+\mathbb{E} \left[ \mathbb{I}_{k} \times \Delta \ln \left( a_{it} / \bar{a}_{t} \right) \right] = 0, \qquad k \in \{1, \dots, K_{\mathbb{I}}\},
+\end{equation*}
+\begin{equation*}
+\mathbb{E} \left[ \mathbb{I}_{k} \times \Delta \ln \left( b_{it} / \bar{b}_{t} \right) \right] = 0, \qquad k \in \{1, \dots, K_{\mathbb{I}}\}.
+\end{equation*}
+where $ \mathbb{I}_{k}$ are indicators for distance grid cells from pre-war CBD
+\item Other moments are fraction of workers that commute less than 30 minutes and wage dispersion
+\begin{equation*}
+\mathbb{E} \left[ \psi H_{Mj} - \sum_{i \in \aleph_{j}}^{S} \frac{ \omega_{j} / e^{\nu \tau_{ij}} }
+{\sum_{s=1}^{S} \omega_{s} / e^{\nu \tau_{is}} } H_{Ri} \right] = 0,
+\end{equation*}
+\begin{equation*}
+\mathbb{E} \left[ \left( 1/\epsilon \right)^{2} \ln \left( \omega_{j} \right)^{2} - \sigma_{\ln w_{i}}^{2} \right] = 0,
+\end{equation*}
+\end{itemize}
+\end{frame}
+\begin{frame}{Why estimate $\nu = \epsilon \kappa$ twice?}
+Section 6 uses bilateral flows between 12 districts:
+\begin{itemize}
+\item Table III: $\nu = \epsilon \kappa = 0.07$
+\item ``minimize the squared difference between the variances across districts of log adjusted wages in the model and log wages in the data'' $\implies \epsilon = 6.83$
+\item ``While the model uses measures of bilateral travel times that we construct based on the transport network, the micro survey data include self-reported travel times for each commuter\dots assume that this measurement error is uncorrelated with self-reported travel times.''
+\end{itemize}
+Section 7 uses fraction of Berlin commuters traveling less than 30 minutes:
+\begin{itemize}
+\item $\nu$: ``none of the other parameters $\{\epsilon,\lambda,\delta,\eta,\rho\}$ affect the commuting moment condition'' $\nu = \epsilon \kappa = 0.10$ 
+\item $\epsilon$: ``none of the other parameters $\{\lambda,\delta,\eta,\rho\}$ affect the wage moment condition'' $\epsilon = 6.69$
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Severen (2023) on workplace amenities}
+\begin{equation*}
+\mathbb{E} \left[ \left( 1/\epsilon \right)^{2} \ln \left( \omega_{j} \right)^{2} - \sigma_{\ln w_{i}}^{2} \right] = 0
+\qquad
+\omega_{j} = E_j w_{j}^{\epsilon}
+\end{equation*}
+\begin{columns}
+\begin{column}{0.49\textwidth}
+\includegraphics[width=\textwidth]{../images/Severen2023_page1083.png}
+\end{column}
+\begin{column}{0.49\textwidth}
+\includegraphics[width=\textwidth]{../images/Severen2023_fn25.png}\\
+{\footnotesize ``Supplementary results in appendix D indicate that wages explain only a relatively small amount of the variation in workplace fixed effects $\omega$.''\par}
+\end{column}
+\end{columns}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{ARSW: Estimated parameters}
+\begin{figure}
+\centering
+\includegraphics[height=.95\textheight]{../images/ARSW_Table5.pdf}
+\end{figure}
+\end{frame}
+\begin{frame}{Very localized externalities}
+\begin{center}
+\includegraphics[height=.90\textheight]{../images/ARSW_Table6.pdf}
+\end{center}
+\end{frame}
+\begin{frame}{Counterfactuals}
+\includegraphics[width=1.0\textwidth]{../images/ARSW_Table7.pdf}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Two primary contributions of ARSW}
+\begin{itemize}
+\item Estimates of very localized externalities (``The economics of density'')
+\item[] e.g., Stuart S. Rosenthal and William C. Strange ``\href{https://www.aeaweb.org/articles?id=10.1257/jep.34.3.27}{How Close Is Close? The Spatial Reach of Agglomeration Economies}'' \textit{JEP} 2020
+\item Canonical model commuting within a city
+\item[] i.e., the baseline model descibed in Dingel and Tintelnot (2023) at start of this class
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{How people use quantitative urban models}
+\begin{itemize}
+\item Los Angeles subway system (Chris Severen)
+\item Bus rapid transit in Bogota (Nick Tsivanidis)
+\item Commuting and formality in Mexico City (Roman David Zarate)
+\item Steam railway in 19\textsuperscript{th} century London (Heblich Redding Sturm 2020)
+\item Transportation infrastructure with congestion (Allen Arkolakis 2022)
+\item Revitalizing empty blocks in Detroit (Owens et al 2020)
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{How these models work: Normative properties}
+Davis, Gregory (2021) - ``\href{https://www.nber.org/papers/w29045}{Place-Based Redistribution in Simple Location-Choice Models}''
+\begin{itemize}
+\item
+\href{https://academic.oup.com/qje/article-abstract/135/2/959/5697213}{Fajgelbaum and Gaubert (2020)} and subsequent papers
+prescribe fiscal transfers (trade deficits) to high-MU-of-tradables places
+(cf \href{https://www.brookings.edu/wp-content/uploads/2008/03/2008a_bpea_glaeser.pdf}{Glaeser and Gottlieb 2008})
+\item
+Idiosyncratic errors terms are uninsured and affect location choices, the level of utility, and marginal utility
+\item 
+Frechet vs Weibull:
+marginal utilities can differ even when allocations and elasticities for marginal households coincide,
+thus making the planning problems differ even when positive predictions coincide
+\item
+I conjecture that if you use GEV errors the model is not identified
+\item
+I am skeptical that their proposed computational approach to the planning problem will scale to empirical applications
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Next week}
+Next week: Exact hat algebra and calibration
+\end{frame}
+% -----------------------------------------
+\end{document}
