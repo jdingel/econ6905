@@ -3,7 +3,6 @@
 \setbeamertemplate{footline}{\begin{center}\textcolor{gray}{Dingel -- Topics in Trade -- Week 8 -- \insertframenumber}\end{center}}
 \begin{document}
 % -----------------------------------------
-%TITLE FRAME
 \begin{frame}[plain]
 \begin{center}
 \large
@@ -44,7 +43,6 @@ counterfactual exogenous changes $\hat{L}_{i}, \hat{T}_i, \hat{\tau}_{ij}$
 \end{frame}
 % -----------------------------------------
 \begin{frame}{This week: Exact hat algebra and calibration}
-%TODO: I would love to figure out the problem Rodrigo told me about intermediates and shares.
 \begin{itemize}
 \item Some counterfactual scenarios require more parameters than $\lambda_{ij}$, $\gamma_{ij}$, $\epsilon$
 \item Exact hat algebra is not a calibration procedure
@@ -143,7 +141,6 @@ also satisfy this system
 for any $\mu_{i} > 0$.
 \textcolor{gray}{(Isomorphic endowment economy has $Q_i = T_i^{1/\epsilon} L_i$)}
 %\item
-%One interpretation of these isomorphisms: we can normalize $T_i = L_i = 1 \ \forall i$.
 %(\href{https://twitter.com/borusyak/status/1550633634427801605}{Question remains}: Is $\tau_{ij}^{\epsilon}$ then identified given observed $X_{ij}$?)
 \end{itemize}
 \end{frame}
@@ -205,6 +202,8 @@ But an isomorphic ``quality'' interpretation of $T_i$ seems easy.
 \item Other tests specifically leverage IIA:
 Estimate on subsets of countries and see if elasticities are common
 \textcolor{gray}{(the other Hausman and McFadden (1984) test)}
+\item One can also test the complete passthrough from tariffs to prices (\href{https://direct.mit.edu/rest/article/doi/10.1162/rest_a_01369/117708/Poor-Substitutes-Counterfactual-Methods-in-IO-and}{Head, Mayer 2023})
+\item One could test the triangle-inequality on trade costs
 \end{itemize}
 \end{frame}
 % -----------------------------------------
@@ -259,13 +258,4 @@ The calibrated-shares procedure can perform poorly in high-dimensional settings 
 Go to Dingel and Tintelnot (2023) slidedeck.
 \end{frame}
 % -----------------------------------------
-%https://twitter.com/borusyak/status/1550633634427801605
-%https://twitter.com/straiberman/status/1550640352473845765
-%https://twitter.com/TradeDiversion/status/1551212313985835010
-%A saturated model calibrated to observed shares may still be falsifiable
-%Triangle inequality: 
-%Tests of IIA (Adao Costinot Donaldson; Lind Ramondo)
-%Think about McFadden test of IIA; another test proposed by Hausman and McFadden (1984) based on an estimation of the nested logit model
-%Test of pass-through assumptions: tariffs raise prices one-for-one
-%Trade costs are positive (CIF vs FOB prices)
 \end{document}
