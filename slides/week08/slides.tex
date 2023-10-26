@@ -1,0 +1,261 @@
+\documentclass[11pt,notes=hide,aspectratio=169]{beamer}
+\input{../week00/slides_settings.tex}
+\setbeamertemplate{footline}{\begin{center}\textcolor{gray}{Dingel -- Topics in Trade -- Week 8 -- \insertframenumber}\end{center}}
+\begin{document}
+% -----------------------------------------
+\begin{frame}[plain]
+\begin{center}
+\large
+\textcolor{columbiadarkblue}{ECON G6905\\
+Topics in Trade\\ 
+Jonathan Dingel\\
+Autumn \the\year, Week 8}
+\vfill 
+\includegraphics[width=0.4\textwidth]{../images/Columbia_logo.png}
+\end{center}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Counterfactual outcomes by exact hat algebra in trade model}
+Recall exact hat algebra for Armington CES model from week 1:
+\begin{equation*}
+\hat{w}_i \hat{L}_i
+=
+\hat{Y}_{i}
+=
+\sum_{j=1}^{N} \gamma_{ij} \hat{\lambda}_{ij} \hat{w}_{j} \hat{L}_{j}
+= 
+\sum_{j=1}^{N}
+\frac{\gamma_{ij} \hat{T}_{i} \hat{w}_{i}^{-\epsilon}\hat{\tau}_{ij}^{-\epsilon}}
+{\sum_{l=1}^{N} \lambda_{lj} \hat{T}_{l} \hat{w}_l^{-\epsilon}\hat{\tau}_{lj}^{-\epsilon}}
+\hat{Y}_{j}
+\end{equation*}
+\vspace{-3mm}
+\begin{itemize}
+\item \href{https://tradediversion.net/2018/05/07/on-hat-algebra/}{The name} refers to Jones (1965) ``hat algebra'' for comparative statics
+\item It's ``exact'' because it's global given whole demand and supply system
+\end{itemize}
+A system of equations characterizing counterfactual endogenous variables $\hat{w}_i$
+in terms of 
+initial equilibrium shares $\lambda_{ij} \equiv \frac{X_{ij}}{X_j}$ and $\gamma_{ij} \equiv \frac{X_{ij}}{Y_i}$,
+the trade elasticity $\epsilon$,
+and
+counterfactual exogenous changes $\hat{L}_{i}, \hat{T}_i, \hat{\tau}_{ij}$
+\end{frame}
+% -----------------------------------------
+\begin{frame}{This week: Exact hat algebra and calibration}
+\begin{itemize}
+\item Some counterfactual scenarios require more parameters than $\lambda_{ij}$, $\gamma_{ij}$, $\epsilon$
+\item Exact hat algebra is not a calibration procedure
+\item A saturated model calibrated to observed shares may still be falsifiable
+\item Calibrating model parameters shares to perfectly reproduce observed shares risks overfitting the model
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Counterfactual scenarios and required parameter values}
+Some counterfactual scenarios require (knowledge of) more parameters than
+just the information encoded in 
+initial equilibrium shares $\lambda_{ij}$ and $\gamma_{ij}$ and
+the trade elasticity $\epsilon$.
+Eaton and Kortum (2002) conduct two thought experiments:
+\begin{itemize}
+\item Autarky: $\tau_{ij} \to \infty$ for $i \neq j$. $\hat{\tau}_{ij} = \infty$.
+\item ``Zero gravity'': $\tau_{ij} \to \tau_{jj}$ for $i \neq j$. $\hat{\tau}_{ij} = \frac{\tau_{jj}}{\tau_{ij}}$.
+\end{itemize}
+Knowing model parameters up to $\lambda_{ij}$, $\gamma_{ij}$, $\epsilon$
+is \textit{insufficient} to compute the zero-gravity scenario
+because that requires $\hat{\tau}_{ij} = \frac{\tau_{jj}}{\tau_{ij}}$.
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Prior descriptions of exact hat algebra and calibration}
+Costinot and Rodriguez-Clare (Handbook 2014):\\
+{\small
+``We have described how to use gravity models to perform welfare and counterfactual analysis. An appealing feature of this approach, which we have referred to as the exact hat algebra, is that the impact of various counterfactual scenarios can be computed without estimating the full structure of the model. All the relevant information about preferences, technology, and trade costs can be inferred directly from the cross-section of bilateral trade flows and estimates of the trade elasticity.''
+\par}
+\vspace{3mm}
+Caliendo and Parro (2015):\\
+{\small
+``we can solve for the general equilibrium of the model without needing to estimate parameters which are difficult to identify in the data, [such] as productivities and iceberg trade costs.''
+(\textcolor{red}{c.f.} \href{https://www.aeaweb.org/articles?id=10.1257/jel.20181361}{Lewbel 2019})
+\par}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Exact hat algebra is not a calibration procedure}
+Exact hat algebra concerns comparative statics, not calibration (\href{https://tradediversion.net/2023/10/02/exact-hat-algebra-concerns-comparative-statics-not-calibration/}{blog post})
+\begin{itemize}
+\item The system of equations defines counterfactual outcomes for any model of the baseline shares $\lambda_{ij}$ and $\gamma_{ij}$ and the trade elasticity $\epsilon$
+\item Model parameters matter (only) because they determine the baseline shares and the trade elasticity
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Using observed shares is calibrating (combinations of) parameters}
+Finding (products of) parameters to match observed shares is calibrating them.
+\medskip
+For purposes of computing counterfactual outcomes, using observed shares typically leverages two properties of the model and the counterfactual scenario:
+\begin{itemize}
+\item
+The model has enough degrees of freedom that there exist parameters that can rationalize any observed pattern of trade flows.
+\textcolor{gray}{(``Saturated'' model)}
+\item
+The baseline shares are sufficient to calibrate the combinations of parameters needed to compute counterfactual outcomes.
+\end{itemize}
+\medskip
+Corollaries to these two features when using observed shares:
+\begin{itemize}
+\item
+No pattern of baseline shares can reject the model specification.\\
+\textcolor{gray}{(Models with fewer degrees of freedom admit tests.)}
+\item
+The set of admissible counterfactual scenarios is restricted.
+\textcolor{gray}{(e.g., zero gravity)}
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Are Armington model parameters identified by trade flows?}
+A statement equivalent to
+``one can calibrate the model to observed shares without estimating the full structure of the model''
+is
+``the model parameters are not identified by observed trade shares''
+\begin{itemize}
+\item
+If $\{T_i,L_i,w_i\}$, $\{\tau_{ij}\}$, and $\epsilon$ satisfy
+$$
+w_i L_i
+=
+\sum_j \frac{T_i \left(w_i \tau_{ij}\right)^{-\epsilon}}{\sum_{\ell} T_{\ell} \left(w_{\ell} \tau_{\ell j}\right)^{-\epsilon}}
+w_j L_j
+$$
+then
+$\{\lambda_i^{\epsilon} T_i,L_i,w_i\}$, $\{\lambda_i \tau_{ij}\}$, and $\epsilon$
+also satisfy this system
+for any $\lambda_{i} > 0$.
+With iceberg trade costs, productivity and a shifter of export costs are the same.
+\item
+If $\{T_i,L_i,w_i\}$, $\{\tau_{ij}\}$, and $\epsilon$ satisfy this system,
+then
+$\{T_i,L_i,w_i\}$, $\{\xi_j \tau_{ij}\}$, and $\epsilon$ satisfy this system for any $\xi_j > 0$.
+Expenditure shares reflect relative prices.
+\item
+Similarly,
+$\{\mu_{i}^{\epsilon} T_i,\mu_{i}^{-1} L_i,\mu_{i} w_i\}$, $\{\tau_{ij}\}$, and $\epsilon$
+also satisfy this system
+for any $\mu_{i} > 0$.
+\textcolor{gray}{(Isomorphic endowment economy has $Q_i = T_i^{1/\epsilon} L_i$)}
+%\item
+%(\href{https://twitter.com/borusyak/status/1550633634427801605}{Question remains}: Is $\tau_{ij}^{\epsilon}$ then identified given observed $X_{ij}$?)
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Are  Armington model parameters identified by trade flows?}
+Suppose you want to identify \textit{relative} trade costs, $\tau_{ij} / \tau_{jj}$.
+Normalize $\tau_{jj} = 1 \ \forall j$.
+\medskip
+Using two prior results,
+if $\{T_i,L_i,w_i\}$, $\{\tau_{ij}\}$, and $\epsilon$ satisfy this system,
+then
+$\{\lambda_i^{\epsilon} T_i,L_i,w_i\}$, $\{\lambda_i \xi_j \tau_{ij}\}$, and $\epsilon$
+also satisfy this system
+for any $\lambda_{i} > 0$ and $\xi_j > 0$.
+\begin{align*}
+Y_i
+&=
+\sum_j \frac{T_i \left(w_i \tau_{ij}\right)^{-\epsilon}}{\sum_{\ell} T_{\ell} \left(w_{\ell} \tau_{\ell j}\right)^{-\epsilon}}
+Y_j
+=
+\sum_j \frac{X_{ij}}{X_{jj}} 
+X_{jj}
+=
+\sum_j \frac{T_i \left(w_i \tau_{ij}\right)^{-\epsilon}}{T_j \left(w_j \tau_{jj}\right)^{-\epsilon}}
+X_{jj}
+\\
+&=
+\sum_j \frac{\lambda_i^{\epsilon}T_i \left(w_i \lambda_i \xi_j\tau_{ij}\right)^{-\epsilon}}{\lambda_j^{\epsilon}T_j \left(w_j \lambda_j \xi_j \tau_{jj}\right)^{-\epsilon}}
+X_{jj}
+\end{align*}
+If one chooses $\xi_j = \lambda^{-1}_j$, then this preserves $\tau_{jj} = 1$.
+\medskip
+We cannot recover \textit{directed} trade costs from directed trade flows.
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Factory-gate prices do not discipline the Armington model}
+\begin{itemize}
+\item
+Recall that bilateral trade costs $\tau_{ij}$ are isomorphic to bilateral preference shifters $\beta_{ij}$ in the Armington model (week 1).
+\item
+Conditional on $Y_i = p_i Q_i$, any observed $p_i$ can be rationalized by introducing preference shifters.
+\item
+Similarly, in Melitz (2003), firm-level productivity $\varphi$ might shift TFPR by lowering costs (TFPQ) or raising demand (quality).
+Given this isomorphism, firm-level prices can do little to discpline the model.
+\item
+If you've committed to the Eaton-Kortum model with symmetric preferences,
+then the price index may be more informative.
+But an isomorphic ``quality'' interpretation of $T_i$ seems easy.
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{A saturated model may still be falsifiable}
+\begin{itemize}
+\item We cannot use baseline shares (nor prices) to evaluate the model
+\item The CES model of trade flows is a demand system and we know how to test demand systems
+\textcolor{gray}{(at least, the one-elasticity straightjacket of CES/IIA)}
+\item One approach: Estimate an encompassing specification and test the parameter restrictions imposed by CES
+\textcolor{gray}{(e.g., Hausman and McFadden (1984) test IIA logit by estimating a nested-logit specification and testing whether $\lambda = 1$)}
+\item Other tests specifically leverage IIA:
+Estimate on subsets of countries and see if elasticities are common
+\textcolor{gray}{(the other Hausman and McFadden (1984) test)}
+\item One can also test the complete passthrough from tariffs to prices (\href{https://direct.mit.edu/rest/article/doi/10.1162/rest_a_01369/117708/Poor-Substitutes-Counterfactual-Methods-in-IO-and}{Head, Mayer 2023})
+\item One could test the triangle-inequality on trade costs
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{The CES/IIA model with one elasticity does not fit the data}
+{\small
+\href{https://www.aeaweb.org/articles?id=10.1257/aer.20150956}{Adao, Costinot, and Donaldson (2017)} study reduced exchange economies:
+\begin{itemize}
+\item ``the mixed CES demand system allows data to speak to whether this independence of irrelevant alternatives embodied in CES holds empirically''
+\item ``the deviations from IIA\dots are a systematic feature of the data\dots related to the similarity of competitors in terms of per capita GDP''
+\end{itemize}
+\href{https://www.aeaweb.org/articles?id=10.1257/aer.20190781}{Lind, Ramondo (2023)} develop a Ricardian model with richer productivity patterns:
+\begin{itemize}
+\item ``By relaxing the independence assumptions used in the literature, the model generates import demand systems spanning the entire generalized extreme value (GEV) class (McFadden 1978, 1981).''
+\item ``significant sharing of technologies across countries and sectors\dots manifests in considerable heterogeneity in correlation in productivity, which, in turn, changes the answers to standard counterfactuals''
+\item ``our [latent factor model] estimates capture quite accurately departures from IIA within and across sectors''
+\end{itemize}
+}\end{frame}
+% -----------------------------------------
+\begin{frame}{Overfitting}
+\begin{itemize}
+\item
+One overfits a model by using a more flexible parameterization that improves in-sample fit but worsens out-of-sample performance.
+\item
+Adding more covariates always improves the $R^2$ of OLS, but ``use as many variables as possible'' is not the preferred specification of forecasters 
+\item[]
+\textcolor{gray}{(Perhaps more relevant: Consider 2SLS with $N$ observations and $N$ instrumental variables. The first-stage $R^2$ of $1.0$ is not good news: $\beta^{\text{OLS}} = \beta^{\text{2SLS}}$. Now imagine using $N$ white-noise draws as IVs.)}
+\item
+\href{https://hastie.su.domains/ElemStatLearn/}{Hastie, Tibshirani, and Friedman (2009)}:
+``Unfortunately training error is not a good estimate of the test error, as seen in Figure 7.1. Training error consistently decreases with model complexity, typically dropping to zero if we increase the model complexity enough. However, a model with zero training error is overfit to the training data and will typically generalize poorly.''
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{A saturated model is overfit if there's noise}
+\href{https://www.aeaweb.org/articles?id=10.1257/jep.28.2.29}{Belloni, Chernozhukov, Hansen (2014)} come close to describing the calibrated-shares procedure:\\
+{\small
+The key concept underlying the analysis of high-dimensional data is that dimension reduction or ``regularization'' is necessary to draw meaningful conclusions. The need for regularization can easily be seen when one considers an example where there are exactly as many variables (plus a constant) as there are observations. In this case, the ordinary least squares estimator will fit the data perfectly, returning an $R^2$ of one. However, using the estimated model is likely to result in very poor forecasting properties out-of-sample because the model estimated by least squares is overfit: the least-squares fit captures not only the signal about how predictor variables may be used to forecast the outcome, but also fits the noise that is present in the given sample, and is not useful for forming out-of-sample predictions. Producing a useful forecasting model in this simple case requires regularization; that is, the estimates must be constrained so that overfitting is avoided and useful out-of-sample forecasts can be obtained.
+\par}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{A more critical perspective on calibrated shares}
+\href{https://doi.org/10.1016/bs.hesint.2022.02.005}{Antras and Chor (Handbook, 2022)}:\\
+{\small
+``
+practitioners of this approach often praise how parsimonious it is relative to CGE models, which involve the estimation of thousands of parameters. An often glossed-over fact, however, is that the hat-algebra approach requires the model to fit the data \textit{exactly}, which amounts to calibrating all parameters of the model (or combinations of them) to values that ensure this exact fit
+\dots
+although quantitative work often requires strong assumptions on functional forms, calibrating thousands of parameters to fit the data exactly can be problematic for the validity or reliability of the counterfactual predictions of those models. The problem is similar to overfitting in regression analysis leading to poor out-of-sample performance. As recently shown in Dingel and Tintelnot (2020), this is a particularly severe problem in spatial environments in which the data the model is fitted to contains a significant number of zeros. Note that even in the WIOD -- a WIOT focusing on relatively rich countries -- the share of zeroes is 13.7\% in the matrix of input-use coefficients and 46.8\% in the matrix of final-use column vectors.%
+''\par}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Dingel and Tintelnot (2023)}
+The calibrated-shares procedure can perform poorly in high-dimensional settings because matching (noisy) observed shares amount to overfitting the model parameters.
+Go to Dingel and Tintelnot (2023) slidedeck.
+\end{frame}
+% -----------------------------------------
+\end{document}
