@@ -111,13 +111,14 @@ The set of admissible counterfactual scenarios is restricted.
 \end{frame}
 % -----------------------------------------
 \begin{frame}{Are Armington model parameters identified by trade flows?}
+{\small
 A statement equivalent to
 ``one can calibrate the model to observed shares without estimating the full structure of the model''
 is
 ``the model parameters are not identified by observed trade shares''
 \begin{itemize}
 \item
-If $\{T_i,L_i,w_i\}$, $\{\tau_{ij}\}$, and $\epsilon$ satisfy
+If $\{T_i,L_i\}$, $\{\tau_{ij}\}$, $\epsilon$, and $\{w_i\}$ satisfy
 $$
 w_i L_i
 =
@@ -125,24 +126,26 @@ w_i L_i
 w_j L_j
 $$
 then
-$\{\lambda_i^{\epsilon} T_i,L_i,w_i\}$, $\{\lambda_i \tau_{ij}\}$, and $\epsilon$
+$\{\lambda_i^{\epsilon}T_i,L_i\}$, $\{\lambda_i\tau_{ij}\}$, $\epsilon$, and $\{w_i\}$ satisfy
 also satisfy this system
 for any $\lambda_{i} > 0$.
 With iceberg trade costs, productivity and a shifter of export costs are the same.
 \item
-If $\{T_i,L_i,w_i\}$, $\{\tau_{ij}\}$, and $\epsilon$ satisfy this system,
+If $\{T_i,L_i\}$, $\{\tau_{ij}\}$, $\epsilon$, and $\{w_i\}$ satisfy this system,
 then
-$\{T_i,L_i,w_i\}$, $\{\xi_j \tau_{ij}\}$, and $\epsilon$ satisfy this system for any $\xi_j > 0$.
+$\{T_i,L_i\}$, $\{\xi_j \tau_{ij}\}$, $\epsilon$, and $\{w_i\}$ satisfy this system
+for any $\xi_j > 0$.
 Expenditure shares reflect relative prices.
 \item
 Similarly,
-$\{\mu_{i}^{\epsilon} T_i,\mu_{i}^{-1} L_i,\mu_{i} w_i\}$, $\{\tau_{ij}\}$, and $\epsilon$
+$\{\mu_{i}^{\epsilon}T_i,\mu_{i}^{-1} L_i\}$, $\{\tau_{ij}\}$, $\epsilon$, and $\{\mu_{i}w_i\}$
 also satisfy this system
 for any $\mu_{i} > 0$.
 \textcolor{gray}{(Isomorphic endowment economy has $Q_i = T_i^{1/\epsilon} L_i$)}
 %\item
 %(\href{https://twitter.com/borusyak/status/1550633634427801605}{Question remains}: Is $\tau_{ij}^{\epsilon}$ then identified given observed $X_{ij}$?)
 \end{itemize}
+}
 \end{frame}
 % -----------------------------------------
 \begin{frame}{Are  Armington model parameters identified by trade flows?}
@@ -150,9 +153,9 @@ Suppose you want to identify \textit{relative} trade costs, $\tau_{ij} / \tau_{j
 Normalize $\tau_{jj} = 1 \ \forall j$.
 \medskip
 Using two prior results,
-if $\{T_i,L_i,w_i\}$, $\{\tau_{ij}\}$, and $\epsilon$ satisfy this system,
+if $\{T_i,L_i\}$, $\{\tau_{ij}\}$, $\epsilon$, and $\{w_i\}$ satisfy this system,
 then
-$\{\lambda_i^{\epsilon} T_i,L_i,w_i\}$, $\{\lambda_i \xi_j \tau_{ij}\}$, and $\epsilon$
+$\{\lambda_i^{\epsilon} T_i,L_i\}$, $\{\lambda_i \xi_j \tau_{ij}\}$, $\epsilon$, and $\{w_i\}$
 also satisfy this system
 for any $\lambda_{i} > 0$ and $\xi_j > 0$.
 \begin{align*}
@@ -173,7 +176,38 @@ X_{jj}
 \end{align*}
 If one chooses $\xi_j = \lambda^{-1}_j$, then this preserves $\tau_{jj} = 1$.
 \medskip
-We cannot recover \textit{directed} trade costs from directed trade flows.
+We cannot recover endowments and \textit{directed} trade costs from directed trade flows.
+\end{frame}
+% -----------------------------------------
+\begin{frame}{We can normalize $T_i = L_i = 1 \ \forall i$ and $\tau_{ii} = 1 \ \forall i$}
+Using three prior results:
+If $\{T_i,L_i\}$, $\{\tau_{ij}\}$, $\epsilon$, and $\{w_i\}$ satisfy this system,
+then
+$\{\mu_{i}^{\epsilon}\lambda_i^{\epsilon} T_i,\mu_{i}^{-1} L_i\}$, $\{\lambda_i \xi_j \tau_{ij}\}$, $\epsilon$, and $\{\mu_{i}w_i\}$
+also satisfy this system
+for any $\mu_{i} > 0$, $\lambda_{i} > 0$, and $\xi_j > 0$.
+\medskip
+Choose
+$\mu_{i} =  L_i$,
+$\lambda_{i}  = \mu_{i}^{-1} T_i^{-1/\epsilon}$,
+and
+$\xi_j = \lambda^{-1}_j$.
+This defines a trade-cost matrix $\tau$ and wage vector $w$ satisfying the system of equations 
+given $T_i = L_i = 1 \ \forall i$ and $\epsilon$.
+\medskip
+By $L_i = 1$, $w_i = Y_i = \sum_{j} X_{ij}$.
+That's observed.
+We can thus identify relative trade costs from relative expenditures and relative producer prices:
+$$
+\frac{X_{ij}}{X_{jj}} = \left(\frac{Y_i}{Y_j}\right)^{-\epsilon} \left(\frac{\tau_{ij}}{\tau_{jj}}\right)^{-\epsilon}
+\implies
+\frac{\tau_{ij}}{\tau_{jj}} = \left(\frac{X_{ij}}{X_{jj}}\right)^{-1/\epsilon}\left(\frac{Y_i}{Y_j}\right)^{-1}
+$$
+\smallskip
+In sum, imposing $\tau_{ii} = T_i = L_i = 1 \ \forall i$ determines a unique solution for $\tau_{ij}$:
+$$
+\tau_{ij} = \left(X_{ij} / X_{jj}\right)^{-1/\epsilon} Y_j / Y_i
+$$
 \end{frame}
 % -----------------------------------------
 \begin{frame}{Factory-gate prices do not discipline the Armington model}

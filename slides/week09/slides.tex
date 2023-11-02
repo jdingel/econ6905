@@ -1,0 +1,507 @@
+\documentclass[11pt,notes=hide,aspectratio=169]{beamer}
+\input{../week00/slides_settings.tex}
+\setbeamertemplate{footline}{\begin{center}\textcolor{gray}{Dingel -- Topics in Trade -- Week 9 -- \insertframenumber}\end{center}}
+\begin{document}
+% -----------------------------------------
+\begin{frame}[plain]
+\begin{center}
+\large
+\textcolor{columbiadarkblue}{ECON G6905\\
+Topics in Trade\\ 
+Jonathan Dingel\\
+Autumn \the\year, Week 9}
+\vfill 
+\includegraphics[width=0.4\textwidth]{../images/Columbia_logo.png}
+\end{center}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{This week: The canonical urban model}
+\begin{itemize}
+\item Monocentric city model
+\item Contrast with quantitative spatial models
+\item Embedded in a system of cities
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Overview of monocentric city models}
+The monocentric city model is spatial equilibrium in the simplest commuting geography: a single, exogenous central workplace
+\begin{itemize}
+\item Basic 1: linear geography with continuum of locations and unit housing demand
+\item Basic 2: linear geography with continuum of locations and continuum of identical individuals 
+\item Multiple commuting modes/technologies (LeRoy and Sonstelie 1983)
+\item Endogenize firm location (Fujita and Ogawa 1982)
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{The basic monocentric city model}
+All employment is at the city center, $\tau = 0$.
+Commuting costs rise with distance to the center, $\tau$.
+What is the equilibrium rent at $\tau$?
+Better presentations of this material:
+\begin{itemize}
+\item Video: Kevin Murphy. ``\href{https://www.youtube.com/playlist?list=PLp2AOdiHSxGeV8AwAwm7nye_2QsQHiC6D}{Location Choice: An Introduction to Compensating Differences}''
+\item Handbook chapter: Gilles Duranton and Diego Puga. Section 8.2 of ``\href{https://doi.org/10.1016/B978-0-444-59517-1.00008-8}{Urban Land Use}'' 
+\end{itemize}
+Kevin uses unit housing demand, opportunity cost of time, and heterogeneous workers.
+Gilles and Diego use general preferences, commuting costs in units of the numeraire good, and homogenous workers.
+The beauty of the economic logic comes through in both presentations,
+but these details matter for empirical investigations.
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Basic monocentric city model: Setup}
+Like Murphy, our formulation in Davis and Dingel (2020)
+uses unit housing demand, opportunity cost of time, and heterogeneous workers.
+\begin{itemize}
+\item Locations within cities vary in their desirability $\tau$; schedule is $S(\tau)$ 
+\item Relative to DD (2020), assume only one city and ignore sectoral choice $\sigma$
+\item Utility is consumption of the numeraire final good, which is income minus locational cost:
+\begin{equation*}
+U(c,\tau;\omega)
+=
+T(\tau)G(\omega)-r(c,\tau)
+\end{equation*}
+\item In DD (2020), $T'(\tau)<0$ may be interpreted as commuting to CBD, proximity to
+productive opportunities, or consumption value
+\item Commuting time $T(\tau) = 24 - L - \tau$ and $G(\omega)$ is wage of skill $\omega$
+\item Linear city $S(\tau) = \tau$; disc city $S(\tau) = \pi \tau^{2}$
+\item More skilled are more willing to pay for more attractive locations
+\textcolor{gray}{(Net income is supermodular in $G(\omega)$ and $T(\tau)$)}
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Basic monocentric city model: Equilibrium conditions}
+Individuals maximize their utility by their choices of city, location, and sector such that
+\begin{equation*}
+f(c,\omega,\tau)>0\iff\{c,\tau\}\in\arg\max U(c,\tau;\omega)
+\end{equation*}
+Profit maximization by absentee landlords engaged in Bertrand competition causes unoccupied locations to have rental prices of zero,
+\begin{equation*}
+r(c,\tau)\times\left(S'(\tau)-L \int_{\omega\in\Omega}f(\omega,c,\tau)\textrm{d}\omega\right)=0\ \forall c\ \forall\tau
+\end{equation*}
+Single (closed) city has an exogenous population $L(c)$ and skill distribution $F(\omega)$.
+\medskip
+Prior to using a differential equation,
+sketch the outcome for homogenous workers using the dual approach 
+$\bar{U} = U(\tau; \omega) = T(\tau) G(\omega) - r(\tau)$.
+Then consider discrete types of workers.
+\textcolor{gray}{(The dual approach is powerful here, as it is in neoclassical trade theory)}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Basic monocentric city model: Equilibrium solution}
+\textbf{Lemma 6}.
+In autarkic equilibrium,
+there exists a continuous and strictly decreasing locational assignment
+function $N:\bar{\mathcal{T}}(c)\to\Omega$ such that $f(\omega,c,\tau)>0\iff N(\tau)=\omega$,
+$N(0)=\bar{\omega}$ and $N(\bar{\tau}(c))=\underline{\omega}$.
+This assignment function is obtained by equating supply and demand
+of locations: 
+\begin{equation*}
+S(\tau) 
+=
+L\int_{0}^{\tau}\int_{\omega\in\Omega}f(\omega,c,x,\sigma)\textrm{d}\omega\textrm{d} x
+\implies
+N(\tau) 
+=
+F^{-1}\left(\frac{L(c)-S(\tau)}{L(c)}\right)
+\end{equation*}
+\textbf{Lemma 7}.
+In autarkic equilibrium, $r(c,\tau)$
+is continuously differentiable on $\tau\geq0$ and given by \textup{$r(c,\tau)=-A(c)\int_{\tau}^{\bar{\tau}(c)}T'(t)G(N(t))\textrm{d} t$
+for $\tau\leq\bar{\tau}(c)$.}
+The properties of interest in a competitive equilibrium are characterized
+by the assignment function $N:\bar{\mathcal{T}}(c)\to\Omega$.
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Rent and density gradients}
+The monocentric geography produces a negative, convex rent gradient
+\only<1>{(works qualitatively, what about quantitatively?)}
+\only<2>{and 
+not yet an adequate account of the density gradient}
+\only<1>{
+    \includegraphics[height=0.75\textheight]{../images/CombesDurantonGobillon2019_fig1ab.pdf}\\
+    {\scriptsize Combes, Duranton, Gobillon - \href{https://doi.org/10.1093/restud/rdy063}{The Costs of Agglomeration: House and Land Prices in French Cities}}
+}
+\only<2>{\includegraphics[height=0.70\textheight]{../images/DurantonPuga2015_fig1.pdf}\\
+    {\scriptsize \href{https://doi.org/10.1016/B978-0-444-59517-1.00008-8}{Duranton and Puga (2015)}: ``Since monocentricity can always be rejected, the more interesting question is: How monocentric are cities?''\par}
+}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Introducing housing quantities}
+Homogeneous workers, commuting costs in terms of goods, and general preferences:
+$$
+\max U(q,z) \text{ s.t. } r(\tau) q + z + \tau \leq w 
+$$
+The indirect utility function is $V(r(\tau),w - \tau)$.
+Spatial equilibrium means
+$$
+V(r(\tau),w - \tau) = \bar{V}
+\implies
+\frac{\partial V}{\partial r}\frac{\textrm{d} r}{\textrm{d} \tau} 
++
+\frac{\partial V}{\partial y}\frac{\partial y}{\partial \tau}
+=
+0
+\implies
+\frac{\textrm{d} r}{\textrm{d} \tau}
+=
+\frac{\partial V/\partial y}{\partial V/\partial r}
+=
+\frac{-1}{q(\tau)}
+< 0
+$$
+by Roy's identity.
+The Alonso-Becker insight: transform consumption problem into production problem by putting commuting costs in the budget constraint.
+{\footnotesize 
+\textcolor{gray}{(Note $\tau$ is commuting cost, so $\frac{\partial y}{\partial \tau} = -1$. If using distances, $\frac{\partial (w-\tau)}{\partial \text{distance}}$ is in numerator.)}
+\par}
+Substitution effect from Hicksian demand $h$ for housing:
+$$
+\frac{\partial q(r(\tau),\bar{V})}{\partial \tau}
+=
+\frac{\partial q(r(\tau),\bar{V})}{\partial r(\tau)}
+\frac{\textrm{d} r}{\textrm{d} \tau}
+\geq 0
+$$
+{\small 
+See Brueckner (1987) and Duranton and Puga (2015) chapters for details,
+housing supply, and 3 more gradients:
+land price, housing capital intensity, population density.
+\par}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Density gradients have flattened over time}
+\vspace{-4mm}
+$$\ln D (\tau) = \ln D(0) - \gamma \tau$$
+\begin{center}
+\includegraphics{../images/Macauley1985_tab3.pdf}\\ \vspace{-2mm}
+\href{https://doi.org/10.1016/0094-1190(85)90021-X}{Macauley (1985)}
+\end{center}
+Population density gradient is flatter than employment density gradient
+See Ken Jackson's \href{https://en.wikipedia.org/wiki/Crabgrass_Frontier}{\textit{Crabgrass Frontier: The Suburbanization of the United States}}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Multiple transportation technologies}
+\begin{itemize}
+\item Consider a set of transportation technologies with a trade-off between fixed and variable costs (as a function of distance).
+\item For example, walking has the highest variable cost and no fixed cost,
+buses have a lower variable cost and a higher fixed cost, and cars
+have the lowest variable cost and the highest fixed cost.
+\item This makes $\tau$ as a function of distance the upper envelope of these technologies' costs as a function of distance.
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Multiple transport modes and multiple income levels}
+LeRoy and Sonstelie (1983):
+Use the monocentric city model to think about changing income gradients
+(poor centers and rich suburbs vs urban revivals of 1970s and 2000s)
+\begin{itemize}
+\item Contrast cars and buses in terms of fixed monetary cost $f^i$, variable monetary cost $v^i$, and variable time cost $t^i$. Total cost is $f^i + (w t^i + c^i) d$ where $d$ is distance.
+\item Assume $f^{\text{car}} > f^{\text{bus}}$, $v^{\text{car}} > v^{\text{bus}}$, $t^{\text{car}} < t^{\text{bus}}$.
+\item If someone uses cars, it will be the high-wage workers (higher value of time).
+\end{itemize}
+Bid-rent function is maximum price one would pay for housing at distance $d$ while achieving utility $\bar{u}$:
+$$
+\Psi(w,t^{i},d,\bar{u})
+=
+\frac{1}{\bar{h}} \left(w - w t^i d - f^i - u^{-1}(\bar{u})\right)
+$$
+where $\bar{h}$ is fixed housing consumption
+[see \href{https://matthewturner.org/ec2410/lectures/4_LeRoySonstelie_v1.pdf}{Matt Turner's notes}]
+\end{frame}
+% -----------------------------------------
+\begin{frame}{LeRoy and Sonstelie (1983): Possible equilibria}
+\only<1>{A world without cars (``paradise'')}
+\only<2>{A world with cars has rich at center and in suburbs}
+\only<3>{A center without rich if they demand more housing ($\bar{h}_r > \bar{h}_p$)}
+\begin{center}
+\only<1>{
+\includegraphics[height=0.70\textheight]{../images/Turner2023_fig1.pdf}
+}
+\only<2>{
+\includegraphics[height=0.65\textheight]{../images/Turner2023_fig2.pdf}
+}
+\only<3>{
+\includegraphics[height=0.70\textheight]{../images/Turner2023_fig3.pdf}
+}
+\end{center}
+\only<1>{$w_r > w_p$ means rich bus riders outbid poor bus riders for central locations}
+\only<2>{Rich bus riders at center (small $d$):{\scriptsize
+$$
+\frac{1}{\bar{h}} \left(w_r - w_r t^\text{bus} d - f^\text{bus} - u^{-1}(\bar{u})\right)
+>
+\frac{1}{\bar{h}} \left(w_r - w_r t^\text{car} d - f^\text{car} - u^{-1}(\bar{u})\right)
+\iff
+- w_r t^\text{bus} d - f^\text{bus}
+>
+- w_r t^\text{car} d - f^\text{car}
+$$
+}}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{The evolution of income gradients and natural amenities as anchors}
+\begin{center}
+\includegraphics[height=0.90\textheight]{../images/LeeLin2018_fig7.pdf}\\
+\vspace{-5mm}
+{\scriptsize \href{https://doi.org/10.1093/restud/rdx018}{Lee and Lin (2018)}}
+\end{center}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Urban revival and income sorting}
+\begin{center}
+\includegraphics[height=0.9\textheight]{../images/CGHH2023_fig1.pdf}
+\end{center}
+\vspace{-4mm}
+{\footnotesize Model with 2 neighborhoods, 2 income levels, and endogenous amenities}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Agglomeration economies and firm locations}
+\begin{itemize}
+\item
+We might want $w$ at the CBD to depend on the number of workers (agglomeration economies at a single point)
+\item
+Straightforward to have firms use land at center (disc and donut of land use)
+\item
+More complex is producing commercial, residential, and mixed-use locations endogenously 
+as a function of local productivity spillovers and commuting costs
+(Ogawa and Fujita 1980; Fujita and Ogawa 1982; Lucas and Rossi-Hansberg 2002)
+\item
+For Ogawa and Fujita (1980) and Fujita and Ogawa (1982),
+see Fujita and Thisse (2003) monograph and Duranton and Puga (2016) chapter, respectively.
+\item Leverage the bid-rent logic of land allocation across multiple types when firms are one of the bidders
+\item Monocentric city is outcome when productivity spillovers are large relative to commuting costs
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Contrast with quantitative spatial models}
+\href{https://matthewturner.org/papers/unpublished/Thisse_Turner_Ushchev_unp_2021.pdf}{Thisse, Turner, Ushchev (2021)}
+contrast quantitative spatial models and canonical urban model
+\begin{itemize}
+\item QSM features cross-hauling of homogeneous labor, canonical model does not
+\item Canonical model: Commuting costs are a centralizing force when employment is concentrated (e.g., the monocentric case)
+\item Quantitative spatial models: Commuting costs are a centralizing force even when net labor flows are zero
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Cross hauling is prevalent in commuting matrices}
+Grubel-Lloyd (1971) index for intraindustry trade with flows $X_{ij}$:
+$$
+\textrm{GL}_{i}
+\equiv
+1 - \frac{\vert \sum_{j} X_{ij} - \sum_{j} X_{ji} \vert}{\sum_{j} X_{ij} + \sum_{j} X_{ji}}
+$$
+\vspace{-3mm}
+\begin{center}
+\includegraphics[height=0.7\textheight]{../images/grubel_lloyd_counties.png}
+\end{center}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Cross-hauling example: Alameda County CA}
+Alameda (home to Oakland) has a Grubel-Lloyd index of 0.995.
+\begin{center}
+\resizebox{0.7\textwidth}{!}{
+\input{../images/Alameda_county.tex}
+}
+\end{center}
+American Community Survey 2006-2010 county-to-county commuting flows
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Cross hauling in NYC tract-to-tract matrix}
+Looking at tracts, employment is much more concentrated.
+\begin{center}
+\includegraphics[height=0.80\textheight]{../images/grubel_lloyd_NYCtracts.png}
+\end{center}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Locational assignments with multiple cities}
+Davis and Dingel (2020) solve an assignment model in which locational choice is between and within cities.
+The key is to define assignments in terms of a single index and then unveil quantities
+\medskip
+Let's start by the reviewing differential rents model.
+\textcolor{gray}{(see Sattinger \textit{JEL} 1993)}
+In the spirit of Ricardo's analysis of rent, start with land and labor:
+\begin{itemize}
+	\item A plot of land has fertility $\gamma \in\mathbb{R}$
+	\item A farmer has skill $\omega \in\mathbb{R}$
+	\item Profits are $\pi(\gamma,\omega) = p\cdot y(\gamma,\omega) - r(\gamma)$
+\end{itemize}
+Which farmer will use which plot of land?
+\begin{itemize}
+	\item Farmers optimize: $\gamma^{*}(\omega) \equiv \arg\max_{\gamma} \pi(\gamma,\omega)$
+	\item Equilibrium prices $r(\gamma)$ must support the equilibrium assignment of farmers to plots
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Supermodularity}
+\begin{definition}[Supermodularity]
+A function $g:\mathbb{R}^n\to\mathbb{R}$ is \emph{supermodular} if $\forall x,x'\in\mathbb{R}^n$
+\begin{align*}
+g\left(\max\left(x,x'\right)\right) + g\left(\min\left(x,x'\right)\right)\geq g(x) + g(x')
+\end{align*}
+where $\max$ and $\min$ are component-wise operators.
+\end{definition}
+\begin{itemize}
+	\item Supermodularity means the arguments of $g(\cdot)$ are complements
+	\item $g(x)$ is SM in $(x_i,x_j)$ if $g(x_i,x_j;x_{-i,-j})$ is SM 
+	\item $g(x)$ is SM $\iff g(x)$ is SM in $(x_i,x_j)$  $\forall i,j$
+	\item If $g$ is $C^2$, $\frac{\partial^2 g}{\partial x_i \partial x_j}\geq 0 \iff g(x)$ is SM in $(x_i,x_j)$
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Supermodularity implies PAM}
+Positive assortative matching:
+\begin{itemize}
+	\item If $g(x,t)$ is supermodular in $(x,t)$, then $x^{*}(t)\equiv \arg\max_{x\in X} g(x,t)$ is increasing in $t$
+	\item If $y(\gamma,\omega)$ is strictly supermodular (fertility and skill are complements), then $\gamma^{*}(\omega)$ is increasing
+	\item More skilled farmers are assigned to more fertile land
+\end{itemize}
+Why? Suppose not:
+\begin{itemize}
+	\item Suppose $\exists \omega > \omega', \gamma>\gamma'$ where $\gamma' \in \gamma^{*}(\omega), \gamma \in \gamma^{*}(\omega')$
+	\item $\gamma' \in \gamma^{*}(\omega) \Rightarrow p\cdot y(\gamma',\omega) - r(\gamma') \geq p\cdot y(\gamma,\omega) - r(\gamma) \ \forall \gamma$
+	\item $\gamma \in \gamma^{*}(\omega') \Rightarrow p\cdot y(\gamma,\omega') - r(\gamma) \geq p\cdot y(\gamma',\omega') - r(\gamma') \ \forall \gamma'$
+	\item Summing: $p \cdot \left( y(\gamma',\omega) + y(\gamma,\omega') \right) \geq p\cdot \left(y(\gamma,\omega) + y(\gamma',\omega') \right)$
+	\item Would contradict strict supermodularity of $y(\cdot)$
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+% -----------------------------------------
+\begin{frame}{Log-supermodularity (1/2)}
+\begin{definition}[Log-supermodularity]
+A function $g:\mathbb{R}^n\to\mathbb{R}^{+}$ is \emph{log-supermodular} if $\forall x,x'\in\mathbb{R}^n$
+\begin{align*}
+g\left(\max\left(x,x'\right)\right)\cdot g\left(\min\left(x,x'\right)\right)\geq g(x)\cdot g(x')
+\end{align*}
+where $\max$ and $\min$ are component-wise operators.
+\end{definition}
+\begin{itemize}
+	\item Example: $A: \Sigma\times\mathbb{C}\to\mathbb{R}^{+}$, where $\Sigma\subseteq\mathbb{R}$ and $\mathbb{C}\subseteq\mathbb{R}$, with $\sigma>\sigma'$ and $c>c'$
+		\begin{align*}
+		A(\sigma,c)A(\sigma',c')\geq A(\sigma',c)A(\sigma,c')
+		\end{align*}
+	\item $g(x)$ is LSM in $(x_i,x_j)$ if $g(x_i,x_j;x_{-i,-j})$ is LSM 
+	\item $g(x)$ is LSM $\iff g(x)$ is LSM in $(x_i,x_j)$  $\forall i,j$
+	\item $g>0$ and $g$ is $C^2$ $\Rightarrow \frac{\partial^2 \ln g}{\partial x_i \partial x_j}\geq 0 \iff g(x)$ is LSM in $(x_i,x_j)$
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Log-supermodularity (2/2)}
+Three handy properties:
+\begin{enumerate}
+\item If $g,h:\mathbb{R}^n\to\mathbb{R}^{+}$ are log-supermodular, then $gh$ is log-supermodular.
+\item If $g:\mathbb{R}^n\to\mathbb{R}^{+}$ is log-supermodular, then $G(x_{-i})\equiv \int g(x_i,x_{-i})dx_i$ is log-supermodular.
+\item If $g:\mathbb{R}^n\to\mathbb{R}^{+}$ is log-supermodular, then $x_i^* (x_{-i}) \equiv \arg\max_{x_i\in\mathbb{R}} g(x_i,x_{-i})$ is increasing in $x_{-i}$.
+\end{enumerate}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Individual optimization}
+Perfectly mobile individuals simultaneously choose
+\begin{itemize}
+\item A sector $\sigma$ of employment
+\item A city with total factor productivity $A(c)$
+\item A location $\tau$ (distance from ideal) within city $c$
+\end{itemize}
+The productivity of an individual of skill $\omega$ is
+\[
+q(c,\tau,\sigma;\omega)=A(c)T(\tau)H(\omega,\sigma)
+\]
+Utility is consumption of the numeraire final good, which is income minus locational cost:
+\begin{align*}
+U(c,\tau,\sigma;\omega) & =q(c,\tau,\sigma;\omega)p(\sigma)-r(c,\tau)\\
+ & =A(c)T(\tau)H(\omega,\sigma)p(\sigma)-r(c,\tau)
+\end{align*}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Sectoral choice}
+\begin{itemize}
+\item Individuals' choices of locations and sectors are separable: 
+\begin{align*}
+\arg\max_{\sigma}\underbrace{A(c)T(\tau)}_{\textnormal{locational}}\underbrace{H(\omega,\sigma)p(\sigma)}_{\textnormal{sectoral}}-r(c,\tau)=\arg\max_{\sigma}H(\omega,\sigma)p(\sigma)
+\end{align*}
+\item $H(\omega,\sigma)$ is log-supermodular in $\omega,\sigma$ and strictly increasing in $\omega$
+\item Comparative advantage assigns high-$\omega$ individuals to high-$\sigma$ sectors
+\item Absolute advantage makes more skilled have higher incomes ($G(\omega)=\max_{\sigma}H(\omega,\sigma)p(\sigma)$
+is increasing)
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Locational choice}
+\begin{itemize}
+\item \textcolor{black}{A location's attractiveness ${\color{red}\gamma}=A(c)T(\tau)$
+depends on $c$ and $\tau$}
+\item $T'(\tau)<0$ may be interpreted as commuting to CBD, proximity to
+productive opportunities, or consumption value
+\item More skilled are more willing to pay for more attractive locations
+\item Equally attractive locations have same rental price and skill type
+\item Location in higher-TFP city is farther from ideal desirability
+\begin{align*}
+\gamma=A(c)T(\tau)=A(c')T(\tau')\\
+A(c)>A(c')\Rightarrow\tau>\tau'
+\end{align*}
+\item Locational hierarchy: A smaller city's locations are a subset of larger
+city's in terms of attractiveness: $A(c)T(0)>A(c')T(0)$ 
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Single-index assignment function}
+\begin{itemize}
+\item Label cities from $1$ to $C$ so $A(C)\geq A(C-1)\geq\dots\geq A(2)\geq A(1)$.
+\item Denote attractiveness levels occupied in equilibrium by
+    $\Gamma\equiv[\underline{\gamma},\bar{\gamma}]$, where $\underline{\gamma}\equiv A(C)T(\bar{\tau}(C)$
+    and $\bar{\gamma}\equiv A(C)T(0)$.
+\item In equilibrium, there exists a continuous and strictly increasing locational assignment function $K:\Gamma\to\Omega$ such that (i) $f(\omega,c,\tau)>0\iff A(c)T(\tau)=\gamma$ and $K(\gamma)=\omega$, and (ii) $K(\underline{\gamma})=\underline{\omega}$ and $K(\bar{\gamma})=\bar{\omega}$.
+\item Denote the supply of locations across all cities combined with
+attractiveness $\gamma$ or greater by
+\[
+S_{\Gamma}(\gamma)=\sum_{c:A(c)T(0)\geq\gamma}S\left(T^{-1}\left(\frac{\gamma}{A(c)}\right)\right).
+\]
+$S_{\Gamma}(\bar{\gamma})=0$ and $S_{\Gamma}(\underline{\gamma})=L$.
+$S_{\Gamma}(\gamma)=L\int_{\gamma}^{\bar{\gamma}}f(K(x))K'(x) \textrm{d} x$,
+so $K(\gamma)=F^{-1}\left(\frac{L-S_{\Gamma}(\gamma)}{L}\right)$.
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Equilibrium distributions}
+\begin{itemize}
+\item Skill and sectoral distributions reflect distribution of locational
+attractiveness: Higher-$\gamma$ locations occupied by higher-$\omega$
+individuals who work in higher-$\sigma$ sectors
+\item Locational hierarchy $\Rightarrow$ hierarchy of skills and sectors
+\item The distributions $f(\omega,c)$ and $f(\sigma,c)$ are log-supermodular
+if and only if the supply of locations with attractiveness $\gamma$
+in city $c$, $s(\gamma,c)$, is log-supermodular 
+\begin{align*}
+s(\gamma,c)= & \begin{cases}
+\frac{1}{A(c)}V\left(\frac{\gamma}{A(c)}\right) & \textnormal{if }\gamma\leq A(c)T(0)\\
+0 & \textnormal{otherwise}
+\end{cases}
+\end{align*}
+where\textrm{ $V(z)\equiv-\frac{\partial}{\partial z}S\left(T^{-1}(z)\right)$
+is }the supply of locations with innate desirability $\tau$ such
+that $T(\tau)=z$
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{When is $s(\gamma,c)$ log-supermodular?}
+\begin{proposition}[Locational attractiveness distribution]
+\label{prop:LocationDistribution}The supply of locations of attractiveness
+$\gamma$ in city $c$, $s(\gamma,c)$, is log-supermodular if and
+only if the supply of locations with innate desirability \textrm{\textup{$T^{-1}(z)$}}
+within each city, $V(z)$, has a decreasing elasticity.\end{proposition}
+\begin{itemize}
+\item Links each city's exogeneous distribution of locations, $V(z)$, to
+endogenous equilibrium locational supplies $s(\gamma,c)$
+\item Informally, ranking relative supplies is ranking elasticities of $V(z)$
+\[
+s(\gamma,c)\propto V\left(\frac{\gamma}{A(c)}\right)\Rightarrow\frac{\partial\ln s(\gamma,c)}{\partial\ln\gamma}=\frac{\partial\ln V\left(\frac{\gamma}{A(c)}\right)}{\partial\ln z}
+\]
+\item Satisfied by the canonical von Th\"{u}nen/monocentric geography
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Next week and the week after}
+Next week: No class
+\bigskip
+November 16: Spatial sorting of skills and sectors
+\end{frame}
+% -----------------------------------------
+\end{document}
