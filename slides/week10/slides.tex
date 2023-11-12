@@ -1,0 +1,855 @@
+\documentclass[11pt,notes=hide,aspectratio=169]{beamer}
+\input{../week00/slides_settings.tex}
+\setbeamertemplate{footline}{\begin{center}\textcolor{gray}{Dingel -- Topics in Trade -- Week 10 -- \insertframenumber}\end{center}}
+\newcommand{\beginbackup}{
+   \newcounter{framenumbervorappendix}
+   \setcounter{framenumbervorappendix}{\value{framenumber}}
+}
+\newcommand{\backupend}{
+  \addtocounter{framenumbervorappendix}{-\value{framenumber}}
+  \addtocounter{framenumber}{\value{framenumbervorappendix}} 
+}
+\begin{document}
+% -----------------------------------------
+\begin{frame}[plain]
+\begin{center}
+\large
+\textcolor{columbiadarkblue}{ECON G6905\\
+Topics in Trade\\ 
+Jonathan Dingel\\
+Autumn \the\year, Week 10}
+\vfill 
+\includegraphics[width=0.4\textwidth]{../images/Columbia_logo.png}
+\end{center}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Today: Spatial Sorting of Skills and Sectors}
+My goal is to tackle three questions:
+\begin{itemize}
+	\item Why should we care about spatial sorting?
+	\item How should we characterize skills and sectors?
+	\item What tools are relevant for building and estimating models?
+\end{itemize}
+\vspace{5mm}
+We'll discuss two papers in detail:
+\begin{itemize}
+	\item Davis \& Dingel - A Spatial Knowledge Economy
+	\item Diamond - The Determinants and Welfare Implications of US Workers' Diverging Location Choices by Skill: 1980-2000 
+\end{itemize}
+See also Davis \& Dingel - The Comparative Advantage of Cities mentioned last week
+\end{frame}
+% -----------------------------------------
+% -----------------------------------------
+\begin{frame}{Spatial distributions of skills and sectors} 
+Why should we care about the spatial distributions of skills and sectors?
+\begin{enumerate}
+	\item They vary a lot
+	\item They covary with city characteristics
+	\item They're often the basis for identification 
+	\item They should help us understand how cities work
+\end{enumerate}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Spatial distributions of skills and sectors}
+\begin{itemize}
+	\item Public discussion describes US cities in terms of skills and sectors
+	\item Ranking cities by educational attainment is a popular media exercise
+	\begin{center}
+	\raisebox{-0.5\height}{\href{http://www.marketwatch.com/story/the-10-smartest-cities-in-america-2015-01-02}{\includegraphics[width=0.45\textwidth]{../images/week10/smartestcities_marketwatch.png}}}
+	\raisebox{-0.5\height}{\href{http://www.businessinsider.com/the-25-most-educated-cities-in-america-2014-9}{\includegraphics[width=0.45\textwidth]{../images/week10/mosteducatedcities_businessinsider.png}}}
+	\end{center}
+	\item Place names are shorthand for sectors
+	\begin{center}
+	\raisebox{-0.5\height}{\includegraphics[width=0.3\textwidth]{../images/week10/wallstreetsign.jpeg}}
+	\raisebox{-0.5\height}{\includegraphics[width=0.4\textwidth]{../images/week10/Silicon_valley_title.png}}
+	\raisebox{-0.5\height}{\includegraphics[width=0.2\textwidth]{../images/week10/detroitbigthree.jpg}}
+	\end{center}
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Educational attainment varies a lot across cities}
+	\begin{center}
+	Share of population 25 and older with bachelor's degree or higher
+	\includegraphics[height=0.76\textheight]{../images/week10/CBSA_2009ACS_baplus_48states.pdf} \\
+	\scriptsize{\textsc{Data source:} \href{http://www.census.gov/programs-surveys/acs/data.html}{American Community Survey}, 2005-2009, Series S1501
+	\hfill \textsc{Plot:} CBSAs for \href{https://michaelstepner.com/maptile/}{maptile}}
+	\end{center}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Sectoral composition varies a lot across cities}
+	\begin{center}
+	Employment share of Professional, Scientific, and Technical Services
+	\includegraphics[height=0.76\textheight]{../images/week10/CBSA_2009_techservicesshare.pdf}\\
+	\scriptsize{\textsc{Data source:} \href{http://www2.census.gov/econ2009/CBP_CSV/}{County Business Patterns}, 2009, NAICS 54
+	\hfill \textsc{Plot:} CBSAs for \href{https://michaelstepner.com/maptile/}{maptile}}
+	\end{center}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{They covary with city characteristics}
+	\begin{center}
+	\only<1>{
+	Populations of three educational groups across US metropolitan areas\\
+	\includegraphics[height=.9\textheight]{../images/week10/CAC_figure1_edu.pdf}\\
+	\vspace{-2mm}
+	\scriptsize{\textsc{Data source:}  2000 Census of Population microdata via \href{https://usa.ipums.org/usa/}{IPUMS-USA}}
+	}
+	\only<2>{
+	Employment in three occupations across US metropolitan areas\\
+	\includegraphics[height=.9\textheight]{../images/week10/CAC_figure2_occ.pdf}\\
+	\vspace{-2mm}
+	\scriptsize{\textsc{Data source:} \href{http://www.bls.gov/oes/2000/oessrcma.htm}{Occupational Employment Statistics 2000}}
+	}
+	\only<3>{
+	\includegraphics[width=.45\textwidth]{../images/week10/CAC_figure1_edu.pdf}
+	\includegraphics[width=.45\textwidth]{../images/week10/CAC_figure2_occ.pdf}
+	}
+	\end{center}
+\only<3>{
+Skills and sectors are strongly linked to cities' sizes
+\begin{enumerate}[(a)]
+	\item Confounds inference: Agglomeration benefits vs compositional effects
+	\item Confounds counterfactuals: Making NYC 10x larger raises finance's share of national employment and GDP
+\end{enumerate}
+}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{They're often the basis for identification}
+JMPs by Notowidigdo, Diamond, and Yagan
+\begin{itemize}
+	\item Theory: all locations produce a homogeneous good
+	\item Empirics: exploit variation in industrial composition to estimate model parameters via shifts in local labor demand
+	\item Shift-share instrument: local composition $\times$ national changes
+\end{itemize}
+What variation does the instrument exploit?
+\begin{itemize}
+	\item Skill mix vs industrial mix (e.g. endogenous local SBTC - \href{http://www.jstor.org/stable/10.1086/658371}{Beaudry, Doms, Lewis 2010})
+	\item City characteristics covarying with skills and sectors highlight exclusion-restriction assumptions 
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{They should help us understand how cities work}
+\begin{itemize}
+	\item Why do different people and different businesses locate in different places?
+	\item The answers should be crucial to understanding how cities work
+	\item Which elements of the Marshallian trinity imply we'll find finance and dot-coms in big cities?
+	\item Coagglomeration (\href{https://www.aeaweb.org/articles.php?doi=10.1257/aer.100.3.1195}{Ellison Glaeser Kerr 2010}) and heterogeneous agglomeration (\href{https://ideas.repec.org/p/ehl/lserod/58426.html}{Faggio, Silva, Strange 2015}) can provide clues
+	\item \href{https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3736487}{Eckert, Ganapati, Walsh (2020)}: Growth since 1980 has been faster in larger cities and it's all about ``skilled scalable services''
+	\item Theory is laggard: Most models of sectoral composition are polarized, with \emph{specialized} cities that have only one tradable sector and \emph{perfectly diversified} cities that have all the tradable sectors (\href{http://www.jstor.org/stable/10.1086/676557}{Helsley and Strange 2014})
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Spatial distributions of skills and sectors}
+How should we characterize skills and sectors?
+\begin{itemize}
+	\item Important question for both theory and empirics
+\end{itemize}
+A richer depiction of firms and workers improves realism, but\dots
+\begin{itemize}
+	\item more types threaten to make theoretical models intractable
+	\item more types increase the burden of finding instruments
+\end{itemize}
+While the trade-offs are specific to the research question under investigation, we can start by asking: Are two skill groups enough?
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Spatial equilibrium with two skill groups}
+A simple starting point
+\begin{enumerate}
+	\item Two skill groups, $s \in \{L,H\}$
+	\item Spatial equilibrium: $U_s(A_c,w_{s,c},p_{c}) = U_s(A_{c'},w_{s,c'},p_{c'}) \ \forall c,c' \ \forall s$
+	\item Homotheticity: $U_s(A_{c},w_{s,c},p_{c}) = \frac{w_{s,c}}{A_{c} p_{c}}$
+\end{enumerate}
+\vspace{1mm}
+\pause 
+\begin{columns}
+\begin{column}{0.40\textwidth}
+These jointly imply that relative wages are spatially invariant:
+\begin{align*}
+\frac{w_{H,c}}{A_{c} p_{c}} = \frac{w_{H,c'}}{A_{c'} p_{c'}} \quad&\textnormal{ and }\quad \frac{w_{L,c}}{A_{c} p_{c}} = \frac{w_{L,c'}}{A_{c'} p_{c'}} \\
+\Rightarrow \frac{w_{H,c}}{w_{L,c}} &= \frac{w_{H,c'}}{w_{L,c'}} \ \forall c,c'
+\end{align*}
+\end{column}
+\begin{column}{0.58\textwidth}
+	\begin{tikzpicture}[range=0:100,scale=0.60,thick,font=\normalsize]
+	\begin{axis}[
+		xmin=0, xmax=10, ymin=0, ymax=10, xticklabels=\empty, yticklabels=\empty, clip=false, axis lines=left, xtick=\empty, ytick=\empty,
+	]
+	% Curves
+	\addplot [black, line width = 1, smooth, domain=1:8.5] {9.5 - x} node[right,color=black,align=left]{Relative demand};
+	\addplot [black, line width = 1, smooth, domain=0:10] {5} node[right,color=black,align=left]{Relative supply \\ (Rosen-Roback)};
+	% Labels
+	\node [below] at (100,-1) {${Q_H}/{Q_L}$};
+	\node [left] at (-1,100) {${w_H}/{w_L}$};
+	\end{axis}
+	\end{tikzpicture}
+\end{column}
+\end{columns}
+\vspace{1mm}
+{\scriptsize
+	Differences in productivity ``tend to show up exclusively in changes in quantities of skilled people, not in different returns to skilled people across space'' (Glaeser 2008)
+\par}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{There is systematic spatial variation in skill premia}
+\only<1>{
+\begin{center}
+College wage premia are higher in larger cities\\
+\includegraphics[height=.80\textheight]{../images/week10/2000_PMSA_narrow_5_naive_population.pdf}\\
+\footnotesize{Davis and Dingel ``A Spatial Knowledge Economy''}
+\end{center}
+}
+\only<2>{
+\begin{center}
+This pattern is getting stronger over time\\
+\includegraphics[height=.80\textheight]{../images/week10/BaumSnowPavan2013fig3.pdf}\\
+\footnotesize{\href{http://www.mitpressjournals.org/doi/pdf/10.1162/REST_a_00328}{Baum-Snow and Pavan, ``Inequality and City Size'', 2013}}
+\end{center}
+}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{How to proceed?}
+This simple model fails: skill premia are higher in larger cities
+\begin{equation*}
+\frac{w_{H,c}}{w_{L,c}} \neq \frac{w_{H,c'}}{w_{L,c'}}
+\end{equation*}
+\begin{center}
+	\begin{tikzpicture}[range=0:100,scale=0.45,thick,font=\normalsize]
+	\begin{axis}[
+		xmin=0, xmax=10, ymin=0, ymax=10, xticklabels=\empty, yticklabels=\empty, clip=false, axis lines=left, xtick=\empty, ytick=\empty,
+	]
+	% Curves
+	\addplot [black, line width = 1, smooth, domain=1:8.5] {9.5 - x} node[right,color=black,align=left]{Relative demand};
+	\addplot [black, line width = 1, smooth, domain=0:10] {5} node[right,color=black,align=left]{Relative supply \\ (Rosen-Roback)};
+	% Labels
+	\node [below] at (100,-1) {${Q_H}/{Q_L}$};
+	\node [left] at (-1,100) {${w_H}/{w_L}$};
+	\end{axis}
+	\end{tikzpicture}
+\end{center}
+%}
+Three possible routes to take
+\begin{enumerate}
+\item Upward-sloping local labor supplies \only<2->{(\href{http://www.jstor.org/stable/1837178}{Topel}, \href{https://ideas.repec.org/h/eee/labchp/5-14.html}{Moretti}, \href{https://www.aeaweb.org/articles?id=10.1257/aer.20131706}{Diamond})}
+\item Non-homothetic preferences \only<2->{(\href{https://ideas.repec.org/a/ucp/jlabec/v27y2009i1p21-47.html}{Black, Kolesnikova, Taylor 2009})}
+\item More than two skill groups \only<2->{(My focus)}
+\end{enumerate}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Spatial equilibrium and skill premia (two types; homothetic prefs)}
+\begin{center}\vspace{-2mm}
+\begin{tikzpicture}[range=0:200,scale=1.0,thick,font=\normalsize]
+\begin{axis}[
+	xmin=0, xmax=10, ymin=0, ymax=10, xticklabels=\empty, yticklabels=\empty, clip=false, axis lines=left, xtick=\empty, ytick=\empty,
+]
+% Curves
+\addplot [black, line width = 1, smooth, domain=1:8.5] {9.5 - x} node[right,color=black,align=left]{Relative demand};
+\only<1>{\addplot [black, line width = 1, smooth, domain=0:10] {5} node[right,color=black,align=left]{Relative supply \\ (Rosen-Roback)};}
+\only<2-3>{\addplot [black, line width = 1, smooth, domain=0:9] {x} node[right,color=black,align=left]{Relative supply \\ (Topel-Moretti-Diamond)};}
+\only<3>{\addplot [red, line width = 1, smooth, domain=1:9] {11 - x} node[right,color=black,align=left]{Skill-biased agglomeration};}
+% Labels
+\node [below] at (current axis.right of origin) {${Q_H}/{Q_L}$};
+\node [left] at (current axis.above origin) {${w_H}/{w_L}$};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Preferences are not homothetic}
+Relative prices in big cities are lower for income-elastic goods
+\begin{itemize}
+\item Income elasticity of housing demand is less than one:\\
+Albouy, Ehrlich, and Liu (2016), Finlay and Williams (2022)
+\item Beyond housing, spatial variation in income-elastic tradable goods:\\
+Dingel (2017), Handbury (2021), Onoda (2023)
+\end{itemize}
+This increases relative supply of skill in larger cities
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Spatial equilibrium and skill premia (two types)}
+\begin{center}
+\vspace{-3mm}
+\begin{tikzpicture}[range=0:200,scale=1.0,thick,font=\normalsize]
+\begin{axis}[
+	xmin=0, xmax=10, ymin=0, ymax=10, xticklabels=\empty, yticklabels=\empty, clip=false, axis lines=left, xtick=\empty, ytick=\empty,
+]
+% Curves
+\addplot [black, line width = 1, smooth, domain=1:8.5] {9.5 - x} node[right,color=black,align=left]{Relative demand};
+\only<2>{\addplot [red, line width = 1, smooth, domain=2:9] {12 - x} node[right,color=black,align=left]{Skill-biased agglomeration};}
+\only<1>{
+\addplot [black, line width = 1, smooth, domain=0:10] {6} node[right,color=black,align=left]{Relative supply};
+\addplot [blue, line width = 1, smooth, domain=0:10] {4} node[right,color=black,align=left]{Big-city relative supply\\(BKT 2009, Lee 2010)};
+}
+\only<2>{
+\addplot [black, line width = 1, smooth, domain=0:9] {x} node[right,color=black,align=left]{Relative supply};
+\addplot [blue, line width = 1, smooth, domain=1:9] {x-1} node[right,color=black,align=left]{Big-city relative supply};
+}
+% Labels
+\node [below] at (current axis.right of origin) {${Q_H}/{Q_L}$};
+\node [left] at (current axis.above origin) {${w_H}/{w_L}$};
+\only<1>{\node [right] at (50,85) {$ \frac{w_{H,c}}{P_{H,c}} = \frac{w_{H,c'}}{P_{H,c'}} , \frac{w_{L,c}}{P_{L,c}} = \frac{w_{L,c'}}{P_{L,c'}} , P_{H,c} \neq P_{L,c} $};}
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\vspace{-5mm}
+\only<1>{\footnotesize Black, Kolesnikova, Taylor (2009): ``if the income elasticity of housing is less than one\dots the return to education is lower in cities that are more expensive''\par}
+\only<2>{With two types (or more), the explanation for spatial variation in relative prices and relative quantities
+lies in skill-biased agglomeration.\par}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{A continuum of skills}
+Recent research works with a continuum of skills
+\begin{itemize}
+	\item High-dimensional: Infinite types of individuals
+	\item One-dimensional: Skills are ordered
+\end{itemize}
+A few reasons to take this route
+\begin{enumerate}
+	\item Dichotomous results depend on dichotomous definitions
+	\item Broad categories miss important variation
+	\item Continuum case can be quite tractable
+\end{enumerate}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Two types in theory and practice}
+Two-type models can be simple -- but what about two-type empirics?
+\begin{itemize}
+	\item Omit types: Our plot of college wage premia was bachelor's degrees vs HS diplomas -- use only 45\% of population to test price prediction
+	\item Convert quantities to ``equivalents'': ``one person with some college is equivalent to a total of 0.69 of a high school graduate and 0.29 of a college graduate'' (\href{http://www.jstor.org/stable/2118323}{Katz \& Murphy 1992}, p.68)
+\end{itemize}
+\pause Results may be sensitive to dichotomous definitions
+\begin{itemize}
+	%\item Berry \& Glaeser (2005): ``US metropolitan areas with more college graduates in 1990 became increasingly skilled over the 1990s''
+	\item \href{https://www.aeaweb.org/articles?id=10.1257/aer.20131706}{Diamond (2016)}: ``A MSA's share of college graduates in 1980 is positively associated with larger growth in its share of college workers from 1980 to 2000''
+	\item \href{https://www.aeaweb.org/articles?id=10.1257/app.20160510}{Baum-Snow, Freedman, Pavan (2015)}: ``Diamond's result does not hold for CBSAs if those with some college education are included in the skilled group.''
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Dichotomous approach misses relevant variation}
+\begin{itemize}
+	\item In labor economics, the canonical two-skill model ``is largely silent on a number of central empirical developments of the last three decades'', such as wage polarization and job polarization (\href{http://www.sciencedirect.com/science/article/pii/S0169721811024105}{Acemoglu and Autor 2011})
+	\item There is systematic variation across cities in terms of finer observable categories: population elasticities for high school graduates (.925), associate's degree (0.997), bachelor's degree (1.087), and professional degree (1.113) (Davis and Dingel 2020)
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Do broad categories miss important variation?}
+Contrasting views
+\begin{itemize}
+	\item  ``Workers in cities with a well-educated labor force are likely to have unobserved characteristics that make them more productive than workers with the same level of schooling in cities with a less-educated labor force. For example, a lawyer in New York is likely to be different from a lawyer in El Paso, TX.'' (\href{https://ideas.repec.org/h/eee/regchp/4-51.html}{Moretti 2004, p.2246})
+	\item[] {\small Similar jobs require different tasks and technologies in larger cities (\href{http://www-personal.umich.edu/~ssotelo/research/AST_geography.pdf}{Atalay, Sotelo, Tannenbaum 2021})}
+	\item ``Within broad occupation or education groups, there appears to be little sorting on ability'' (\href{http://diegopuga.org/research/dreams.pdf}{de la Roca, Ottaviano, Puga 2014})
+\end{itemize}
+Data sources for ``no sorting'' evidence
+\begin{itemize}
+	\item NLSY79: Longitudinal study of about 11,000 US individuals
+	\item Spanish tax data 2004-2009: 150,375 workers (\href{https://academic.oup.com/restud/article/84/1/106/2669971}{de la Roca and Puga 2017})
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Do broad categories miss important variation?}
+{\small National Longitudinal Survey of Youth 1979}
+\begin{itemize}{\footnotesize
+	\item \href{http://econpapers.repec.org/article/eeejuecon/v_3a65_3ay_3a2009_3ai_3a2_3ap_3a136-153.htm}{Bacolod, Blum, Strange (2009)}: ``The mean AFQT scores do not vary much across [four] city sizes'' within occupational categories
+	\item BBS observe only one sales person in MSAs with 0.5m -- 1.0m residents (10th and 90th percentiles of AFQT are equal) \hyperlink{BBS2009tab5}{\beamergotobutton{table}}
+	\item \href{https://ideas.repec.org/a/oup/restud/v79y2012i1p88-127.html}{Baum-Snow \& Pavan (2012)}: Estimated finite-mixture model implies ``sorting on unobserved ability within education group\dots contribute little to observed city size wage premia.''
+	\item BSP use NLSY79 data on 1754 white men; 583 have bachelor's degree or more; college wage premia don't rise with city size \hyperlink{BSPvsCensus}{\beamergotobutton{table}}
+}\end{itemize} 
+{\small Spanish tax data (\href{https://academic.oup.com/restud/article/84/1/106/2669971}{de la Roca and Puga 2017})}
+\begin{itemize}{\footnotesize
+	\item 150,375 workers and 37,443 migrations
+	\item Assume random migration conditional on observables
+	\item Little sorting within five educational categories
+}\end{itemize}
+{\small US Longitudinal Employer-Household Dynamics (\href{https://www.nber.org/papers/w31587}{Card, Rothstein, Yi 2023})}
+\begin{itemize}{\footnotesize
+	\item 2/3 of spatial variation in college wage premia is variation in relative skills
+}\end{itemize}
+\hypertarget{NLSY_main}{}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Bringing more data to bear on sorting}
+\begin{itemize}
+	\item Baccalaureate and Beyond tracks a cohort graduating from four-year colleges in 1993 
+	\item In 2003, look at 2300 white individuals who obtained no further education after bachelor's degree and now live in a PMSA
+	\item Look at variation in SAT scores across cities -- all variation is within the finest age-race-education cell in typical public data sets
+	\item Mean SAT score in metros with more than 3.25m residents is 40 points higher than metros with fewer than 0.57m residents
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Sorting within observable demographic cells}
+\begin{itemize}
+	\item Mean SAT score in metros with more than 3.25m residents is 40 points higher than metros with fewer than 0.57m residents
+	\item Full distribution suggests stochastic dominance
+	\begin{center}\includegraphics[height=.70\textheight]{../images/week10/SATscore3_trimmed.pdf}\end{center}
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{The continuum case}
+Why work with a continuum?
+\begin{itemize}
+	\item Evidence for sorting on characteristics that are typically not observed
+	\item Need at least five types to capture sorting on observables in the sense of de la Roca and Puga (2017)
+	\item Modeling a finite, particular number of types is potentially painful
+\end{itemize}
+Continuum case can be quite tractable
+\begin{itemize}
+	\item Recent work: \href{https://ideas.repec.org/a/ucp/jpolec/doi10.1086-675534.html}{Behrens, Duranton, Robert-Nicoud (2014)}, \href{http://faculty.chicagobooth.edu/jonathan.dingel/}{Davis and Dingel (2019, 2020)}, \href{https://www.aeaweb.org/articles?id=10.1257/aer.20150361}{Gaubert (2018)}, \href{http://www.sciencedirect.com/science/article/pii/B9780444595171000040}{Behrens and Robert-Nicoud (\emph{Handbook} 2015)}
+	\item These papers rely on tools from the assignment literature
+	\item Assignments of individuals/firms to cities, with endogenous city characteristics determined in equilibrium
+	\item Davis and Dingel (2020) speak to both skills and sectors
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{ Davis \& Dingel - A Spatial Knowledge Economy}
+We have models of: 
+\begin{itemize}
+	\item Knowledge spillovers as a pure externality (one interpretation of Henderson 1974, Black 1999, Lucas 2001)
+	\item Endogenous exchange of ideas in a single (or symmetric) location(s) (Helsley and Strange 2004, Berliant, Reed III, and Wang 2006, Berliant and Fujita 2008, Lucas and Moll 2011)
+\end{itemize}
+Our contribution:
+\begin{itemize}
+	\item Introduce a model of a system of cities in which costly idea exchange is the agglomeration force 
+	\item Our model replicates a broad set of established facts about the cross section of cities
+	\item We provide a spatial-equilibrium explanation of why skill premia are higher in larger cities and how this emerges from symmetric fundamentals
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Model summary}
+Our model's core components: 
+\begin{itemize}
+\item Spatial equilibrium -- zero mobility costs 
+\item Heterogeneous workers -- continuum of abilities 
+\item Two sectors: 
+\begin{itemize}
+	\item Tradables: Labor heterogeneity matters for productivity
+	\item Non-tradables: Homogeneous productivity
+\end{itemize}
+\item Skilled tradables sector has local learning opportunities 
+\begin{itemize}
+	\item Workers choose to spend time exchanging ideas 
+	\item Gains from interactions increasing in own ability and peers' ability
+\end{itemize}
+\item Congestion costs make housing more expensive in larger cities 
+\item Workers choose locations, occupations, and time spent exchanging ideas 
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Preferences and congestion}
+\begin{itemize}
+	\item Preferences: Unit demand for housing and $\bar{n}$-unit demand for non-tradable:
+	\begin{equation*}
+	V(p_{n,c},p_{h,c},y)= y-p_{n,c}\bar{n}-p_{h,c}. \label{indirect_utility}
+	\end{equation*}
+	\item Each individual in a city of population $L_c$ pays a net urban cost (in units of the numeraire) of 
+	\begin{equation*}
+	p_{h,c} = \theta L_c^\gamma
+	\end{equation*}
+	\item Individuals are perfectly mobile across cities and jobs, so their locational and occupational choices maximize $V(p_{n,c},p_{h,c},y)$.
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Production}
+\begin{itemize}
+	\item An individual can produce tradables ($t$) or non-tradables ($n$)
+	\item An individual working in sector $\sigma$ earns income equal to the value of her output, which is
+		\begin{equation*}
+		y =  \Bigg\{\begin{array}{cc}
+		p_{n,c} & \textnormal{ if } \sigma = n \\
+		\tilde{z}(z,{Z}_{c})  & \textnormal{ if } \sigma = t \end{array}
+		\end{equation*}
+	\item Tradables production depends on own ability $(z)$, time spent producing ($\beta$), time spent exchanging ideas ($1-\beta$), and local learning opportunities $(Z_{c})$:
+		\begin{equation*}
+		\tilde{z}(z,Z_c) = \max_{\beta\in[0,1]} B(1-\beta,z,Z_c)
+		\end{equation*}
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Idea exchange}
+Tradables production:
+		\begin{equation*}
+		\tilde{z}(z,Z_c) = \max_{\beta\in[0,1]} B(1-\beta,z,Z_c)
+		\end{equation*}
+\begin{itemize}
+\item Scalar $Z_c$ depends on time-allocation decisions of all agents in $c$. 
+\item Denote idea-exchange time of ability $z$ in city $c$ by $1-\beta_{z,c}$ 
+\item Denote local ability distribution $\mu(z,c)$, where $\frac{\mu(z,c)}{\mu(z)}$ is the share of $z$ in $c$.
+		\begin{equation*}
+		Z_c = Z(\{1-\beta_{z,c}\},\{\mu(z,c)\}). \label{eqn:bigZfunction}
+		\end{equation*}
+\item Denote total time devoted to learning by tradables producers in city $c$ by $M_c$
+\begin{equation*}
+M_{c} = L \int_{z: \sigma(z)=t}(1-\beta_{z,c})\mu(z,c) dz.
+\end{equation*}
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Idea exchange: General assumptions}
+\begin{itemize}
+{\small
+\item \textbf{Assumption 1}. 
+The production function for tradables
+$B(1-\beta,z,Z_c)$ is continuous,
+strictly concave in $1-\beta$,
+strictly increasing in $z$, and increasing in $Z_c$.
+$B(1-\beta,z,0)=\beta z$ and $B(0,z,Z_c)=z$ $\forall z$.
+\item \textbf{Assumption 2}. 
+Tradables output $\tilde{z}(z,Z_c)$ is supermodular and
+is strictly supermodular on $\otimes \equiv \{(z,Z): \tilde{z}(z,Z)>z\}$.
+\item \textbf{Assumption 3}. 
+The idea-exchange functional
+$Z(\{1-\beta_{z,c}\},\{L\cdot\mu(z,c)\})$
+is continuous, equal to zero if $M_c=0$, and bounded above by $\sup \{z:1-\beta_{z,c}>0,\mu(z,c)>0\}$.
+If  $M_{c} > M_{c'}$ and $\{(1-\beta_{z,c})\mu(z,c)\}$ stochastically dominates $\{(1-\beta_{z,c'})\mu(z,c')\}$,
+then $Z(\{1-\beta_{z,c}\},\{L\cdot\mu(z,c)\})>Z(\{1-\beta_{z,c'}\},\{L\cdot\mu(z,c')\})$.
+}
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Idea exchange: Special case}
+For some of our analysis, we focus on particular functional forms for $B(\cdot)$ and $Z(\cdot)$:
+\begin{align*}
+&B(1-\beta,z,Z_c) = {\beta}z(1+(1-\beta)A{Z}_{c}z) \\
+&Z(\{(1-\beta_{z,c}),\mu(z,c)\})  = \left(1-\exp(-\nu M_c) \right) \bar{z}_{c} \\
+\bar{z}_{c} & =\Bigg\{\begin{array}{cc}
+\int_{z: \sigma(z)=t}\frac{(1-\beta_{z,c})z}{\int_{z: \sigma(z)=t}(1-\beta_{z,c})\mu(z,c) dz}\mu(z,c) dz & \textnormal{ if }M_{c}>0\\
+0 & \textnormal{ otherwise } \nonumber
+\end{array} 
+\end{align*}
+\begin{itemize}
+	\item Random matching: Probability of encounter during each moment of time spent seeking idea exchanges is $\left(1-\exp(-\nu M_c) \right)$
+	\item $M_{c}$ is the total time devoted to idea exchange
+	\item $\bar{z}_{c}$ is the average ability of the individuals encountered
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Two lemmas}
+\begin{lemma}[Comparative advantage]
+\label{lemma:ComparativeAdvantage}
+Suppose that Assumption 1 holds. There is an ability level $z_m$ such that individuals of greater ability produce tradables and individuals of lesser ability produce non-tradables. 
+\begin{align*}
+\sigma(z) =  \Bigg\{\begin{array}{cc}
+t & \textnormal{ if } z > z_m \\
+n & \textnormal{ if } z < z_m \end{array}
+\end{align*}
+\end{lemma} 
+\begin{lemma}[Spatial sorting of tradables producers engaged in idea exchange]\label{lemma:spatialsorting}
+Suppose that Assumption 2 holds. For $z>z'>z_m$, if $\mu(z,c)>0$, $\mu(z',c')>0$, $\beta(z,Z_{c})<1$, and $\beta(z',Z_{c'})<1$, then $Z_c \geq Z_{c'}$.
+\end{lemma}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Spatial equilibrium}
+\begin{proposition}[Heterogeneous cities' characteristics] \label{prop:crosscitycharacteristics}
+Suppose that Assumptions 1 and 2 hold. In any equilibrium, a larger city has higher housing prices, higher non-tradables prices, a better idea-exchange environment, and higher-ability tradables producers. If $L_c > L_{c'}$ in equilibrium, then $p_{h,c}>p_{h,c'}$, $p_{n,c}>p_{n,c'}$, $Z_c>Z_{c'}$, and $z>z'>z_m \Rightarrow$ $\mu(z,c)\mu(z',c')\geq\mu(z,c')\mu(z',c)=0$.
+\end{proposition}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Spatial equilibrium: Two-city example}
+\begin{center}
+\includegraphics[height=0.9\textheight]{../images/week10/SKE_2citywageschedule.pdf}
+\end{center}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Differences in average wages}
+\begin{itemize}
+	\item Differences in tradables producers' wages are the sum of three components: composition, learning, and compensation effects
+	\item Denote $z_b$ the ``boundary'' ability of indifferent tradables producer
+	\item Define inframarginal learning $\Delta(z,c,c')\equiv\left[\tilde{z}(z,Z_{c})-\tilde{z}(z,Z_{c'})\right]-\left[\tilde{z}(z_{b},Z_{c})-\tilde{z}(z_{b},Z_{c'})\right]$
+	\item Define the density of tradables producers' abilities in city $c$ by $\tilde{\mu}(z,c)\equiv\frac{\mu(z,c)}{\int_{z':\sigma(z')=t}\mu(z',c)dz'}$
+\end{itemize}
+\begin{align*}
+\bar{w}_{c}-\bar{w}_{c'} 
+&
+\equiv \frac{\int_{z:\sigma(z)=t}\tilde{z}(z,Z_{c})\mu(z,c)dz}{\int_{z:\sigma(z)=t}\mu(z,c)dz}-\frac{\int_{z:\sigma(z)=t}\tilde{z}(z,Z_{c'})\mu(z,c')dz}{\int_{z:\sigma(z)=t}\mu(z,c')dz} 
+\\
+& 
+=\underbrace{\int_{z_m}^{\infty}[\tilde{\mu}(z,c)-\tilde{\mu}(z,c')]\tilde{z}(z,Z_{c'})dz}_{\textnormal{composition}} + \underbrace{\int_{z_m}^{\infty}\tilde{\mu}(z,c)\Delta(z,c,c')dz}_{\textnormal{inframarginal learning}} 
+\quad +\underbrace{p_{n,c}-p_{n,c'}}_{\textnormal{compensation}}
+\end{align*}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Skill premia}
+\begin{itemize}
+	\item Define a city's observed skill premium as its average tradables wage divided by its (common) non-tradables wage, $\frac{\bar{w}_{c}}{p_{n,c}}$
+	\item When a tradables producer of ability $z_b$ is indifferent between cities $c$ and $c'$, this skill premium is higher in $c$ if and only if
+\end{itemize}
+\begin{equation*}
+\underbrace{\int_{z_m}^{\infty}[\tilde{\mu}(z,c)-\tilde{\mu}(z,c')]\tilde{z}(z,Z_{c'})dz}_{\textnormal{composition}}
++\underbrace{\int_{z_m}^{\infty}\tilde{\mu}(z,c)\Delta(z,c,c')dz}_{\textnormal{inframarginal learning}}
+\geq \underbrace{\left(p_{n,c}-p_{n,c'}\right)\left(\frac{\bar{w}_{c'}}{p_{n,c'}}-1\right)}_{\textnormal{relative compensation}}\label{eqn:premia_decomp}
+\end{equation*}
+\begin{itemize}
+	\item Helpful to define a production-function property: 
+	\begin{condition}\label{condition:outputelasticity}
+	The ability elasticity of tradable output,
+	$\frac{\partial\ln\tilde{z}\left(z,Z_{c}\right)}{\partial\ln z}$,
+	is non-decreasing in $z$ and $Z_{c}$.
+	\end{condition}
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Larger cities have higher skill premia}
+\begin{proposition}[Skill premia] \label{prop:skillpremia}
+Suppose that Assumptions 1 and 2 hold.
+In an equilibrium in which the smallest city has population $L_{1}$ and the second-smallest city has population $L_{2}>L_{1}$,
+\begin{enumerate}
+\item if the ability distribution is decreasing, $\mu'(z)\leq0$, $\tilde{z}(z,Z_{c})$ is log-convex in $z$, and $\tilde{z}(z,Z_{c})$ is log-supermodular, then $\frac{\bar{w}_{2}}{p_{n,2}}>\frac{\bar{w}_{1}}{p_{n,1}}$;
+\item if the ability distribution is Pareto, $\mu(z)\propto z^{-k-1}$ for $z\geq z_{\min}$ and $k>0$, and the production function satisfies Condition \ref{condition:outputelasticity}, then $\frac{\bar{w}_{2}}{p_{n,2}}>\frac{\bar{w}_{1}}{p_{n,1}}$;
+\item if the ability distribution is uniform, $z\sim U\left(z_{\min},z_{\max}\right)$, the production function satisfies Condition \ref{condition:outputelasticity}, and $\frac{L_2 - L_1}{L_1^2} > \frac{1}{L}\frac{(1-\bar{n})(z_{\max} - z_{\min})}{z_{\min} +\bar{n}(z_{\max} - z_{\min})}$, then $\frac{\bar{w}_{2}}{p_{n,2}}>\frac{\bar{w}_{1}}{p_{n,1}}$.
+\end{enumerate}
+\end{proposition}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Larger cities have higher skill premia}
+\begin{itemize}
+	\item The three cases in Proposition 2 trade off stronger assumptions about the production function with weaker assumptions about the ability distribution
+	\item Paper contains numerical results for more than two cities for special case of
+	$B(1-\beta,z,Z_c) = {\beta}z(1+(1-\beta)A\left(1-\exp(-\nu M_c) \right) \bar{z}_{c} z)$
+	\item Paper contains illustrative example with 275 cities that quantitatively matches Zipf's law, premia-population correlation, and size-invariant housing expenditure shares
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Diamond (2016)}
+Since 1980, college graduates have been concentrating in US cities with faster wage and housing-price growth. Questions:
+\begin{itemize}
+	\item Why are they doing so?
+	\item Is this spatial divergence associated with greater welfare inequality?
+\end{itemize}
+By reading Diamond (2016), you'll learn about a bunch of relevant concepts and tools:
+\begin{itemize}
+	\item Great Divergence (Moretti's \textit{New Geography of Jobs})
+	\item Endogenous amenities
+	\item Inferring welfare with multiple types
+	\item ``Bartik (1991)'' shift-share instruments
+	\item Housing supply elasticities
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Great Divergence}
+\begin{columns}
+\begin{column}{.60\textwidth}
+\begin{center}
+\includegraphics[height=.90\textheight]{../images/Diamond2016_fig1.pdf}\
+\end{center}
+\end{column}
+\begin{column}{.38\textwidth}
+\begin{itemize}
+	\item 
+\vspace{-4mm}
+{\small
+	These facts are in \href{https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1435-5957.2005.00047.x}{Berry \& Glaeser (2005)} \\
+	\item 
+\href{https://www.aeaweb.org/articles?id=10.1257/app.5.1.65}{Moretti (2013)} raises welfare questions by pointing out housing price growth for college-abundant cities shrinks nominal wage gap\par
+}
+\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Endogenous amenities}
+\begin{itemize}
+	\item Welfare isn't just nominal wages and housing prices
+	\item Infer compensating differential from spatial-indifference condition
+	\item Amenities: Exogenous sunshine vs endogenous crime
+	\item Diamond's amenities: ``all characteristics of a city which could influence the desirability of a city beyond local wages and prices''
+	\item In reality, ``retail amenities'' are private goods with prices and ``schooling amenities'' are govt expenditures paid by local taxes
+	\item Inferring amenities much harder with multiple types (Roback 1988) and endogeneity
+\end{itemize}
+\vspace{1mm}
+\href{https://local.theonion.com/neighborhood-starting-to-get-too-safe-for-family-to-aff-1819578182}{\includegraphics[width=0.7\textwidth]{../images/Onion20150828.png}}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{The ``Bartik'' instrument for local labor demand (1/2)}
+\begin{itemize}
+	\item {\small ``The idea is to isolate shifts in local labor demand that come only from national shocks in each sector of the economy, thereby purging potentially endogenous local demand shocks driving variation in employment or wages'' (\href{https://ideas.repec.org/h/eee/regchp/5-3.html}{Baum-Snow and Ferreira 2015})\par}
+	\item ``A host of papers make use of such instruments for identification''
+	\item {\small ``The main source of identifying variation in Bartik instruments comes from differing base year industry compositions across local labor markets. Therefore, validity of these instruments relies on the assertion that neither industry composition nor unobserved variables correlated with it directly predict the outcome of interest conditional on controls.''\par}
+	\item There is suddenly an econometrics literature on this. 
+	See \href{https://academic.oup.com/qje/article-abstract/134/4/1949/5552146}{Adao, Kolesar, Morales} for inference.
+	See \href{https://www.aeaweb.org/articles?id=10.1257/aer.20181047}{Goldsmith-Pinkham, Sorkin, Swift} and \href{http://about.peterhull.net/wp}{Borusyak, Jaravel, Hull} for consistency/validity.
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{The ``Bartik'' instrument for local labor demand (2/2)}
+BJH:
+\begin{quote}{\small
+The claim for instrument validity in shift-share instrumental variable (SSIV) regressions must rely on some assumptions about the shocks, exposure shares, or both.\par
+\par}\end{quote}
+GPSS say shares are exogenous.
+\begin{quote}{\small
+Once we think about the shares as the instruments, the implied empirical strategy is an exposure research design, where the industry shares measure the differential exogenous exposure to the common shock
+\par}\end{quote}
+AKM and BJH say shocks are exogenous.
+BJH on ADH example:
+\begin{quote}{\small
+exogeneity of industry employment shares is difficult to justify a priori since unobserved industry shocks (e.g., automation or innovation trends) are likely to affect regional outcomes through the same mixture of exposure shares. Our approach, in contrast, allows researchers to specify a set of shocks that are plausibly uncorrelated with such unobserved factors.\par
+\par}\end{quote}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Housing supply elasticities}
+\begin{itemize}
+	\item If housing is supplied elastically, a local labor demand shock mostly shows up in increased population (quantities)
+	\item If housing is inelastic, wages and prices increase instead
+	\item Housing is durable, so expansion and contraction are asymmetric
+	\item Housing supply depends on exogenous features (hills, water) and on endogenous regulatory regime (Saiz \textit{QJE} 2010)
+\end{itemize}
+\begin{center}
+\includegraphics[height=.45\textheight]{../images/GlaeserGyourko2005_fig1.pdf}\\
+\vspace{-2mm}
+{\small Glaeser \& Gyourko (JPE 2005)}
+\end{center}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Housing supply elasticities -- prices vs quantities}
+\begin{center}
+\includegraphics[width=\textwidth]{../images/GlaeserGyourko2018_fig2c.png}\\
+\href{https://www.aeaweb.org/articles?id=10.1257/jep.32.1.3}{Glaeser \& Gyourko (JEP 2018)}\end{center}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Housing supply elasticities -- prices vs quantities}
+\begin{center}
+\includegraphics[height=0.95\textheight]{../images/GlaeserGyourko2018_fig2.png}
+\end{center}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Incidence of building restrictions}
+\begin{center}
+\includegraphics[height=.80\textheight]{../images/GlaeserGyourko2018_fig4.png}\\
+\href{https://www.aeaweb.org/articles?id=10.1257/jep.32.1.3}{Glaeser \& Gyourko (JEP 2018)}
+\end{center}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Housing is durable $\to$ filtering}
+How do you build housing for poor people? You build housing for rich people in the past.
+\href{https://www.aeaweb.org/articles?id=10.1257/aer.104.2.687}{Rosenthal (\textit{AER} 2014)}:
+\begin{quote}{
+	While filtering has long been considered the primary mechanism by which markets supply low-income housing, direct estimates of that process have been absent.
+	This has contributed to doubts about the viability of markets and to misplaced policy.
+	I fill this gap by estimating a "repeat income" model using 1985-2011 panel data.
+	Real annual filtering rates are faster for rental housing (2.5 percent) than owner-occupied (0.5 percent), vary inversely with the income elasticity of demand and house price inflation, and are sensitive to tenure transitions as homes age.
+	For most locations, filtering is robust which lends support for housing voucher programs.
+}\end{quote}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Diamond (2016) empirical implementation}
+\begin{itemize}
+	\item Write a spatial-equilibrium model with two skill types and elasticities to be estimated
+	\item ``In the first step, a maximum likelihood estimator is used to identify how desirable each city is to each type of worker, on average, in each decade, controlling for workers' preferences to live close to their state of birth.''
+	\item ``The second step of estimation uses a simultaneous equation nonlinear generalized method of moments (GMM) estimator. Moment restrictions on workers' preferences are combined with moments identifying cities' labor demand, housing supply, and amenity supply curves.''
+	\item Housing supply elasticities are identified by the response of housing rents to the Bartik shocks across cities. 
+	\item The interactions of the Bartik productivity shocks with cities' housing markets identify the labor demand elasticities.
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Labor demand}
+\vspace{-8mm}
+\begin{align*}
+Y_{djt} &= N^{\alpha}_{djt} K^{1-\alpha}_{djt}
+&\text{(1)} \\
+N_{djt} &= \left(\theta^{L}_{jt} L^{\rho}_{djt} + \theta^{H}_{jt} H^{\rho}_{djt}\right)^{1/{\rho}} \\
+\theta^{L}_{jt} &= f_L \left(H_{jt}, L_{jt}\right) \exp(\epsilon_{jt}^{L})
+&\text{(2)} \\
+\theta^{H}_{jt} &= f_H \left(H_{jt}, L_{jt}\right) \exp(\epsilon_{jt}^{H})
+&\text{(3)}
+\end{align*}
+$K$ isn't interesting since interest rate assumed national
+\begin{align*}
+w_{jt}^{H} &= \ln W_{jt}^{H} = c_{t} + (1-\rho) \ln N_{jt} + (\rho-1) \ln H_{jt} + \ln \left(f_H(H_{jt},L_{jt})\right) + \epsilon_{jt}^{H}
+&\text{(4)} \\
+w_{jt}^{L} &= \ln W_{jt}^{L} = c_{t} + (1-\rho) \ln N_{jt} + (\rho-1) \ln H_{jt} + \ln \left(f_H(H_{jt},L_{jt})\right) + \epsilon_{jt}^{L}
+&\text{(5)}
+\end{align*}
+\begin{align*}
+w_{jt}^{H} &= g_{H} \left(H_{jt},L_{jt}\right) + \epsilon_{jt}^{H}
+\approx \gamma_{HH} \ln H_{jt} + \gamma_{HL} \ln L_{jt} + \epsilon_{jt}^{H}
+&\text{(7)}\approx\text{(9)} \\
+w_{jt}^{L} &= g_{L} \left(H_{jt},L_{jt}\right) + \epsilon_{jt}^{L}
+\approx \gamma_{LH} \ln H_{jt} + \gamma_{LL} \ln L_{jt} + \epsilon_{jt}^{L}
+&\text{(8)} \approx \text{(10)}
+\end{align*}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Labor supply}
+\begin{itemize}
+	\item Logit preferences
+	\item Common component: Cobb-Douglas preference over freely traded homogeneous good with price $P_t$ and local housing with rent $R_{jt}$.
+	\item Augmented by amenity vector $\mathbf{A}_{jt}$, which has race-specific valuations
+	\item Race-specific valuations of birthplace dummies
+	\item Type 1 extreme-value error term
+\end{itemize}
+\begin{center}
+\includegraphics[width=.7\textwidth]{../images/Diamond_logitshares.png}
+\end{center}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Housing supply and amenity supply}
+\begin{itemize}
+	\item The elasticity of housing supply depends on geographic and regulatory components from \href{https://doi.org/10.1162/qjec.2010.125.3.1253}{Saiz (\textit{QJE} 2010)}
+	\item Amenities are an endogenous function of the $\frac{H}{L}$ ratio
+	\item You might find it interesting to read Tom Davidoff's ``Supply Constraints Are Not Valid Instrumental Variables for Home Prices Because They Are Correlated With Many Demand Factors'' (\href{https://www.nowpublishers.com/article/Details/CFR-0037}{\textit{Critical Finance Review} 2016})
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}[plain]{Estimation: Two-step GMM}
+{\footnotesize
+Instruments:
+\begin{equation*}
+\Delta Z_{jt} \in \left\{
+\Delta B^{H}_{jt}, 
+\Delta B^{L}_{jt}, 
+\Delta B^{H}_{jt} x^{reg}_{j}, 
+\Delta B^{H}_{jt} x^{geo}_{j}, 
+\Delta B^{L}_{jt} x^{reg}_{j}, 
+\Delta B^{L}_{jt} x^{geo}_{j}
+\right\}
+\end{equation*}
+``the level of land-unavailability and land-use regulation are uncorrelated with unobserved local productivity changes [$\Delta \tilde{\epsilon}_{jt}^{H}$ and $\Delta \tilde{\epsilon}_{jt}^{L}$, which are uncorrelated with the Bartik local labor demand shocks]''
+\begin{align*}
+E \left(\Delta \tilde{\epsilon}_{jt}^{H} \Delta Z_{jt}\right) = 0 
+\quad
+E \left(\Delta \tilde{\epsilon}_{jt}^{L} \Delta Z_{jt}\right) = 0 
+\end{align*}
+}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Estimation results}
+\begin{itemize}
+	\item ``My results suggest that endogenous local amenity changes are an important mechanism driving workers' migration responses to local labor demand shocks.''
+	\item ``the positive aggregate labor demand elasticities for college workers suggests that the endogenous productivity effects of college workers on college workers' productivity may be large and could overwhelm the standard forces leading to downward-sloping labor demand''
+	\item ``an increase in well-being inequality between college and high school graduates which was significantly larger than would be suggested by the increase in the college wage gap alone''
+	\item Immigrants more attracted to higher nominal wage and less deterred by higher nominal rents (c.f. \href{https://www.aeaweb.org/articles?id=10.1257/aer.20211241}{Albert and Monras 2022})
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Summary}
+\begin{itemize}
+	\item Spatial distributions of skills and sectors are prominent in public discussion of cities, exploited for identification in empirical work, and potentially key to understanding agglomeration processes
+	\item We need models with more than two skills groups and more than perfectly specialized/diversified cities
+	\item Recent research exploits tools from assignment literature to characterize spatial sorting of skills and sectors
+	\item Assignment mechanisms can be used in quantitative work via assumptions on components observed and unobserved by the econometrician -- Fr\'{e}chet distribution is most popular
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{More references}
+See the \href{https://www.aeaweb.org/issues/602}{summer 2020 \textit{JEP} symposium}
+\begin{itemize}
+\item Gilles Duranton and Diego Puga - ``The Economics of Urban Density''
+\item Stuart S. Rosenthal and William C. Strange - ``How Close Is Close? The Spatial Reach of Agglomeration Economies''
+\item William R. Kerr and Frederic Robert-Nicoud - ``Tech Clusters''
+\item Gaetano Basso and Giovanni Peri - ``Internal Mobility: The Greater Responsiveness of Foreign-Born to Economic Conditions''
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\beginbackup
+% -----------------------------------------
+\begin{frame}{Bacolod, Blum, Strange on AFQT scores}
+\hypertarget{BBS2009tab5}{}
+\begin{center}\includegraphics[height=0.88\textheight]{../images/week10/BBS2009tab5.pdf}\end{center}
+\vspace{-5mm}
+\hyperlink{NLSY_main}{\beamerreturnbutton}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{College wage premia in NLSY vs Census}
+\hypertarget{BSPvsCensus}{}
+\input{../images/week10/BSPvsCensus.tex}
+\hyperlink{NLSY_main}{\beamerreturnbutton}
+\end{frame}
+% -----------------------------------------
+\end{document}
