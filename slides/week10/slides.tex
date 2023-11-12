@@ -124,7 +124,6 @@ What variation does the instrument exploit?
 \begin{itemize}
 	\item Skill mix vs industrial mix (e.g. endogenous local SBTC - \href{http://www.jstor.org/stable/10.1086/658371}{Beaudry, Doms, Lewis 2010})
 	\item City characteristics covarying with skills and sectors highlight exclusion-restriction assumptions 
-%	\item 
 \end{itemize}
 \end{frame}
 % -----------------------------------------
@@ -229,11 +228,9 @@ This simple model fails: skill premia are higher in larger cities
 %}
 Three possible routes to take
 \begin{enumerate}
-	\item Upward-sloping local labor supplies \only<2->{(\href{http://www.jstor.org/stable/1837178}{Topel}, \href{https://ideas.repec.org/h/eee/labchp/5-14.html}{Moretti}, \href{https://www.aeaweb.org/articles?id=10.1257/aer.20131706}{Diamond})}
-	%\only<3->{\item[$\Rightarrow$] Relative prices and quantities imply higher relative demand for skilled in larger cities}
-	\item Non-homothetic preferences \only<2->{(\href{https://ideas.repec.org/a/ucp/jlabec/v27y2009i1p21-47.html}{Black, Kolesnikova, Taylor 2009})}
-	%\only<4->{\item[$\Rightarrow$] Do more skilled people find big cities less attractive for consumption? (\href{http://davidalbouy.net/housingexpenditures.pdf}{Albouy, Ehrlich, Liu 2015}, \href{https://www.econometricsociety.org/publications/econometrica/2021/11/01/are-poor-cities-cheap-everyone-non-homotheticity-and-cost}{Handbury 2021)}}
-	\item More than two skill groups \only<2->{(My focus)}
+\item Upward-sloping local labor supplies \only<2->{(\href{http://www.jstor.org/stable/1837178}{Topel}, \href{https://ideas.repec.org/h/eee/labchp/5-14.html}{Moretti}, \href{https://www.aeaweb.org/articles?id=10.1257/aer.20131706}{Diamond})}
+\item Non-homothetic preferences \only<2->{(\href{https://ideas.repec.org/a/ucp/jlabec/v27y2009i1p21-47.html}{Black, Kolesnikova, Taylor 2009})}
+\item More than two skill groups \only<2->{(My focus)}
 \end{enumerate}
 \end{frame}
 % -----------------------------------------
@@ -557,14 +554,13 @@ Suppose that Assumptions 1 and 2 hold. In any equilibrium, a larger city has hig
 	\item Define inframarginal learning $\Delta(z,c,c')\equiv\left[\tilde{z}(z,Z_{c})-\tilde{z}(z,Z_{c'})\right]-\left[\tilde{z}(z_{b},Z_{c})-\tilde{z}(z_{b},Z_{c'})\right]$
 	\item Define the density of tradables producers' abilities in city $c$ by $\tilde{\mu}(z,c)\equiv\frac{\mu(z,c)}{\int_{z':\sigma(z')=t}\mu(z',c)dz'}$
 \end{itemize}
-\begin{align*}%\left[\Delta(z,c,c')\right] became \Delta(z,c,c')
+\begin{align*}
 \bar{w}_{c}-\bar{w}_{c'} 
 &
 \equiv \frac{\int_{z:\sigma(z)=t}\tilde{z}(z,Z_{c})\mu(z,c)dz}{\int_{z:\sigma(z)=t}\mu(z,c)dz}-\frac{\int_{z:\sigma(z)=t}\tilde{z}(z,Z_{c'})\mu(z,c')dz}{\int_{z:\sigma(z)=t}\mu(z,c')dz} 
 \\
 & 
 =\underbrace{\int_{z_m}^{\infty}[\tilde{\mu}(z,c)-\tilde{\mu}(z,c')]\tilde{z}(z,Z_{c'})dz}_{\textnormal{composition}} + \underbrace{\int_{z_m}^{\infty}\tilde{\mu}(z,c)\Delta(z,c,c')dz}_{\textnormal{inframarginal learning}} 
-%&
 \quad +\underbrace{p_{n,c}-p_{n,c'}}_{\textnormal{compensation}}
 \end{align*}
 \end{frame}
@@ -574,7 +570,7 @@ Suppose that Assumptions 1 and 2 hold. In any equilibrium, a larger city has hig
 	\item Define a city's observed skill premium as its average tradables wage divided by its (common) non-tradables wage, $\frac{\bar{w}_{c}}{p_{n,c}}$
 	\item When a tradables producer of ability $z_b$ is indifferent between cities $c$ and $c'$, this skill premium is higher in $c$ if and only if
 \end{itemize}
-\begin{equation*} %\left[\Delta(z,c,c')\right] became \Delta(z,c,c')
+\begin{equation*}
 \underbrace{\int_{z_m}^{\infty}[\tilde{\mu}(z,c)-\tilde{\mu}(z,c')]\tilde{z}(z,Z_{c'})dz}_{\textnormal{composition}}
 +\underbrace{\int_{z_m}^{\infty}\tilde{\mu}(z,c)\Delta(z,c,c')dz}_{\textnormal{inframarginal learning}}
 \geq \underbrace{\left(p_{n,c}-p_{n,c'}\right)\left(\frac{\bar{w}_{c'}}{p_{n,c'}}-1\right)}_{\textnormal{relative compensation}}\label{eqn:premia_decomp}
@@ -758,7 +754,7 @@ $K$ isn't interesting since interest rate assumed national
 w_{jt}^{H} &= \ln W_{jt}^{H} = c_{t} + (1-\rho) \ln N_{jt} + (\rho-1) \ln H_{jt} + \ln \left(f_H(H_{jt},L_{jt})\right) + \epsilon_{jt}^{H}
 &\text{(4)} \\
 w_{jt}^{L} &= \ln W_{jt}^{L} = c_{t} + (1-\rho) \ln N_{jt} + (\rho-1) \ln H_{jt} + \ln \left(f_H(H_{jt},L_{jt})\right) + \epsilon_{jt}^{L}
-&\text{(5)} %\\
+&\text{(5)}
 \end{align*}
 \begin{align*}
 w_{jt}^{H} &= g_{H} \left(H_{jt},L_{jt}\right) + \epsilon_{jt}^{H}
@@ -766,7 +762,7 @@ w_{jt}^{H} &= g_{H} \left(H_{jt},L_{jt}\right) + \epsilon_{jt}^{H}
 &\text{(7)}\approx\text{(9)} \\
 w_{jt}^{L} &= g_{L} \left(H_{jt},L_{jt}\right) + \epsilon_{jt}^{L}
 \approx \gamma_{LH} \ln H_{jt} + \gamma_{LL} \ln L_{jt} + \epsilon_{jt}^{L}
-&\text{(8)} \approx \text{(10)} % \\
+&\text{(8)} \approx \text{(10)}
 \end{align*}
 \end{frame}
 % -----------------------------------------
