@@ -105,8 +105,4 @@ I may revise the course outline and reading list during the semester.
 
 - Donald R. Davis, Jonathan I. Dingel, Joan Monras, and Eduardo Morales. 2019. "[How Segregated Is Urban Consumption?](http://www.jdingel.com/research/DavisDingelMonrasMorales.pdf)" *Journal of Political Economy* 127:4, 1684-1738.
 
-#### Week 12: Spatial policies
-
-- Glaeser and Gottlieb. 2008. "[The Economics of Place-Making Policies](https://www.jstor.org/stable/27561617)." *Brookings Papers on Economic Activity*.
-
-- Fajgelbaum and Gaubert. 2020. "[Optimal Spatial Policies, Geography, and Sorting](https://doi.org/10.1093/qje/qjaa001)." *Quarterly Journal of Economics*.
+#### Week 12: Research consultations
