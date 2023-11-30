@@ -1,0 +1,618 @@
+\documentclass[11pt,notes=hide,aspectratio=169]{beamer}
+\input{../week00/slides_settings.tex}
+\setbeamertemplate{footline}{\begin{center}\textcolor{gray}{Dingel -- Topics in Trade -- Week 11 -- \insertframenumber}\end{center}}
+\usepackage{listings}
+\input{../week00/listings_julia_setup.tex}
+\input{../week00/listings-stata.tex}
+\newcommand{\beginbackup}{
+   \newcounter{framenumbervorappendix}
+   \setcounter{framenumbervorappendix}{\value{framenumber}}
+}
+\newcommand{\backupend}{
+  \addtocounter{framenumbervorappendix}{-\value{framenumber}}
+  \addtocounter{framenumber}{\value{framenumbervorappendix}} 
+}
+\begin{document}
+% -----------------------------------------
+\begin{frame}[plain]
+\begin{center}
+\large
+\textcolor{columbiadarkblue}{ECON G6905\\
+Topics in Trade\\ 
+Jonathan Dingel\\
+Autumn \the\year, Week 11}
+\vfill 
+\includegraphics[width=0.4\textwidth]{../images/Columbia_logo.png}
+\end{center}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Today: Estimating and simulating discrete-choice models}
+My goals for today:
+\begin{itemize}
+	\item Convey the connections between CES and logit in theory and estimation
+	\item Introduce you to estimation and simulation of discrete-choice models in the context of international and urban economics
+	\item Share tricks and resources that save lots of (human or computing) time
+\end{itemize}
+My papers using discrete-choice methods include
+\begin{itemize}
+	\item How Segregated is Urban Consumption?
+	\item Spatial Economics for Granular Settings
+\end{itemize}
+Blanket recommendations:
+\begin{itemize}
+\item Ken Train's \textit{Discrete Choice Methods with Simulation} (2009, \href{https://eml.berkeley.edu/books/choice2.html}{PDFs})
+\item Simulate your data-generating process to verify your procedures and code
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Choosing location(s) is a discrete-choice problem}
+Long history of discrete-choice modeling in urban and transportation economics 
+\begin{itemize}{\small 
+\item See \href{https://www.nobelprize.org/uploads/2018/06/mcfadden-lecture.pdf}{McFadden's Nobel lecture}; e.g., Peter Diamond \& Robert Hall working on transport or multinomial logit vs gravity for BART forecasts
+\item The canonical nested-logit and GEV results are in McFadden (1978) ``\href{https://trid.trb.org/view/87722}{Modeling the Choice of Residential Location}''
+\item Dennis Carlton on ``\href{https://www.jstor.org/stable/1924189}{The Location and Employment Choices of New Firms}'' in 1983
+\item {Estimating logit model by Poisson regression is Guimar{\~a}es, Figueiredo, Woodward ``\href{https://ideas.repec.org/a/tpr/restat/v85y2003i1p201-204.html}{A Tractable Approach To The Firm Location Decision Problem}'' (2003)\par}
+}\end{itemize}
+Plain-vanilla logit case:
+individual $i$ considers choice $j$ (see \href{https://eml.berkeley.edu/books/choice2.html}{Train 2009})
+\begin{itemize}
+	\item Utility $U_{ij} = V_{ij} + \epsilon_{ij}$
+	\item Assume error is iid Gumbel (T1EV): $F\left(\epsilon_{ij}\right)=\exp(-\exp(-\epsilon_{ij}))$
+	\item Choice probabilities are
+	\begin{equation*}\Pr(U_{ij}>U_{ij'} \ \forall j' \neq j) = \frac{\exp(V_{ij})}{\sum_{j'}\exp(V_{ij'})} \end{equation*}
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Import-sourcing decisions are discrete-choice problems}
+Trade models feature discrete-choice problems
+\begin{itemize}
+\item Selecting the least-cost provider of each good/variety is at the heart of neoclassical trade models
+\item In the Eaton and Kortum (2002) formulation, this is probabilistic and a discrete-choice problem
+\end{itemize}
+\smallskip
+Rewrite the plain-vanilla logit case from previous slide
+to be a cost-minimization problem with multiplicative error term
+\begin{itemize}
+	\item Cost $\ln c_{ji} = \ln c_j + \ln \tau_{ji} - \epsilon_{j}$
+	\item Least-cost probability
+	\begin{align*}
+	\Pr(-\ln c_{ji}> -\ln c_{j'i} \ \forall j' \neq j) \\
+	= \Pr(\ln c_{ji}<\ln c_{j'i} \ \forall j' \neq j) 
+	& 
+	= \frac{1/(c_j\tau_{ji})}{\sum_{j'}1/(c_{j'}\tau_{j'i})} \\
+	\end{align*}
+\end{itemize}
+\textcolor{gray}{The Frechet distribution is the log-Gumbel distribution.}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{IIA logit demand implies CES market demand}
+Constant-elasticity demand functions are closely related.
+See \href{https://mitpress.mit.edu/9780262011280/discrete-choice-theory-of-product-differentiation/}{Anderson, de Palma, Thisse (1992) book}
+(and \href{https://doi.org/10.1016/0165-1765(87)90239-4}{1987 Economics Letters}
+and \href{https://doi.org/10.2307/2526791}{1988 IER})
+\begin{align*}
+\text{Logit} & & \text{CES} \hfill \qquad
+\\
+\Pr(U_{ij}>U_{ij'} \ \forall j' \neq j) 
+&=
+\frac{\exp(V_{ij})}{\sum_{j'}\exp(V_{ij'})}
+\qquad
+&
+X_{ji}
+=
+\frac{(p_j\tau_{ji} )^{1-\sigma}}{P_i^{1-\sigma}} X_i
+\\
+\text{let } V_{ij} = (1-\sigma) \ln \left(p_j\tau_{ji}\right)
+& \implies
+&
+\textcolor{gray}{\text{(note subscript order)}}
+\\
+&=
+\frac{(p_j\tau_{ji})^{1-\sigma}}{P_i^{1-\sigma}}
+\end{align*}
+How to arrange upper-tier preferences to align with aggregate expenditure $X_i$?
+If 2\textsuperscript{nd}-stage quantity is $q_{ji}^{*} = X_i / p_{ji}$,
+then $V_{ij} = (1-\sigma) \ln \left(p_j\tau_{ji}/X_i\right)$
+[see AdPT 1987]
+\smallskip
+\textcolor{gray}{(This explains the contrasting subscript orders of Ch 3 \& 4 in 2014 \textit{Handbook})}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Logit MLE coincides with Poisson regression (1/2)}
+Estimation of constant-elasticity functions is closely related
+(\href{https://doi.org/10.1162/003465303762687811}{Guimaraes, Figueiredo, Woodward 2003}).
+Let $p_{ij} \equiv \Pr(U_{ij}>U_{ij'} \ \forall j' \neq j) \propto \exp\left(\boldsymbol{\beta}^{\prime} \mathbf{z}_{ij}\right)$.\\
+Simple case: let $p_{ij} = p_j$
+$$
+\ln \mathcal{L}^{\text{logit}} =\sum_{i=1}^N \sum_{j=1}^J d_{i j} \ln p_{i j}=\sum_{j=1}^J n_j \ln p_j
+$$
+Consider the Poisson count variable with value $n_j$:
+$
+\mathbb{E}\left(n_j\right)=\lambda_j=\exp \left(\alpha+\boldsymbol{\beta}^{\prime} \mathbf{z}_j\right) .
+$
+\begin{align*}
+\ln \mathcal{L}^{\text{P}}
+=
+\sum_{j=1}^J\left(-\lambda_j+n_j \ln \lambda_j-\ln n_{j} !\right) 
+=
+\sum_{j=1}^J\left[-\exp \left(\alpha+\boldsymbol{\beta}^{\prime} \mathbf{z}_j\right)+n_j\left(\alpha+\boldsymbol{\beta}^{\prime} \mathbf{z}_j\right)\right. \left.-\ln n_{j} !\right]
+\\
+\frac{\partial \ln \mathcal{L}^{\text{P}}}{\partial \alpha}
+=
+\sum_{j=1}^J\left[n_j-\exp \left(\alpha+\boldsymbol{\beta}^{\prime} \mathbf{z}_j\right)\right]
+=0
+\implies
+\exp (\alpha)=\frac{N}{\sum_{j=1}^J \exp \left(\boldsymbol{\beta}^{\prime} \mathbf{z}_j\right)}
+\end{align*}
+Substitute $\alpha$ back in to obtain the concentrated log likelihood\dots
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Logit MLE coincides with Poisson regression (2/2)}
+Substitute $\alpha$ back in to obtain the concentrated log likelihood:
+\begin{align*}
+\ln \mathcal{L}^{P_c}
+&=
+-N+N \ln N-\sum_{j=1}^J n_j \ln \left(\sum_{j=1}^J \exp \left(\boldsymbol{\beta}^{\prime} \mathbf{z}_j\right)\right)
++
+\sum_{j=1}^J n_j \boldsymbol{\beta}^{\prime} \mathbf{z}_j-\sum_{j=1}^J \ln n_{j} ! 
+\\
+&=
+\sum_{j=1}^J n_j \ln p_j-N+N \ln N-\sum_{j=1}^J \ln n_{j}!
+\\
+&=
+\ln \mathcal{L}^{\text{logit}} + \text{constant}
+\end{align*}
+The logit MLE $\beta$ and the Poisson MLE $\beta$ are the same.
+We can therefore use software implementations of PPML with high-dimensional fixed effects to estimate logit models.
+\end{frame}
+% -----------------------------------------
+\begin{frame}{``How Segregated is Urban Consumption?''}
+Two questions:
+\begin{enumerate}
+	\item How segregated is urban consumption?
+	\item What are roles of spatial frictions, social frictions, and heterogeneous tastes?
+\end{enumerate}
+How we answer them:
+\begin{itemize}
+	\item Gather data on individuals' restaurant visits within New York City
+	\item Infer spatial and social frictions from behavior by estimating a discrete-choice model of individuals' visit decisions
+	\item Use model-predicted consumer behavior to measure consumption segregation
+\end{itemize}
+\medskip
+Here, I'll focus on the estimation and computational elements
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Observed behavior, spatial frictions, social frictions}
+\vspace{-1mm}
+\begin{center}
+\includegraphics[height=.47\textheight]{../images/week11/DDMM2019_rdfm_timehome_density.pdf}
+\includegraphics[height=.47\textheight]{../images/week11/DDMM2019_rdfm_timework_density.pdf}\\
+\includegraphics[height=.47\textheight]{../images/week11/DDMM2019_rdfm_eucl_density.pdf}
+\end{center}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Demand estimation in ``How Segregated is Urban Consumption?''}
+In a sense, this is ``gravity within the city'', but the discrete-choice formulation is clearer in important respects
+\begin{itemize}
+\item Model of review-writing behavior necessitated by Yelp data
+\item Estimate parameters when data do not identify origin-mode pair $l$ (e.g., from work by car)
+\item McFadden (1978) sampling exploits IIA to make computation feasible
+\end{itemize}
+\end{frame}
+\begin{frame}
+\frametitle{Behavioral model}   %TODO
+\begin{itemize}
+	\item Individual $i$ decides at time $t$ whether to visit venue $j$ in choice set $\mathcal{J}$.
+	\item Trip may originate from one of six locations $l$, $l \in \mathcal{L} = \left\{\textnormal{car},\textnormal{public transit}\right\} \times \{\textnormal{home, work, commute}\}$
+	\begin{equation*}
+	U_{ijlt} =\underbrace{\gamma_{l}^{1}X_{ijl}^{1}+\gamma^{2}X_{ij}^{2}+\beta^{1}Z_{j}^{1}+\beta^{2}Z_{ij}^{2}}_{ = V_{ijl}}+\nu_{ijlt}
+ 	%U_{ijlt}=\beta_{l}^{1}X_{ijl}^{1}+\beta^{2}X_{ij}^{2}+\nu_{ijlt}	
+ 	\end{equation*}
+	\item Dummy $d_{ijlt}=1$ if $i$ visits $j$ from $l$ at $t$
+	\item We observe dummy 
+	$d_{ijt} = \sum_{l\in\mathcal{L}}d_{ijlt}$
+	\item Assume that $\nu_{ijlt}$ have type I extreme value distribution, independent across individuals, restaurants, time periods, and locations:
+	\begin{equation*}
+	\Pr(d_{ijt}=1|X,Z,\mathcal{J};\gamma,\beta)=\frac{\sum_{l\in\mathcal{L}}\exp(V_{ijl})}{\sum_{j'\in \mathcal{J}}\sum_{l\in\mathcal{L}}\exp(V_{ij'l})}
+%	\Pr(d_{ijt}=1|X_{it},J_{it};\beta)=\frac{\sum_{l\in\mathcal{L}}\exp(\beta_{l}^{1}X_{ijl}^{1}+\beta^{2}X_{ij}^{2})}{\sum_{j'\in J_{it}}\sum_{l\in\mathcal{L}}\exp(\beta_{l}^{1}X_{ij'l}^{1}+\beta^{2}X_{ij'}^{2})}
+	\end{equation*}
+\end{itemize}
+\end{frame}
+%-------------------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Specification}
+\begin{equation*}
+	V_{ijl} = \gamma_{l}^{1}X_{ijl}^{1}+\gamma^{2}X_{ij}^{2}+\beta^{1}Z_{j}^{1}+\beta^{2}Z_{ij}^{2} 
+\end{equation*}
+\begin{itemize}
+	\item Spatial frictions: $X^{1}_{ijl}$ is log minutes of transit time with mode-origin-specific disutilities $\gamma^{1}_{l}$
+	\item Social frictions: $X^{2}_{ij}$ contains demographic differences between user $i$'s home tract (or $i$'s own identity) and the tract of restaurant $j$
+	\item Restaurant characteristics: $Z_{j}^{1}$ contains venue rating, 4 price dummies, 9 cuisine dummies, venue tract median household income, and 28 area dummies
+	\item User-restaurant characteristics: $Z_{ij}^{2}$ contains rating and price interacted with $i$'s home tract median income, percentage and absolute percentage difference in median household incomes between $i$ and $j$ tracts %, gender-specific coefficients on rating, price, venue tract income, and income differences
+\end{itemize}
+\end{frame}
+%-------------------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Identification: Reviews, not visits}
+We assume that
+\begin{itemize}
+	\item users do not review unvisited venues
+	\item users only review venues once
+	\item probability of writing a review is independent of \emph{ex ante} venue characteristics
+\end{itemize}
+\begin{align*}
+\Pr(d_{ijt}^{r}=1|X,Z,\mathcal{J};\gamma,\beta)	
+&=
+\Pr(d_{ijt}^{r}=1|d_{ijt}=1,\cdot;\cdot) \times \Pr(d_{ijt}=1|\cdot;\cdot)
+\\
+&=
+w_{it} \times \mathbbm{1}\{j\neq 0,j\notin D_{it}^{r}\} \times \Pr(d_{ijt}=1|\cdot;\cdot)
+\end{align*}
+\pause
+If $\Pr(d_{ijt}^{r}=1|d_{ijt}=1,\cdot;\cdot)$ depends on some restaurant characteristic in $Z$
+\begin{itemize}
+	\item Coefficient on that characteristic would be biased
+	\item Estimates of spatial and social frictions could still be asymptotically unbiased
+\end{itemize}
+\end{frame}
+%-------------------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Computation: Large choice sets}
+Users choose amongst thousands of NYC restaurants
+\begin{itemize}
+	\item McFadden (1978): estimate conditional logit model's parameters using a choice set $S_{it}$ that is strict subset of actual choice set $\mathcal{J}$
+	\item Construct $S_{it}$ by including $i$'s observed choice at period $t$ plus a random subset of the other alternatives included in the set $J'_i = \mathcal{J} / \left\{D_{i}^{r} \cup \{j=0\}\right\}$
+	\item Select unchosen venues of $S_{it}$ with equal probability from $J'_i$ 
+		\begin{align*}
+		\Pr(d_{ijt}^{r}=1|X,Z,S_{it};\gamma,\beta)	=\frac{\sum_{l\in\mathcal{L}}\exp(V_{ijlt})}{\sum_{j'\in S_{it}}\sum_{l\in\mathcal{L}}\exp(V_{ij'lt})} \\
+		L=\sum_{i}\sum_{t}\sum_{j\in S_{it}}\Big\{ d_{ijt}^{r}\log\Big(\Pr\left(d_{ijt}^{r}=1|X,Z,S_{it};\gamma,\beta\right)\Big)\Big\}	
+		\end{align*}
+	\item We construct $S_{it}$ with 20 elements
+\end{itemize}
+\hypertarget{choice_set}{}
+\end{frame}
+%-------------------------------------------------------------------------------------------
+\begin{frame}{Details of McFadden (1978) sampling}
+Denote by $\pi(S_{it}|d_{ijt}^{*}=1,J'_{it})$ the probability of assigning the set $S_{it}$ to an individual $i$ who reviewed venue $j$ at $t$. Our sampling scheme means
+$$
+\pi(S_{it}|d_{ijt}^{*}=1,J'_{it})
+=
+\kappa_{it} \times \mathbf{1}\{j\in S_{it}\}
+$$
+where $\kappa_{it}\in(0,1)$ is a constant determined by numbers of venues in  $S_{it}$ and $J'_{it}$.
+The resulting probability of reviewing restaurant $j$ given sampling is
+\begin{align*}
+\Pr(d_{ijt}^{*}=1|d_{it}^{*}=1X,Z,\mathcal{J};\gamma,\beta)	
+&=
+\mathbbm{1}\{j\neq 0,j\notin D_{it}^{r}\} \times \Pr(d_{ijt}=1|\cdot;\cdot)
+%=
+%&
+\\
+\implies
+\Pr(d_{ijt}^{*}=1|d_{it}^{*}=1,X_{i},Z_{i},S_{it};(\gamma,\beta))
+&=
+\frac{\mathbbm{1}\{j\in S_{it}\}\sum_{l\in\mathcal{L}}\exp(V_{ijl})}{\sum_{j'\in S_{it}}\sum_{l\in\mathcal{L}}\exp(V_{ij'l})}
+\end{align*}
+is the probability that $i$ reviews restaurant $j$ at period $t$ conditional on a randomly drawn set $S_{it}$ and that $i$ writes a review at $t$.
+McFadden (1978) shows that maximizing this likelihood is a consistent estimator (obviously larger standard errors from not using all observations).
+\end{frame}
+%-------------------------------------------------------------------------------------------
+\begin{frame}{Embracing the independence of irrelevant alternatives}
+Logit specification features IIA across venues $j$ and origins $l$
+\begin{itemize}
+	\item Functional form makes the problem computationally feasible:
+	McFadden (1978) sampling works because the ratio of probabilities for any two venues is the same whether or not other venues are available
+	\item Estimation with randomly sampled $S_{it}$ yields stable results, consistent with IIA
+	\textcolor{gray}{(the other Hausman and McFadden (1984) test)}
+	\item See Train (2009) pages 49-50 on tests of IIA
+	\item Can go to other extreme: IIA across venues $j$ and identical across origins $l$ $\to$ covariate is $X_{ij}^{1} = \min_{l} X_{ijl}^{1}$
+	\item This IIA at individual level, not aggregate market shares
+	\item Plausibility of IIA depends on the demand system you model;
+	rejection of IIA for country-level trade flows does not mean IIA is a bad description of individuals choosing restaurants with detailed characteristics
+%	\item Estimating nested logit, with each venue as nest, yields multinomial as likelihood-maximizing specification
+\end{itemize}
+\end{frame}
+%-------------------------------------------------------------------------------------------
+% -----------------------------------------
+\begin{frame}{Simulating discrete-choice models}
+Some reasons to simulate the data-generating process.
+\begin{itemize}
+\item Verify that your numerical optimization code behaves correctly when the estimated model is correctly specified
+\item Construct confidence intervals for parameter estimates and downstream objects (relevant for finite samples or finite economies)
+\begin{itemize}
+\item ``Parametric bootstrap'' of estimates (e.g., Davis, Dingel, Monras, Morales 2019)
+\item Demonstrating finite-sample bias (e.g., critique of calibrated-shares procedure in Dingel Tintelnot 2023)
+\item Building confidence intervals for counterfactual outcomes (e.g., Section 5 of Dingel Tintelnot 2023)
+\end{itemize}
+\end{itemize}
+\textcolor{gray}{(A distinct role for simulation is in estimating models that do not have closed-form expressions for choice probabilities. For example, multinomial probit and, more importantly, mixed (random-coefficients) logit. See Train (2009) starting with Chapter 5.)}
+\end{frame}
+% -----------------------------------------
+\begin{frame}[fragile]{Simulating random variables}
+\begin{itemize}
+\item The CDF of a random variable has standard uniform distribution $U(0,1)$
+\item Any machine can simulate draws of $u \sim U(0,1)$,
+so invertible CDF lets you simulate that random variable.
+\item Standard Gumbel: $F(\epsilon) = \exp(-\exp(-\epsilon)) \implies \epsilon = -\ln(-\ln(u))$
+\item Drawing 100 million standard Gumbel realizations in Julia, Stata, and R
+\begin{lstlisting}[language=julia]
+	idiosyncratic = -log.(-log.(rand(100_000_000)))
+\end{lstlisting}
+\begin{lstlisting}[language=stata]
+	set obs 100000000
+	gen idiosyncratic = -ln(-ln(runiform()))
+\end{lstlisting}
+\begin{lstlisting}[language=R]
+	idiosyncratic = -log(-log(runif(100000000)))
+\end{lstlisting}
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}[fragile]{Simulate what? Simulating idiosyncratic preferences vs choices}
+Consider two ways to simulate draws when using your estimated model as the data-generating process 
+\textcolor{gray}{(e.g., $U_{ij} = V_{ij} + \epsilon_{ij}$ and $F\left(\epsilon_{ij}\right)=\exp(-\exp(-\epsilon_{ij}))$)}
+\begin{enumerate}
+\item Simulate the logit error terms $\epsilon_{ij}$ and compute utility-maximizing choices
+\item Simulate the outcomes given by $\Pr(U_{ij}>U_{ij'} \ \forall j' \neq j) = \frac{\exp(V_{ij})}{\sum_{j'}\exp(V_{ij'})}$
+\end{enumerate}
+\smallskip
+While logically equivalent, these differ tremendously in computational burden
+\begin{itemize}
+\item Time (in seconds) to produce 100 million Gumbel draws:\\
+\qquad $\sim3\text{s}$ in Julia, $\sim5\text{s}$ in Stata, $\sim3.5\text{s}$ in R
+\item Taking 100 draws from a multinomial distribution with 1 million possible choices takes $<0.1$ seconds
+\end{itemize}
+\begin{lstlisting}[language=julia]
+using Distributions; mean_util = rand(1_000_000);
+@time choices = rand(Multinomial(100,exp.(mean_util) ./ sum(exp.(mean_util))));
+\end{lstlisting}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Parametric bootstrap for confidence intervals in DDMM}
+\vspace{-1mm}
+\begin{itemize}
+\item Draw 500 samples from estimated model (same size as estimation sample)
+\item Estimate the model on each generated sample
+\only<1-2>{\item Distributions for social frictions and restaurant characteristics look like asymptotic normal distribution}
+\only<3-5>{\item Distributions for spatial frictions have fat tails because of collinearity of same-origin modes (\href{https://davegiles.blogspot.com/2011/09/micronumerosity.html}{see Goldberger} on multicollinearity and micronumerosity)}
+\end{itemize}
+\vspace{-3mm}
+\begin{center}
+\only<1>{Asian reviewers: Social frictions\\ \includegraphics[height=0.6\textheight]{../images/week11/bootstrap_param_mainspec_social_asian.png} }
+\only<2|handout:0>{Black reviewers: Social frictions\\ \includegraphics[height=0.6\textheight]{../images/week11/bootstrap_param_mainspec_social_black.png} }
+\only<3>{Asian reviewers: Spatial frictions\\ \includegraphics[height=0.6\textheight]{../images/week11/bootstrap_param_mainspec_spatial_asian.png} }
+\only<4|handout:0>{Black reviewers: Spatial frictions\\ \includegraphics[height=0.6\textheight]{../images/week11/bootstrap_param_mainspec_spatial_black.png} }
+\only<5>{Spatial frictions in minimum-time specification $\nu_{ijlt} = \nu_{ijt} \ \forall l$\\ \includegraphics[width=1.0\textwidth]{../images/week11/bootstrap_param_mintime_spatial.png} }
+\\ \includegraphics[width=0.4\textwidth]{../images/week11/bootstrap_param_legend.png}
+\end{center}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Parametric bootstrap of dissimilarity indices in DDMM}
+You can bootstrap any function of the parameters (i.e., any downstream object)
+\vspace{-1mm}
+\begin{center}
+\includegraphics[height=0.86\textheight]{../images/week11/DDMM2019_table6panelA.png}
+\end{center}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Monte Carlo simulations to show finite-sample bias}
+Recall Dingel \& Tintelnot (2023) critique of calibrated-shares procedure
+\begin{itemize}
+\item What parameterization of the baseline equilibrium should be used to compute counterfactual outcomes?
+\item Calibrated-shares procedure employs observed shares
+\item Covariates-based approach fits more parsimonious spec of commuting costs $\delta_{kn}$
+\item An excessively flexible parameterization risks overfitting idiosyncratic noise
+\item D \& T use Monte Carlo simulations to demonstrate the overfitting problem
+\end{itemize}
+\end{frame}
+%---------------------------------------------------------------------
+\begin{frame}{Monte Carlo in DT (2023): Applying each procedure to finite data}
+\begin{itemize}
+\item DGP is estimated covariates-based model for NYC in 2010
+\item Simulated ``event'': $\uparrow$ productivity of 200 Fifth Ave tract by 9\%
+\item Apply calibrated-shares procedure and covariates-based approach \\
+\textcolor{gray}{\small (Increase ${A_n}$ to match total employment increase in simulated data)}
+\item Does the procedure predict the change in the number of commuters from each residential tract working in the ``treated'' tract?
+\item Regress ``true'' changes on predicted changes (2160 obs per simulation)
+\item[] \textcolor{gray}{Ideally, want slope = 1 and intercept = 0}
+\item Compute forecast errors (MSE for ``true'' vs predicted changes)
+\end{itemize}
+\end{frame}
+%---------------------------------------------------------------------
+\begin{frame}[t]{Monte Carlo in DT (2023): Calibrated-shares procedure overfits}
+\hypertarget{ctfl:monte_carlo:mainslide}{}
+\vspace{-3mm}
+\footnotesize{
+Apply each procedure to simulated ``2010'' data. % \& ``2012'' data.
+100 simulations w/ $I=2,488,905$ \\
+Changes in commuter counts ($\ell'_{k\bar{n}}-\ell_{k\bar{n}}$) 
+}
+\vspace{-2mm}
+\begin{center}
+\includegraphics[width=.43\textwidth]{../images/week11/slopes_intercepts_densities_continuum_labor_0_2.488905_1.09.eps}
+\includegraphics[width=.43\textwidth]{../images/week11/MSE_ratio_histogram_continuum_labor_0_2.488905_1.09.eps}
+\\
+\resizebox{0.8\textwidth}{!}{
+\input{../images/week11/sumstats_continuum_labor_0_1.09.tex}
+}
+\end{center}
+\end{frame}
+%---------------------------------------------------------------------
+\begin{frame}{Monte Carlo in DT (2023): Calibrated-shares procedure overfits}
+\footnotesize{
+Apply each procedure to simulated ``2010'' data. % \& ``2012'' data.
+100 simulations w/ $I=2,488,905$ \\
+Changes in commuter counts ($\ell'_{k\bar{n}}-\ell_{k\bar{n}}$) 
+via finite-sample draws from pre- and post- DGPs
+}
+\begin{center}
+\includegraphics[width=.43\textwidth]{../images/week11/slopes_intercepts_densities_iid_labor_0_2.488905_1.09.eps}
+\includegraphics[width=.43\textwidth]{../images/week11/MSE_ratio_histogram_iid_labor_0_2.488905_1.09.eps}
+\end{center}
+\vspace{-3mm}
+\begin{columns}
+\begin{column}{0.78\textwidth}
+\resizebox{\textwidth}{!}{
+\input{../images/week11/sumstats_iid_labor_0_1.09.tex}
+}
+\end{column}
+\end{columns}
+\end{frame}
+%---------------------------------------------------------------------
+%---------------------------------------------------------------------
+\begin{frame}{A spatial model with a finite number of individuals}
+Goal: examine the sensitivity of counterfactual outcomes to the idiosyncratic component of individual decisions
+In the limit ($I\to\infty$), the equilibrium of our model with an integer number of individuals
+is (almost surely) the equilibrium of the continuum model
+Modeling concerns raised by the integer number of individuals:
+\begin{itemize}
+\item Individuals must have beliefs about equilibrium wages and land prices 
+$$
+\textcolor{gray}{
+\left(\begin{array}{c}I + N^2 -1 \\ N^2 - 1 \end{array}\right) =  \frac{(I + N^2 -1)!}{(N^2 - 1)!I!}
+\qquad 
+I=10,N=4
+\implies
+3.27 \times 10^{6}
+}
+$$
+\item There will be a \textit{distribution} of equilibria for each set of parameters $\Upsilon$
+\end{itemize}
+\end{frame}
+%---------------------------------------------------------------------
+\begin{frame}{Model: Economic environment}
+\begin{itemize}
+\item
+Each location has productivity $A$ and land endowment $T$
+\item
+$I$ individuals are endowed with 
+$L/I$ units of labor
+and hired by 
+competitive firms producing freely traded goods differentiated by location of production
+\pause
+\item
+Individuals have Cobb-Douglas preferences over goods and land
+\item
+Individuals have idiosyncratic tastes for residence-workplace pairs
+\item Workers know primitives $\Upsilon \equiv  (L,\{A_n\},\{T_k\},\{\bar{\delta}_{kn}\}, \{\lambda_{kn}\} ,\alpha , \epsilon , \sigma)$
+and have 
+(common) point-mass beliefs $\tilde{r}_k$ and $\tilde{w}_n$ about land prices and wages
+\item Worker $i$ knows own idiosyncratic preferences $\{\nu_{kn}^{i}\}$ but not the full set of  idiosyncratic residence-workplace draws $\boldsymbol \nu^{I}$
+\end{itemize}
+\only<2>{}
+\end{frame}
+%---------------------------------------------------------------------
+\begin{frame}{Timing: Individuals choose labor allocation, then markets clear}
+\begin{enumerate}
+	\item Workers choose the $kn$ pair that maximizes
+	\begin{equation*}
+	\tilde{U}_{kn}^{i} = \epsilon \ln\left(\frac{\tilde{w}_n}{\tilde{P}^{1-\alpha}\tilde{r}_{k}^{\alpha} \delta_{kn}}\right) + \nu_{kn}^i
+	\end{equation*}
+	given point-mass beliefs $\tilde{r}_k$ and $\tilde{w}_n$
+	\item After choosing $kn$ based on their beliefs,
+	workers are immobile and cannot relocate
+	\item 
+	Given the labor allocation $\{\ell_{kn}\}$ and economic primitives $\Upsilon$,
+	\textbf{a trade equilibrium} is a set of wages $\{w_n\}$ and land prices $\{r_k\}$
+	that clears all markets.
+\end{enumerate}
+\end{frame}
+%---------------------------------------------------------------------
+\begin{frame}{Commuting equilibrium with a finite number of individuals}
+%=
+%{\tilde{w}_{n}^\epsilon \left(\tilde{r}_{k}^\alpha  \delta_{kn}\right)^{-\epsilon}}
+%{\sum_{k',n'} \tilde{w}_{n'}^\epsilon \left(\tilde{r}_{k'}^\alpha  \delta_{k'n'}\right)^{-\epsilon}}
+%.
+Given primitives $\Upsilon$,  idiosyncratic residence-workplace draws $\boldsymbol \nu^{I}$,
+and 
+point-mass beliefs $\{\tilde{w}_n\},\{\tilde{r}_k\}$,
+a \textbf{commuting equilibrium with a finite number of individuals}, $I$, is defined as
+a labor allocation $\{\ell_{kn}\}$, wages $\{w_n\}$, and land prices $\{r_k\}$
+such that
+\begin{itemize}
+	%\item $\{\ell_{kn}\}$
+	%is the labor allocation resulting from
+	%$I$ independent draws from the probability function in equation \eqref{eqn:logitprobabilities};
+\item $\ell_{kn} = \frac{L}{I} \sum_{i=1}^{I} \mathbf{1}\{\tilde{U}_{kn}^{i}(\boldsymbol \nu^{I}) > \tilde{U}_{k'n'}^{i}(\boldsymbol \nu^{I}) \ \forall (k',n') \neq (k,n)\}$;	
+and
+	\item wages $\{w_n\}$ and land prices $\{r_k\}$ are \textit{a trade equilibrium} given the labor allocation $\{\ell_{kn}\}$.
+\end{itemize}
+\end{frame}
+%---------------------------------------------------------------------
+\begin{frame}{Comparison with continuum model}
+\begin{itemize}
+\item Idiosyncratic residence-workplace draws $\boldsymbol \nu^{I}$ $\to$ distributions of equilibrium quantities and prices (for given primitives $\Upsilon$)
+\item Mean equilibrium outcomes:
+\begin{itemize}
+\item Mean commuter counts coincide with those from the continuum model
+{\footnotesize $\frac{\ell_{kn}}{L} = \mathbb{E}\left[\Pr(U_{kn}^{i} > U_{k'n'}^{i} \ \forall (k',n') \neq (k,n))\right]$}\\
+\item Land prices and wages are solved from a non-linear system of equations 
+\end{itemize}
+\item Variance of equilibrium outcomes due to idiosyncrasies
+\begin{itemize}
+\item Confidence interval for residents, workers, wages, and prices
+\end{itemize}
+\item In counterfactual exercises: Change from $\Upsilon$ to $\Upsilon'$ for given $\boldsymbol \nu^{I}$
+\item The set of individuals who change their decisions in response to the change in economic primitives
+depends on the particular realized vectors of idiosyncratic preferences
+\item The dispersion in this distribution represents uncertainty about counterfactual predictions stemming from individual idiosyncrasies
+\end{itemize}
+\end{frame}
+%---------------------------------------------------------------------
+\begin{frame}{Sizable uncertainty about predicted changes from idiosyncrasies}
+\begin{center}
+\begin{tabular}{cc}
+Changes in residents & Changes in workers \\
+\includegraphics[width=0.50\linewidth]{../images/week11/fixednu_puncertainty_scatter_res.eps}
+&
+\includegraphics[width=0.50\linewidth]{../images/week11/fixednu_puncertainty_scatter_emp.eps}
+\end{tabular}
+\end{center}
+\end{frame}
+%---------------------------------------------------------------------
+\begin{frame}{Sizable uncertainty about predicted changes from idiosyncrasies}
+\begin{center}
+\begin{tabular}{cc}
+{ Changes in rents} & { Changes in wages}\\
+\includegraphics[width=0.50\linewidth]{../images/week11/fixednu_puncertainty_scatter_rent.eps}
+&
+\includegraphics[width=0.50\linewidth]{../images/week11/fixednu_puncertainty_scatter_wage.eps}
+\end{tabular}
+\end{center}
+\end{frame}
+%---------------------------------------------------------------------
+\begin{frame}{Simulate what? Simulating idiosyncratic preferences vs choices}
+Holding $\boldsymbol \nu^{I}$ fixed requires simulating 8 trillion Gumbel draws
+\begin{itemize}
+\item Change from $\Upsilon$ to $\Upsilon'$ for given $\boldsymbol \nu^{I}$:
+$\sim100$ CPU hours per simulation
+\item Contrast outcome distributions for $\Upsilon$ and $\Upsilon'$:
+$<1$ CPU hour per simulation
+\end{itemize}
+Do the cheaper simulations first
+\begin{itemize}
+\item Can you rule out uncertainty attributable to individual idiosyncrasies?
+Repeatedly draw multinomial realizations
+to compute a distribution of differences between finite-sample outcomes at counterfactual parameters $\Upsilon'$ and the expected outcome at baseline parameters $\Upsilon$.
+\item {This distribution of differences is more dispersed than
+the distribution of counterfactual changes from the model with a finite number of individuals that fixes the vector of idiosyncratic preferences $\boldsymbol \nu^{I}$.\par}
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Summary}
+\begin{itemize}
+\item CES and logit are close cousins; constant-elasticity siblings, really
+\item Reading a couple chapters of Train (2009) goes a long way
+\item Smart choices can speed your computations by orders of magnitude
+\item Econometrics by simulation is often a good starting point
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Next week}
+\begin{itemize}
+\item Spatial policies
+\item Any requests?
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\end{document}
