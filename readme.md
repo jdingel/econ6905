@@ -122,4 +122,8 @@ I may revise the course outline and reading list during the semester.
 
 #### Week 13: Spatial environmental economics
 
+- Clare Balboni, Joe Shapiro. 2024. "[Spatial Environmental Economics](https://ies.princeton.edu/wp-content/uploads/2024/09/Spatial_Environmental_Economics.pdf)". Prepared for *Handbook of Regional and Urban Economics*.
+- Tomas Domınguez-Iino. 2023. "[Spatial Economics and Environmental Policies](https://tdomingueziino.github.io/domingueziino_handbook_LHRPE_2023.pdf)". *Handbook of Labor, Human Resources and Population Economics*.
+- Olivier Deschenes and Kyle C. Meng. 2018. "[Quasi-Experimental Methods in Environmental Economics: Opportunities and Challenges](https://doi.org/10.1016/bs.hesenv.2018.08.001)". *Handbook of Environmental Economics*.
+
 #### Week 14: Research consultations
