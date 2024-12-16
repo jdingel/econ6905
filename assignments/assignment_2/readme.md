@@ -1,7 +1,7 @@
 ECON G6905: Topics in Trade\
-Fall 2023\
+Spring 2025\
 Assignment 2\
-Due: Beginning of week 5 class (5 October 2023, 10:10am)
+Due: Beginning of week 5 class
 
 This assignment looks at the estimation of "gravity" regressions for commuting flows between Detroit neighborhoods.
 

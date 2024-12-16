@@ -1,7 +1,7 @@
 ECON G6905: Topics in Trade\
-Fall 2023\
+Spring 2025\
 Assignment 1\
-Due: 21 September 2023, 10:10am
+Due: Beginning of week 2 class
 
 This assignment concerns the Armington model with CES preferences introduced in week 1.
 This model is presented in Section 2.1 of [Costinot and Rodriguez-Clare (Handbook, 2014)](https://doi.org/10.1016/B978-0-444-54314-1.00004-5).
@@ -66,11 +66,11 @@ the preference parameter *&sigma;*.
 
 In Julia's syntax, here are the types and dimensions of these arguments:
 ```
-function Armington_solver(A::Array{Float64,1},L::Array{Float64,1},tau::Array{Float64,1},sigma::Float64)
+function Armington_solver(A::Array{Float64,1},L::Array{Float64,1},tau::Array{Float64,2},sigma::Float64)
 ```
 
 Your function should perform basic error checking before producing
-output:
+output (in Julia, use `@assert`):
 -   verify that *A* and *L* are equal length and contain non-negative values
 -   verify that *&tau;* is a square *N* by *N* array where *N* is the length of *A* and *L*
 -   verify that *&sigma;* is a strictly positive scalar
@@ -108,7 +108,7 @@ If you have considerable difficulty getting started in Julia or Matlab, consult 
 Here are a few notes on getting started in Julia:
 
 -   I recommend that you read the QuantEcon.org lectures on [Programming in Julia](https://lectures.quantecon.org/jl/index_learning_julia.html) to get started.
--   To install Julia on your own machine, download Julia 1.9 from
+-   To install Julia on your own machine, download Julia 1.10 or newer from
     <https://julialang.org/downloads>. 
 -	You should need to install very few packages to complete this assignment. You might use Optim.jl.
 	You might also consider those that are [dependencies for the QuantEcon package](https://github.com/QuantEcon/QuantEcon.jl/blob/master/REQUIRE) and those listed as [Useful Libraries](https://lectures.quantecon.org/jl/julia_libraries.html) by QuantEcon.
