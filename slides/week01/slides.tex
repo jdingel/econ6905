@@ -1,7 +1,6 @@
 \documentclass[10pt,notes=hide]{beamer}
 \input{../week00/slides_settings.tex}
-\setbeamertemplate{footline}{\begin{center}\textcolor{gray}{Dingel -- Topics in Trade -- 
-Week 1 -- \insertframenumber}\end{center}}
+\setbeamertemplate{footline}{\begin{center}\textcolor{gray}{Dingel -- Topics in Trade -- Week 1 -- \insertframenumber}\end{center}}
 \begin{document}
 % -----------------------------------------
 \begin{frame}[plain]
@@ -10,7 +9,7 @@ Week 1 -- \insertframenumber}\end{center}}
 \textcolor{columbiadarkblue}{ECON G6905\\
 Topics in Trade\\ 
 Jonathan Dingel\\
-Fall \the\year, Week 1}
+Spring \the\year, Week 1}
 \vfill 
 \includegraphics[width=0.5\textwidth]{../images/Columbia_logo.png}
 \end{center}
@@ -28,21 +27,22 @@ Fall \the\year, Week 1}
 \begin{frame}{Logistics}
 This class
 \begin{itemize}
-\item Thursdays, 10:10-12:00, IAB 1102
+\item Wednesdays, 8:10-10:00, IAB 1101
 \item Jonathan Dingel
 \begin{itemize}
 	\item Email: \href{mailto:jid2106@columbia.edu}{jid2106@columbia.edu}
-	\item Office: IAB 1029
+	\item Office: IAB 1126B
 	\item Office hours: By appointment, please email
 \end{itemize}
 \item Course materials:
 \href{http://github.com/jdingel/econ6905}{github.com/jdingel/econ6905}
 and \href{https://courseworks2.columbia.edu}{courseworks2.columbia.edu}
 \end{itemize}
-Also relevant:
+Broader context:
 \begin{itemize}
-\item Weinstein's G6903 Theory of International Trade (Wednesdays 10:10-12:00, IAB 1101)\\
-\item Trade Colloquium (Wednesdays, 12:00 - 1:00, IAB 1101)
+\item This class is the economic-geography bridge between\\ Weinstein's trade class and Davis's urban class
+\item I will emphasize computational aspects
+\item You should attend the Trade and Spatial Colloquium (Wednesdays, 12--1, IAB 1101)
 \end{itemize}
 \end{frame}
 % -----------------------------------------
@@ -81,7 +81,7 @@ How many have used: Matlab? Julia? Git? \href{https://tradediversion.net/2019/11
 % -----------------------------------------
 \begin{frame}{Objectives}
 \begin{itemize}
-\item My goal is to prepare students to tackle research questions in international trade and spatial economics
+\item My goal is to prepare students to tackle research questions in trade, spatial, and urban economics
 \item Writing papers is about matching skills with opportunities
 \item In my experience, spotting opportunities is a hard-to-teach combination of insight and luck
 \item This class will aim to equip you with skills so your technical quiver is full when you spot a target
@@ -101,7 +101,8 @@ How many have used: Matlab? Julia? Git? \href{https://tradediversion.net/2019/11
 \item The canonical urban model
 \item Spatial sorting of skills and sectors
 \item Discrete choice estimation and simulations
-\item Spatial policies
+\item Multi-region firms
+\item Spatial environmental economics
 \end{enumerate}
 See my comments on ``\href{https://tradediversion.net/2017/09/17/linkages-between-international-trade-and-urban-economics/}{Linkages between international trade and urban economics}''
 \end{frame}
@@ -112,10 +113,12 @@ See my comments on ``\href{https://tradediversion.net/2017/09/17/linkages-betwee
 	\item Healthy balance of theory and empirics (c.f. theory-dominated from 1817 to 1990s) in which each informs the other
 	\item Trade has tools and insights relevant for topics ranging from intracity commuting to national TFP growth
 	\item I used to say trade economists sometimes have a data advantage because governments track cross-border transactions
-	\item Spatial economics has long been a small field, but it's rapidly growing (e.g., \href{https://tradediversion.net/2019/11/11/the-rapid-rise-of-spatial-economics-among-jmcs/}{The rapid rise of spatial economics among JMCs}, \href{https://urbaneconomics.org/about/history.html}{UEA history})
+	\item Spatial economics is a small but rapidly growing field (e.g., \href{https://tradediversion.net/2019/11/11/the-rapid-rise-of-spatial-economics-among-jmcs/}{The rapid rise of spatial economics among JMCs}, \href{https://urbaneconomics.org/about/history.html}{UEA history})
 \end{itemize}
-\vspace{0.5cm}
-Why are you interested in trade and spatial?
+\vspace{4mm}
+Why are you interested in trade/spatial/urban?
+\pause \\ \vspace{2mm}
+This week, we start with international trade
 \end{frame}
 % -----------------------------------------
 \begin{frame}{Trade's interplay between theory and empirics}
@@ -283,6 +286,12 @@ but we can report sets of counterfactual equilibria
 \item $\sigma \geq 0$: all equilibria are interior
 \item $\sigma \geq 1$: interior eqlbm is unique (aggregate demand slopes down)
 \end{itemize}
+\vspace{2mm}
+{\small Recent related lit:
+\href{https://dx.doi.org/10.2139/ssrn.4699361}{Ouazad (2024)} and
+\href{https://economics.mit.edu/people/phd-students/tishara-garg}{Garg (2025)}
+on enumerating all equilibria via polynomial roots;
+maybe check out \href{https://www.juliahomotopycontinuation.org/}{HomotopyContinuation.jl}\par}
 \end{frame}
 % -----------------------------------------
 \begin{frame}{Solving for equilibrium numerically (1/2)}
@@ -571,11 +580,13 @@ $Y_{is} = \sum_{j=1}^{N} X_{ijs}$, $Y_i = \sum_{s=1}^{S} Y_{is}$, and $X_{is} = 
 	Y_{is} = \sum_{j=1}^{N} \lambda_{ijs} \alpha_{js} \sum_{s'=1}^{S} Y_{js'} .
 \end{equation*}
 }\end{itemize}
-\textcolor{gray}{(Recall $T_{is} = A_{is}^{\epsilon_s} = = A_{is}^{\sigma_1 - 1}$)}
+\textcolor{gray}{(Recall $T_{is} = A_{is}^{\epsilon_s} = A_{is}^{\sigma_1 - 1}$)}
 \end{frame}
 % -----------------------------------------
-\begin{frame}{Next week}
-Gravity
+\begin{frame}{Wrapping up}
+Next week: Gravity regressions
+\vspace{2cm}
+Extra time? Discuss assignment 4
 \end{frame}
 % -----------------------------------------
 \end{document}
