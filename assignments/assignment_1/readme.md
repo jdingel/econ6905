@@ -1,7 +1,7 @@
 ECON G6905: Topics in Trade\
 Spring 2025\
 Assignment 1\
-Due: Beginning of week 2 class
+Due: Beginning of week 3 class
 
 This assignment concerns the Armington model with CES preferences introduced in week 1.
 This model is presented in Section 2.1 of [Costinot and Rodriguez-Clare (Handbook, 2014)](https://doi.org/10.1016/B978-0-444-54314-1.00004-5).
