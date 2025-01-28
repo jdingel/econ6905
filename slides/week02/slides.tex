@@ -1,16 +1,15 @@
 \documentclass[10pt,notes=hide,aspectratio=169]{beamer}
 \input{../week00/slides_settings.tex}
-\setbeamertemplate{footline}{\begin{center}\textcolor{gray}{Dingel -- International Macroeconomics and Trade -- Week 4 -- \insertframenumber}\end{center}}
+\setbeamertemplate{footline}{\begin{center}\textcolor{gray}{Dingel -- Topics in Trade -- Week 2 -- \insertframenumber}\end{center}}
 \begin{document}
 % -----------------------------------------
-%TITLE FRAME
 \begin{frame}[plain]
 \begin{center}
 \large
 \textcolor{columbiadarkblue}{ECON G6905\\
 Topics in Trade\\ 
 Jonathan Dingel\\
-Autumn \the\year, Week 2}
+Spring \the\year, Week 2}
 \vfill 
 \includegraphics[width=0.4\textwidth]{../images/Columbia_logo.png}
 \end{center}
@@ -124,6 +123,7 @@ Paper may seem abstract but you will find yourself re-reading it often
 Importing the gravity model into urban economics:
 \begin{itemize}
 	\item Gravity for commuting flows: 
+	\href{https://doi.org/10.1016/0191-2615(83)90023-1}{Anas (1983)},
 	Ahlfeldt Redding Sturm Wolf (2015), Monte Redding Rossi-Hansberg (2018), Owens Rossi-Hansberg Sarte (2020), Severen (2019), Tsivanidis (2019), Dingel and Tintelnot (2023)
 	\item Gravity for consumption in the city:
 	Davis Dingel Monras Morales (2019), Allen Arkolakis Li (2015), Miyauchi Nakajima Redding (2021)
@@ -216,14 +216,15 @@ Contrast OLS and PPML first-order conditions:
 \begin{align*}
   \text{Ordinary least squares:} \quad
   &
-  \sum_{k,n} \left[\ln X_{ij} - \beta \mathbf{Z}_{ij} \right] \mathbf{Z}_{ij}= 0
+  \sum_{i,j} \left[\ln X_{ij} - \beta \mathbf{Z}_{ij} \right] \mathbf{Z}_{ij}= 0
   \\
   \text{Poisson pseudo maximum likelihood:} \quad
   &
-  \sum_{k,n} \left[X_{ij} - \exp\left(\beta \mathbf{Z}_{ij}\right)\right] \mathbf{Z}_{ij}= 0
+  \sum_{i,j} \left[X_{ij} - \exp\left(\beta \mathbf{Z}_{ij}\right)\right] \mathbf{Z}_{ij}= 0
 \end{align*}
 The OLS FOC has a log difference; the PPML FOC has a level difference.
 {\href{http://www-personal.umich.edu/~ssotelo/research/Sotelo_MPMLE.pdf}{Sotelo (2019)}: ``when using PML methods to estimate gravity models, specifying the dependent variable as shares or as levels amounts to assigning different weights to each importer country.''\par}
+\only<2>{}
 \end{frame}
 % -----------------------------------------
 \begin{frame}{Zeros and PPML}
@@ -329,7 +330,6 @@ Three strategies:
 \end{center}
 Classic example is Limao and Venables (2001), who got price quotes from World Bank's freight forwarder for sending a 40-foot container from Baltimore to 64 destination cities.
 Land costs more than sea.
-%Passenger airfare has also fallen a lot over time, though quality may be down a bit recently
 \end{frame}
 % -----------------------------------------
 \begin{frame}{Container shipping}
