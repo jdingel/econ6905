@@ -14,9 +14,8 @@ I will introduce concepts and models in a self-contained fashion, but I will ass
 
 ### Logistics
 Course materials: [github.com/jdingel/econ6905](http://github.com/jdingel/econ6905)\
-Class schedule: Wednesdays 8:10 AM - 10:00 AM\
+Class schedule: Wednesdays 8:10 AM - 10:00 AM in IAB 1101\
 Email: <jid2106@columbia.edu>\
-Office: IAB 1126B\
 Office hours: By appointment, please email
 
 ### Assessment
