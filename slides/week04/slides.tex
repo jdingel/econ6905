@@ -3,14 +3,13 @@
 \setbeamertemplate{footline}{\begin{center}\textcolor{gray}{Dingel -- Topics in Trade -- Week 4 -- \insertframenumber}\end{center}}
 \begin{document}
 % -----------------------------------------
-%TITLE FRAME
 \begin{frame}[plain]
 \begin{center}
 \large
 \textcolor{columbiadarkblue}{ECON G6905\\
 Topics in Trade\\ 
 Jonathan Dingel\\
-Autumn \the\year, Week 4}
+Spring \the\year, Week 4}
 \vfill 
 \includegraphics[width=0.4\textwidth]{../images/Columbia_logo.png}
 \end{center}
@@ -79,7 +78,7 @@ Income elasticities can help explain these patterns
 \linespread{1.0}
 \begin{itemize}
 	\item Need estimated model to distinguish roles of trade costs and nonhomotheticity
-	\item Use GTAP data on 94 countries and 56 broad sectors (and 5 factors of production)
+	\item Use GTAP data on 94 countries and 56 broad sectors (and 5 factor inputs)
 	\item Sectoral gravity to obtain structural proxy for $\Phi_{nk}$
 	\begin{equation*}
 	\ln X_{nik} = \underbrace{\ln S_{ik}}_{ik \textnormal{ FE}} - \theta_k \underbrace{\ln d_{nik}}_{\textnormal{proxies}} + \underbrace{\ln\left(\frac{X_{nk}}{\Phi_{nk}} \right)}_{nk \textnormal{ FE}}
@@ -87,11 +86,15 @@ Income elasticities can help explain these patterns
 	\hat{\Phi}_{nk} = \sum_i \exp \left( \widehat{\ln S_{ik}} - \hat{\theta}_k \ln d_{nik} \right)
 	\end{equation*}
 	\item Price indices closely related to inward MR, $P_{nk} = \alpha_{3,k} \Phi_{nk}^{-1/\theta_k}$
-	\item Sectoral expenditures to identify $\{\sigma_k, \lambda_n, \alpha_{5,k}, \theta_k\}$ via constrained NLS
+	\item Sectoral expenditures to estimate $\{\sigma_k, \lambda_n, \alpha_{5,k}, \theta_k\}$ via constrained NLS
 	\begin{align*}
-	\ln x_{nk} = {-\sigma_k}\ln \lambda_n + \ln \alpha_{5,k} + \frac{\sigma_k-1}{\theta_k} \ln \hat{\Phi}_{nk} + \epsilon_{nk} \\
+	\ln x_{nk} = {-\sigma_k}\ln \lambda_n + \ln \alpha_{5,k} + \frac{\sigma_k-1}{\theta_k} \ln \hat{\Phi}_{nk} + \varepsilon_{nk}^{D} 
+	& \qquad (24)
+	\\
 	\sum_k \exp \left[ {-\sigma_k}\ln \lambda_n + \ln \alpha_{5,k} + \frac{\sigma_k-1}{\theta_k} \ln \hat{\Phi}_{nk} \right] = e_n
+	& \qquad (25)
 	\end{align*}
+	minimize sum of $(\epsilon_{nk}^{D})^{2}$ while satisfying equation (25)
 \end{itemize}
 \end{frame}
 % -----------------------------------------
@@ -106,7 +109,7 @@ Income elasticities can help explain these patterns
 % -----------------------------------------
 \begin{frame}{Causal HME in theory: Matsuyama (2019)}
 \begin{itemize}
-	\item \href{https://onlinelibrary-wiley-com.proxy.uchicago.edu/doi/10.3982/ECTA13765}{Matsuyama (2019)}: Intersectoral specialization, causal home-market effect
+	\item \href{https://doi.org/10.3982/ECTA13765}{Matsuyama (2019)}: Intersectoral specialization, causal home-market effect
 	\item Continuum of SDS sectors -- lower tier looks like Krugman (1980)
 	\item Direct implicitly additive CES utility with sector-specific income elasticity parameters (see \href{https://ideas.repec.org/a/ecm/emetrp/v43y1975i3p395-419.html}{Hanoch 1975} or \href{http://faculty.wcas.northwestern.edu/~kmatsu/}{Matsuyama's Canon lecture})
 	\item Ranking sectors by income elasticities, the economy with higher standard of living is a net exporter in higher-ranked sectors
@@ -148,9 +151,9 @@ is isoelastic in $\tilde{U}^{k}$ and LSM in $(s,\tilde{U}^{k})$
 Other applications:
 \begin{itemize}
 \item {\small Finlay and Williams ``Housing Demand, Inequality, and Spatial Sorting'' (2023)}
-\item {\small Comin, Mestieri, Danieli ``Income-driven Labor Market Polarization'' (2020)}
+\item {\small Comin, Danieli, Mestieri ``\href{https://www.nber.org/papers/w27455}{Income-driven Labor Market Polarization}'' (2020)}
 \end{itemize}
-Go to \href{https://shorturl.at/txBKR}{Matsuyama's 2018 slide deck}
+Go to \href{https://tinyurl.com/MatsuyamaEngeldeck}{Matsuyama's 2018 slide deck}
 \end{frame}
 % -----------------------------------------
 \begin{frame}{Structural transformation in closed and open economies}
