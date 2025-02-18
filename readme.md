@@ -84,7 +84,9 @@ I may revise the course outline and reading list during the semester.
 
 #### Week 6: Quantitative spatial models
 
-- Allen, Treb and Costas Arkolakis. 2014. "[Trade and the Topography of the Spatial Economy](https://doi.org/10.1093/qje/qju016)". *The Quarterly Journal of Economics*
+- Krugman, Paul. 1991. "[Increasing Returns and Economic Geography](http://www.journals.uchicago.edu/doi/abs/10.1086/261763)." *Journal of Political Economy*, 99(3): 483-499.
+
+- Allen, Treb and Costas Arkolakis. 2025. "[Quantitative Regional Economics](http://www.nber.org/papers/w33436)." NBER working paper 33436.
 
 #### Week 7: Quantitative urban models
 

@@ -3,14 +3,13 @@
 \setbeamertemplate{footline}{\begin{center}\textcolor{gray}{Dingel -- Topics in Trade -- Week 5 -- \insertframenumber}\end{center}}
 \begin{document}
 % -----------------------------------------
-%TITLE FRAME
 \begin{frame}[plain]
 \begin{center}
 \large
 \textcolor{columbiadarkblue}{ECON G6905\\
 Topics in Trade\\ 
 Jonathan Dingel\\
-Autumn \the\year, Week 5}
+Spring \the\year, Week 5}
 \vfill 
 \includegraphics[width=0.4\textwidth]{../images/Columbia_logo.png}
 \end{center}
@@ -63,7 +62,7 @@ The high mobility of labor leads urban economists to assume a spatial equilibriu
 \end{quote}
 \vspace{-4mm}
 \begin{itemize}
-	\item The benchmark model of spatial equilibrium is dubbed the ``Rosen-Roback'' model, due to the theory of equalizing differences (Sherwin Rosen 1974) applied to cities for both workers and firms (Jennifer Roback 1982)
+	\item The benchmark model of spatial equilibrium is dubbed the ``Rosen-Roback'' model, due to the theory of equalizing differences (Sherwin Rosen 1974, 1979) applied to cities for both workers and firms (Jennifer Roback 1982)
 	\item I borrow my exposition of Rosen-Roback model from \href{https://scholar.princeton.edu/sites/default/files/zidar/files/zidar_eco524_s2020_lec2.pdf}{Owen Zidar's slides}
 \end{itemize}
 \end{frame}
@@ -78,13 +77,13 @@ Goals
 Markets
 \begin{itemize}
 \item Labor: price $w$, quantity $N$
-\item Land: price $r$, quantity $L=L^w + L^p$ for workers and production
-\item Goods: price $p=1$, quantity $X$
+\item Land: price $r$, quantity $L=L^w + L^p$ used by workers and producers
+\item Goods: price $p=1$, quantity $X$ [no trade of consequence]
 \end{itemize}
 Agents
 \begin{itemize}
-\item Workers (homogenous, perfectly mobile)
-\item Firm (perfectly competitive, CRS)
+\item Workers (homogeneous, perfectly mobile)
+\item Firm (perfectly competitive, constant returns to scale)
 \end{itemize}
 Indifference conditions
 \begin{itemize}
@@ -410,12 +409,13 @@ Albouy (2016) ``What are cities worth? Land rents, local productivity, and the t
 \end{frame}
 % -----------------------------------------
 \begin{frame}{What's an amenity?}
-Urban economists use the word ``amenity'' in two imperfectly aligned ways:
+Urban economists use the word ``amenity'' in two imperfectly aligned ways
+(\href{https://tradediversion.net/2023/11/26/the-two-notions-of-amenities-in-spatial-economics/}{blog post})
 \begin{enumerate}
 \item Amenities are place-specific services/flows that are not explicitly transacted and hence do not appear in the budget constraint
 \item Amenities are place-specific residuals because the researcher lacks expenditure/price data
 \end{enumerate}
-Traditional view:
+Traditional view (Diamond and Tolley 1982):
 \begin{itemize}
 \item Clean air, lack of severe snow storms, and sunny days (Roback 1982)
 \end{itemize}
@@ -490,6 +490,16 @@ Identify agglomeration channels empirically
 \includegraphics[width=.40\textwidth]{../images/DavisWeinstein2002_fig1.pdf}
 \includegraphics[width=.50\textwidth]{../images/DavisWeinstein2002_fig2.pdf}\\
 {Also, \href{https://www.sciencedirect.com/science/article/pii/S0304387810000817}{Miguel and Roland (\textit{JDE} 2011)}: ``even the most intense bombing in human history did not generate local poverty traps in Vietnam''\par}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{When and where does history matter?}
+\href{https://doi.org/10.1016/j.regsciurbeco.2020.103628}{Lin and Rauch (2022)}:
+\begin{itemize}
+\item ``with a few important exceptions, major temporary shocks do not appear to permanently affect the fortunes of cities or large regions''
+\item ``there is perhaps more evidence of history dependence in the location and scale of city-industries and even more evidence of history dependence in neighborhood sorting and segregation''
+\item ``What factors might distinguish city-industries or neighborhoods from regions in making history dependence and multiplicity more empirically relevant?
+These factors may provide guidance on when history matters, and when it does not.''
+\end{itemize}
 \end{frame}
 % -----------------------------------------
 \begin{frame}{(Homogeneous) agglomeration: Henderson (1974)}
@@ -636,12 +646,13 @@ crime
 \begin{frame}{What is a city?}
 \begin{itemize}
 	\item Municipality versus county versus metropolitan area versus commuting zone
-	\item An integrated labor market defined by commuting ties? (c.f. Monte et al 2018)
-	\item What to do absent commuting flows? (Dingel, Miscio, Davis 2021)
-	\item Discretization vs continuous linkages (Duranton and Overman 2005)
+	\item An integrated labor market defined by commuting ties? (c.f. \href{https://www.aeaweb.org/articles?id=10.1257/aer.20151507}{Monte et al 2018})
+	\item What to do absent commuting flows? (\href{https://doi.org/10.1016/j.jue.2019.05.005}{Dingel, Miscio, Davis 2021})
+	\item Discretization vs continuous linkages (\href{https://ideas.repec.org/a/oup/restud/v72y2005i4p1077-1106.html}{Duranton and Overman 2005})
 	\item Know the modifiable areal unit problem (MAUP)
 	\item (Related: Are agglomeration economies about size or density?)
 \end{itemize}
+\hspace{1in}
 \includegraphics[height=0.50\textheight]{../images/RozenfeldRybskiGabaixMakse2011_fig6.pdf}
 \end{frame}
 % -----------------------------------------
@@ -650,13 +661,17 @@ crime
 	\item Defense Meteorological Satellite Program-Operational Linescan System (DMSP-OLS) for 1992-2011
 	versus
 	Visible Infrared Imaging Radiometer Suite (VIIRS) for 2011 onwards
-	\item Lights are more useful for predicting GDP in cross section than time series (\href{https://www.mdpi.com/2072-4292/11/9/1057}{Chen and Nordhaus 2019} on both DMSP and VIIRS)
-	\item Chen and Nordhaus 2019: high-resolution VIIRS lights better predict MSA GDP than state GDP (urban vs rural; lights do not explain value-added GDP in agriculture and forestry)
+	\item Lights are more useful for predicting GDP in cross section than time series (Chen and Nordhaus 2019 on both DMSP and VIIRS)
+	\item \href{https://www.mdpi.com/2072-4292/11/9/1057}{Chen and Nordhaus (2019)}: high-resolution VIIRS lights better predict MSA GDP than state GDP (urban vs rural; lights do not explain value-added GDP in agriculture and forestry)
+	\item \href{https://ideas.repec.org/p/wai/econwp/24-08.html}{Gibson, Kim, Li (2024)}: ``these GDP-luminosity elasticities vary especially by spatial scale and metro status, and also by period and remote sensing source. The elasticities mainly capture extensive margins of luminosity.''
 \end{itemize}
 \end{frame}
 % -----------------------------------------
 \begin{frame}{Next week}
-Up next: Quantitative spatial models
+\begin{itemize}
+\item Up next: Quantitative spatial models
+\item Read Krugman (1991) before class so I can cover quickly
+\end{itemize}
 \end{frame}
 % -----------------------------------------
 \end{document}
