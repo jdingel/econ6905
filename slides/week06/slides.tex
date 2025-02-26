@@ -9,7 +9,7 @@
 \textcolor{columbiadarkblue}{ECON G6905\\
 Topics in Trade\\ 
 Jonathan Dingel\\
-Autumn \the\year, Week 6}
+Spring \the\year, Week 6}
 \vfill 
 \includegraphics[width=0.4\textwidth]{../images/Columbia_logo.png}
 \end{center}
@@ -23,6 +23,10 @@ Autumn \the\year, Week 6}
 \item Designed for data: 
 ``These models are rich enough to incorporate first-order features of the data, such as large numbers of locations with heterogeneous geography, productivity, amenities, and local factors, as well as trade and commuting costs.''
 \end{itemize}
+Language evolves, but let me distinguish beween
+quantitative regional economics (goods trade, mobile labor between cities-as-points)
+and
+quantitative urban economics (commuting flows in cities with internal geography)
 \end{frame}
 % -----------------------------------------
 \begin{frame}{Overview of quantitative spatial models (QSMs)}
@@ -47,7 +51,8 @@ What limits QSMs? Shortage of overidentification checks
 % -----------------------------------------
 \begin{frame}[plain]
 \begin{center}
-\includegraphics[height=.95\textheight]{../images/QSM_ngram.png}
+\only<1>{\includegraphics[height=.95\textheight]{../images/QSM_ngram.png}}
+\only<2>{\includegraphics[height=.95\textheight]{../images/QTM_CGE_ngram.png}}
 \end{center}
 \end{frame}
 % -----------------------------------------
@@ -136,7 +141,7 @@ x_1 &= x_2 = \frac{\alpha}{\beta} (\sigma-1)
 $c_{ij}$ is consumption in $i$ of a variety from $j$; 
 $z_{1i}$ is relative expenditure in $i$ on varieties from 1;
 that's awkward notation;
-eqlbm $w_i,z_{1i}\vert L_i$
+short-run eqlbm is $w_i,z_{1i}\vert L_i$
 \begin{small}
 \begin{align*}
 \frac{c_{11}}{c_{12}} 
@@ -166,11 +171,11 @@ w_2 L_2 &=
 &
 \text{(14)}
 \\
-Y_1 &= \frac{1-\mu}{2} + w_1 L_1
+Y_1 &= (1-\mu)/2 + w_1 L_1
 &
 \text{(15)}
 \\
-Y_2 &= \frac{1-\mu}{2} + w_2 L_2
+Y_2 &= (1-\mu)/2 + w_2 L_2
 &
 \text{(16)}
 \end{align*}
@@ -734,10 +739,23 @@ Shocks to other regions' fundamentals that shift $w_i L_i$ in other regions
 \item Multi-sector EK/CP production with intermediates
 \item Imbalanced trade with regional transfers
 \item EK and equipped land are dispersion forces; no agglomeration mechanism; equilibrium is presumably unique
-\item Exact hat algebra: ``we do not need direct information on transport costs since all the relevant information is embedded in the observed trade flows''
+\item Calibrated shares: ``we do not need direct information on transport costs since all the relevant information is embedded in the observed trade flows''
 \item Computing counterfactuals: Function iteration on relative regional factor prices $\hat{\omega}$
 (Appendix A.3)
 \item {``the effects of disaggregated productivity changes depend in complex ways on the details of which sectors and regions are affected, and how these are linked through input–output and trade relationships to other sectors and regions''\par}
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{What's missing/next?}
+Allen and Arkolakis (2025) handbook chapter on quantitative regional economics:
+\begin{itemize}
+\item Multiple sectors
+\item Central place theory
+\item Migration costs
+\item Inter-regional knowledge spillovers
+\item Heterogeneous people
+\item Granular firms
+\item Market power
 \end{itemize}
 \end{frame}
 % -----------------------------------------
