@@ -1,7 +1,7 @@
 ECON G6905: Topics in Trade\
 Spring 2025\
 Assignment 3\
-Due: Beginning of week 12 class
+Due: Beginning of week 11 class
 
 You must submit a replication package for your response to the "Defining metropolitan areas" question.
 
