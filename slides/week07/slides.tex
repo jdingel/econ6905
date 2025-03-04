@@ -3,14 +3,13 @@
 \setbeamertemplate{footline}{\begin{center}\textcolor{gray}{Dingel -- Topics in Trade -- Week 7 -- \insertframenumber}\end{center}}
 \begin{document}
 % -----------------------------------------
-%TITLE FRAME
 \begin{frame}[plain]
 \begin{center}
 \large
 \textcolor{columbiadarkblue}{ECON G6905\\
 Topics in Trade\\ 
 Jonathan Dingel\\
-Autumn \the\year, Week 7}
+Spring \the\year, Week 7}
 \vfill 
 \includegraphics[width=0.4\textwidth]{../images/Columbia_logo.png}
 \end{center}
@@ -32,9 +31,25 @@ While GE machinery developed recently, gravity is a staple of urban economics:
 }\end{itemize}
 \end{frame}
 % -----------------------------------------
+\begin{frame}{Motivation: Why use a GE gravity model of commuting flows?}
+\begin{itemize}
+\item Commuting frees us to separate choices of home and work locations
+\item A monocentric city with one employment area may be too stylized for many applications
+\end{itemize}
+\href{https://www.nber.org/papers/w33130}{Redding (2024)}:
+{``Perhaps the most common empirical application is to transport infrastructure improvements (e.g., railroads, roads, public transit), but they also provide frameworks to evaluate zoning and land use regulations, other place-based policy interventions, and the implications of new communication technologies.''\par}
+\begin{itemize}{\small
+\item Los Angeles subway system (Chris Severen)
+\item Bus rapid transit in Bogota (Nick Tsivanidis)
+\item Commuting and formality in Mexico City (Roman David Zarate)
+\item Steam railway in 19\textsuperscript{th} century London (Heblich Redding Sturm 2020)
+\item Transportation infrastructure with congestion (Allen Arkolakis 2022)
+\item Revitalizing empty blocks in Detroit (Owens et al 2020)
+}\end{itemize}
+\end{frame}
 %---------------------------------------------------------------------
 \begin{frame}{Baseline model: Economic environment}
-\textcolor{gray}{This is Dingel and Tintelnot (2023) with ARSW (2015) notation for $\beta$, $z$, $d$}
+\textcolor{gray}{This is Dingel and Tintelnot (2023) with ARSW (2015) notation for $\beta$, $z$, $d$, $ij$}
 \begin{itemize}
 \item
 Each location has productivity $A$ and land endowment $T$
@@ -122,6 +137,99 @@ relative exogenous parameters
 \textcolor{red}{$\hat{A}_{j}$}, \textcolor{red}{$\hat{T}_{i}$}, \textcolor{red}{$\hat{\bar{d}}_{ij}$} and \textcolor{red}{$\hat{ \lambda}_{ij}$}.
 \end{frame}
 %---------------------------------------------------------------------
+\begin{frame}{Commuting and the productivity elasticity of employment (1/3)}
+What is the productivity elasticity of employment? ($\hat{A}_{j^{*}} > 1$ is only shock) \\
+To start, consider an economy of no commuting ($d_{ij} = \infty \text{ and } \ell_{ij} = 0 \text{ if } i \neq j$) and perfectly elastic labor demand ($\sigma = \infty$)
+\begin{equation*}
+\hat{w}_{j}
+=
+\hat{A}_j
+\qquad
+\hat{r}_{i}
+=
+\hat{y}_{ii}
+=
+\hat{w}_{ii} \hat{\ell}_{ii}
+\qquad
+\hat{\ell}_{ii} 
+=
+\frac{\hat{w}_{i}^{\varepsilon}\hat{r}_{i}^{-\varepsilon(1-\beta)}}{\sum_{i'} \hat{w}_{i'}^{\varepsilon} \hat{r}_{i'}^{-\varepsilon(1-\beta)} \frac{\ell_{i'i'}}{L}}
+\end{equation*}
+Compare log changes to eliminate the denominator:
+\begin{equation*}
+\frac{\hat{\ell}_{j^{*}j^{*}}}{\hat{\ell}_{jj}}
+=
+\frac{\hat{w}_{j^{*}}^{\varepsilon}\left(\hat{r}_{j^{*}}\right)^{-\varepsilon(1-\beta)}}%
+{\hat{r}_{j}^{-\varepsilon(1-\beta)}}
+=
+\frac{\hat{A}_{j^{*}}^{\beta\varepsilon}\left(\hat{\ell}_{j^{*}j^{*}}\right)^{-\varepsilon(1-\beta)}}%
+{\hat{\ell}_{jj}^{-\varepsilon(1-\beta)}}
+=
+\hat{A}_{j^{*}}^{\frac{\beta\varepsilon}{1+\varepsilon(1-\beta)}}
+\end{equation*}
+With no commuting, \textit{residential} land supply $T_j$ is a brake on \textit{employment} expansion in $j$.
+Lower housing expenditure share (higher $\beta$) raises employment elasticity.
+\textcolor{gray}{($\beta = 1$ makes $T_j$ irrelevant)}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Commuting and the productivity elasticity of employment (2/3)}
+Now consider an economy with costless commuting ($d_{ij} = 1 \ \forall ij$) and perfectly elastic labor demand ($\sigma = \infty$)
+\begin{equation*}
+\hat{w}_{j}
+=
+\hat{A}_j
+\qquad
+\hat{r}_{i}
+=
+\sum_{j}\hat{y}_{ij}\frac{y_{ij}}{\sum_{j'}y_{ij'}}
+%=
+\qquad
+\hat{\ell}_{ij} 
+=
+\frac{\hat{w}_{j}^{\varepsilon}\hat{r}_{i}^{-\varepsilon(1-\beta)}}{\sum_{i',j'} \hat{w}_{j'}^{\varepsilon}\hat{r}_{i'}^{-\varepsilon(1-\beta)} \frac{\ell_{i'j'}}{L}}
+\end{equation*}
+Because commuting is costless,
+the residence $i$ share of workplace $j$ employees
+$\frac{\ell_{ij}}{\sum_{i'} \ell_{i'j}} = \frac{r_{i}^{-\varepsilon(1-\beta)}}{\sum_{i'} r_{i'}^{-\varepsilon(1-\beta)}}$
+is independent of $j$.
+%$\frac{\ell_{ij}}{\sum_{j'} \ell_{ij'}} = \frac{w_j^{\varepsilon}}{\sum_{j'} w_{j'}^{\varepsilon}}$,
+%$\frac{y_{ij}}{\sum_{j'} y_{ij'}} = \frac{w_j^{\varepsilon+1}}{\sum_{j'} w_{j'}^{\varepsilon+1}}$
+What happens to employment?
+$$
+\frac{\hat{L}_{j^{*}}}{\hat{L}_{j}}
+=
+\frac{\sum_{i}\hat{\ell}_{ij^{*}} \frac{\ell_{ij^{*}}}{L_j^{*}}}{\sum_{i}\hat{\ell}_{ij} \frac{\ell_{ij}}{L_j}}
+=
+\frac{\hat{w}_{j^{*}}^{\varepsilon} \sum_{i} \hat{r}_{i}^{-\varepsilon(1-\beta)} \frac{\ell_{ij^{*}}}{L_j^{*}}}{\hat{w}_{j}^{\varepsilon} \sum_{i} \hat{r}_{i}^{-\varepsilon(1-\beta)} \frac{\ell_{ij}}{L_j}}
+=
+\frac{\hat{A}_{j^{*}}^{\varepsilon}}{\hat{A}_{j}^{\varepsilon}}
+=
+\hat{A}_{j^{*}}^{\varepsilon}
+$$
+With costless commuting, the productivity elasticity of employment is independent of the housing expenditure share $\beta$.
+Choices of workplace and residences are wholly separated.
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Commuting and the productivity elasticity of employment (3/3)}
+\vspace{2mm}
+\begin{columns}
+\begin{column}{0.62\textwidth}
+{\href{https://www.aeaweb.org/articles?id=10.1257/aer.20151507}{Monte, Redding, Rossi-Hansberg (2018)} study how the local employment elasticity varies with commuting ties between US counties\par}
+\begin{itemize}{\small
+\item Commuting complicates studies of ``local labor markets''
+\textcolor{gray}{(Also, counties vary greatly in size)}
+\item In a model of counties with commuting, productivity elasticity of county employment varies
+\item Share of residents who work where they live predicts this variation in elasticities
+\item Million-dollar plants elicit larger employment increases in more open (lower $\frac{\ell_{ii}}{\sum_{j} \ell_{ij}}$) counties
+\item {Reduced commuting costs could substitute for relaxing housing-supply restrictions\par}
+}\end{itemize}
+\end{column}
+\begin{column}{0.36\textwidth}
+\includegraphics[width=1.0\textwidth]{../images/MRR2018_fig1.pdf}\\
+\includegraphics[width=1.0\textwidth]{../images/MRR2018_fig2.pdf}
+\end{column}
+\end{columns}
+\end{frame}
 % -----------------------------------------
 \begin{frame}{Ahlfeldt, Redding, Sturm, Wolf (Ecma, 2015)}
 ARSW is often referred to as ``the Berlin Wall paper'':
@@ -427,6 +535,7 @@ Most of 1936--1986 change occurs by 1966.
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Gravity regression for commuting}
+\vspace{-2mm}
 Log commuters from residence district $I$ to workplace district $J$ (Jensen's inequality):
 \begin{equation*}
 \ln \pi_{IJ} = - \nu \tau_{IJ}  + \vartheta_{I} + \varsigma_{J} + e_{IJ},
@@ -434,7 +543,7 @@ Log commuters from residence district $I$ to workplace district $J$ (Jensen's in
 where $\tau_{IJ}$ is transit minutes, $\nu = \epsilon \kappa$, and 
 $\vartheta_{I}$ and  $\varsigma_{J}$ are fixed effects
 \begin{center}
-\includegraphics[height=.75\textheight]{../images/ARSW_Table3.pdf}
+\includegraphics[height=.7\textheight]{../images/ARSW_Table3.pdf}
 \end{center}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -447,7 +556,7 @@ $\omega_{j} \equiv \tilde{w}_{j}^{\epsilon} = E_j w_{j}^{\epsilon}$
 \item Using estimated $\nu$, and data on residence and workplace employment, one can solve for transformed wages $E_j w_{j}^{\epsilon}$ from commuting equation (summed over origins)
 \item Recover overall productivity $A_{j}$ from zero-profit equation:
 \begin{equation*}
-\ln\left(\frac{\tilde{A}_{jt}}{\bar{\tilde{A}_{t}}} \right) = (1-\alpha) \ln \left(\frac{\mathbb{Q}_{jt}}{\bar{\mathbb{Q}}_t} \right) + \frac{\alpha}{\epsilon} \ln \left(\frac{\omega_{jt}}{\bar{\omega}_t} \right)
+\ln\left(\frac{\tilde{A}_{jt}}{\bar{\tilde{A}}_{t}} \right) = (1-\alpha) \ln \left(\frac{\mathbb{Q}_{jt}}{\bar{\mathbb{Q}}_t} \right) + \frac{\alpha}{\epsilon} \ln \left(\frac{\omega_{jt}}{\bar{\omega}_t} \right)
 \end{equation*}
 where $\bar{\tilde{A}}_t = \exp(1/S \sum_{s=1}^{S} \ln \tilde{A}_{st})$ (geometric mean)
 \item High floor prices and wages require high final good productivity for zero profits to be satisfied 
@@ -586,7 +695,7 @@ Section 7 uses fraction of Berlin commutes under 30 minutes during division:
 \begin{frame}{ARSW: Estimated parameters}
 \begin{figure}
 \centering
-\includegraphics[height=.95\textheight]{../images/ARSW_Table5.pdf}
+\includegraphics[height=.93\textheight]{../images/ARSW_Table5.pdf}
 \end{figure}
 \end{frame}
 \begin{frame}{Very localized externalities}
@@ -604,17 +713,6 @@ Section 7 uses fraction of Berlin commutes under 30 minutes during division:
 \item[] e.g., Stuart S. Rosenthal and William C. Strange ``\href{https://www.aeaweb.org/articles?id=10.1257/jep.34.3.27}{How Close Is Close? The Spatial Reach of Agglomeration Economies}'' \textit{JEP} 2020
 \item Canonical model commuting within a city
 \item[] i.e., the baseline model descibed in Dingel and Tintelnot (2023) at start of this class
-\end{itemize}
-\end{frame}
-% -----------------------------------------
-\begin{frame}{How people use quantitative urban models}
-\begin{itemize}
-\item Los Angeles subway system (Chris Severen)
-\item Bus rapid transit in Bogota (Nick Tsivanidis)
-\item Commuting and formality in Mexico City (Roman David Zarate)
-\item Steam railway in 19\textsuperscript{th} century London (Heblich Redding Sturm 2020)
-\item Transportation infrastructure with congestion (Allen Arkolakis 2022)
-\item Revitalizing empty blocks in Detroit (Owens et al 2020)
 \end{itemize}
 \end{frame}
 % -----------------------------------------
