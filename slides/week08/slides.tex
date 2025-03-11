@@ -9,10 +9,163 @@
 \textcolor{columbiadarkblue}{ECON G6905\\
 Topics in Trade\\ 
 Jonathan Dingel\\
-Autumn \the\year, Week 8}
+Spring \the\year, Week 8}
 \vfill 
 \includegraphics[width=0.4\textwidth]{../images/Columbia_logo.png}
 \end{center}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{This week: Identification, calibration, and exact hat algebra}
+An introduction to econometric issues in applied general equilibrium models
+using the CES Armington model of trade as our running example:
+\begin{itemize}
+\item Identification \textcolor{gray}{is a model property and precedes estimation}
+\item Comparative statics \textcolor{gray}{are counterfactual scenarios}
+\item Calibrating parameters to match observed shares \textcolor{gray}{is estimation}
+\item Specification checks \textcolor{gray}{still apply to saturated models}
+\item Finite-sample performance \textcolor{gray}{is poor with one parameter per observation}
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Identification, in general: A refresher}
+\begin{itemize}
+\item ``Econometric identification really means just one thing: model parameters or features being uniquely determined from the observable population that generates the data.'' (\href{https://www.aeaweb.org/articles?id=10.1257/jel.20181361}{Lewbel 2019})
+\item For a parameter to be identified, alternative values of that parameter must imply different distributions of the observable data.
+\item Identification presumes structure: Identification of a structural feature (i.e., a parameter) is only defined in the context of a class defined by a maintained hypothesis (a ``model'').
+\item ``The study of identification logically precedes estimation, inference, and testing.'' (\href{https://www.aeaweb.org/articles?id=10.1257/jel.20181361}{Lewbel 2019}) 
+\end{itemize}
+{\footnotesize \textcolor{gray}{Asides: Name your errors terms (are those supply shocks or demand shocks in the residual?). ``Consideration of underlying structure is needed to convincingly argue that covariates included in the model as controls will actually function as they are intended.''}\par}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Are CES Armington model parameters identified by trade flows?}
+{\small
+A statement equivalent to
+``one can calibrate the model to observed shares without estimating the full structure of the model''
+is
+``the model's parameters are not identified by observed trade shares''
+\begin{itemize}
+\item
+If $\{T_i,L_i\}$, $\{\tau_{ij}\}$, $\epsilon$, and $\{w_i\}$ satisfy
+$$
+w_i L_i
+=
+\sum_j \frac{T_i \left(w_i \tau_{ij}\right)^{-\epsilon}}{\sum_{\ell} T_{\ell} \left(w_{\ell} \tau_{\ell j}\right)^{-\epsilon}}
+w_j L_j
+$$
+then
+$\{\delta_i^{\epsilon}T_i,L_i\}$, $\{\delta_i\tau_{ij}\}$, $\epsilon$, and $\{w_i\}$
+also satisfy this system with the same $\{X_{ij}\}$
+$\forall \delta_{i} > 0$.
+Iceberg trade costs: productivity and export-cost shifter are indistinguishable
+\item
+If $\{T_i,L_i\}$, $\{\tau_{ij}\}$, $\epsilon$, and $\{w_i\}$ satisfy this system,
+then
+$\{T_i,L_i\}$, $\{\xi_j \tau_{ij}\}$, $\epsilon$, and $\{w_i\}$ 
+also satisfy this system
+for any $\xi_j > 0$.
+Expenditure shares reflect relative prices.
+\item
+Similarly,
+$\{\mu_{i}^{\epsilon}T_i,\mu_{i}^{-1} L_i\}$, $\{\tau_{ij}\}$, $\epsilon$, and $\{\mu_{i}w_i\}$
+also satisfy this system
+for any $\mu_{i} > 0$.
+\textcolor{gray}{(Isomorphic endowment economy has $Q_i = T_i^{1/\epsilon} L_i$)}
+%(\href{https://twitter.com/borusyak/status/1550633634427801605}{Question remains}: Is $\tau_{ij}^{\epsilon}$ then identified given observed $X_{ij}$?)
+\end{itemize}
+}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Are  Armington model parameters identified by trade flows?}
+Suppose you want to identify \textit{relative} trade costs, $\tau_{ij} / \tau_{jj}$.
+Normalize $\tau_{jj} = 1 \ \forall j$.
+\medskip
+Using two prior results,
+if $\{T_i,L_i\}$, $\{\tau_{ij}\}$, $\epsilon$, and $\{w_i\}$ satisfy this system,
+then
+$\{\delta_i^{\epsilon} T_i,L_i\}$, $\{\delta_i \xi_j \tau_{ij}\}$, $\epsilon$, and $\{w_i\}$
+also satisfy this system
+for any $\delta_{i} > 0$ and $\xi_j > 0$.
+\begin{align*}
+Y_i
+&=
+\sum_j \frac{T_i \left(w_i \tau_{ij}\right)^{-\epsilon}}{\sum_{\ell} T_{\ell} \left(w_{\ell} \tau_{\ell j}\right)^{-\epsilon}}
+Y_j
+=
+\sum_j \frac{X_{ij}}{X_{jj}} 
+X_{jj}
+=
+\sum_j \frac{T_i \left(w_i \tau_{ij}\right)^{-\epsilon}}{T_j \left(w_j \tau_{jj}\right)^{-\epsilon}}
+X_{jj}
+\\
+&=
+\sum_j \frac{\delta_i^{\epsilon}T_i \left(w_i \delta_i \xi_j\tau_{ij}\right)^{-\epsilon}}{\delta_j^{\epsilon}T_j \left(w_j \delta_j \xi_j \tau_{jj}\right)^{-\epsilon}}
+X_{jj}
+\end{align*}
+If one chooses $\xi_j = \delta^{-1}_j$, then this preserves $\tau_{jj} = 1$.
+\medskip
+We cannot recover productivities and \textit{directed} trade costs from directed trade flows.
+\end{frame}
+% -----------------------------------------
+\begin{frame}{We can normalize $T_i = L_i = 1 \ \forall i$ and $\tau_{ii} = 1 \ \forall i$}
+Using three prior results:
+If $\{T_i,L_i\}$, $\{\tau_{ij}\}$, $\epsilon$, and $\{w_i\}$ satisfy this system,
+then
+$\{\mu_{i}^{\epsilon}\delta_i^{\epsilon} T_i,\mu_{i}^{-1} L_i\}$, $\{\delta_i \xi_j \tau_{ij}\}$, $\epsilon$, and $\{\mu_{i}w_i\}$
+also satisfy this system
+for any $\mu_{i} > 0$, $\delta_{i} > 0$, and $\xi_j > 0$.
+\medskip
+Choose
+$\mu_{i} =  L_i$,
+$\delta_{i}  = \mu_{i}^{-1} T_i^{-1/\epsilon}$,
+and
+$\xi_j = \delta^{-1}_j$.
+This defines a trade-cost matrix $\tau$ and wage vector $w$ satisfying the system of equations 
+given $T_i = L_i = 1 \ \forall i$ and $\epsilon$.
+\medskip
+By $L_i = 1$, $w_i = Y_i = \sum_{j} X_{ij}$.
+That's observed.
+We can thus identify relative trade costs from relative expenditures and relative producer prices:
+$$
+\frac{X_{ij}}{X_{jj}} = \left(\frac{Y_i}{Y_j}\right)^{-\epsilon} \left(\frac{\tau_{ij}}{\tau_{jj}}\right)^{-\epsilon}
+\implies
+\frac{\tau_{ij}}{\tau_{jj}} = \left(\frac{X_{ij}}{X_{jj}}\right)^{-1/\epsilon}\left(\frac{Y_i}{Y_j}\right)^{-1}
+$$
+\smallskip
+In sum, imposing $\tau_{ii} = T_i = L_i = 1 \ \forall i$ determines a unique solution for $\tau_{ij}$ given $\epsilon$:
+$$
+\tau_{ij} = \left(X_{ij} / X_{jj}\right)^{-1/\epsilon} Y_j / Y_i
+$$
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Trade flows alone are insufficient}
+\begin{itemize}
+\item 
+Even after normalizing $\{T_i,L_i,\tau_{ii}\}_{i=1}^{N}$,
+the union of trade costs $\{\tau_{ij}\}$ and the trade elasticity $\epsilon$
+are not identified from trade flows $\{X_{ij}\}$ alone.
+\item
+Recall from week 2 that trade-cost proxies like distance are insufficient to identify $\epsilon$:
+one needs trade costs to estimate trade elasticity \textcolor{gray}{(versus distance elasticity)}
+\item
+Researchers often use import tariffs and freight charges, which provide needed ad valorem trade costs
+\textcolor{gray}{assuming that they are appropriately orthogonal to other trade costs in the error term}
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Factory-gate prices do not discipline the Armington model much}
+\begin{itemize}
+\item
+Recall that bilateral trade costs $\tau_{ij}$ are isomorphic to bilateral preference shifters $\beta_{ij}$ in the Armington model (week 1).
+\item
+Conditional on $Y_i = p_i Q_i$, any observed $p_i$ can be rationalized by introducing preference shifters.
+\item
+Similarly, in Melitz (2003), firm-level productivity $\varphi$ might shift TFPR by lowering costs (TFPQ) or raising demand (quality).
+Given this isomorphism, firm-level prices can do little to discipline the model.
+\item
+If you've committed to the Eaton and Kortum (2002) model with symmetric preferences,
+then the price index may be more informative.
+But an isomorphic ``quality'' interpretation of $T_i$ seems straightforward.
+\end{itemize}
 \end{frame}
 % -----------------------------------------
 \begin{frame}{Counterfactual outcomes by exact hat algebra in trade model}
@@ -22,18 +175,19 @@ Recall exact hat algebra for Armington CES model from week 1:
 =
 \hat{Y}_{i}
 =
-\sum_{j=1}^{N} \gamma_{ij} \hat{\lambda}_{ij} \hat{w}_{j} \hat{L}_{j}
+\sum_{j=1}^{N} \gamma_{ij} \hat{\lambda}_{ij} \hat{Y}_{j}
 = 
 \sum_{j=1}^{N}
 \frac{\gamma_{ij} \hat{T}_{i} \hat{w}_{i}^{-\epsilon}\hat{\tau}_{ij}^{-\epsilon}}
 {\sum_{l=1}^{N} \lambda_{lj} \hat{T}_{l} \hat{w}_l^{-\epsilon}\hat{\tau}_{lj}^{-\epsilon}}
-\hat{Y}_{j}
+\hat{w}_{j} \hat{L}_{j}
 \end{equation*}
 \vspace{-3mm}
 \begin{itemize}
 \item \href{https://tradediversion.net/2018/05/07/on-hat-algebra/}{The name} refers to Jones (1965) ``hat algebra'' for comparative statics
 \item It's ``exact'' because it's global given whole demand and supply system
 \end{itemize}
+\vspace{3mm}
 A system of equations characterizing counterfactual endogenous variables $\hat{w}_i$
 in terms of 
 initial equilibrium shares $\lambda_{ij} \equiv \frac{X_{ij}}{X_j}$ and $\gamma_{ij} \equiv \frac{X_{ij}}{Y_i}$,
@@ -42,12 +196,26 @@ and
 counterfactual exogenous changes $\hat{L}_{i}, \hat{T}_i, \hat{\tau}_{ij}$
 \end{frame}
 % -----------------------------------------
-\begin{frame}{This week: Exact hat algebra and calibration}
+\begin{frame}{Exact hat algebra: Sufficient statistics for comparative statics}
+\vspace{-3mm}
+\begin{equation*}
+\hat{w}_i \hat{L}_i
+= 
+\sum_{j=1}^{N}
+\frac{\gamma_{ij} \hat{T}_{i} \hat{w}_{i}^{-\epsilon}\hat{\tau}_{ij}^{-\epsilon}}
+{\sum_{l=1}^{N} \lambda_{lj} \hat{T}_{l} \hat{w}_l^{-\epsilon}\hat{\tau}_{lj}^{-\epsilon}}
+\hat{w}_j \hat{L}_j
+\end{equation*}
+Exact hat algebra concerns comparative statics, not calibration (\href{https://tradediversion.net/2023/10/02/exact-hat-algebra-concerns-comparative-statics-not-calibration/}{blog post})
 \begin{itemize}
-\item Some counterfactual scenarios require more parameters than $\lambda_{ij}$, $\gamma_{ij}$, $\epsilon$
-\item Exact hat algebra is not a calibration procedure
-\item A saturated model calibrated to observed shares may still be falsifiable
-\item Calibrating model parameters shares to perfectly reproduce observed shares risks overfitting the model
+\item The system of equations defines counterfactual outcomes for any model of the baseline shares $\lambda_{ij}$ and $\gamma_{ij}$ and the trade elasticity $\epsilon$
+\item Model parameters $\{T_i,L_i\}$ and $\{\tau_{ij}\}$ matter (only) because they determine the baseline shares %and the trade elasticity
+\end{itemize}
+Identifying comparative statics may not require identifying all model parameters
+\begin{itemize}
+\item $\{T_i,L_i\}$ and $\{\tau_{ij}\}$ matter only because they determine the baseline shares
+\item Even if you did distinguish between $T_i$ and $L_i$, it would be of no consequence for counterfactual changes if they delivered the same $\lambda_{ij}$ and $\gamma_{ij}$
+\item \textcolor{gray}{Though one might find it strange to know $\hat{T}_{i} \equiv T'_i / T_i$ when you do not know $T_i$}
 \end{itemize}
 \end{frame}
 % -----------------------------------------
@@ -56,35 +224,48 @@ Some counterfactual scenarios require (knowledge of) more parameters than
 just the information encoded in 
 initial equilibrium shares $\lambda_{ij}$ and $\gamma_{ij}$ and
 the trade elasticity $\epsilon$.
-Eaton and Kortum (2002) conduct two thought experiments:
+\href{https://doi.org/10.1111/1468-0262.00352}{Eaton and Kortum (2002)} conduct two thought experiments:
 \begin{itemize}
 \item Autarky: $\tau_{ij} \to \infty$ for $i \neq j$. $\hat{\tau}_{ij} = \infty$.
 \item ``Zero gravity'': $\tau_{ij} \to \tau_{jj}$ for $i \neq j$. $\hat{\tau}_{ij} = \frac{\tau_{jj}}{\tau_{ij}}$.
 \end{itemize}
 Knowing model parameters up to $\lambda_{ij}$, $\gamma_{ij}$, $\epsilon$
 is \textit{insufficient} to compute the zero-gravity scenario
-because that requires $\hat{\tau}_{ij} = \frac{\tau_{jj}}{\tau_{ij}}$.
+because that requires knowing $\hat{\tau}_{ij} = \frac{\tau_{jj}}{\tau_{ij}}$.
+\end{frame}
+% -----------------------------------------
+\begin{frame}{The sufficient statistics are observed shares}
+\begin{itemize}
+\item
+Given trade flows data \textcolor{gray}{(including the diagonal)},
+you possess the sufficient statistics
+$\lambda_{ij} \equiv \frac{X_{ij}}{X_j}$ and $\gamma_{ij} \equiv \frac{X_{ij}}{Y_i}$
+\item
+Given trade flows $X_{ij}$, the trade elasticity $\epsilon$, and
+the assumption $T_i = L_i = \tau_{ii} = 1 \ \forall i$,
+there exists a (unique) solution for $\tau_{ij}$
+\item
+Therefore,
+there exist parameter values consistent with the observed sufficient statistics
+for \textit{any} (non-negative) trade matrix
+\\ \textcolor{gray}{$\tau_{ii} = 1$ normalization does presume $X_{ii} > 0$ \\ obviously the parameter value is not unique}
+\item
+Ergo, feel free to use the observed baseline shares $\lambda_{ij}$ and $\gamma_{ij}$
+without estimating $T_i$, $L_i$, and $\tau_{ij}$
+\end{itemize}
 \end{frame}
 % -----------------------------------------
 \begin{frame}{Prior descriptions of exact hat algebra and calibration}
-Costinot and Rodriguez-Clare (Handbook 2014):\\
+\href{https://doi.org/10.1016/B978-0-444-54314-1.00004-5}{Costinot and Rodriguez-Clare (\textit{Handbook} 2014)}:\\
 {\small
 ``We have described how to use gravity models to perform welfare and counterfactual analysis. An appealing feature of this approach, which we have referred to as the exact hat algebra, is that the impact of various counterfactual scenarios can be computed without estimating the full structure of the model. All the relevant information about preferences, technology, and trade costs can be inferred directly from the cross-section of bilateral trade flows and estimates of the trade elasticity.''
 \par}
 \vspace{3mm}
-Caliendo and Parro (2015):\\
+\href{https://doi.org/10.1093/restud/rdu035}{Caliendo and Parro (2015)}:\\
 {\small
 ``we can solve for the general equilibrium of the model without needing to estimate parameters which are difficult to identify in the data, [such] as productivities and iceberg trade costs.''
 (\textcolor{red}{c.f.} \href{https://www.aeaweb.org/articles?id=10.1257/jel.20181361}{Lewbel 2019})
 \par}
-\end{frame}
-% -----------------------------------------
-\begin{frame}{Exact hat algebra is not a calibration procedure}
-Exact hat algebra concerns comparative statics, not calibration (\href{https://tradediversion.net/2023/10/02/exact-hat-algebra-concerns-comparative-statics-not-calibration/}{blog post})
-\begin{itemize}
-\item The system of equations defines counterfactual outcomes for any model of the baseline shares $\lambda_{ij}$ and $\gamma_{ij}$ and the trade elasticity $\epsilon$
-\item Model parameters matter (only) because they determine the baseline shares and the trade elasticity
-\end{itemize}
 \end{frame}
 % -----------------------------------------
 \begin{frame}{Using observed shares is calibrating (combinations of) parameters}
@@ -110,122 +291,6 @@ The set of admissible counterfactual scenarios is restricted.
 \end{itemize}
 \end{frame}
 % -----------------------------------------
-\begin{frame}{Are Armington model parameters identified by trade flows?}
-{\small
-A statement equivalent to
-``one can calibrate the model to observed shares without estimating the full structure of the model''
-is
-``the model parameters are not identified by observed trade shares''
-\begin{itemize}
-\item
-If $\{T_i,L_i\}$, $\{\tau_{ij}\}$, $\epsilon$, and $\{w_i\}$ satisfy
-$$
-w_i L_i
-=
-\sum_j \frac{T_i \left(w_i \tau_{ij}\right)^{-\epsilon}}{\sum_{\ell} T_{\ell} \left(w_{\ell} \tau_{\ell j}\right)^{-\epsilon}}
-w_j L_j
-$$
-then
-$\{\lambda_i^{\epsilon}T_i,L_i\}$, $\{\lambda_i\tau_{ij}\}$, $\epsilon$, and $\{w_i\}$ satisfy
-also satisfy this system
-for any $\lambda_{i} > 0$.
-With iceberg trade costs, productivity and a shifter of export costs are the same.
-\item
-If $\{T_i,L_i\}$, $\{\tau_{ij}\}$, $\epsilon$, and $\{w_i\}$ satisfy this system,
-then
-$\{T_i,L_i\}$, $\{\xi_j \tau_{ij}\}$, $\epsilon$, and $\{w_i\}$ satisfy this system
-for any $\xi_j > 0$.
-Expenditure shares reflect relative prices.
-\item
-Similarly,
-$\{\mu_{i}^{\epsilon}T_i,\mu_{i}^{-1} L_i\}$, $\{\tau_{ij}\}$, $\epsilon$, and $\{\mu_{i}w_i\}$
-also satisfy this system
-for any $\mu_{i} > 0$.
-\textcolor{gray}{(Isomorphic endowment economy has $Q_i = T_i^{1/\epsilon} L_i$)}
-%\item
-%(\href{https://twitter.com/borusyak/status/1550633634427801605}{Question remains}: Is $\tau_{ij}^{\epsilon}$ then identified given observed $X_{ij}$?)
-\end{itemize}
-}
-\end{frame}
-% -----------------------------------------
-\begin{frame}{Are  Armington model parameters identified by trade flows?}
-Suppose you want to identify \textit{relative} trade costs, $\tau_{ij} / \tau_{jj}$.
-Normalize $\tau_{jj} = 1 \ \forall j$.
-\medskip
-Using two prior results,
-if $\{T_i,L_i\}$, $\{\tau_{ij}\}$, $\epsilon$, and $\{w_i\}$ satisfy this system,
-then
-$\{\lambda_i^{\epsilon} T_i,L_i\}$, $\{\lambda_i \xi_j \tau_{ij}\}$, $\epsilon$, and $\{w_i\}$
-also satisfy this system
-for any $\lambda_{i} > 0$ and $\xi_j > 0$.
-\begin{align*}
-Y_i
-&=
-\sum_j \frac{T_i \left(w_i \tau_{ij}\right)^{-\epsilon}}{\sum_{\ell} T_{\ell} \left(w_{\ell} \tau_{\ell j}\right)^{-\epsilon}}
-Y_j
-=
-\sum_j \frac{X_{ij}}{X_{jj}} 
-X_{jj}
-=
-\sum_j \frac{T_i \left(w_i \tau_{ij}\right)^{-\epsilon}}{T_j \left(w_j \tau_{jj}\right)^{-\epsilon}}
-X_{jj}
-\\
-&=
-\sum_j \frac{\lambda_i^{\epsilon}T_i \left(w_i \lambda_i \xi_j\tau_{ij}\right)^{-\epsilon}}{\lambda_j^{\epsilon}T_j \left(w_j \lambda_j \xi_j \tau_{jj}\right)^{-\epsilon}}
-X_{jj}
-\end{align*}
-If one chooses $\xi_j = \lambda^{-1}_j$, then this preserves $\tau_{jj} = 1$.
-\medskip
-We cannot recover endowments and \textit{directed} trade costs from directed trade flows.
-\end{frame}
-% -----------------------------------------
-\begin{frame}{We can normalize $T_i = L_i = 1 \ \forall i$ and $\tau_{ii} = 1 \ \forall i$}
-Using three prior results:
-If $\{T_i,L_i\}$, $\{\tau_{ij}\}$, $\epsilon$, and $\{w_i\}$ satisfy this system,
-then
-$\{\mu_{i}^{\epsilon}\lambda_i^{\epsilon} T_i,\mu_{i}^{-1} L_i\}$, $\{\lambda_i \xi_j \tau_{ij}\}$, $\epsilon$, and $\{\mu_{i}w_i\}$
-also satisfy this system
-for any $\mu_{i} > 0$, $\lambda_{i} > 0$, and $\xi_j > 0$.
-\medskip
-Choose
-$\mu_{i} =  L_i$,
-$\lambda_{i}  = \mu_{i}^{-1} T_i^{-1/\epsilon}$,
-and
-$\xi_j = \lambda^{-1}_j$.
-This defines a trade-cost matrix $\tau$ and wage vector $w$ satisfying the system of equations 
-given $T_i = L_i = 1 \ \forall i$ and $\epsilon$.
-\medskip
-By $L_i = 1$, $w_i = Y_i = \sum_{j} X_{ij}$.
-That's observed.
-We can thus identify relative trade costs from relative expenditures and relative producer prices:
-$$
-\frac{X_{ij}}{X_{jj}} = \left(\frac{Y_i}{Y_j}\right)^{-\epsilon} \left(\frac{\tau_{ij}}{\tau_{jj}}\right)^{-\epsilon}
-\implies
-\frac{\tau_{ij}}{\tau_{jj}} = \left(\frac{X_{ij}}{X_{jj}}\right)^{-1/\epsilon}\left(\frac{Y_i}{Y_j}\right)^{-1}
-$$
-\smallskip
-In sum, imposing $\tau_{ii} = T_i = L_i = 1 \ \forall i$ determines a unique solution for $\tau_{ij}$:
-$$
-\tau_{ij} = \left(X_{ij} / X_{jj}\right)^{-1/\epsilon} Y_j / Y_i
-$$
-\end{frame}
-% -----------------------------------------
-\begin{frame}{Factory-gate prices do not discipline the Armington model}
-\begin{itemize}
-\item
-Recall that bilateral trade costs $\tau_{ij}$ are isomorphic to bilateral preference shifters $\beta_{ij}$ in the Armington model (week 1).
-\item
-Conditional on $Y_i = p_i Q_i$, any observed $p_i$ can be rationalized by introducing preference shifters.
-\item
-Similarly, in Melitz (2003), firm-level productivity $\varphi$ might shift TFPR by lowering costs (TFPQ) or raising demand (quality).
-Given this isomorphism, firm-level prices can do little to discpline the model.
-\item
-If you've committed to the Eaton-Kortum model with symmetric preferences,
-then the price index may be more informative.
-But an isomorphic ``quality'' interpretation of $T_i$ seems easy.
-\end{itemize}
-\end{frame}
-% -----------------------------------------
 \begin{frame}{A saturated model may still be falsifiable}
 \begin{itemize}
 \item We cannot use baseline shares (nor prices) to evaluate the model
@@ -237,7 +302,7 @@ But an isomorphic ``quality'' interpretation of $T_i$ seems easy.
 Estimate on subsets of countries and see if elasticities are common
 \textcolor{gray}{(the other Hausman and McFadden (1984) test)}
 \item One can also test the complete passthrough from tariffs to prices (\href{https://direct.mit.edu/rest/article/doi/10.1162/rest_a_01369/117708/Poor-Substitutes-Counterfactual-Methods-in-IO-and}{Head, Mayer 2023})
-\item One could test the triangle-inequality on trade costs
+\item One could test the triangle inequality on trade costs (c.f. \href{https://doi.org/10.1016/j.jinteco.2024.104018}{Foellmi, Hepenstrick, Torun 2024})
 \end{itemize}
 \end{frame}
 % -----------------------------------------
