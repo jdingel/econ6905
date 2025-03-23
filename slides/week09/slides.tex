@@ -9,7 +9,7 @@
 \textcolor{columbiadarkblue}{ECON G6905\\
 Topics in Trade\\ 
 Jonathan Dingel\\
-Autumn \the\year, Week 9}
+Spring \the\year, Week 9}
 \vfill 
 \includegraphics[width=0.4\textwidth]{../images/Columbia_logo.png}
 \end{center}
@@ -62,8 +62,8 @@ T(\tau)G(\omega)-r(c,\tau)
 \end{equation*}
 \item In DD (2020), $T'(\tau)<0$ may be interpreted as commuting to CBD, proximity to
 productive opportunities, or consumption value
-\item Commuting time $T(\tau) = 24 - L - \tau$ and $G(\omega)$ is wage of skill $\omega$
-\item Linear city $S(\tau) = \tau$; disc city $S(\tau) = \pi \tau^{2}$
+\item Working time $T(\tau) = 24 - L - \tau$ and $G(\omega)$ is wage of skill $\omega$
+\item With uniform housing density: Linear city $S(\tau) = \tau$; disc city $S(\tau) = \pi \tau^{2}$
 \item More skilled are more willing to pay for more attractive locations
 \textcolor{gray}{(Net income is supermodular in $G(\omega)$ and $T(\tau)$)}
 \end{itemize}
@@ -180,6 +180,22 @@ Population density gradient is flatter than employment density gradient
 See Ken Jackson's \href{https://en.wikipedia.org/wiki/Crabgrass_Frontier}{\textit{Crabgrass Frontier: The Suburbanization of the United States}}
 \end{frame}
 % -----------------------------------------
+\begin{frame}{Lower commuting costs flatten density gradients}
+Baum-Snow - \href{https://doi.org/10.1162/qjec.122.2.775}{Did Highways Cause Suburbanization?} (\textit{QJE} 2007)
+\begin{itemize}
+\item 1950-1990: Central city populations $\downarrow 17\%$, metro area populations $\uparrow 72\%$
+\item Use 1947 interstate highway plan as instrumental variable for number of rays emanating from central city constructed between 1950 and 1990
+\item Regressing 1950-1990 change in rays on 1940-1950 change in log MSA population yields significant positive coefficient; regressing planned rays yields insignificant negative point estimate
+\item 2SLS regression of central city population change on change in rays (plus some extra calculations) says highways can explain about 1/3 of the observed decline
+\end{itemize}
+Not just roads: \href{https://doi.org/10.1016/j.jue.2018.09.002}{Gonzalez-Navarro, Turner (2018)}: subways $\to$ decentralize\\
+These findings match the monocentric model's story about commuting costs, but
+\begin{itemize}
+\item this model doesn't let jobs decentralize
+\item lower commuting costs do not increase total city population (much)
+\end{itemize}
+\end{frame}
+% -----------------------------------------
 \begin{frame}{Multiple transportation technologies}
 \begin{itemize}
 \item Consider a set of transportation technologies with a trade-off between fixed and variable costs (as a function of distance).
@@ -273,6 +289,12 @@ see Fujita and Thisse (2003) monograph and Duranton and Puga (2016) chapter, res
 \end{frame}
 % -----------------------------------------
 \begin{frame}{Contrast with quantitative spatial models}
+In the canonical model, location does not enter the direct utility function
+\begin{itemize}
+\item I do not directly care about location, but location matters because time commuting appears in my budget constraint
+\item Hallmark of price theory:
+transform a consumption problem into a production problem (I work at work or I work as a driver for myself)
+\end{itemize}
 \href{https://matthewturner.org/papers/unpublished/Thisse_Turner_Ushchev_unp_2021.pdf}{Thisse, Turner, Ushchev (2021)}
 contrast quantitative spatial models and canonical urban model
 \begin{itemize}
@@ -499,9 +521,7 @@ s(\gamma,c)\propto V\left(\frac{\gamma}{A(c)}\right)\Rightarrow\frac{\partial\ln
 \end{frame}
 % -----------------------------------------
 \begin{frame}{Next week and the week after}
-Next week: No class
-\bigskip
-November 16: Spatial sorting of skills and sectors
+Next week: Spatial sorting of skills and sectors
 \end{frame}
 % -----------------------------------------
 \end{document}
