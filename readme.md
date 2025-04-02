@@ -106,7 +106,7 @@ I may revise the course outline and reading list during the semester.
 
 - Davis, Donald R. and Jonathan I. Dingel. 2020. "[The Comparative Advantage of Cities.](http://www.jdingel.com/research/DavisDingel-TheComparativeAdvantageofCities.pdf)" *Journal of International Economics*.
 
-#### Week 10: Spatial sorting of skills and sectors
+#### Week 10: Skill-biased agglomeration
 
 -   Diamond, Rebecca. 2016. "[The Determinants and Welfare Implications of US Workers’ Diverging Location Choices by Skill: 1980-2000](http://www.aeaweb.org.proxy.uchicago.edu/articles?id=10.1257/aer.20131706)." *American Economic Review*, 106(3): 479-524.
 
