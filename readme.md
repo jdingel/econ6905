@@ -116,15 +116,14 @@ I may revise the course outline and reading list during the semester.
 
 - Donald R. Davis, Jonathan I. Dingel, Joan Monras, and Eduardo Morales. 2019. "[How Segregated Is Urban Consumption?](http://www.jdingel.com/research/DavisDingelMonrasMorales.pdf)" *Journal of Political Economy* 127:4, 1684-1738.
 
-#### Week 12: Multi-region firms
-
-- Hsieh, Chang-Tai, and Esteban Rossi-Hansberg. 2023. "[The Industrial Revolution in Services](http://doi.org/10.1086/723009)" *Journal of Political Economy Macroeconomics* 1:1, 3-42.
-- Xavier Giroud, Simone Lenzu, Quinn Maingi, Holger Mueller. 2024. "[Propagation and Amplification of Local Productivity Spillovers](https://doi.org/10.3982/ECTA20029)" *Econometrica* 92:5, 1589-1619.
-
-#### Week 13: Spatial environmental economics
+#### Week 12: Spatial environmental economics
 
 - Clare Balboni, Joe Shapiro. 2024. "[Spatial Environmental Economics](https://ies.princeton.edu/wp-content/uploads/2024/09/Spatial_Environmental_Economics.pdf)". Prepared for *Handbook of Regional and Urban Economics*.
 - Tomas Domınguez-Iino. 2023. "[Spatial Economics and Environmental Policies](https://tdomingueziino.github.io/domingueziino_handbook_LHRPE_2023.pdf)". *Handbook of Labor, Human Resources and Population Economics*.
-- Olivier Deschenes and Kyle C. Meng. 2018. "[Quasi-Experimental Methods in Environmental Economics: Opportunities and Challenges](https://doi.org/10.1016/bs.hesenv.2018.08.001)". *Handbook of Environmental Economics*.
+
+#### Week 13: Multi-region firms
+
+- Hsieh, Chang-Tai, and Esteban Rossi-Hansberg. 2023. "[The Industrial Revolution in Services](http://doi.org/10.1086/723009)" *Journal of Political Economy Macroeconomics* 1:1, 3-42.
+- Xavier Giroud, Simone Lenzu, Quinn Maingi, Holger Mueller. 2024. "[Propagation and Amplification of Local Productivity Spillovers](https://doi.org/10.3982/ECTA20029)" *Econometrica* 92:5, 1589-1619.
 
 #### Week 14: Research consultations
