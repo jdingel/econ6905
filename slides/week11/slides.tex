@@ -20,7 +20,7 @@
 \textcolor{columbiadarkblue}{ECON G6905\\
 Topics in Trade\\ 
 Jonathan Dingel\\
-Autumn \the\year, Week 11}
+Spring \the\year, Week 11}
 \vfill 
 \includegraphics[width=0.4\textwidth]{../images/Columbia_logo.png}
 \end{center}
@@ -54,19 +54,19 @@ Long history of discrete-choice modeling in urban and transportation economics
 \item {Estimating logit model by Poisson regression is Guimar{\~a}es, Figueiredo, Woodward ``\href{https://ideas.repec.org/a/tpr/restat/v85y2003i1p201-204.html}{A Tractable Approach To The Firm Location Decision Problem}'' (2003)\par}
 }\end{itemize}
 Plain-vanilla logit case:
-individual $i$ considers choice $j$ (see \href{https://eml.berkeley.edu/books/choice2.html}{Train 2009})
+individual $i$ considers choice $j$ (see \href{https://eml.berkeley.edu/books/choice2.html}{Train 2009} Ch. 3)
 \begin{itemize}
 	\item Utility $U_{ij} = V_{ij} + \epsilon_{ij}$
-	\item Assume error is iid Gumbel (T1EV): $F\left(\epsilon_{ij}\right)=\exp(-\exp(-\epsilon_{ij}))$
+	\item Assume error is iid standard Gumbel (T1EV): $F\left(\epsilon_{ij}\right)=\exp(-\exp(-\epsilon_{ij}))$
 	\item Choice probabilities are
 	\begin{equation*}\Pr(U_{ij}>U_{ij'} \ \forall j' \neq j) = \frac{\exp(V_{ij})}{\sum_{j'}\exp(V_{ij'})} \end{equation*}
 \end{itemize}
 \end{frame}
 % -----------------------------------------
 \begin{frame}{Import-sourcing decisions are discrete-choice problems}
-Trade models feature discrete-choice problems
+Neoclassical trade models feature discrete-choice problems
 \begin{itemize}
-\item Selecting the least-cost provider of each good/variety is at the heart of neoclassical trade models
+\item Selecting the least-cost provider of each good is at the heart of the model
 \item In the Eaton and Kortum (2002) formulation, this is probabilistic and a discrete-choice problem
 \end{itemize}
 \smallskip
@@ -76,12 +76,14 @@ to be a cost-minimization problem with multiplicative error term
 	\item Cost $\ln c_{ji} = \ln c_j + \ln \tau_{ji} - \epsilon_{j}$
 	\item Least-cost probability
 	\begin{align*}
-	\Pr(-\ln c_{ji}> -\ln c_{j'i} \ \forall j' \neq j) \\
-	= \Pr(\ln c_{ji}<\ln c_{j'i} \ \forall j' \neq j) 
-	& 
-	= \frac{1/(c_j\tau_{ji})}{\sum_{j'}1/(c_{j'}\tau_{j'i})} \\
+	\Pr(\ln c_{ji}<\ln c_{j'i} \ \forall j' \neq j)
+	=
+	\Pr(-\ln c_{ji}> -\ln c_{j'i} \ \forall j' \neq j)
+	=
+	\frac{1/(c_j\tau_{ji})}{\sum_{j'}1/(c_{j'}\tau_{j'i})}
 	\end{align*}
 \end{itemize}
+\textcolor{gray}{Gumbel CDF is $F\left(\epsilon\right)=\exp(-\exp((\mu-\epsilon)/\beta))$. Standard Gumbel is $\mu=0,\beta=1$.}
 \textcolor{gray}{The Frechet distribution is the log-Gumbel distribution.}
 \end{frame}
 % -----------------------------------------
@@ -200,7 +202,7 @@ In a sense, this is ``gravity within the city'', but the discrete-choice formula
 \end{itemize}
 \end{frame}
 \begin{frame}
-\frametitle{Behavioral model}   %TODO
+\frametitle{Behavioral model}
 \begin{itemize}
 	\item Individual $i$ decides at time $t$ whether to visit venue $j$ in choice set $\mathcal{J}$.
 	\item Trip may originate from one of six locations $l$, $l \in \mathcal{L} = \left\{\textnormal{car},\textnormal{public transit}\right\} \times \{\textnormal{home, work, commute}\}$
@@ -246,7 +248,7 @@ We assume that
 \Pr(d_{ijt}^{r}=1|d_{ijt}=1,\cdot;\cdot) \times \Pr(d_{ijt}=1|\cdot;\cdot)
 \\
 &=
-w_{it} \times \mathbbm{1}\{j\neq 0,j\notin D_{it}^{r}\} \times \Pr(d_{ijt}=1|\cdot;\cdot)
+w_{it} \times \mathbf{1}\{j\neq 0,j\notin D_{it}^{r}\} \times \Pr(d_{ijt}=1|\cdot;\cdot)
 \end{align*}
 \pause
 If $\Pr(d_{ijt}^{r}=1|d_{ijt}=1,\cdot;\cdot)$ depends on some restaurant characteristic in $Z$
@@ -254,6 +256,7 @@ If $\Pr(d_{ijt}^{r}=1|d_{ijt}=1,\cdot;\cdot)$ depends on some restaurant charact
 	\item Coefficient on that characteristic would be biased
 	\item Estimates of spatial and social frictions could still be asymptotically unbiased
 \end{itemize}
+\only<2>{}
 \end{frame}
 %-------------------------------------------------------------------------------------------
 \begin{frame}
@@ -284,14 +287,14 @@ The resulting probability of reviewing restaurant $j$ given sampling is
 \begin{align*}
 \Pr(d_{ijt}^{*}=1|d_{it}^{*}=1X,Z,\mathcal{J};\gamma,\beta)	
 &=
-\mathbbm{1}\{j\neq 0,j\notin D_{it}^{r}\} \times \Pr(d_{ijt}=1|\cdot;\cdot)
+\mathbf{1}\{j\neq 0,j\notin D_{it}^{r}\} \times \Pr(d_{ijt}=1|\cdot;\cdot)
 %=
 %&
 \\
 \implies
 \Pr(d_{ijt}^{*}=1|d_{it}^{*}=1,X_{i},Z_{i},S_{it};(\gamma,\beta))
 &=
-\frac{\mathbbm{1}\{j\in S_{it}\}\sum_{l\in\mathcal{L}}\exp(V_{ijl})}{\sum_{j'\in S_{it}}\sum_{l\in\mathcal{L}}\exp(V_{ij'l})}
+\frac{\mathbf{1}\{j\in S_{it}\}\sum_{l\in\mathcal{L}}\exp(V_{ijl})}{\sum_{j'\in S_{it}}\sum_{l\in\mathcal{L}}\exp(V_{ij'l})}
 \end{align*}
 is the probability that $i$ reviews restaurant $j$ at period $t$ conditional on a randomly drawn set $S_{it}$ and that $i$ writes a review at $t$.
 McFadden (1978) shows that maximizing this likelihood is a consistent estimator (obviously larger standard errors from not using all observations).
@@ -370,12 +373,12 @@ using Distributions; mean_util = rand(1_000_000);
 % -----------------------------------------
 \begin{frame}{Parametric bootstrap for confidence intervals in DDMM}
 \vspace{-1mm}
-\begin{itemize}
+\begin{itemize}{\small
 \item Draw 500 samples from estimated model (same size as estimation sample)
 \item Estimate the model on each generated sample
 \only<1-2>{\item Distributions for social frictions and restaurant characteristics look like asymptotic normal distribution}
 \only<3-5>{\item Distributions for spatial frictions have fat tails because of collinearity of same-origin modes (\href{https://davegiles.blogspot.com/2011/09/micronumerosity.html}{see Goldberger} on multicollinearity and micronumerosity)}
-\end{itemize}
+}\end{itemize}
 \vspace{-3mm}
 \begin{center}
 \only<1>{Asian reviewers: Social frictions\\ \includegraphics[height=0.6\textheight]{../images/week11/bootstrap_param_mainspec_social_asian.png} }
@@ -385,6 +388,7 @@ using Distributions; mean_util = rand(1_000_000);
 \only<5>{Spatial frictions in minimum-time specification $\nu_{ijlt} = \nu_{ijt} \ \forall l$\\ \includegraphics[width=1.0\textwidth]{../images/week11/bootstrap_param_mintime_spatial.png} }
 \\ \includegraphics[width=0.4\textwidth]{../images/week11/bootstrap_param_legend.png}
 \end{center}
+\only<5>{}
 \end{frame}
 % -----------------------------------------
 \begin{frame}{Parametric bootstrap of dissimilarity indices in DDMM}
@@ -606,13 +610,7 @@ the distribution of counterfactual changes from the model with a finite number o
 \item Smart choices can speed your computations by orders of magnitude
 \item Econometrics by simulation is often a good starting point
 \end{itemize}
-\end{frame}
-% -----------------------------------------
-\begin{frame}{Next week}
-\begin{itemize}
-\item Spatial policies
-\item Any requests?
-\end{itemize}
+Next week: Spatial environmental economics
 \end{frame}
 % -----------------------------------------
 \end{document}
