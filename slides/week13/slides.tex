@@ -1,0 +1,537 @@
+\documentclass[11pt,notes=hide,aspectratio=169]{beamer}
+\input{../week00/slides_settings.tex}
+\setbeamertemplate{footline}{\begin{center}\textcolor{gray}{Dingel -- Topics in Trade -- Week 12 -- \insertframenumber}\end{center}}
+\usepackage{listings}
+\input{../week00/listings_julia_setup.tex}
+\input{../week00/listings-stata.tex}
+\begin{document}
+% -----------------------------------------
+\setcounter{framenumber}{0}
+\begin{frame}[plain]
+\begin{center}
+\large
+\textcolor{columbiadarkblue}{ECON G6905\\
+Topics in Trade\\ 
+Jonathan Dingel\\
+Spring \the\year, Week 13}
+\vfill 
+\includegraphics[width=0.4\textwidth]{../images/Columbia_logo.png}
+\end{center}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Today: Multiregion firms}
+Multinational enterprises (MNEs)
+\begin{itemize}
+\item Six facts about foreign direct investment and MNEs
+\item Horizontal FDI (``the octopus'') vs vertical FDI (``the rattlesnake'')
+\end{itemize}
+Multiregion firms
+\begin{itemize}
+\item The internal geography of firms
+\item Organizing the multi-establishment firm: entry, layers
+\item Spillovers with multimarket firms
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Facts about multinational firms: Overview}
+\begin{itemize}
+\item Multinationals, though few, do majority of international business
+\item Most FDI has involved high-income economies
+\item Multinationals are more important in more sophisticated (manufacturing) industries
+\item A gravity equation for foreign affiliate activity
+\item Parents provide ``headquarter services''
+\item Acquisitions are a substantial share of FDI
+\end{itemize}
+\textcolor{gray}{
+A \textit{multinational} firm is an enterprise that controls and manages establishments in 2+ countries.
+A \textit{parent} firm is a legal entity (located in source country) that controls another establishment.
+A \textit{foreign affiliate} is an establishment located in a host ($\neq$ source) country
+}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Multinational firms drive international business}
+\begin{itemize}
+\item MNEs {\small (US- and foreign-owned)} are 1.1\% of US firms, 27\% of US employment, and do 90\% of US trade {\footnotesize(\href{http://www.nber.org/chapters/c0500}{Bernard Jensen Schott 2009})}
+\item Multinational firms generate 28\% of global GDP, 23\% of employment, and 55\% of world exports
+{\footnotesize(\href{https://www.oecd.org/industry/ind/MNEs-in-the-global-economy-policy-note.pdf}{OECD 2018}, \href{https://www.oecd-ilibrary.org/science-and-technology/multinational-enterprises-in-domestic-value-chains_9abfa931-en}{OECD 2019})}
+\item Foreign-owned firms account for 51\% of Chinese exports; joint ventures account for 26\% {\footnotesize(\href{http://users.ox.ac.uk/~econ0451/ChinaCredit.pdf}{Manova, Wei, Zhang 2015})}
+\item US firms' \href{https://apps.bea.gov/iTable/iTable.cfm?ReqID=2&step=1}{foreign affiliate sales} of \$7.7 trillion versus \href{https://www.census.gov/foreign-trade/statistics/highlights/annual.html}{exports} of \$2.5 trillion.
+\end{itemize}
+\begin{center}
+\resizebox{.60\textwidth}{!}{
+\begin{tabular}{r|cccccc}
+\toprule
+& Finland & France & Ireland & Netherlands & Poland & Sweden \\
+\midrule
+Enterprises  & 1.5\% & 0.6\% & 1.3\% & 1.2\%& 10.4\%& 1.7\% \\
+Sales &   22.6\% & 19.0\% & 63.5\% & 35.6\% & 41.2\% & 31.0\% \\
+Employment & 17.6\% & - & 14.3\% & 20.3\% & - & 22.9\%\\
+Value Added    & 23.1\% & 17.2\% & 62.8\% & 29.7\% & 37.0\% &26.8\%\\
+R\&D&  30.2\% & 24.1\% & 69.2\% & 32.6\% & 51.7\% & 38.1\%\\
+Exports (2016)&  31.7\% & 30.0\% & 40.6\% & 60.7\% & 41.4\% & 45.0\%\\
+\bottomrule
+\multicolumn{7}{l}{Source: 2017 business sector data from \href{https://ec.europa.eu/eurostat/web/structural-business-statistics/global-value-chains/foreign-affiliates}{Eurostat} and OECD (exports in 2016).}
+\end{tabular}
+}
+\end{center}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Most FDI has involved high-income economies}
+\begin{itemize}
+	\item {\small Developed economies account for 82\% of outward (investors' residence) and 66\% of inward (assets' location) FDI stock\par}
+	\item {\small Accounting for size, multinational activity is concentrated in developed economies; developing economies more likely to be affiliate destination than parent origin {\footnotesize(\href{http://scholar.harvard.edu/antras/publications/multinational-firms-and-structure-international-trade}{Antras and Yeaple 2014})} \par}
+\end{itemize}
+\vspace{-2mm}
+\begin{center}\begin{figure}\includegraphics[width=0.85\textwidth]{../images/week13/AntrasYeaple2014_fig2dot1_FDIstocks.pdf}\end{figure}\end{center}
+\vspace{-5mm}
+{\textcolor{gray}{\scriptsize FDI stats are limited by measurement challenges: book vs market valuation, round-tripping, and tax havens (\href{http://ccsi.columbia.edu/files/2016/10/No-215-Sauvant-FINAL.pdf}{Sauvant 2017})}\par}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Multinationals key in more sophisticated manufacturing industries}
+A larger share of imports are intrafirm in capital- and research-intensive industries 
+\begin{center}
+\includegraphics[width=0.93\textwidth]{../images/week13/AntrasYeaple2014_fig2dot2_intrafirmtrade.pdf}\\
+\vspace{-2mm}
+{\footnotesize Figures from \href{http://scholar.harvard.edu/antras/publications/multinational-firms-and-structure-international-trade}{Antras and Yeaple (2014)}} \\
+{\tiny Highlighted NAICS: apparel (3159), footwear (3162), motor vehicles (3361), pharmaceuticals (3254) \par}
+\end{center}
+\begin{itemize}
+{\footnotesize 
+	\item \textcolor{gray}{``Zero R\&D'' industries ($\ln(0.01)\approx -4.6$) says more about accounting practices than R\&D}
+	\item \textcolor{gray}{These correlations are weaker among developing-economy multinationals}
+}
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{A gravity equation for foreign affiliate activity}
+\begin{itemize}
+	\item Recall the ``niave'' gravity equation using GDP: $X_{od} = \lambda \frac{\text{GDP}_o^{\alpha} \text{GDP}_d^{\beta}}{\text{distance}_{od}^{\gamma}}$
+	\item Now make $X_{od}$ global sales by affiliates in $d$ owned by parent in $o$
+	\item Distance coefficient for affiliates sales  $\gamma \approx .61$ less negative than distance coefficient for exports $\gamma \approx 1$
+\end{itemize}
+\begin{center}
+\includegraphics[width=0.45\textwidth]{../images/week13/AY_fig2p3_p1.png}
+\includegraphics[width=0.45\textwidth]{../images/week13/AY_fig2p3_p2.png} \\
+\vspace{-2mm}
+{\footnotesize Reproduction of figures in \href{http://scholar.harvard.edu/antras/publications/multinational-firms-and-structure-international-trade}{Antras and Yeaple (2014)}}
+\end{center}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Foreign affiliates' locations and time zones}
+Differences in time zones raise communication and coordination costs
+\begin{itemize}
+\item
+Coordination more important for FDI than trade:
+``Time zones also have a negative effect on trade, but this effect is smaller than that on FDI\dots
+the impact of the time zone effect has increased over time.''
+{\small(\href{https://www-sciencedirect-com.proxy.uchicago.edu/science/article/pii/S002219960600064X}{Stein \& Daude 2007})}
+\item 
+Comparing different industries within manufacturing,
+coordination more important in knowledge-intensive operations:
+``Subsidiaries with a higher overlap in working hours with their headquarters are, on average, active in industries that are more intensive in knowledge''
+{\small(\href{https://voxeu.org/article/time-zones-and-knowledge-distance-trade}{Bahar 2019})}
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Parents provide ``headquarter services''}
+\begin{itemize}
+	\item 1999: US parents account for 74\% of total sales, 78\% of value added, and 87\% of R\&D within multinationals
+	\item 2009: US parents account for 65\% of total sales, 68\% of value added, and 84\% of R\&D within multinationals
+	\item Affiliates primarily serve foreign markets rather than US parent
+\end{itemize}
+\begin{center}
+Destination of affiliate sales by industry (\%)
+\resizebox{0.7\textwidth}{!}{
+\begin{tabular}{lccc}  \toprule
+&\textbf{Host Country}&\textbf{Other Foreign}&\textbf{United States}\\
+\hline
+Total manufacturing&0.55&0.33&0.12\\
+$\quad$Textile and Apparel&0.48&0.28&0.24\\
+$\quad$Metals and Minerals&0.60&0.31&0.09\\
+$\quad$Chemicals and Plastics&0.62&0.32&0.06\\
+$\quad$Machinery&0.49&0.38&0.13\\
+$\quad$Computers and Electronics&0.38&0.48&0.14\\
+$\quad$Electronic Equipment&0.63&0.25&0.12\\
+$\quad$Transport Equipment&0.48&0.27&0.24\\
+\bottomrule
+\end{tabular}
+}\\
+{\scriptsize Source: BEA's 2014 Benchmark Survey of US Direct Investment Abroad}
+\end{center}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Cross-border acquisitions are a substantial share of FDI}
+\vspace{-3mm}  
+\begin{center}
+\footnotesize{FDI inflows 2014 (billions USD)}
+\resizebox{0.8\textwidth}{!}{\input{week03_fdiinflows.tex}}\\
+\footnotesize{Source: \href{http://unctad.org/en/PublicationsLibrary/webdiaeia2016d1_en.pdf}{UNCTAD Global Investment Trends Monitor}, 2016}
+\end{center}
+\vspace{-3mm}
+\begin{itemize}
+	\item Acquisitions more prevalent for entering developed economies
+	\item More productive parents tend to establish foreign affiliates via greenfield investment rather than acquisition {\footnotesize (\href{http://restud.oxfordjournals.org.proxy.uchicago.edu/content/75/2/529.abstract}{Nocke \& Yeaple 2008})}
+	\item Acquisition targets tend to be more productive than average firm in destination {\footnotesize (\href{http://www.sciencedirect.com.proxy.uchicago.edu/science/article/pii/S0022199609000695}{Arnold \& Javorcik 2009}, \href{https://www-aeaweb-org.proxy.uchicago.edu/articles.php?doi=10.1257/aer.102.7.3594}{Guadalupe, Kuzmina, Thomas 2012})}
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Two types of FDI}
+\begin{itemize}
+	\item \textbf{Horizontal} FDI: Foreign affiliate replicates activities performed elsewhere
+	\begin{itemize}
+	\item Japanese automakers' US assembly plants
+	\item Nestl\'{e}'s 447 factories in 194 countries
+	\item Yum! Brand fast-food restaurants outside the US
+	\end{itemize}
+	\item \textbf{Vertical} FDI: Foreign affiliate performs a distinct function of firm's production process
+	\begin{itemize}
+	\item Intel's geographic separation of R\&D, wafer fabrication, and assembly \& testing plants
+	\item GE's jet engines designed for manufacture in China, analytics and materials science in India, wind-tunnel testing in Germany
+	\end{itemize}
+	\item Much investment activity won't neatly belong to one or the other
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Horizontal FDI: The proximity-concentration trade-off}
+\begin{columns}
+\begin{column}{0.46\textwidth}
+\begin{itemize}{\small
+\item Benefit of \textbf{proximity}: Replicating an activity across locations circumvents distance-related trade costs\\
+\item Benefit of \textbf{concentration}: Concentrating an activity in a single location lowers average costs via economies of scale
+\item {Simplest model casts this as fixed-vs-variable costs:
+fixed cost to build second plant versus trade costs that apply to each unit shipped\par}
+}\end{itemize}
+\end{column}
+\begin{column}{0.52\textwidth}\begin{center}
+\includegraphics[height=0.60\textheight]{../images/week13/HelpmanMelitzYeaple_fig1.pdf}\\
+{\scriptsize \href{https://www.aeaweb.org/articles?id=10.1257/000282804322970814}{Helpman, Melitz, Yeaple (2004)}}
+\end{center}\end{column}
+\end{columns}
+\vspace{2mm}
+{\small More generally,
+Mrazova, Neary ``\href{https://doi.org/10.1093/jeea/jvy024}{Selection Effects with Heterogeneous Firms}'' (2019)}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Productivity distribution by sales mode}
+\begin{center}
+\includegraphics[height=0.83\textheight]{../images/week13/AntrasYealpe2014_fig10_productivities.pdf}\\ \vspace{-2mm}
+{\footnotesize Figure from \href{http://scholar.harvard.edu/antras/publications/multinational-firms-and-structure-international-trade}{Antras and Yeaple (2014)}}
+\end{center}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Investment facilitates local customization}
+\begin{itemize}
+\item Exporting's ``concentration'' requires selling the same product
+	\begin{itemize}
+	\item Demand dissimilarity favors foreign affiliate over exporting
+	\item Foreign affiliate can customize products to local demand
+	\item \href{https://hbr.org/2005/12/regional-strategies-for-global-leadership}{Ford COO}: ``The single biggest barrier to globalization [in autos]\dots is the relatively cheap cost of motor fuel in the US\dots creates an accompanying disparity in\dots the most fundamental of vehicle characteristics: size and power.'' (cf. \href{https://doi.org/10.1016/j.jinteco.2017.11.001}{Cosar et al 2018})
+	\end{itemize}
+\item Export platforms
+\begin{itemize}
+	\item Plant in one foreign market can serve others via exports
+	\item E.g., Ford Focus had five assembly plants serving different regions
+	\item Spatially correlated characteristics, e.g. demand similarities, favor a ``regional'' strategy that captures (some) concentration benefits while avoiding interregional trade costs
+\end{itemize}
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Export platforms}
+Share of US MNE's European affiliates' sales to third markets:
+\begin{center}\begin{figure}\includegraphics[height=.75\textheight]{../images/week13/Tintelnot2014_fig1_platforms.pdf}\end{figure} {\footnotesize Felix Tintelnot, ``\href{https://academic.oup.com/qje/article-abstract/132/1/157/2724546}{Global Production with Export Platforms}''} \end{center}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Vertical FDI as specialization within the firm}
+\begin{itemize}
+	\item Vertical FDI: Foreign affiliate performs a distinct function of firm's production process (``rattlesnake'', not ``octopus'')
+	\item Key element: Locational advantages across different stages
+	\item If you ignore the boundary of the firm, the same logic that drives specialization for arms-length sourcing transactions would drive specialization within the firm
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Tangible and intangible inputs}
+\begin{itemize}
+\item Standard account of fragmentation emphasizes specialization: upstream unit produces inputs for \href{http://markets.ft.com/research/Lexicon/Term?term=downstream}{downstream} unit
+\item {Domestic: Median upstream establishment sends 0.4\% of its shipments to its firm's downstream establishments {\small (\href{http://pubs.aeaweb.org.proxy.uchicago.edu/doi/pdfplus/10.1257/aer.104.4.1120}{Atalay, Hortacsu, Syverson 2014})}\par}
+\item {International: Median manufacturing foreign affiliate sends nothing to and receives nothing from its US parent. Intrafirm trade is concentrated among a small number of large affiliates within large MNEs. {\small (\href{http://voxeu.org/article/international-production-networks-and-intra-firm-trade-new-evidence}{Ramondo, Rappaport, Ruhl 2016})}\par}
+\item Multiplant firms are more likely to own plants in related industries, but that isn't associated with tangible flows of inputs
+\item This evidence points towards intangible inputs -- managerial capabilities, marketing capital, stock of knowledge
+\item Intangibles are necessarily harder to measure
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Is most FDI ``horizontal''?}
+\href{https://www.econstor.eu/bitstream/10419/216546/1/cesifo1_wp8150.pdf}{Davies and Markusen (2020)} say ``the data suggests a dominant role for horizontal investment'':
+\begin{enumerate}
+\item 
+Most FDI is between pairs of developed economies (with presumably similar costs)
+(cf. Ricardian idiosyncrasies a la Davis 1995 or Eaton and Kortum 2002)
+\item 
+Affiliate sales are 2-3 times export sales for both goods and services
+\item 
+Goods exports from parents to affiliates and from affiliates to parents are only 5.6\% and 8.5\% of affiliate goods sales
+\end{enumerate}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{The organization of the multi-establisment firm}
+The domestic analogue of organizing multinational enterprises
+\begin{itemize}
+\item The internal geography of firms
+\item Organizing the multi-establishment firm: entry, layers
+\item Spillovers with multimarket firms
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Gravity for establishments within firm (United States)}
+A firm's establishments are geographically concentrated (\href{https://doi.org/10.1016/j.jinteco.2024.103889}{Bartelme Ziv 2024})
+\includegraphics[width=1.0\textwidth]{../images/week13/BartelmeZiv2024_fig1.pdf}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Establishments farther from headquarters are smaller}
+\href{https://doi.org/10.1016/j.jinteco.2024.103889}{Bartelme Ziv (2024)}
+\includegraphics[width=1.0\textwidth]{../images/week13/BartelmeZiv2024_tab1a.pdf}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Gravity for establishments within firm (Germany)}
+Across German counties (\href{https://doi.org/10.1093/qje/qjab049}{Gumpert, Steimer, Antoni 2021}):
+\begin{center}
+\includegraphics[height=0.88\textheight]{../images/week13/GumpertSteimerAntoni2021_tab3.pdf}
+\end{center}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Entry decisions of multimarket firms}
+\begin{itemize}
+\item The proximity-concentration tradeoff is simple with one foreign market
+\item With many markets, this becomes a combinatorial problem in which establishments are substitutes
+(they cannibalize each others' sales)
+\item To which customers does the firm make sales, from which establishment locations, and in which quantities?
+\item With uniform population and innocuous competitive structure,
+optimal solution is tessellating hexagons (Christaller 1933)
+\end{itemize}
+\textcolor{gray}{Hsieh and Rossi-Hansberg (2023)
+assume no cannibalization: entry governed by simple productivity cutoff independent of other markets}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Entry decisions of multimarket firms}
+In which markets does the firm set up establishments?
+\begin{itemize}
+\item \href{https://doi.org/10.1093/qje/qjw037}{Tintelnot (2017)} on export platforms:
+firm produces a continuum of product and product-location-specific productivities are random (``EK inside the firm'')
+\item \href{https://www.castrovincenzi.com/}{Castro-Vincenzi (2024)}:
+trade-off between proximity and comparative advantage with uncertainty;
+diversify locations to hedge against shocks
+\item \href{https://doi.org/10.1086/726907}{Oberfield, Rossi-Hansberg, Sarte, Trachter (2024)}:
+``study a tractable limit case of this problem in which these forces operate at a local level''%\dots
+\item \href{https://doi.org/10.3982/ECTA6649}{Jia (2008)}:
+Wal-Mart vs Kmart make entry decisions in many markets; a strategy is a firm's action in every market (one big game).
+Solve by iterating on best responses using properties of supermodular games.
+\item \href{https://doi.org/10.3982/ECTA7699}{Holmes (2011)}:
+infer density benefits from sales cannibalization Wal-Mart chooses to suffer
+{\footnotesize (estimation by moment inequalities given combinatorial scope)}
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{The hierarchical firm: Occupational layers}
+\href{https://doi.org/10.1086/681641}{Caliendo, Monte, Rossi-Hansberg (2015)}
+divide the employees of each firm into ``layers'' using occupational categories.
+{\footnotesize Layers are hierarchical in that (theoretically) ``higher layers of management are smaller and include more knowledgeable employees who have as subordinates employees in lower layers'' and (empirically) ``the typical worker in a higher layer earns more, and the typical firm occupies less of them''.\par}
+\begin{center}
+\includegraphics[]{../images/week13/GumpertSteimerAntoni2021_layers.pdf}
+\end{center}
+{\footnotesize Gumpert, Steimer, Antoni (2021) ``Local conditions affect not only the organization of the local establishment, but also the organization of the headquarters and other establishments of a multiestablishment firm''\par}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Greater geographic reach brings more layers}
+\href{https://doi.org/10.1093/qje/qjab049}{Gumpert, Steimer, Antoni (2021)} study 2000–2010 panel of German firms ($\geq 10$ full-time employees in all years)
+\begin{center}
+\includegraphics[width=0.95\textwidth]{../images/week13/GumpertSteimerAntoni2021_fig2.pdf}
+\end{center}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{HQ layers and establishment layers do not move in lockstep}
+\includegraphics[height=0.91\textheight]{../images/week13/GumpertSteimerAntoni2021_tab6.pdf}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Gumpert, Steimer, Antoni (2021) summary}
+Model:
+\begin{itemize}
+\item Knowledge hierarchy a la \href{https://doi.org/10.1086/317671}{Garicano (2000)}: lower layers solve easy problems and pass difficult tasks up the hierarchy
+\item Single CEO (at HQ location) with one unit of time at top of hierarchy
+\item Travel raises CEO's time cost of helping working at non-HQ establishments
+\item Geographic frictions motivate hiring middle managers to free up CEO time
+\end{itemize}
+Consequences of new high-speed railway routes in Germany:
+\begin{itemize}
+\item Establishments that benefit from lower travel times grow faster
+\item Layers do not respond (model: negative direct effect for middle managers vs positive indirect effect via size)
+\item Higher wages and more managerial layers at HQ
+\item Untreated establishments' wages and managerial share rise (model: reduced allocation of CEO time)
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Hsieh and Rossi-Hansberg, ``The Industrial Revolution in Services''}
+\href{https://www.proquest.com/docview/1034376010}{\includegraphics[width=\textwidth]{../images/week13/gawande2012.png}}
+\begin{itemize}
+\item Hsieh and Rossi-Hansberg: Services blueprints ``allowed firms to replicate cheaply the same production process in multiple locations close to consumers.''
+(See Gawande's \href{https://atulgawande.com/book/the-checklist-manifesto/}{\textit{Checklist Manifesto}})
+\item ``Four decades ago, about 85\% of hospitals were single-establishment nonprofits. Today, more than 60\% of hospitals are owned by for-profit chains or are part of a large network of hospitals owned by an academic institution.''
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Patterns in US Longitudinal Business Database, 1977--2013}
+\begin{enumerate}
+	\item Growth in the number of markets per firm has been large and heterogeneous across industries
+	\item Service industries with faster markets-per-firm growth grew faster
+	\item These industries had large increases in observable fixed-cost expenditures, such as total employment in R\&D and headquarters establishments
+	\item The number of markets per firm is driven by the top firms in the industry.
+	\item Increase in national industry concentration is driven by the expansion in markets per firm by top firms
+	\item The new local markets where top firms enter tend to be smaller
+\end{enumerate}
+where ``markets'' might be establishments, ZIP codes, counties, or MSAs
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Large and heterogeneous growth in markets per firm}
+\begin{center}
+\includegraphics[height=0.78\textheight]{../images/week13/HsiehRossiHansberg2023_tab1.pdf}
+\end{center}\vspace{-3mm}
+{\small ``the change in markets per firm is our metric for the extent to which firms in an industry want to be close to their customers and, therefore, the extent to which they are affected by the industrial revolution in services''\par}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Service industries with faster markets-per-firm growth grew faster}
+\begin{center}
+\includegraphics[height=0.90\textheight]{../images/week13/HsiehRossiHansberg2023_fig3.pdf}
+\end{center}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Industries with growing geographic scope add HQ services}
+\begin{center}
+\includegraphics[height=0.90\textheight]{../images/week13/HsiehRossiHansberg2023_fig4.pdf}
+\end{center}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Top firms drive geographic expansion, national concentration}
+\begin{center}
+\includegraphics[height=0.33\textheight]{../images/week13/HsiehRossiHansberg2023_tab4_nonotes.pdf}
+\includegraphics[height=0.31\textheight]{../images/week13/HsiehRossiHansberg2023_tab5_nonotes.pdf}
+\includegraphics[height=0.27\textheight]{../images/week13/HsiehRossiHansberg2023_tab7_nonotes.pdf}
+\end{center}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Back to the Cheesecake Factory}
+\begin{itemize}
+\item Employment grew from 14,200 in 2003 to 38,100 in 2018
+\item Establishments grew from 61 to 214 
+\item Employment per establishment fell from 233 to 178
+\item Employees per HQ establishment (NAICS 54 + 55) grew from 140 to 450
+\item ``We interpret this large expansion in HQ employees as the firm's investment in fixed-cost-intensive technologies.''
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Spillovers with multimarket firms}
+Firm-wide product decisions imply cross-market spillovers
+\begin{itemize}{\small
+\item ``The cooks in the R\&D facility then teach the new recipes to the kitchen managers of each restaurant at a biannual meeting in California.''
+\item In \href{https://doi.org/10.1162/qjec.2008.123.2.489}{Verhoogen (2008)}, Volkswagen produces different Beetles for the Mexican and US markets
+\item Consumer-packaged goods producers don't make distinct CPGs for each county
+\item \href{https://doi.org/10.1093/restud/rdw054}{Dingel (2017)} shows that market access to high-income consumers elicits quality upgrading (plant-level economies of scale) 
+\item \href{https://sites.google.com/site/jungsikhyunecon/research}{Hyun and Kim (2025)}: A negative demand shock in one market  causes quality downgrading for products offered elsewhere
+}\end{itemize}
+Firms doing R\&D at one site can share this across establishments;
+a best practice learned at one location can be disseminated to other establishments
+\begin{itemize}{\small
+\item \href{https://doi.org/10.1086/705418}{Bilir, Morales (2020)}:
+20\% of return to US R\&D investment is realized abroad for median US multinational
+}\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Hyun, Kim (2025): ``\dots The Uniform Product Replacement Channel''}
+\begin{columns}
+\begin{column}{0.30\textwidth}{\footnotesize
+``regional housing market disruptions spill over across US local markets through intrafirm spatial networks\dots
+identify spillovers by linking granular data on product-county-level prices and quantities with producer-level information and exploiting variation in firms’ exposure to differential declines in local house prices''
+\par}\end{column}
+\begin{column}{0.68\textwidth}
+\includegraphics[height=0.95\textheight]{../images/week13/HyunKim2025_tab1.pdf}
+\end{column}
+\end{columns}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Regress county-firm 2007--2009 sales growth on housing price growth}
+\begin{center}
+\includegraphics[height=0.93\textheight]{../images/week13/HyunKim2025_tab2.pdf}
+\end{center}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Lower sales stem from net creation, not continuing products}
+{\scriptsize ``Firms replace higher-value products with lower-value products in response to the housing market disruptions, and such product replacements are synchronized across markets within each firm, including the markets with stable housing prices.''\par}
+\begin{center}
+\vspace{-2mm}
+\includegraphics[height=0.80\textheight]{../images/week13/HyunKim2025_tab3.pdf}
+\end{center}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{``Propagation and Amplification of Local Productivity Spillovers''}
+\href{https://doi.org/10.3982/ECTA20029}{Giroud, Lenzu, Maingi, Mueller (2024)}:
+\begin{itemize}
+\item Study the same 47 plant openings as \href{https://www.journals.uchicago.edu/doi/abs/10.1086/653714}{Greenstone, Hornbeck, Moretti (2010)}
+(11 in `82--`85, 18 `86--`89, 18 `90--`93)
+(cf. \href{https://onlinelibrary.wiley.com/doi/abs/10.1111/ecin.12339}{Patrick 2016})
+\item Million-dollar plant (``MDP'') openings raise productivity of local plants and distant plants that belong to multi-plant firms with a local establishment
+\item This ``global'' productivity spillover does not decay with distance and is stronger if plants are in industries that share knowledge with each other
+\item While productivity spillovers between plants of \textit{different} firms are highly localized, they seem to propagate without much friction between different plants of the \textit{same} firm
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{GLMM: Local productivity spillovers}
+County $i$, case $c$, plant $k$, industry $s$, year $t$
+\begin{equation*}
+\text{TFP}_{ickst} = \xi_c + \xi_k + \xi_{st} + \beta_1 \text{Post}_{ct} + \beta_2 (\text{Winner}_i \times \text{Post}_{ct}) + \varepsilon_{ickst},
+\end{equation*}
+\begin{center}
+\includegraphics[height=0.78\textheight]{../images/week13/GiroudLenzuMaingiMueller2024_tab2.pdf}
+\end{center}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{GLMM: Global productivity spillovers}
+{\footnotesize ``$\text{Winner}_{i}$ is now an indicator for whether the plant's parent firm has a plant in the winner county before and after the MDP opening, and a ``case'' includes all treated plants as well as all plants in the corresponding control group''\par}
+\vspace{-3mm}
+\begin{center}
+\includegraphics[height=0.80\textheight]{../images/week13/GiroudLenzuMaingiMueller2024_tab3.pdf}
+\end{center}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{GLMM: No wage increases in distant counties}
+\includegraphics[height=0.85\textheight]{../images/week13/GiroudLenzuMaingiMueller2024_tab4.pdf}
+	
+\end{frame}
+% -----------------------------------------
+\begin{frame}{GLMM: Global productivity spillovers are distance-invariant}
+\includegraphics[height=0.90\textheight]{../images/week13/GiroudLenzuMaingiMueller2024_tab6.pdf}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{GLMM: Larger effects for industries sharing knowledge}
+\begin{center}
+\includegraphics[height=0.75\textheight]{../images/week13/GiroudLenzuMaingiMueller2024_tab7.pdf}
+\end{center}
+\vspace{-2mm}
+{\footnotesize ``While labor market pooling and knowledge externalities may both contribute to the local productivity spillover, it is unlikely that a larger labor market in the winner county would affect the productivity of distant plants hundreds of miles away.''\par}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{GLMM: Model}
+\begin{itemize}
+\item Model features within-region, across-plant heterogeneity
+\item Plant-level productivity depends on local knowledge and knowledge in other regions in which the parent firm operates
+\item Within a region and sector, plants' productivities aggregate into a single productivity index
+\item Across regions and sectors, model nests an economic-geography version of Caliendo and Parro (2015)
+\item Estimate model parameters by matching diff-in-diffs coefficients for plant-level micro moments
+\item Counterfactual scenario: ``the aggregate gains are greatest if the plant opens in a well-developed region, consistent with the observed location choices of the MDPs in the data''
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Summary}
+Multinational and multi-region firms appear very important, and there's lots of exciting research on this topic recently
+\vspace{2cm}
+Next week: Research consultations
+\end{frame}
+% -----------------------------------------
+\end{document}
