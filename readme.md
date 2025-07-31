@@ -95,7 +95,7 @@ If you’re going to be a trade economist, you ought to own the following books:
 -   Eaton, Jonathan and Samuel Kortum. 2002. "[Technology, Geography, and Trade](http://onlinelibrary.wiley.com/doi/abs/10.1111/1468-0262.00352)."
 	*Econometrica,* 70(5): 1741-1779.
 
--	Caliendo, Lorenzo and Fernando Parro. 2015. "[Estimates of the Trade and Welfare Effects of NAFTA]()."
+-	Caliendo, Lorenzo and Fernando Parro. 2015. "[Estimates of the Trade and Welfare Effects of NAFTA](https://doi.org/10.1093/restud/rdu035)."
 	*Review of Economic Studies*, 82 (1): 1-44.
 
 #### Week 4: Gravity regressions
