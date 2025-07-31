@@ -10,7 +10,7 @@ The methods topics covered will include estimating gravity regressions with high
 
 This class is part of the trade and spatial second-year PhD sequence.
 It complements the classes taught by David Weinstein and Donald Davis.
-I will introduce concepts and models in a self-contained fashion.<!-- , but I will assume that second-year students are familiar with the material taught in already-completed classes in the sequence.-->
+I will introduce concepts and models in a self-contained fashion.
 
 ### Logistics
 Course materials: [github.com/jdingel/econ6905](http://github.com/jdingel/econ6905)\
