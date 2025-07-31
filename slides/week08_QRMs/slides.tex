@@ -1,6 +1,6 @@
 \documentclass[11pt,notes=hide,aspectratio=169]{beamer}
 \input{../week00/slides_settings.tex}
-\setbeamertemplate{footline}{\begin{center}\textcolor{gray}{Dingel -- Topics in Trade -- Week 6 -- \insertframenumber}\end{center}}
+\setbeamertemplate{footline}{\begin{center}\textcolor{gray}{Dingel -- Topics in Trade -- Week 8 -- \insertframenumber}\end{center}}
 \begin{document}
 % -----------------------------------------
 \begin{frame}[plain]
@@ -34,7 +34,7 @@ What is a QSM? One answer: Successor to ``new economic geography'' models
 \begin{itemize}{\small
 \item \href{https://www.aeaweb.org/articles?id=10.1257/jel.20181414}{Proost and Thisse} (Sec 5.2, 2019) ask but do not quite answer this question
 \item Illuminating contrast: Chapter 6 of \href{https://direct.mit.edu/books/book/2525/The-Spatial-EconomyCities-Regions-and}{Fujita, Krugman, Venables} on 
-``Many Regions and Continuous Space'' covers ``The Three-Region Case'', ``The Racetrack Economy'', and ``The Turing Approach''
+``Many Regions and Continuous Space'' covers ``The Three-Region Case'', ``The Racetrack Economy'', and ``The Turing Approach'' (sine wave on circle)
 \item Hallmarks (like QTMs): many locations, few elasticities, many shifters
 \item Elasticities: agglomeration, congestion, trade
 }\end{itemize}
@@ -59,10 +59,11 @@ What limits QSMs? Shortage of overidentification checks
 \begin{frame}{Krugman ``Increasing Returns and Economic Geography'' (1991)}
 \begin{itemize}
 	\item The second of Krugman's pair of Nobel-winning papers
-	\item Apply tools from '70s theoretical IO and '80s trade models to look at the geographic concentration of industry
+	\item Apply tools from `70s theoretical IO and `80s trade models to look at the geographic concentration of industry
 	\item General story about IRS manufacturing vs CRS agriculture rather than industry localization
 	\item Circular causation: ``manufactures production will tend to concentrate where there is a large market, but the market will be large where manufactures production is concentrated''
 	\item Formalize this unoriginal story
+	\item Microfoundations with clear pecuniary externalities
 	\item Comparative statics: Agglomeration depends on transport costs, economies of scale, and manufacturing share [exogenous parameters in Krugman's account]
 	\item Key restrictions: Immobile peasants and only two locations
 \end{itemize}
@@ -297,18 +298,6 @@ Note $\tau=1\implies\nu=1$.
 \includegraphics[width=.32\textwidth]{../images/Puga1999_fig1c.pdf}
 \end{frame}
 % -----------------------------------------
-\begin{frame}{Beyond Krugman (1991)}
-\begin{itemize}
-	\item More than two regions: lines, circles (Fujita Krugman Venables book)
-	\item Intermediate inputs (V, KV)
-	\item Alternative (more tractable) demand systems: Ottaviano Tabuchi Thisse
-\end{itemize}
-\begin{center}
-\includegraphics[height=.60\textheight]{../images/RobertNicoud2005_tab1.pdf} \\
-\vspace{-2mm}
-{\footnotesize Robert-Nicoud (\textit{JEG}, 2005)}
-\end{center}
-\end{frame}
 % -----------------------------------------
 \begin{frame}{``Of Hype and Hyperbolas''}
 \href{https://www.aeaweb.org/articles?id=10.1257/jel.39.2.536}{Neary (\textit{JEL} 2001)} on Fujita, Krugman, Venables monograph:
@@ -319,7 +308,7 @@ Note $\tau=1\implies\nu=1$.
 \item ``the Dixit-Stiglitz model has almost nothing to say about individual firms''
 \item ``while costs may be fixed they are never sunk, so firms, industries, and even cities are always free to move''
 \item The ``iceberg'' assumption: ``Of all industries, it seems to be characterized by very high ratios of fixed to variable costs''
-\item Davis (1998): This doesn't work with comparable agricultural trade costs
+\item \href{https://www.jstor.org/stable/116870}{Davis (1998)}: This doesn't work with comparable agricultural trade costs
 \item ``The book deals in turn with regions, cities and countries, but there is nothing intrinsic to the models which conclusively identifies these units.''
 }
 \end{itemize}
@@ -372,16 +361,17 @@ Note $\tau=1\implies\nu=1$.
 	\item ``We exploit the division of Germany after the Second World War and the reunification of East and West Germany in 1990 as a source of exogenous variation to provide evidence for the causal importance of market access for economic development.''
 	\item ``The key idea behind our empirical approach is that West German cities close to the new border experienced a disproportionate loss of market access relative to other West German cities.''
 	\item Extend Helpman (1998) to a multi-region version (assume that $\beta\epsilon>1 \Rightarrow$ unique equilibrium)
-	\item Difference-in-differences is proximate vs distant West German cities before and after division
-	\item Triple difference: Beyond market-access effect, ``the greater dependence of small cities on markets in other cities implies that this effect will be particularly pronounced for small cities.''
+	\item Difference-in-differences design compares proximate vs distant West German cities before and after division
+	\item Triple difference: ``the greater dependence of small cities on markets in other cities implies that this effect will be particularly pronounced for small cities.''
 }
 \end{itemize}
 \end{frame}
 % -----------------------------------------
-\begin{frame}{Redding and Sturm (2008): Difference-in-differences}
+\begin{frame}{Redding and Sturm (2008): Difference in differences}
 \begin{center}
 \includegraphics[height=.75\textheight]{../images/ReddingSturm2008_fig3.pdf}
 \end{center}
+{\small Table 2 reports estimate of -0.75 (se 0.18) for the coefficient on the interaction of ``within 75km of border'' dummy and 1950--1988 dummy\par}
 \end{frame}
 % -----------------------------------------
 \begin{frame}{Redding and Sturm (2008): Quantitative model fit}
