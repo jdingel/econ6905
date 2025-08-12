@@ -112,6 +112,8 @@ If you’re going to be a trade economist, you ought to own the following books:
 
 #### Week 6: Increasing returns and home-market effects
 
+- Krugman, Paul R. 1980. "[Scale Economies, Product Differentiation, and the Pattern of Trade](https://www.aeaweb.org/aer/top20/70.5.950-959.pdf)." *American Economic Review*, 70(5): 950-959.
+
 - Dingel, Gottlieb, Lozinski, Mourot. 2024. "[Market Size and Trade in Medical Services](http://www.jdingel.com/research/DGLM_MSTMS.pdf)." Working paper.
 
 #### Week 7: Agglomeration economies
@@ -122,11 +124,16 @@ If you’re going to be a trade economist, you ought to own the following books:
 
 - Krugman, Paul. 1991. "[Increasing Returns and Economic Geography](http://www.journals.uchicago.edu/doi/abs/10.1086/261763)." *Journal of Political Economy*, 99(3): 483-499.
 
-- Allen, Treb and Costas Arkolakis. 2025. "[Quantitative Regional Economics](http://www.nber.org/papers/w33436)." NBER working paper 33436.
+- Allen, Treb and Costas Arkolakis. 2025. "[Quantitative Regional Economics](http://www.nber.org/papers/w33436)." NBER working paper 33436. Prepared for *Handbook of Regional and Urban Economics*.
 
 #### Week 9: Quantitative urban models
 
 - Ahfeldt, Gabriel M., Stephen J. Redding, Daniel M. Sturm, and Nikolaus Wolf. 2015. "[The Economics of Density: Evidence from the Berlin Wall](http://onlinelibrary.wiley.com/doi/abs/10.3982/ECTA10876)." *Econometrica,* 83(6): 2127–2189.
+
+- Redding, Stephen J. "[Quantitative urban models](https://www.youtube.com/watch?v=2IfSeRHJyVo)." Urban Economics Association, July 2020.
+
+- Redding, Stephen J. "[Quantitative urban economics](https://doi.org/10.1016/bs.hesreg.2025.06.007)." *Handbook of Regional and Urban Economics*, 2025.
+
 
 #### Week 10: Identification, calibration, and exact hat algebra
 
@@ -138,16 +145,20 @@ If you’re going to be a trade economist, you ought to own the following books:
 
 -   Davis, Donald R. and Jonathan I. Dingel. 2019. "[A Spatial Knowledge Economy](https://www.aeaweb.org/articles?id=10.1257/aer.20130249)." *American Economic Review*, 109 (1): 153-70.
 
-#### Week 12: Discrete choice estimation and simulations
+#### Week 12: Trade policy
 
-- Donald R. Davis, Jonathan I. Dingel, Joan Monras, and Eduardo Morales. 2019. "[How Segregated Is Urban Consumption?](http://www.jdingel.com/research/DavisDingelMonrasMorales.pdf)" *Journal of Political Economy* 127:4, 1684-1738.
+-	Fajgelbaum, Pablo D., Pinelopi K. Goldberg, Patrick J. Kennedy, and Amit K. Khandelwal. 2020. "[The Return to Protectionism](https://doi.org/10.1093/qje/qjz036)." *The Quarterly Journal of Economics*, 135(1):1–55.
 
 #### Week 13: Spatial environmental economics
 
 - Clare Balboni, Joe Shapiro. 2024. "[Spatial Environmental Economics](https://ies.princeton.edu/wp-content/uploads/2024/09/Spatial_Environmental_Economics.pdf)". Prepared for *Handbook of Regional and Urban Economics*.
 - Tomas Domınguez-Iino. 2023. "[Spatial Economics and Environmental Policies](https://tdomingueziino.github.io/domingueziino_handbook_LHRPE_2023.pdf)". *Handbook of Labor, Human Resources and Population Economics*.
 
-### Uncovered topics (fall 2025)
+### Topics covered in other years (not fall 2025)
+
+#### Week W: Discrete choice estimation and simulations
+
+- Donald R. Davis, Jonathan I. Dingel, Joan Monras, and Eduardo Morales. 2019. "[How Segregated Is Urban Consumption?](http://www.jdingel.com/research/DavisDingelMonrasMorales.pdf)" *Journal of Political Economy* 127:4, 1684-1738.
 
 #### Week X: Non-homothetic preferences
 
