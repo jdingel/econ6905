@@ -145,14 +145,14 @@ If you’re going to be a trade economist, you ought to own the following books:
 
 -   Davis, Donald R. and Jonathan I. Dingel. 2019. "[A Spatial Knowledge Economy](https://www.aeaweb.org/articles?id=10.1257/aer.20130249)." *American Economic Review*, 109 (1): 153-70.
 
-#### Week 12: Trade policy
-
--	Fajgelbaum, Pablo D., Pinelopi K. Goldberg, Patrick J. Kennedy, and Amit K. Khandelwal. 2020. "[The Return to Protectionism](https://doi.org/10.1093/qje/qjz036)." *The Quarterly Journal of Economics*, 135(1):1–55.
-
-#### Week 13: Spatial environmental economics
+#### Week 12: Spatial environmental economics
 
 - Clare Balboni, Joe Shapiro. 2024. "[Spatial Environmental Economics](https://ies.princeton.edu/wp-content/uploads/2024/09/Spatial_Environmental_Economics.pdf)". Prepared for *Handbook of Regional and Urban Economics*.
 - Tomas Domınguez-Iino. 2023. "[Spatial Economics and Environmental Policies](https://tdomingueziino.github.io/domingueziino_handbook_LHRPE_2023.pdf)". *Handbook of Labor, Human Resources and Population Economics*.
+
+#### Week 13: Trade policy
+
+-	Fajgelbaum, Pablo D., Pinelopi K. Goldberg, Patrick J. Kennedy, and Amit K. Khandelwal. 2020. "[The Return to Protectionism](https://doi.org/10.1093/qje/qjz036)." *The Quarterly Journal of Economics*, 135(1):1–55.
 
 ### Topics covered in other years (not fall 2025)
 
