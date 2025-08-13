@@ -1,7 +1,7 @@
 ECON G6905: Topics in Trade\
-Spring 2025\
+Fall 2025\
 Assignment 3\
-Due: Beginning of week 11 class
+Due: Beginning of week 12 class
 
 You must submit a replication package for your response to the "Defining metropolitan areas" question.
 
@@ -52,15 +52,15 @@ When deriving this result, you might consult Section 3.2 of Enrico Moretti's "Lo
 
 ### Structural gravity for commuting flows
 
-Consider the labor-allocation (gravity) equation in the barebones quantitative urban model (equation 1 on week 7 slide 4).
-Does the commuting gravity equation satisfy the "structural gravity" definition of Head and Mayer (2014) from the week 1 slides?
+Consider the labor-allocation (gravity) equation in the barebones quantitative urban model (equation 1 on week 9 slide 4).
+Does the commuting gravity equation satisfy the "structural gravity" definition of Head and Mayer (2014) from the week 4 slides?
 Provide a proof of your yes/no response.
 
 ### Border designs and spatial linkages
 
 I conjecture that a naive border discontinuity design is invalid in an off-the-shelf quantitative urban model.
 
-Use the baseline model introduced in the week 7 slides, augmented with exogenous residential amenities as in Ahlfeldt et al. (2015) or Appendix C.7.3 of Dingel and Tintelnot (2023).
+Use the baseline model introduced in the week 9 slides, augmented with exogenous residential amenities as in Ahlfeldt et al. (2015) or Appendix C.7.3 of Dingel and Tintelnot (2023).
 Consider an amenity improvement in one residential location ($\hat{B}_{i} > 1$).
 We want to trace out the implications of this improvement for rents (this would be one way of learning the value of a decrease in local water pollution, for example).
 
