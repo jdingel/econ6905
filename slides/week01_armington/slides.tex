@@ -1,4 +1,4 @@
-\documentclass[10pt,notes=hide]{beamer}
+\documentclass[10pt,notes=hide,aspectratio=169]{beamer}
 \input{../week00/slides_settings.tex}
 \setbeamertemplate{footline}{\begin{center}\textcolor{gray}{Dingel -- Topics in Trade -- \semester -- Week 1 -- \insertframenumber}\end{center}}
 \begin{document}
@@ -28,21 +28,17 @@ Jonathan Dingel\\
 This class
 \begin{itemize}
 \item Wednesdays, 8:10-10:00, IAB 1101
-\item Jonathan Dingel
-\begin{itemize}
-	\item Email: \href{mailto:jid2106@columbia.edu}{jid2106@columbia.edu}
-	\item Office: IAB 1126B
-	\item Office hours: By appointment, please email
-\end{itemize}
+\item Office hours: IAB 1126B, email \href{mailto:j.dingel@columbia.edu}{j.dingel@columbia.edu} for appointments
 \item Course materials:
 \href{http://github.com/jdingel/econ6905}{github.com/jdingel/econ6905}
 and \href{https://courseworks2.columbia.edu}{courseworks2.columbia.edu}
 \end{itemize}
 Broader context:
 \begin{itemize}
-\item This class is the economic-geography bridge between\\ Weinstein's trade class and Davis's urban class
+\item This class is the economic-geography bridge between David Weinstein's trade class and Don Davis's urban class
 \item I will emphasize computational aspects
-\item You should attend the Trade and Spatial Colloquium (Wednesdays, 12--1, IAB 1101)
+\item You should attend the Trade and Spatial Colloquium (Wednesdays, 12:00--1:00) %in IAB 1101
+and the Trade and Spatial Workshop (select Fridays, 1:30--5:00) %in IAB 1101
 \end{itemize}
 \end{frame}
 % -----------------------------------------
@@ -101,8 +97,8 @@ How many have used: Matlab? Julia? Git? \href{https://tradediversion.net/2019/11
 \item Quantitative urban models
 \item Exact hat algebra and calibration
 \item Spatial sorting of skills and sectors
-\item Discrete choice estimation and simulations
 \item Spatial environmental economics
+\item Trade policy
 \end{enumerate}
 See my comments on ``\href{https://tradediversion.net/2017/09/17/linkages-between-international-trade-and-urban-economics/}{Linkages between international trade and urban economics}''
 \end{frame}
@@ -114,11 +110,58 @@ See my comments on ``\href{https://tradediversion.net/2017/09/17/linkages-betwee
 	\item Trade has tools and insights relevant for topics ranging from intracity commuting to national TFP growth
 	\item I used to say trade economists sometimes have a data advantage because governments track cross-border transactions
 	\item Spatial economics is a small but rapidly growing field (e.g., \href{https://tradediversion.net/2019/11/11/the-rapid-rise-of-spatial-economics-among-jmcs/}{The rapid rise of spatial economics among JMCs}, \href{https://urbaneconomics.org/about/history.html}{UEA history})
+	\item Its growth reflects salient policy challenges, new data sources, and imported tools
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Research questions that trade and spatial economists try to answer}
+\begin{itemize}
+\item Who pays import tariffs?
+\item Do the rich or the poor benefit more from globalization?
+\item Can trade policy build an industrial base?
+\item Why do rich countries specialize in cleaner industries?
+\item Why do college graduates leave the Rust Belt?
+\item What is the willingness to pay for clean air?
+\item Why is the east end of London poorer than the west side?
+\item Is the rent too damn high? Why?
 \end{itemize}
 \vspace{4mm}
 Why are you interested in trade/spatial/urban?
-\pause \\ \vspace{2mm}
-This week, we start with international trade
+\end{frame}
+% -----------------------------------------
+\begin{frame}{International trade at a glance: The past}
+We start this class with international trade.
+\href{https://doi.org/10.1093/jeea/jvae060}{Antras (2025)}
+offers one perspective on recent progress and ``uncharted waters''.
+Ancient times:
+\begin{itemize}
+\item ``Neoclassical trade theory provided a solid framework for analyzing the interplay of technological change, factor endowments, and trade policies in shaping economic prosperity''
+\item ``New trade theory'': market imperfections, scale economies, and product differentiation
+\end{itemize}
+Four major developments in international trade research since 2000:
+\begin{itemize}
+\item the rise of firm-level approaches to exporting decisions, 
+\item the study of global production decisions, 
+\item advances in quantitative trade theory
+\item empirical work `unshackled' from theory constraints and traditional data sources
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{International trade at a glance: The future?}
+The uncharted theoretical waters (\href{https://doi.org/10.1093/jeea/jvae060}{Antras 2025}):
+\begin{itemize}
+\item Oligopolistic Competition and Strategic Behavior,
+\item Geoeconomics,
+\item Behavioral Economics,
+\item Redistributive Policies and Compensation Mechanisms, The Data Economy, Trade and Culture
+\end{itemize}
+The uncharted empirical waters (\href{https://doi.org/10.1093/jeea/jvae060}{Antras 2025}):
+\begin{itemize}
+\item Modest Improvements to Official Statistics,
+\item More Significant Improvements to Official Statistics: Trade in Services,
+\item Major Improvements to Official Statistics: Cross-Border Collaboration,
+\item New Data Sources
+\end{itemize}
 \end{frame}
 % -----------------------------------------
 \begin{frame}{Trade's interplay between theory and empirics}
@@ -192,7 +235,7 @@ IRS is ``new trade theory''
 	\item gains from trade (Samuelson 1939)
 	\item law of comparative advantage (Deardorff 1980)
 \end{itemize}
-\item By contrast, we are going to dive deeply into one very specific neoclassical model
+\item By contrast, today we are going to dive deeply into one very specific neoclassical model
 \end{itemize}
 \end{frame}
 % -----------------------------------------
@@ -219,9 +262,9 @@ We will discuss
 \begin{frame}{Armington model with CES prefences}
 \begin{itemize}
 	\item Each country has its own ``signature'' good (others have zero productivity in this good; maximal absolute advantage)
-	\item Consumers in each country have identical CES preferences over the $N$ goods with elasticity $\sigma$
-	(see \href{http://www.columbia.edu/~jid2106/td/dixitstiglitzbasics.pdf}{Dingel 2009} for CES refresher)
 	\item Bilateral trade costs of the \href{https://tradediversion.net/2019/10/28/whats-an-iceberg-commuting-cost/}{iceberg} form $\tau_{ij}$
+	\item Consumers in each country have identical CES preferences over the $N$ goods with elasticity $\sigma$
+	(see \href{http://www.columbia.edu/~jid2106/td/dixitstiglitzbasics.pdf}{Dingel 2009} for CES refresher and note IIA property)
 	\item Demand: Consumer in $j$ with total expenditure $X_j$ spends $X_{ij}$ on good from $i$
 	\begin{equation*}
 	X_{ij}	= \frac{(p_i\tau_{ij} )^{1-\sigma}}{\sum_{\ell} (p_\ell\tau_{\ell j})^{1-\sigma}} X_j
@@ -244,8 +287,7 @@ Combine the last two equations to get $N$ equations in $N$ unknowns:
 Y_i 
 &=
 \sum_j X_{ij}
-\\
-&=
+=
 \sum_j \frac{Y_i^{1-\sigma}}{Q_i^{1-\sigma}} \frac{Y_j}{P_j^{1-\sigma}}\tau_{ij}^{1-\sigma}
 \\
 &=
@@ -286,6 +328,7 @@ but we can report sets of counterfactual equilibria
 \item $\sigma \geq 0$: all equilibria are interior
 \item $\sigma \geq 1$: interior eqlbm is unique (aggregate demand slopes down)
 \end{itemize}
+See also Levi Crews \href{https://www.levicrews.com/files/slides-allenarkolakis.pdf}{teaching slides} on existence and uniqueness
 \vspace{2mm}
 {\small Recent related lit:
 \href{https://dx.doi.org/10.2139/ssrn.4699361}{Ouazad (2024)} and
@@ -396,6 +439,16 @@ $$
 =
 \frac{w_j}{\left(\sum_{i=1}^{N} \left(w_i \tau_{ij} / A_i\right)^{1-\sigma}\right)^{\frac{1}{1-\sigma}}}
 $$
+\item Country $j$'s \textit{terms of trade} with country $i$ are its export price relative to its import price:
+$\frac{w_j/A_j}{w_i/A_i}$
+\item The real wage depends on productivity, trade costs, and the terms of trade:
+$$
+\frac{w_j}{P_{j}}
+=
+\frac{w_j}{\left(\sum_{i=1}^{N} \left(w_i \tau_{ij} / A_i\right)^{1-\sigma}\right)^{\frac{1}{1-\sigma}}}
+=
+\frac{A_j}{\left(\sum_{i=1}^{N}  \tau_{ij}^{1-\sigma} \left(\frac{w_j/A_j}{w_i/A_i}\right)^{\sigma-1}\right)^{\frac{1}{1-\sigma}}}
+$$
 \end{itemize}
 \end{frame}
 % -----------------------------------------
@@ -407,7 +460,7 @@ a counterfactual scenario is an alternative parameter vector
 $\{T'_i,L'_i,\tau'_{ij},\epsilon'\}$.
 \item The model's baseline equilibrium outcomes are $\{w_{i}\}$
 and the counterfactual outcomes by primes are $\{w'_{i}\}$
-\item[] (Be careful with $\epsilon \to \epsilon'$ exercises)
+\item[] \textcolor{gray}{(Be careful with $\epsilon \to \epsilon'$ exercises; see \href{https://sites.google.com/view/briangreaney/research?authuser=0}{Greaney 2025})}
 \end{itemize}
 We can address many counterfactuals even in this simple model. Examples:
 \begin{itemize}
@@ -415,6 +468,7 @@ We can address many counterfactuals even in this simple model. Examples:
 \item How much would countries gain from frictionless trade?
 \item Which countries gain from Chinese productivity growth?
 \item When is productivity growth immiserizing?
+\item What's the optimal unilateral tariff? \textcolor{gray}{(Need to add tariffs to model)}
 \end{itemize}
 \end{frame}
 % -----------------------------------------
@@ -555,6 +609,28 @@ when trade is balanced and $\tau_{ij}^{-\epsilon}$ is symmetric
 (Anderson and van Wincoop 2003; Head and Mayer 2014).
 \end{frame}
 % -----------------------------------------
+\begin{frame}{Introducing exogenous trade deficits}
+\begin{itemize}
+\item
+Trade is \textit{imbalanced} when the sum of exports does not equal the sum of imports
+(more imports is a ``trade deficit''; more exports is a ``trade suplus'')
+\item
+We always assume that world trade is balanced (though data may not satisfy this!)
+\item
+By national account identities, the current account deficit equals the capital account surplus
+\item
+In a static model (no borrowing-lending decisions), deficits must be exogenous.
+Gravity equation for bilateral trade flows is unchanged:
+\begin{equation*}
+X_{ij}	= \frac{Y_i^{1-\sigma}}{Q_i^{1-\sigma}} \frac{X_j}{P_j^{1-\sigma}}\tau_{ij}^{1-\sigma}
+\end{equation*}
+\item With deficit $D_i$ for country $i$, the equilibrium system of equations now features
+\begin{equation*}
+X_i = Y_i + D_i = \sum_j X_{ij} + D_i
+\end{equation*}
+\end{itemize}
+\end{frame}
+% -----------------------------------------
 \begin{frame}{Multi-sector Armington model}
 \begin{itemize}{\small
 \item \textbf{Preferences}.
@@ -585,6 +661,7 @@ $Y_{is} = \sum_{j=1}^{N} X_{ijs}$, $Y_i = \sum_{s=1}^{S} Y_{is}$, and $X_{is} = 
 % -----------------------------------------
 \begin{frame}{Wrapping up}
 Next week: Gains from trade and comparative advantage
+\textcolor{gray}{(Do the readings before class so I do not run out of time)}
 \vspace{2cm}
 Extra time? Discuss assignment 4
 \end{frame}
