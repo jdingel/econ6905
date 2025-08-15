@@ -5,6 +5,14 @@ Due: Beginning of week 12 class
 
 You must submit a replication package for your response to the "Defining metropolitan areas" question.
 
+### Triangle inequality in Eaton and Kortum (2002)
+
+Eaton and Kortum (2002) assume that trade costs take the iceberg form and obey the triangle inequality,
+such that $d_{ni} \leq d_{nk} d_{ki}$.
+Suppose that trade costs take the iceberg form and sometimes violate the triangle inequality.
+Trace out the implications for both the theoretical and empirical results in Eaton and Kortum (2002).
+Which results no longer hold (or require modification) when the triangle-inequality assumption is not true?
+
 ### Defining metropolitan areas
 
 The US Office of Management and Budget [defines](https://www.census.gov/programs-surveys/metro-micro/about/omb-standards/2010.html) metropolitan statistical areas as collections of counties that are joined by sufficiently large commuting flows.
@@ -50,11 +58,6 @@ When deriving this result, you might consult the proof of Proposition 3 in Hsieh
 When deriving this result, you might consult Section 3.2 of Enrico Moretti's "Local Labor Markets" (*Handbook of Labor Economics*, 2011).
 4. Use your results to demonstrate that the statement "labor mobility equalizes expected utility across cities" describes properties of the idiosyncratic-preferences distribution, not the concept of spatial equilibrium.
 
-### Structural gravity for commuting flows
-
-Consider the labor-allocation (gravity) equation in the barebones quantitative urban model (equation 1 on week 9 slide 4).
-Does the commuting gravity equation satisfy the "structural gravity" definition of Head and Mayer (2014) from the week 4 slides?
-Provide a proof of your yes/no response.
 
 ### Border designs and spatial linkages
 
