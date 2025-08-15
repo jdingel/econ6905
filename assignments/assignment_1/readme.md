@@ -1,5 +1,5 @@
 ECON G6905: Topics in Trade\
-Spring 2025\
+Fall 2025\
 Assignment 1\
 Due: Beginning of week 3 class
 
@@ -53,7 +53,7 @@ The second part of this assignment is about computing.
 Please submit your code via Courseworks.
 Your code must run on my computer without modification (e.g., use relative file paths).
 I will evaluate your solver function by giving it arbitrary inputs and grading the output.
-(Talk to me before using a language other than **Julia** or **Matlab**.)
+(Talk to me before using a language other than **Julia**.)
 
 #### Write a solver function
 
@@ -101,10 +101,17 @@ Write a function the uses your solver function to compute equilibrium real incom
 Your function should take *A*, *L*, *&tau;*, and *&sigma;* as inputs and return a vector of real incomes relative to autarky.
 For example, if the first element of the output vector is 1.05, it means that country 1's real income is 5% greater in the trade equilibrium than in autarky.
 
+### Reproducibility and formatting
+
+- Include your `Project.toml` and `Manifest.toml` files in your submission so that I can reproduce your Julia package environment exactly.
+- If you work in a notebook environment ([you should not](https://www.youtube.com/watch?v=7jiPeIFXb6U)), export the script so that I can run it without using a notebook.
+- Please put the solver function named `Armington_solver()` in a separate script from the unit tests and other examples that call it. Name this script `yourlastname.jl`.
+- To grade your submission, I will simply run `julia grading.jl yourlastname.jl` on my machine, where `grading.jl` is similar to [this script](grading_demo.jl).
+
 
 ### Programming hints
 
-If you have considerable difficulty getting started in Julia or Matlab, consult your classmates first and me second.
+If you have considerable difficulty getting started in Julia, consult your classmates first and me second.
 Here are a few notes on getting started in Julia:
 
 -   I recommend that you read the QuantEcon.org lectures on [Programming in Julia](https://lectures.quantecon.org/jl/index_learning_julia.html) to get started.

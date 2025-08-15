@@ -176,6 +176,7 @@ You will recover $\epsilon \beta$. Do not mistake this for $\epsilon$.
 You recover the trade elasticity with observed trade costs and pass-through assumptions.
 If $\ln \tau_{ij} = \beta_1 \ln \text{distance}_{ij} + \beta_2 \ln \text{tariff}_{ij}$
 and you assume that $\beta_2 = 1$, then $\epsilon \beta_2 = \epsilon$.
+\textcolor{gray}{(Make sure you use trade flows inclusive of tariff payments or else you'll estimate $\epsilon - 1$)}
 \end{itemize}
 \end{frame}
 % -----------------------------------------
@@ -269,6 +270,36 @@ Example:
 \href{https://ideas.repec.org/a/eee/inecon/v62y2004i1p53-82.html}{Redding and Venables (2004)}
 estimate bilateral gravity regression to recover $\hat{\Phi}$ and $\hat{\Omega}$
 and relate them to GDP per capita
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Gravity in a panel setting}
+\begin{itemize}
+\item The simplest data-generating process is repeated cross sections
+(no state variables, no intertemporal links):
+\begin{align*}
+X_{ijt} 
+&=
+\frac{Y_{it}}{\Omega_{it}} \times \frac{X_{jt}}{\Phi_{jt}} \times \phi_{ijt}
+\\
+&=
+S_{it} M_{jt} \phi_{ijt}
+\end{align*}
+\item Let bilateral trade costs have permanent and time-varying components:
+$$
+\phi_{ijt} = \bar{\phi}_{ij} \tilde{\phi}_{ijt}
+$$
+\item Given this panel setting, you should use $it$, $jt$, and $ij$ fixed effects
+\item Typical example: a dummy for WTO membership or preferential trade agreements is an observed covariate in $\tilde{\phi}_{ijt}$
+\item {\small \href{https://doi.org/10.1007/978-3-031-49849-7_16}{Ruzicska et al (2024)}: ``By most metrics, machine learning models only marginally outperform the gravity equation. The high explanatory power achieved by all models is primarily due to their ability to explain cross-sectional variation rather than time-series changes.''\par}
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Gravity and trade imbalances}
+Relevant for ``Liberation Day'' is
+Cunat \& Zymek - ``\href{https://doi.org/10.1093/restud/rdad052}{Bilateral Trade Imbalances}'' (\textit{REStud} 2024)
+{\small
+	If sectoral trade flows obey structural gravity, countries' bilateral trade imbalances are the result of macro trade imbalances, “triangular trade”, or pairwise asymmetric trade barriers. Using data for 40 major economies and the Rest of the World, we show that large and pervasive asymmetries in trade barriers are required to account for most of the observed variation in bilateral imbalances. A dynamic quantitative trade model suggests that eliminating these asymmetries would significantly reduce bilateral (but not macro) imbalances and have sizeable impacts on welfare. We provide evidence that the asymmetries we measure are in part related to the policy environment: trade inside the European Single Market appears to be subject to more bilaterally symmetric frictions. Extending the same symmetry to all parts of the global economy would give a large boost to the real incomes of several non-E.U. countries.
+\par}
 \end{frame}
 % -----------------------------------------
 \begin{frame}{Estimation in practice}
