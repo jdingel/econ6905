@@ -20,7 +20,7 @@ Office hours: By appointment, please email
 
 ### Assessment
 
-Grades will be based on assignments (75%) and a final exam (25%).
+Grades will be based on assignments (70%) and a final exam (30%).
 
 Assignments will be posted to the GitHub repository.
 Submit your work via the Courseworks site.
@@ -46,7 +46,7 @@ Economics](https://github.com/jesusfv/Comparison-Programming-Languages-Economics
 the [Julia language](http://www.julialang.org).
 Julia's advantages are that it is open source and typically faster than Matlab.
 To get started doing economics in Julia, see Perla, Sargent, and Stachurski's
-"[Lectures in Quantitative Economics](https://lectures.quantecon.org/jl/)."
+"[Lectures in Quantitative Economics](https://julia.quantecon.org/intro.html)."
 You may submit Julia or Matlab code as homework solutions.
 Please confer with me before submitting code written in other languages.
 
