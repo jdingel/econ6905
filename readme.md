@@ -20,7 +20,7 @@ Office hours: By appointment, please email
 
 ### Assessment
 
-Grades will be based on assignments (70%) and a final exam (30%).
+Grades will be based on assignments (75%) and a final exam (25%).
 
 Assignments will be posted to the GitHub repository.
 Submit your work via the Courseworks site.
