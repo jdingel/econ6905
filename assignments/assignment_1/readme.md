@@ -93,12 +93,13 @@ The closed-form solution and the function's output should differ only up to mach
 The output of your unit-test function is binary: true or false.
 
 Write the free-trade unit test function taking arguments *A*, *L*, and *&sigma;* so that I can verify your solver passes this unit test using arbitrary arguments of my choosing.
+Name it `freetrade_test(A, L, σ)`.
 
 #### Compute the gains from trade
 
 You possess a closed-form expression for real income in autarky given *A*, *L*, and *&sigma;*.
 Write a function the uses your solver function to compute equilibrium real income and reports it relative to autarky real income.
-Your function should take *A*, *L*, *&tau;*, and *&sigma;* as inputs and return a vector of real incomes relative to autarky.
+Your `gainsfromtrade()` function should take *A*, *L*, *&tau;*, and *&sigma;* as inputs and return a vector of real incomes relative to autarky.
 For example, if the first element of the output vector is 1.05, it means that country 1's real income is 5% greater in the trade equilibrium than in autarky.
 
 ### Reproducibility and formatting
@@ -106,6 +107,7 @@ For example, if the first element of the output vector is 1.05, it means that co
 - Include your `Project.toml` and `Manifest.toml` files in your submission so that I can reproduce your Julia package environment exactly.
 - If you work in a notebook environment ([you should not](https://www.youtube.com/watch?v=7jiPeIFXb6U)), export the script so that I can run it without using a notebook.
 - Please put the solver function named `Armington_solver()` in a separate script from the unit tests and other examples that call it. Name this script `yourlastname.jl`.
+- Please put your function `freetrade_test(A, L, σ)` in `yourlastname_test.jl` and `gainsfromtrade(A, L, τ, σ)` in `yourlastname_gainsfromtrade.jl`.
 - To grade your submission, I will simply run `julia grading.jl yourlastname.jl` on my machine, where `grading.jl` is similar to [this script](grading_demo.jl).
 
 
