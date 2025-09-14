@@ -16,13 +16,14 @@ Jonathan Dingel\\
 \end{frame}
 % -----------------------------------------
 \begin{frame}{Today: Quantitative Ricardian models}
-We study a class of Ricardian models that make more structural assumptions to facilitate quantitative exercises
+We study a class of Ricardian models that make stronger assumptions to facilitate quantitative exercises
 \begin{itemize}
-	\item \href{https://www.aeaweb.org/articles?id=10.1257/jep.26.2.65}{Eaton and Kortum (2012)} call this ``putting Ricardo to work''
+	\item \href{https://www.aeaweb.org/articles?id=10.1257/jep.26.2.65}{Eaton and Kortum (2012)} review calls this ``putting Ricardo to work''
 	\item Probabilistic Ricardian models do not attempt to predict which countries make which goods
 	\item Akin to Wilson (1980), we focus on what account of trade patterns is needed to conduct certain counterfactuals
-	\item Borrow tools from discrete-choice models to deliver closed-form solutions that depend on few key parameters
-	\item Over time, we've learned that some of this is not so different -- an Armington or CGE model in Fr\'{e}chet clothing
+	\item Borrow tools from discrete-choice modeling to deliver closed-form solutions that depend on few parameters
+	\item We've since learned this is a CES Armington model in Fr\'{e}chet clothing
+	\item Contrast ``quantitative trade models'' with stylized models (e.g., DFS 1977), ``applied GE models'' (e.g., Kehoe and Kehoe \href{https://www.minneapolisfed.org/research/qr/qr1821.pdf}{1994a}, \href{https://www.minneapolisfed.org/research/qr/qr1822.pdf}{1994b}) and highly parameterized CGE models (e.g., \href{https://www.gtap.agecon.purdue.edu/models/current.asp}{GTAP} vs \href{https://tobin.yale.edu/research/biofuels-deforestation-and-gtap-model}{Berry et al. 2024})
 \end{itemize}
 \end{frame}
 % -----------------------------------------
@@ -184,7 +185,7 @@ where $\Gamma()$ is the gamma function, $\Gamma(a)\equiv \int_{0}^{\infty} x^{a-
 		\begin{equation*}w_i L_i = \sum_n \frac{T_{i}\left( d _{ni}w_{i}\right) ^{-\theta}}{\sum _j T_{i}\left( d _{nj}w_{ij}\right) ^{-\theta}} w_n L_n
 		\end{equation*}
 \end{itemize}
-We will discuss gravity more in week 4. Note the similarity to Armington system of equations.
+We will discuss this more in gravity week. For now, note the similarity to the Armington system of equations.
 \end{frame}
 % -----------------------------------------
 \begin{frame}{Estimating the trade elasticity $\theta$}
@@ -242,7 +243,7 @@ $%\end{equation*}
 % -----------------------------------------
 \begin{frame}{Intermediates \`{a} la Ethier (1982)}
 \begin{itemize}
-	\item Imagine that goods are produced using labor and a composite intermediate that is a CES aggregate coinciding with the consumption good (as in Ethier AER 1982)
+	\item Imagine that goods are produced using labor and a composite intermediate that is a CES aggregate coinciding with the consumption good (as in \href{https://www.jstor.org/stable/1831539}{Ethier \textit{AER} 1982})
 	\item Thus, the composite may be consumed or used as an intermediate
 	\item Assume Cobb-Douglas: $c_i = w_i^\beta p_i^{1-\beta}$
 \end{itemize}
@@ -259,7 +260,7 @@ Some of this model's counterfactual predictions can be obtained by ``\href{https
 \end{frame}
 % -----------------------------------------
 \begin{frame}{Empirical estimation of Ricardian predictions}
-Alan Deardorff (\textit{Handbook}, 1984) on ``Testing Trade Theories and Predicting Trade Flows'':
+Alan Deardorff (\textit{Handbook}, 1984) on ``\href{https://doi.org/10.1016/S1573-4404(84)01013-3}{Testing Trade Theories and Predicting Trade Flows}'':
 \begin{quote}
 The intuitive content of most trade theories is quite simple and straightforward\dots 
 seldom stated in forms that are compatible with the real world complexities that empirical research cannot escape.
@@ -274,25 +275,22 @@ seldom stated in forms that are compatible with the real world complexities that
 \end{frame}
 % -----------------------------------------
 \begin{frame}{Empirical challenges for Ricardian models}
+Specialization is selection:
+If countries don't produce some goods in the trade equilibrium, 
+we cannot infer relative labor costs.
 \begin{itemize}
-	\item Specialization is selection:
-	If countries don't produce some goods in the trade equilibrium, 
-	we cannot infer relative labor costs.\footnote{
-		\href{https://www.jstor.org/stable/2728516}{Sattinger (1993, p.832)}: 
-		``Empirical modeling of the distribution of earnings requires the econometric specification of worker alternatives, even though only the chosen sector or job is observed.
-		This generates a set of econometric problems that have been addressed in applications of Roy's and Tinbergen's models.''
-	}
-	\begin{itemize}
-		\item In fact, data suggests that countries aren't specializing at commodity-code level (intraindustry trade)
-	\end{itemize}
-	\item Suspicions that relative labor costs in trade equilibrium do not reveal relative labor costs in autarky
-	\begin{itemize}
-		\item Multiple factors of production
-		\item Relative costs endogenous to trade flows
-	\end{itemize}
-	\item Dimensionality mismatch:
-	How to take two-country predictions to many-country data?
+	\item {\scriptsize \href{https://www.jstor.org/stable/2728516}{Sattinger (1993, p.832)}: 
+	``Empirical modeling of the distribution of earnings requires the econometric specification of worker alternatives, even though only the chosen sector or job is observed.
+	This generates a set of econometric problems that have been addressed in applications of Roy's and Tinbergen's models.''\par}
+	\item Moreover, data show intraindustry trade: countries do not specialize at commodity-code level
 \end{itemize}
+Relative labor costs in trade equilibrium may not reveal relative labor costs in autarky
+\begin{itemize}
+	\item Multiple factors of production
+	\item Relative costs endogenous to trade flows
+\end{itemize}
+Dimensionality mismatch:
+How to take two-country predictions to many-country data?
 \end{frame}
 % -----------------------------------------
 \begin{frame}{Ad hoc regressions}
