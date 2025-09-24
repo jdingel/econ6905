@@ -42,7 +42,7 @@ Naive gravity (``gold medal error'' of \href{https://www.nber.org/papers/w12516}
 \begin{equation*}
 X_{ij} = G \times Y_i^a \times Y_j^b \times \phi_{ij}
 \end{equation*}
-Recall last week's Armington model (this is general, is it structural?):
+Recall the Armington model (this is general, is it structural?):
 \begin{equation*}
 X_{ij}	= \frac{Y_i^{1-\sigma}}{Q_i^{1-\sigma}} \frac{X_j}{P_j^{1-\sigma}}\tau_{ij}^{1-\sigma}
 \end{equation*}
@@ -204,7 +204,7 @@ X_{ij} &= \alpha_0 Y_i^{\alpha_1}  Y_j^{\alpha_2}  D_{ij}^{\alpha_3} \eta_{ij}
 \\
 \ln X_{ij} &= \alpha_0 +{\alpha_1} \ln  Y_i   +{\alpha_2}\ln  Y_j +{\alpha_3} \ln D_{ij} + \ln \eta_{ij}
 \end{align*}
-\vspace{-8mm}
+\vspace{-7mm}
 \begin{itemize}
 	\item The levels regression requires $\mathbb{E}\left(\eta_{ij}|Y_i,Y_j,D_{ij}\right)=1$.
 	\item What does the logs regression require of $\ln \eta_{ij}$?
@@ -223,8 +223,8 @@ Contrast OLS and PPML first-order conditions:
   &
   \sum_{i,j} \left[X_{ij} - \exp\left(\beta \mathbf{Z}_{ij}\right)\right] \mathbf{Z}_{ij}= 0
 \end{align*}
-The OLS FOC has a log difference; the PPML FOC has a level difference.
-{\href{http://www-personal.umich.edu/~ssotelo/research/Sotelo_MPMLE.pdf}{Sotelo (2019)}: ``when using PML methods to estimate gravity models, specifying the dependent variable as shares or as levels amounts to assigning different weights to each importer country.''\par}
+The OLS FOC has a log difference; the PPML FOC has a level difference.\\
+{\small \href{http://www-personal.umich.edu/~ssotelo/research/Sotelo_MPMLE.pdf}{Sotelo (2019)}: ``when using PML methods to estimate gravity models, specifying the dependent variable as shares or as levels amounts to assigning different weights to each importer country.''\par}
 \only<2>{}
 \end{frame}
 % -----------------------------------------
@@ -294,6 +294,24 @@ $$
 \end{itemize}
 \end{frame}
 % -----------------------------------------
+\begin{frame}{Gravity with some dynamics}
+\href{https://arxiv.org/abs/2004.12655}{Hinz, Stammann, Wanner (2021)}:
+\begin{itemize}
+\item One-third of country pairs have zero trade in all products
+\item These zeros are highly persistent (annual data)
+\item Is it state dependence or unobserved heterogeneity?
+\item Static gravity model cannot speak to state dependence
+\end{itemize}
+\medskip
+\href{https://doi.org/10.1016/j.jinteco.2020.103341}{Anderson and Yotov (2020)} on trade elasticities at different horizons:
+\begin{itemize}
+\item Short-run gravity: fixed bilateral capacities (marketing capital) and flexible labor
+\item Long run: efficient capacity allocation yields the standard structural gravity model
+\item Short-run elasticity is one-quarter of the long-run elasticity
+\item Why hasn't distance elasticity fallen with falling trade costs? ``Time-invariance of estimated cross-section gravity elasticities arises because the standard gravity co-variates effectively control for time variation of the omitted bilateral capacity variables.''
+\end{itemize}
+\end{frame}
+% -----------------------------------------
 \begin{frame}{Gravity and trade imbalances}
 Relevant for ``Liberation Day'' is
 Cunat \& Zymek - ``\href{https://doi.org/10.1093/restud/rdad052}{Bilateral Trade Imbalances}'' (\textit{REStud} 2024)
@@ -314,7 +332,7 @@ The homework assignment explores practical issues:
 \begin{frame}{Trade costs}
 Trade costs $\phi_{ij}$ are the frictions that make international and intranational trade distinct (from integrated GE) and interesting, yet we struggle to measure them
 \begin{itemize}
-	\item Tariffs (easy to define, but go download TRAINS data)
+	\item Tariffs (easy to define, but go download TRAINS data) [\href{https://www.ifo.de/en/cesifo/publications/2024/working-paper/missing-tariffs}{Teti 2024} on imputation nightmare]
 	\item Transportation costs (money + time + trade finance)
 	\item Communication costs
 	\item Contractual frictions
