@@ -66,6 +66,7 @@ Submit transparent, self-contained code:
 \end{itemize}
 See my \href{http://www.jdingel.com/teaching/advice.html}{recommended resources} webpage for suggestions.
 \begin{itemize}
+\item Matt Gentzkow and Jesse Shapiro - \href{https://web.stanford.edu/~gentzkow/research/CodeAndData.pdf}{Code and Data for the Social Sciences}
 \item Grant McDermott - \href{https://github.com/uo-ec607/lectures}{Data science for economists}
 \item Ivan Rudik - \href{https://github.com/AEM7130/class-repo}{AEM 7130 Dynamic Optimization}
 \item Paul Schrimpf and Jesse Perla - \href{https://github.com/ubcecon/ECON622/}{Computational Economics with Data Science Applications}
@@ -359,7 +360,7 @@ An iterative approach can be quite fast. \href{https://raw.githack.com/AEM7130/c
 \item Guess $\{Y_{i}^{s}\}_{i=1}^{N}$ starting with $s=0$.
 \item Compute implied LHS when using $\{Y_{i}^{s}\}_{i=1}^{N}$ in RHS
 \item Update $\mathbf{Y}^{s+1}$ based on convex combination of $\mathbf{Y}^{s}$ and implied $\mathbf{Y}$
-\item Iterate until $\mathbf{Y}^{s+1} = \mathbf{Y}^{s}$
+\item Iterate until implied $\mathbf{Y}$ equals $\mathbf{Y}^{s}$ (the fixed point)
 \end{itemize}
 \end{frame}
 % -----------------------------------------
