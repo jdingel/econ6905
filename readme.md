@@ -47,7 +47,7 @@ the [Julia language](http://www.julialang.org).
 Julia's advantages are that it is open source and typically faster than Matlab.
 To get started doing economics in Julia, see Perla, Sargent, and Stachurski's
 "[Lectures in Quantitative Economics](https://julia.quantecon.org/intro.html)."
-You may submit Julia or Matlab code as homework solutions.
+I request that you submit Julia code for homework assignments.
 Please confer with me before submitting code written in other languages.
 
 Standards for transparency and replicability are rising quickly.
@@ -107,6 +107,7 @@ If you’re going to be a trade economist, you ought to own the following books:
 
 -   Jones, Ronald W. and J. Peter Neary. 1984. "[The positive theory of international trade](http://www.sciencedirect.com/science/article/pii/S1573440484010042)."
     in *Handbook of International Economics*, Vol. 1, 1-62.
+	Sections 2.3 and 2.4.
 
 -   Feenstra textbook, chapters [1](http://assets.press.princeton.edu/chapters/s10615.pdf) and 2.
 
@@ -114,7 +115,7 @@ If you’re going to be a trade economist, you ought to own the following books:
 
 - Krugman, Paul R. 1980. "[Scale Economies, Product Differentiation, and the Pattern of Trade](https://www.aeaweb.org/aer/top20/70.5.950-959.pdf)." *American Economic Review*, 70(5): 950-959.
 
-- Dingel, Gottlieb, Lozinski, Mourot. 2024. "[Market Size and Trade in Medical Services](http://www.jdingel.com/research/DGLM_MSTMS.pdf)." Working paper.
+- Dingel, Jonathan I., Joshua Gottlieb, Maya Lozinski, and Pauline Mourot. 2024. "[Market Size and Trade in Medical Services](http://www.jdingel.com/research/DGLM_MSTMS.pdf)." Working paper.
 
 #### Week 7: Agglomeration economies
 
