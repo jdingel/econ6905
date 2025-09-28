@@ -1,0 +1,656 @@
+\documentclass[11pt,notes=hide,aspectratio=169]{beamer}
+\input{../week00/slides_settings.tex}
+\setbeamertemplate{footline}{\begin{center}\textcolor{gray}{Dingel -- Topics in Trade -- \semester -- Week 5 -- \insertframenumber}\end{center}}
+\begin{document}
+% -----------------------------------------
+\begin{frame}[plain]
+\begin{center}
+\large
+\textcolor{columbiadarkblue}{ECON G6905\\
+Topics in Trade\\ 
+Jonathan Dingel\\
+\semester, Week 5}
+\vfill 
+\includegraphics[width=0.4\textwidth]{../images/Columbia_logo.png}
+\end{center}
+\end{frame}
+% -----------------------------------------
+% -----------------------------------------
+\begin{frame}{Today: Multiple factors of production}
+With multiple factors of production, we can talk about
+\begin{itemize}
+	\item factor supplies as a source of comparative advantage
+	\item distributional consequences of trade
+\end{itemize}
+Outline of today's discussion:
+\begin{itemize}
+	\item Heckscher-Ohlin model
+	\item Ricardo-Viner specific-factors model
+	\item Trade and regional outcomes
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Factor proportions theory}
+\begin{itemize}
+	\item The law of comparative advantage establishes the relationship between relative autarky prices and trade flows
+	\item Factor proportions theory is an account of factor endowments as the source of relative autarky prices
+	\begin{enumerate}
+		\item Countries differ in terms of factor abundance (relative factor supply)
+		\item Goods differ in terms of factor intensity (relative factor demand)
+	\end{enumerate}
+	\item The interplay between these differences governs relative autarky prices and hence trade
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Factor proportions theory}
+\begin{itemize}
+	\item To focus on factor endowments, shut down other channels:
+	\begin{itemize}
+		\item Identical production functions (no Ricardian forces)
+		\item Identical homothetic preferences
+	\end{itemize}
+	\item Two canonical models:
+	\begin{itemize}
+		\item Ricardo-Viner model with 2 goods and 3 factors (2 of which are specific to a good)
+		\item Heckscher-Ohlin model with 2 goods and 2 factors
+	\end{itemize}
+	\item \href{https://www.jstor.org/stable/pdf/2232049.pdf}{Neary (1978)}, among others, treats the specific-factors model as a short-run case, whereas all factors are mobile in longer run
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{$2 \times 2$ Heckscher-Ohlin model: Environment}
+Production functions (HD1) using factors $L$ and $K$ are
+\begin{equation*}
+y_{g}=f_{g}\left( L_{g},K_{g}\right) \quad g=1,2
+\end{equation*}
+Unit cost functions are given by
+\begin{equation*}
+c_{g}\left( w,r\right) =\min_{L_{g},K_{g}}\left\{ wL_{g}+rK_{g}|f_{g}\left(
+L_{g},K_{g}\right) \geq 1\right\}
+\end{equation*}
+We write the solution in terms of unit factor demands $a_{gf}$
+\begin{equation*}
+c_{g}\left( w,r\right) =wa_{gL}\left( w,r\right) +ra_{gK}\left( w,r\right)
+\end{equation*}
+From the envelope theorem, we know
+\begin{equation*}
+\frac{\textrm{d} c_{g}}{\textrm{d} w}=a_{gL} \qquad \frac{\textrm{d} c_{g}}{\textrm{d} r}=a_{gK}
+\end{equation*}
+$A(w,r)\equiv [a_{gf}(w,r)]$ denotes the matrix of total factor requirements
+\end{frame}
+% -----------------------------------------
+\begin{frame}{$2 \times 2$ HO: Equilibrium in SOE}
+\begin{itemize}
+	\item Start with ``small open economy'' for which $p_g$ are exogenous
+	\item Profit maximization:
+	\begin{align*}
+	p_{1} &\leq c_{1}\left( w,r\right) \quad \text{equal if produced} \\
+	p_{2} &\leq c_{2}\left( w,r\right) \quad \text{equal if produced} 
+	\end{align*}
+	\item Factor markets clear:
+	\begin{align*}
+	a_{1L}y_{1}+a_{2L}y_{2} &=L \\
+	a_{1K}y_{1}+a_{2K}y_{2} &=K
+	\end{align*}
+	\item These are four nonlinear equations in four unknowns; unique solution not generally guaranteed
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Four theorems}
+\begin{enumerate}
+	\item Factor price equalization: Can trade in goods substitute for trade in factors?
+	\item Stolper-Samuelson: Who wins and who loses from a change in goods prices?
+	\item Rybczynski: How does output mix respond to change in endowments?
+	\item Heckscher-Ohlin: What is the pattern of specialization and trade?
+\end{enumerate}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Factor price insensitivity}
+\begin{itemize}
+\item 
+Good 1 is called labor-intensive if 
+$\frac{a_{1L}\left(w,r\right)}{a_{1K}\left(w,r\right)}
+>\frac{a_{2L}\left(w,r\right)}{a_{2K}\left(w,r\right)}$
+and capital-intensive if 
+$\frac{a_{1L}\left(w,r\right)}{a_{1K}\left(w,r\right)}
+<\frac{a_{2L}\left(w,r\right)}{a_{2K}\left(w,r\right)}$
+\item
+A factor intensity reversal (FIR) occurs if $\exists w,r,w',r'$ such that good 1 is labor-intensive for $(w,r)$ and capital-intensive for $(w',r')$
+\end{itemize}
+\begin{lemma}
+If both goods are produced, and factor intensity reversals do not occur,
+then factor prices $\omega \equiv (w,r)$ are uniquely determined by goods prices $p \equiv (p_1,p_2)$.
+\end{lemma}
+Proof:
+If both goods are produced in equilibrium, then $p = A(\omega) \omega$. By Gale and Nikaido (1965), this equation admits a unique solution if $a_{fg}(\omega)>0$ for all $f,g$ and $\det[A(\omega)]\neq 0\ \forall \omega$, which no factor intensity reversals guarantees.
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Factor intensity reversals}
+\includegraphics[width=.49\textwidth]{../images/week05/Feenstra2015_fig1_5.png}
+\includegraphics[width=.49\textwidth]{../images/week05/Feenstra2015_fig1_6.png}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Factor price equalization}
+\textit{If two countries both produce both goods under free trade with the same technology and there are no factor intensity reversals, then factor prices in the two countries are the same.}
+\begin{itemize}
+	\item This follow directly from the previous lemma and the no-FIR diagram:
+	\begin{itemize}
+		\item By free trade, goods prices are the same
+		\item By identical technologies, isocost lines are the same
+	\end{itemize}
+	\item Hence, trade in goods is a perfect substitute for factor mobility in this model in the sense that it equalizes factor prices across countries (like factor mobility would)
+\end{itemize}
+Trade theory as an \href{https://twitter.com/TradeDiversion/status/1445739902105128963}{omitted explanation} in cross-country comparisons
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Stolper-Samuelson Theorem}
+\textit{An increase in the relative price of one good raises the real return of the factor used intensively in producing that good and lowers the real return of the other factor.}
+Proof:
+WLOG, let $\frac{a_{1L}(\omega)}{a_{1K}(\omega)}>\frac{a_{2L}(\omega)}{a_{2K}(\omega)}$
+and $\hat{p}_{1}>\hat{p}_{2}$,
+where $\hat{x} \equiv \frac{\textrm{d}x}{x}$. \\
+Differentiating the zero-profit conditions yields (by envelope theorem)
+\begin{equation*}
+\textrm{d}p_{g}=a_{gL}\textrm{d}w+a_{gK}\textrm{d}r
+\end{equation*}
+Define the cost share $\theta _{gL}=\frac{wa_{gL}}{c_{g}}$
+to obtain
+\begin{equation*}
+\hat{p}_{g}=\theta _{gL}\hat{w}+\left( 1-\theta _{gL}\right) \hat{r}
+\end{equation*}
+Goods price changes are weighted averages of factor price changes (2 equations in $\hat{r},\hat{w}$).
+$\frac{a_{1L}}{a_{1K}}>\frac{a_{2L}}{a_{2K}} \Rightarrow \theta
+_{1L}>\theta _{2L}$
+so 
+$\hat{r}<\hat{p}_{2}<\hat{p}_{1}<\hat{w}$
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Notes on $2 \times 2$ Stolper-Samuelson Theorem}
+\begin{itemize}
+\item A change in product prices has a magnified effect on factor
+prices
+\item Jones (1965) referred to these inequalities as ``magnification
+effect"
+(This is the \href{https://tradediversion.net/2018/05/07/on-hat-algebra/}{original ``hat algebra''})
+\item Trade liberalization that alters goods prices will thus produce winners and losers across factors
+\item Like FPI and FPE, Stolper-Samuelson result follows from zero-profit condition (+ ``no joint production'')
+\end{itemize}
+\begin{center}
+\includegraphics[height=.35\textheight]{../images/week05/Feenstra2015_fig1_7.png}
+\end{center}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Rybczynski Theorem}
+\textit{For given goods prices, an increase in the endowment of one factor
+causes a more-than-proportionate increase in the output of the good using this factor intensively and
+a decrease in the output of the other good.}
+Differentiating the factor market clearing conditions yields,%
+\begin{equation*}
+\textrm{d}L=a_{1L}\textrm{d}y_{1}+a_{2L}\textrm{d}y_{2}\text{ and\ }\textrm{d}K=a_{1K}\textrm{d}y_{1}+a_{2K}\textrm{d}y_{2}
+\end{equation*}
+Defining $\lambda_{gL}=\frac{a_{gL}y_{i}}{L}$ and $\lambda_{gK}=\frac{%
+a_{gK}y_{i}}{K}$ this implies,%
+\begin{equation*}
+\hat{L}=\lambda_{1L}\hat{y}_{1}+\left( 1-\lambda_{1L}\right) \hat{y}_{2}%
+\text{ and }\hat{K}=\lambda_{1K}\hat{y}_{1}+\left( 1-\lambda_{1K}\right) 
+\hat{y}_{2}
+\end{equation*}
+If (w.l.o.g.) $\frac{a_{1L}}{a_{1K}}>\frac{a_{2L}}{a_{2K}}$, then $\lambda
+_{1L}>\lambda_{1K}$ so that,%
+\begin{equation*}
+\hat{y}_{1}>\hat{L}>\hat{K}>\hat{y}_{2}\text{ or }\hat{y}_{1}<\hat{L}<\hat{K}%
+<\hat{y}_{2}
+\end{equation*}
+Hence, if also (w.l.o.g.) $\hat{K}>\hat{L}$, we obtain,%
+\begin{equation*}
+\hat{y}_{1}<\hat{L}<\hat{K}<\hat{y}_{2}
+\end{equation*}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Rybczynski Theorem and cone of diversification}
+\includegraphics[width=.38\textwidth]{../images/week05/Feenstra2015_fig1_8.png}
+\includegraphics[width=.41\textwidth]{../images/week05/Feenstra2015_fig1_9.png}
+\begin{itemize}{\footnotesize
+\item Produce both goods iff $\left( L,K\right) $ lies between
+factor requirements vectors $\left( a_{2L},a_{2K}\right) $ and $\left(
+a_{1L},a_{1K}\right) $, the   ``cone of diversification"
+\item Changes in endowment can be absorbed by changes in production composition given factor prices (and thus factor intensity)
+\item E.g., increase in labor necessitates decrease in output of capital-intensive good
+\par}\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Factor demand and factor prices: autarky vs free trade}
+\begin{itemize}
+\item Factor demand is perfectly elastic inside the cone of diversification (given goods prices)
+\item Autarky factor demand slopes down
+\item The impact of a factor supply shock depends on openness
+\item \href{https://doi.org/10.3982/ECTA16196}{Burstein, Hanson, Tian, Vogel (2020)}: ``a local influx of immigrants crowds out employment of native-born workers in more relative to less immigrant-intensive nontradable jobs, but has no such effect across tradable occupations. Further analysis of occupation labor payments is consistent with adjustment to immigration within tradables occurring more through changes in output (versus changes in prices) when compared to adjustment within nontradables''
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Heckscher-Ohlin theorem}
+\begin{itemize}
+	\item We now consider world economy with two countries and free trade (prior results derived for small open economies)
+	\item This is a $2 \times 2 \times 2$ model
+	\item Identical technologies and homothetic preferences
+	\item What is the pattern of trade in this global economy?
+	\begin{itemize}
+		\item Rather than starting from autarky, let's start from the integrated equilibrium
+		\item Integrated world economy with world endowment of factors yields integrated equilibrium (good prices, factor prices, resource allocations, etc)
+	\end{itemize}
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{The FPE set}
+\vspace{-3mm}
+\begin{center}\includegraphics[height=.60\textheight]{../images/week05/Krugman1995_fig1_1.png}\end{center}
+\vspace{-3mm}
+\begin{itemize}
+	\item World endowed with $K$ and $L$
+	\item Integrated factor allocations $OX$ and $OY$
+	\item Samuelson's angel fragments world into two countries by endowments $E$ or $E'$
+	\item Can trade reproduce the integrated equilibrium?
+	If FPE holds!
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Heckscher-Ohlin theorem}
+\textit{In the free-trade equilibrium, each country exports the good that uses its abundant factor intensively.}
+\begin{itemize}
+	\item If endowments are in the FPE set, this is a simple corollary of the Rybczynski theorem and homothetic preferences (no assumption on FIRs required).
+	\item Outside the FPE set, need to also consider FIRs.
+	\item To state the prediction in terms of autarky relative factor prices, return to general theorem of Deardorff (1980)
+	\item Is the autarky relative price of the labor-intensive good lower in the labor-abundant country?
+	\item See Feenstra Figure 2.1 and Jones and Neary equation (2.10)
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Higher dimensions}
+What if there are $C$ countries, $G$ goods, and $F$ factors?
+\begin{itemize}
+	\item If $F=G$ (``even case''), situation is qualitatively similar
+	\item Integrated equilibrium and FPE set are helpful devices here
+	\item If $F>G$, then FPE set is ``measure zero'' ($F=2,G=1$ on diagonal of Samuelson's angel diagram)
+	\item If $G>F$, then production and trade are indeterminate, but factor content of trade known
+\end{itemize}
+\begin{center}\includegraphics[height=.45\textheight]{../images/week05/Krugman1995_fig1_2.png}\end{center}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{High-dimensional predictions}
+\begin{itemize}{\footnotesize
+	\item High-dimensional predictions are not much loved, since they are either weak or unintuitive.
+	\item See \href{https://doi.org/10.1016/S1573-4404(84)01006-6}{Ethier (1984) survey}. Comparative statics depend on whether $F$ or $G$ is greater.
+\par}\end{itemize}
+Stolper-Samuelson in higher dimensions is Jones and Scheinkman (JPE 1977) ``friends'' and ``enemies'' results:
+\begin{itemize}{\small
+	\item SS theorem follows from differentiating zero-profit condition
+	\item With arbitrary $F$ and $G$, still true that (no joint production)
+	\begin{equation*}
+		\hat{p}_g = \sum_f \theta_{fg} \hat{w}_f
+	\end{equation*}
+	\item Suppose $\hat{p}_1 \leq \dots < \hat{p}_G$. 
+	Then there exist $f_1$ and $f_2$ such that 
+	\begin{equation*}
+		\hat{w}_{f_1} <  \hat{p}_1 \leq \dots < \hat{p}_G < \hat{w}_{f_2}
+	\end{equation*}
+	\item In even case ($F=G$), each factor has at least one ``enemy''
+	\item In uneven cases $(F>G)$, cannot always identify a natural enemy
+	\item[] E.g., in Ricardo-Viner, labor is intermediate, $\hat{p}_1 < \hat{w} < \hat{p}_2$
+\par}\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Heckscher-Ohlin-Vanek Theorem}
+\begin{itemize}
+	\item Without $G=F$, we have results about factor content of trade rather than goods trade
+	\item Define net exports of factor by the vector $T_{F}^{c} = AT^c$, where $A$ is the $F \times G$ matrix of unit factor requirements and $T^c$ is net exports of goods by $c$
+	\item Heckscher-Ohlin-Vanek theorem: In any country $c$, net exports of factors satisfy $T_F^c = V^c - s^c V^{\text{world}}$ where $s^c$ is $c$'s share of world income
+	\item Countries export factors in which they are relatively abundant: $V^c > s^c V^{\text{world}}$ 
+	\item This prediction derives from identical technology, FPE, and homothetic preferences.
+	Good luck.
+\end{itemize}
+Vast empirical literature:
+\href{https://www.aeaweb.org/articles?id=10.1257/aer.91.5.1423}{Davis and Weinstein (2001)},
+\href{https://link.springer.com/rwe/10.1007/978-1-349-58802-2_541}{Davis (2008)} survey,
+\href{https://doi.org/10.1016/j.jinteco.2010.07.006}{Trefler and Zhu (2010)},
+\href{https://doi.org/10.1016/j.jinteco.2022.103620}{Morrow and Trefler (2022)}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Trade and regional outcomes}
+\begin{itemize}
+	\item Recent work looking at trade's effects on regional labor markets can be interpreted as using a Ricardo-Viner view
+	\item Cross-sectional regressions testing HO model take long-run view, but recent labor literature exploiting panel data lets us take factor specificity more seriously
+	\item Suppose a trade-policy change affects $p$ (nationwide goods prices)
+	\item What happens to economic outcome in different regions?
+	\item \href{https://www.aeaweb.org/articles?id=10.1257/app.2.4.1}{Topalova (2010)} on India,
+	\href{https://www.aeaweb.org/articles?id=10.1257/aer.103.5.1960}{Kovak (2013)} on Brazil,
+	\href{https://www.aeaweb.org/articles?id=10.1257/aer.103.6.2121}{Autor, Dorn, and Hanson (2013)} on US
+\end{itemize}
+\end{frame}
+\begin{frame}{Ricardo-Viner model: Environment}
+\begin{itemize}
+	\item Two goods ($g=1,2$) with exogenous prices $p_1,p_2$ (``small open economy'')
+	\item Three factors with endowments $L$, $K_1$, $K_2$ and prices $w,r_1,r_2$
+	\item Output of good $g$ is
+	\begin{equation*}
+		y_g = f^g \left(L_g,k_g\right)
+	\end{equation*}
+	where $L_g$ is (endogenous) labor working in $g$ and $f^g$ is HD1
+	(payments to specific factors under CRS are profits in DRS)
+	\item Profit maximization (where $f^g_{L} \equiv \pdv{f^g}{L_g}$):
+	\begin{equation*}
+		p_g f^g_{L} \left(L_g,K_g\right) = w 
+		\qquad
+		p_g f^g_{K_g}\left(L_g,K_g\right) = r_g 
+	\end{equation*}
+	\item Labor demand decreasing in $w/p_g$: 
+	$$L_g = (f^g_{L})^{-1}(w/p_g;K_g)$$
+	\item Labor market clearing: $L = L_1(w/p_1) + L_2(w/p_2)$
+	%\item ``Small open economy'': $p_1,p_2$ exogenous
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Ricardo-Viner model: Equilibrium}
+Combine the expressions for MRPL and $L = L_1 + L_2$ to solve:
+\begin{center}\includegraphics[width=.60\textwidth]{../images/week05/Feenstra2015_fig3_2.png}\end{center}
+{\footnotesize See pages 71-75 of Feenstra textbook (first edition)}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Ricardo-Viner model: Comparative static: $\uparrow p_1 \to \ \uparrow w, \uparrow L_1/L_2$}
+\begin{columns}
+\begin{column}{0.44\textwidth}
+\includegraphics[height=.60\textheight]{../images/week05/Feenstra2015_fig3_3.png}
+\end{column}
+\begin{column}{0.54\textwidth}\small
+Let $\hat{w} \equiv \textrm{d} \ln w$.\\
+Totally differentiate labor market clearing:\\
+$$-\sum_{g}l_{g}^{0}\sigma_{g}^{0}(\hat{w}-\hat{p}_{g})=\hat{\overline{L}}$$
+$$\Rightarrow\hat{w}=\sum_{g}\left(\frac{l_{g}^{0}\sigma_{g}^{0}}{\sum_{k}l_{k}^{0}\sigma_{k}^{0}}\right)\hat{p}_{g}+\frac{-\hat{\overline{L}}}{\sum_{k}l_{k}^{0}\sigma_{k}^{0}}$$
+$l_{g}^{0}=L_{g}^{0}/\overline{L}$ is initial $g$ share of labor,
+$\sigma_{g}^{0}\equiv-\frac{\partial \log L_{g}(w^{0}/p_{g}^{0})}{\partial \log w/p_{g}}$ is labor demand elasticity in $g$ (at initial eq.)
+\end{column}
+\end{columns}
+\begin{itemize}{\small
+    \item \textbf{Dutch disease}: $\hat{w}<\hat{p}_{1}$ and $\hat{r}_{2}<\hat{p}_{1}$, but $\hat{r}_{1}>\hat{p}_{1}$
+}\end{itemize}
+{\footnotesize One can do similar exercises for changes in endowments, etc. See Feenstra textbook.}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Towards an empirical specification across regional SOEs}
+    \begin{itemize}
+        \item Consider regional SOEs $i=1,...,J$, with sectors $s=1,...,S$.
+        \item Sectoral labor demand ($\sigma > 0$ from DRS production or imperfect substitution in preferences):
+        $$ \log L_{is}^{D}=-\sigma \log w_{i}+\log D_{is} \quad (\sigma>0) $$
+        $$ \log D_{is}=\rho \log \chi_{s}+\log \mu_{s}+\log \eta_{is}  $$
+        \item $\chi_{s}$ is sector-level trade shock;
+        $\mu_{s}$ and $\eta_{is}$ are other labor demand shifters
+        \item For simplicity, elasticities are the same for all sectors and regions.
+        \item Labor is freely mobile across $s$ but immobile across $i$. Supply is
+%        \item To simplify, labor supply is a function of wage ($w_{i}$) and shifter ($v_{i}$):
+        $$ \log L_{i}^{S}=\phi \log w_{i}+\log v_{i} \quad (\phi>0) $$
+        \item Labor market clearing in each regional market $i$:
+        $$ L_{i}^{S}(w_{i})=\sum_{s}L_{is}^{D}(w_{i},\chi_{s},\mu_{s},\eta_{is}) $$
+    \end{itemize}
+\end{frame}
+\begin{frame}{Impact of a sectoral trade shock}
+\begin{center}
+\only<1>{\includegraphics[height=0.73\textheight]{../images/week05/Rodrigo1.pdf}}
+\only<2>{\includegraphics[height=0.73\textheight]{../images/week05/Rodrigo2.pdf}}
+\only<3>{\includegraphics[height=0.73\textheight]{../images/week05/Rodrigo3.pdf}}
+\only<4>{\includegraphics[height=0.76\textheight]{../images/week05/Rodrigo4.pdf}}
+\end{center}
+\only<1>{Since labor demand and supply only depends on local wage, graph represents labor market clearing for each $i$}
+\only<2>{Consider common shocks to the sector demand in all regions $\hat{\chi}_{s}$}
+\only<3>{Labor demand shift in $i$: average sectoral shock weighted by $i$'s initial employment shares}
+\only<4>{Wage response is given by labor demand shift adjusted by wage elasticity of excess labor demand $(\sigma+\phi)$}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{National sectoral shocks affect regional outcomes}
+\begin{itemize}{\small
+    \item For any variable $z$, we define $\hat{z}=\log(z^{t}/z^{0})$. Each time period has different potential shifter realizations:
+    $$ (\{\hat{\chi}_{s},\hat{\mu}_{s}\}_{s},\{\hat{\eta}_{is}\}_{i,s},\{\hat{v}_{i}\}_{i})\sim F(\cdot) $$
+    \item Up to a first-order approximation around the initial equilibrium,
+    $$\hat{L}_{i}^{S}= \sum_{s} \frac{L_{is}^{D,0}}{\sum_{k} L_{ik}^{D,0}} \hat{L}_{is}^{D}$$
+    \item Denote $l_{is}^{0}\equiv L_{is}^{0}/L_{i}^{0}$ as the sectoral employment share in initial equilibrium.
+    \item Substituting for supply and demand yields:
+   $$ \phi\hat{w}_{i}+\hat{v}_{i}=\sum_{s}l_{is}^{0}(-\sigma\hat{w}_{i}+\rho\hat{\chi}_{s}+\hat{\mu}_{s}+\hat{\eta}_{is}) $$
+    \item Therefore
+    $$ \hat{w}_{i}=\frac{1}{\phi+\sigma}\sum_{s}l_{is}^{0}(\rho\hat{\chi}_{s}+\hat{\mu}_{s}+\hat{\eta}_{is})-\frac{1}{\phi+\sigma}\hat{v}_{i} $$
+}\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Simple environment yields shift-share exposure measure}
+\vspace{-4mm}
+\begin{equation*}
+    \hat{w}_{i} = \alpha_{w} + w \sum_{s}l_{is}^{0}\hat{\chi}_{s} + \epsilon_{w i}
+	\qquad
+    \hat{L}_{i} = \alpha_{L} + L \sum_{s}l_{is}^{0}\hat{\chi}_{s} + \epsilon_{L i}
+\end{equation*}
+\vspace{-4mm}
+\begin{itemize}{\small
+    \item Shift in labor demand, $\sum_{s}l_{is}^{0}\hat{\chi}_{s}$, is stronger in $i$ with higher $l_{is}^{0}$ in sectors with stronger shock $\hat{\chi}_{s}$.
+    \item $w \equiv \rho/(\phi+\sigma)$ and $L \equiv w$ control how much a higher $\hat{\chi}_{s}$ affects outcomes in regions specialized in sector $s$.
+    \item The constant and residual capture other shocks: $\alpha_{w} = E[\tilde{\epsilon}_{w i}]$ and $\epsilon_{w i} = \tilde{\epsilon}_{w i} - \alpha_{w}$ with
+    $$ \tilde{\epsilon}_{w i} \equiv \frac{1}{\phi+\sigma}\left[-\hat{v}_{i} + \sum_{s}l_{is}^{0}(\hat{\mu}_{s} + \hat{\eta}_{is})\right] $$
+    \item Exposure to other sectoral shocks (eg, productivity): $\sum_{s}l_{is}^{0}\hat{\mu}_{s}$
+    \item Local supply and demand shocks: $\hat{v}_{i}$ and $\hat{\eta}_{is}$
+    \item See See \href{https://academic.oup.com/qje/article-abstract/134/4/1949/5552146}{Adao, Kolesar, Morales (2019)} on econometrics of shift-share designs
+}\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Indian tariff cuts and district-level poverty (Topalova 2010)}
+Regression for outcome $y$ in district $d$ in year $t$
+\begin{equation*}
+	y_{dt} = \alpha_d^D + \alpha_t^T + \beta \text{tariff}_{dt} + \epsilon_{dt}
+\end{equation*}
+\vspace{-3mm}
+\begin{columns}
+\begin{column}{.4\textwidth}
+\includegraphics[width=\textwidth]{../images/week05/Topalova2010_fig1b.pdf}
+\end{column}
+\begin{column}{.58\textwidth}
+\begin{itemize}
+	\item $y$ is poverty rate and tariff is employment-weighted average of national industry import tariffs
+	\item India has long-running poverty surveys, many districts, and a large trade liberalization in 1991
+	\item IV for tariffs: initial level, because tariff harmonization meant ``the higher the tariff, the bigger the cut''
+\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{}
+\begin{center}
+\includegraphics[height=\textheight]{../images/week05/Topalova2010_tab3a.pdf}
+\end{center}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Kovak (2013)}
+Look at Brazil's import liberalization
+\begin{itemize}
+	\item Topalova finds little geographical or intersectoral migration
+	\item In Brazil, substantial migratory responses
+\end{itemize}
+Estimating equation explicitly derived from a specific-factors model
+\begin{itemize}
+	\item Good $i$ with specific factor $K_i$ and labor $L$
+	\item Factor market clearing:
+	\begin{equation*}
+	a_{K_i} Y_i = K_i \qquad \sum_{i} a_{Li} Y_i = L
+	\end{equation*}
+	\item Differentiating, $\hat{L} = \sum_i \lambda_i (\hat{a}_{Li} - \hat{a}_{K_i})$ where $\lambda_i \equiv L_i / L$
+	\item $\hat{p}_i = (1-\theta_i)\hat{w} + \theta_i \hat{r}_i$, where $\theta_i \equiv \frac{r_iK_i}{p_i Y_i}$ is specific factor's cost share
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Kovak (2013): Model, continued}
+If $\sigma_i$ is elasticity of substitution btw $K_i$ and $L$ then
+\begin{equation*}
+\hat{a}_{K_i} - \hat{a}_{Li} = \sigma_i \left(\hat{w} - \hat{r}_i\right)
+\end{equation*}
+Combining with expression for $\hat{L}$, we get
+\begin{equation*}
+\hat{L} = \sum_i \lambda_i \sigma_i \left( \hat{r}_i - \hat{w}\right)
+\end{equation*}
+Solve for $\hat{w}$ using some matrix algebra
+\begin{equation*}
+\hat{w}
+=
+- \frac{1}{\sum_{i'} \lambda_{i'} \frac{\sigma_{i'}}{\theta_{i'}}} \hat{L}
++ \sum_i \frac{\lambda_{i} \frac{\sigma_{i}}{\theta_{i}}}{\sum_{i'} \lambda_{i'} \frac{\sigma_{i'}}{\theta_{i'}}} \hat{p}_i
+\end{equation*}
+\vspace{-3mm}
+\begin{itemize}
+	\item In baseline, no migration, so $\hat{L}=0$
+	\item Idiot's law of elasticities says $\sigma_i =1 \ \forall i$
+	\item Extend to address non-traded goods
+\end{itemize}
+Estimate using region's tariff change assuming full passthrough
+\begin{equation*}
+\Delta \ln w_{r} = \alpha + \beta \cdot \text{RTC}_r + \epsilon_r
+\qquad
+\text{RTC}_r\equiv \sum_i \frac{\lambda_{i} \frac{1}{\theta_{i}}}{\sum_{i'} \lambda_{i'} \frac{1}{\theta_{i'}}} \Delta \ln \left(1 + \tau_i\right)
+\end{equation*}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Kovak (2013): Identifying variation}
+\includegraphics[width=.49\textwidth]{../images/week05/Kovak2013_fig1.pdf}
+\includegraphics[width=.49\textwidth]{../images/week05/Kovak2013_fig3.pdf}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Kovak (2013): Empirical estimates}
+\includegraphics[height=0.65\textheight]{../images/week05/Kovak2013_tab1.pdf}
+{\small Estimates lie between immobile labor ($\beta = 1$) and perfectly mobile labor ($\beta = 0$),
+suggesting mobility frictions (or incomplete passthrough)\par}
+{\small \href{https://www.aeaweb.org/articles?id=10.1257/aer.20161214}{Dix-Carneiro and Kovak (2017)} estimate dynamic version:}
+\begin{equation*}
+w_{r,t} - w_{r,\text{1991}} = \alpha_{st} + \beta_t \cdot \text{RTC}_r + \gamma_t (w_{r,\text{1990}} - w_{r,\text{1986}}) +  \epsilon_{rt}
+\end{equation*}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Autor, Dorn, Hanson (2013)}
+\begin{itemize}
+	\item Use of trade quantities (China shock) rather than prices, so a gravity-based model rather than specific-factor SOE
+	\item Exogenous Chinese export supply shock in industry $j$ is $\hat{A}_{Cj}$
+	\item Look at region $i$'s outcomes for wages $\hat{w}_i$, employment in traded goods $\hat{L}^{T}_{i}$, and employment in non-traded goods $\hat{L}^{N}_{i}$
+	\item Treatment is exposure to import competition (shift-share design):
+	\begin{equation*}
+		\Delta \text{IPW}_{Uit} = \sum_j \frac{L_{ijt}}{L_{Ujt}} \frac{\Delta M_{UCjt}}{L_{it}}
+	\end{equation*}
+	\item Instrument using non-US exposure (``other'' $o$):
+	\begin{equation*}
+		\Delta \text{IPW}_{oit} = \sum_j \frac{L_{ijt-1}}{L_{ujt-1}} \frac{\Delta M_{oCjt}}{L_{it-1}}
+	\end{equation*}
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{ADH (2013): Manufacturing employment falls}
+\includegraphics[width=\textwidth]{../images/week05/AutorDornHanson2013_tab2.pdf}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Autor, Dorn, Hanson (2013): Population response}
+\begin{center}\includegraphics[height=0.9\textheight]{../images/week05/AutorDornHanson2013_tab4.pdf}\end{center}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Autor, Dorn, Hanson (2013): Margins of adjustment}
+\begin{center}\includegraphics[height=0.9\textheight]{../images/week05/AutorDornHanson2013_tab5.pdf}\end{center}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Autor, Dorn, Hanson (2021): Effects are persistent} 
+\begin{center}\includegraphics[height=0.9\textheight]{../images/week05/AutorDornHanson2021_fig5.pdf}\end{center}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Autor, Dorn, Hanson (2021): Only young migrate away}
+\begin{center}\includegraphics[height=0.9\textheight]{../images/week05/AutorDornHanson2021_fig7.pdf}\end{center}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{The ``China Shock'' literature}
+\begin{itemize}
+\item ADH (2021) review the large literature launched by ADH (2013) investigating the impact of the China shock on different countries and outcomes (e.g., voting behavior, health outcomes, family structure)
+\item 
+The regional incidence approach is not the only one.
+\item 
+Studies look at sector-level variation in exposure to trade shocks (the cornerstone for regional shift-share approach), such as
+Autor, Dorn, Hanson, Song (2014),
+Acemoglu, Autor, Dorn, Hanson, Price (2016),
+Pierce and Schott (2016)
+[the NTR gap variation is roughly orthogonal to the ``China shock'' variation]
+\item Hummels, Jorgensen, Munch, Xiang (2014): Firm-level variation in exposure to trade shocks via 
+global product-level demand shocks
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Where do we stand?}
+\begin{itemize}
+\item Empirical literature credibly built the case that those initially more exposed to trade shocks experience persistent effects
+\item However, measures of exposure are often ad-hoc or derived from simple models that ignore several adjustment channels in general equilibrium
+\item Difference in differences has a ``missing intercept'' problem (e.g., \href{https://voxdev.org/topic/methods-measurement/missing-intercept-problem-going-micro-macro}{Moll and Hanney 2025})
+\item General-equilibrium modeling can fill in the missing intercept and other channels of adjustments, but few verify that their GE models quantitatively replicate the diff-in-diffs estimates from the empirical literature
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Adao, Arkolakis, Esposito (2025): China shock and spatial links}
+AAE extend the empirical approach of Autor Dorn Hanson (2013) to show how spatial links shaped the response of US Commuting Zones to the China shock:
+\begin{itemize}
+\item spatial links propagated shocks in labor demand across regions: employment and wage growth were weaker in a CZ geographically close to other CZs facing higher import competition
+\item stronger import growth in goods consumed in a CZ did not generate relative gains in employment and wages
+\item population did not respond to any measure of regional shock exposure
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Direct and indirect effects of local shock exposure}
+Again, assume labor is mobile across sectors but trapped in regions, so labor supply is
+$$ \log L_{i}^{S}=\phi \log w_{i}+\log v_{i} $$
+Assume that labor demand features spatial links:
+$$ \log L_{is}^{D}=-\sigma \log w_{i}+\sum_{j}\sigma_{ij}\log w_{j}+\rho \log \chi_{s}+\log \eta_{is}; $$
+Intuition for $\sigma_{ij}>0$ is labor demand in $i$ increases when
+\begin{itemize}
+    \item competitor market $j$ has higher cost due to higher wage 
+    \item destination market $j$ has higher spending due to higher wage 
+\end{itemize}
+Market clearing in every region $i$ still must hold: $L_{i}^{S}=\sum_{s}L_{is}^{D}$
+\end{frame}
+\begin{frame}{Impact of trade shocks}
+\begin{itemize}
+    \item Up to a first-order approximation:
+    $$ \phi\hat{w}_{i}+\hat{v}_{i}=-\sigma\hat{w}_{i}+\sum_{j}\sigma_{ij}\hat{w}_{j}+\rho\hat{X}_{i} \quad \forall i $$
+    \item \vspace{-2mm}
+	$\hat{X}_{i}$ is the shift-share variable of $i$'s exposure to the trade shock:
+    $$ \hat{X}_{i}\equiv\sum_{s}l_{is}^{0}\hat{\chi}_{s} $$
+    \item One needs to solve for equilibrium in all markets together.
+	\item Denote vectors by $\mathbf{z}=[z_{i}]_{i}$ and matrices as $\mathbf{\overline{z}}=[z_{ij}]_{ij}$
+    $$(\sigma+\phi)\mathbf{\hat{w}}-\mathbf{\overline{\sigma}}\mathbf{\hat{w}}=\rho\mathbf{\hat{X}}+\mathbf{\hat{v}}$$
+    \item Thus, \vspace{-2mm}
+    $$ \underbrace{\left(\mathbf{\overline{I}}-\frac{1}{\sigma+\phi}\mathbf{\overline{\sigma}}\right)}_{\equiv \mathbf{I} - \mathbf{\overline{\lambda}}}\mathbf{\hat{w}}
+	=
+	\underbrace{\left(\frac{\rho}{\sigma+\phi}\right)}_{\equiv \kappa}\mathbf{\hat{X}}+\frac{1}{\sigma+\phi}\mathbf{\hat{v}} $$
+\end{itemize}
+\end{frame}
+\begin{frame}{Direct and indirect effects of trade shocks}
+\begin{columns}
+\begin{column}{0.44\textwidth}
+\begin{itemize}{\small
+    \item Assume $1-\lambda_{ii}>\sum_{j\ne i}|\lambda_{ij}|$:
+    $$ \mathbf{\overline{\beta}}\equiv(\mathbf{I}-\mathbf{\overline{\lambda}})^{-1}=\mathbf{I}+\mathbf{\overline{\lambda}}+\sum_{d=2}^{\infty}\mathbf{\overline{\lambda}}^{d} $$
+    $$ \hat{w}_{i}=\underbrace{\kappa\beta_{ii}\hat{X}_{i}}_{\text{direct effect}} + \underbrace{\sum_{j\ne i}\kappa\beta_{ij}\hat{X}_{j}}_{\text{indirect effect}} + \hat{v}_{i}^{\omega} $$
+    \item In this case, links \textit{amplify} impact ($\sigma_{ij}>0 \ \forall i,j \implies \beta_{ij}>0 \ \forall i,j$).
+    \item More generally, GE impact requires measuring indirect effects
+\par}\end{itemize}
+\end{column}
+\begin{column}{0.54\textwidth}
+\begin{itemize}{\small
+    \item Diff-in-diffs regressions assume indirect effects are common across markets (and therefore in the missing intercept)
+    \item Quantitative modelers ignore whether GE predictions match estimated directed and indirect effects at their peril
+\par}\end{itemize}
+\includegraphics[height=0.50\textheight]{../images/week05/AdaoArkolakisEsposito2025_fig1.pdf}
+\end{column}
+\end{columns}
+\end{frame}
+% -----------------------------------------
+\begin{frame}[plain]
+Next week:
+\begin{itemize}
+\item Trade with increasing returns
+\item Please read Krugman (1980) beforehand
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\end{document}
