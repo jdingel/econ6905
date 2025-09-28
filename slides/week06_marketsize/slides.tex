@@ -18,8 +18,9 @@ Jonathan Dingel\\
 \begin{frame}{Today}
 \begin{itemize}
 	\item Topic: Increasing returns and the home-market effect
+	\item Classic: Krugman (1980) [print this; we'll go through it in detail]
 	\item Main paper: Market Size and Trade in Medical Services
-	\item This puts the Armington model and estimated gravity regressions to work 
+% Week 3: \item This puts the Armington model and estimated gravity regressions to work 
 \end{itemize}
 \end{frame}
 % -----------------------------------------
@@ -69,6 +70,160 @@ Linder hypothesis for trade flows (p.91--94)
 \begin{quote}{\small
 Internal demand determines which products may be imported\dots The range of potential exports is identical to, or included in, the range of potential imports\dots The more similar the demand structure of two countries, the more intensive, potentially, is the trade between these two countries\dots Similarity of average income levels could be used as an index of similarity of demand structures.
 }\end{quote}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Krugman (JIE 1979)}
+\vspace{-5mm}
+\begin{align*}
+U &= \sum_{i=1}^{n} v(c_i) \quad v'>0, v''<0
+&\text{(1)} &&
+\epsilon_i &= \frac{-v'}{v'' c_i}
+&\text{(2)} \\
+l_i &= \alpha + \beta x_i
+&\text{(3)} &&
+x_i &= L c_i
+&\text{(4)} \\
+L &= \sum_i l_i = \sum_{i=1}^{n} \alpha + \beta x_i
+&\text{(5)} &&
+p &= p_i, x=x_i \ \forall i
+&\text{(6)} \\
+v'(c_i) &= \lambda p_i \ \forall i
+&\text{(7)} &&
+p_i &= \lambda^{-1} v'\left(x_i / L\right)
+&\text{(8)} \\
+\pi_i &= p_i x_i - (\alpha+\beta x_i) w
+&\text{(9)} &&
+p_i &= \frac{\epsilon}{\epsilon-1}\beta w
+&\text{(10)} \\
+0 &= px - (\alpha+\beta x)w
+&\text{(11)} &&
+p/w & = \beta + \alpha/(Lc)
+&\text{(12)} \\
+n &= \frac{L}{\alpha + \beta x}
+&\text{(13)}
+\end{align*}
+Population growth and free-trade are comparative statics in $L$
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Krugman (AER 1980)}
+\begin{align*}
+U &= \sum_i c_i^{\theta}
+&\text{(1)} \\
+l_i &= \alpha + \beta x_i
+&\text{(2)} &&
+x_i &= L c_i
+&\text{(3)} \\
+L &= \sum_i (\alpha + \beta x_i)
+&\text{(4)} \\
+\theta c_i ^{\theta-1} &= \lambda p_i
+&\text{(5)} &&
+p_i &=  \theta \lambda^{-1} (x_i / L)^{\theta-1}
+&\text{(6)} \\
+\pi_i &= px_i - (\alpha+\beta x_i)w
+&\text{(8)} &&
+p_i &= \theta^{-1} \beta w
+&\text{(7)} \\
+x_i &= \alpha \theta / \beta (1-\theta)
+&\text{(9)} \\
+n &= L(1-\theta)/\alpha
+&\text{(10)} &&
+n^* &= L^*(1-\theta)/\alpha
+&\text{(11)}
+\end{align*}
+%}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Krugman (1980), section II}
+Transport costs ($g$), relative demand (call it $r$), relative wage ($\omega \equiv w / w^{*}$), and market clearing
+\begin{align*}{\small
+r
+&=
+\left(\frac{p}{p^{*}}\right)^{1/(1-\theta)}g^{\theta/(1-\theta)}
+\\
+r^{*}
+&=
+\left(\frac{p}{p^{*}}\right)^{-1/(1-\theta)}g^{\theta/(1-\theta)}
+&
+\text{(12)}
+\\
+B
+&=
+\frac{r^{*}n\omega}{r^{*}n+n^{*}}L^{*}
+-
+\frac{r n^{*}}{n+r n^{*}}\omega L
+\\
+&=
+\omega L L^{*} \left[\frac{r^{*}}{r^{*} L + L^{*}} - \frac{r}{L + r L^{*}}\right]
+&
+\text{(14)}
+\\
+\omega = 1 \implies r = r^{*} < 1 \implies
+B
+&=
+r L L^{*} \left[\frac{1}{r L + L^{*}} - \frac{1}{L + r L^{*}}\right]
+&
+\text{(14')}
+}\end{align*}
+$L>L^{*} \iff \omega > 1$. Contrast with DFS `77.
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Krugman (1980), section III}
+\begin{itemize}
+	\item Two types of consumers consuming two classes of SDS varieties
+	\begin{align*}U = \sum_{\omega} q(\omega)^{\frac{\sigma-1}{\sigma}} ; \quad \tilde{U} = \sum_{\tilde{\omega}} \tilde{q}(\tilde{\omega})^{\frac{\sigma-1}{\sigma}} \end{align*}
+	\item Home and foreign have same total population; different shares of types
+	\begin{align*}L + \tilde{L} = L^* + \tilde{L}^{*} = \bar{L} ; \quad L = \gamma \bar{L} ; \quad L^* = (1-\gamma)\bar{L}  \end{align*}
+	\item Identical production functions and iceberg trade costs $\tau$
+	\begin{align*} l(\omega) = f + c x(\omega) ; \quad l(\tilde{\omega}) = f + c x(\tilde{\omega}) \\
+	\Rightarrow p = \frac{\sigma}{\sigma-1} c w ; \quad \pi=0\Rightarrow x = \frac{f}{c}\left(\sigma-1\right)
+	\end{align*}
+	\item Symmetry implies $w = \tilde{w} = w^* = \tilde{w}^*$ and thus $p=p^*$
+	\item Only need to solve for $n, \tilde{n}, n^*, \tilde{n}^{*}$
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Krugman (1980), section III}
+\begin{itemize}
+	\item \href{http://www.columbia.edu/~jid2106/td/dixitstiglitzbasics.pdf}{Relative expenditure on foreign varieties} when $p=p^*$ is $\tau^{1-\sigma}$
+	\item Expenditure on domestic varieties as share of total is $\frac{n}{n + n^*\tau^{1-\sigma}}$
+	\item Market clearing: industry income equals domestic plus foreign expenditure
+	\begin{align*}
+	npx = \frac{n}{n + n^*\tau^{1-\sigma}} w L + \frac{n\tau^{1-\sigma}}{n\tau^{1-\sigma} + n^*} w^* L^* \\
+	n^*p^*x^* = \frac{n^*\tau^{1-\sigma}}{n + n^*\tau^{1-\sigma}} w L + \frac{n^*}{n^* + n\tau^{1-\sigma}} w^* L^*
+	\end{align*}
+	\item With $p=p^*$, $w=w^*$, $x=x^*$, solve for $\frac{n}{n^*}$
+	\begin{align*}
+	n>0,n^*>0 \Rightarrow \frac{n}{n^*} = \frac{L/L^* - \tau^{1-\sigma}}{1 - \tau^{1-\sigma}L/L^*}, \quad \frac{L}{L^*} \in [\tau^{1-\sigma},\tau^{\sigma-1}] \\
+	 \frac{L}{L^*} < \tau^{1-\sigma} \Rightarrow n = 0 ; \quad \frac{L}{L^*} > \tau^{\sigma-1} \Rightarrow n^* = 0 
+	\end{align*}
+	\item $\frac{n}{n^*}$ is increasing in $\frac{L}{L^*}$: greater relative demand calls forth domestic supply
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Krugman (1980), section III}
+\linespread{1.0}
+\begin{itemize}
+	\item In autarky, entry is proportionate to demand:
+	\begin{align*}
+	npx = wL; & \quad \tilde{n}\tilde{p}\tilde{x} = \tilde{w}\tilde{L} \\
+	w=\tilde{w}, p=\tilde{p}, x=\tilde{x} & \Rightarrow n/\tilde{n} = L / \tilde{L}
+	\end{align*}
+	\item With trade, entry more than proportionate to demand (see Figure 2)
+	\begin{align*}
+	\frac{n}{n^*} &= \frac{L/L^* - \tau^{1-\sigma}}{1 - \tau^{1-\sigma}L/L^*} \\
+	\frac{\partial n/n^*}{\partial L/L^*} &= \frac{1 - \left(\tau^{1-\sigma} \right)^2}{\left(1 - \tau^{1-\sigma}\frac{L}{L^*}\right)^2} \geq 1 \text{ if } \frac{L}{L^*}\geq \tau^{1-\sigma}
+	\end{align*}
+	%\includegraphics[width=0.2\textwidth]{../images/Krugman1980Fig2.pdf}
+	\item Krugman's home-market effect: The market with relatively greater demand for a product type is a net exporter of that type.
+	\item Home net exports of first type are
+%	\begin{align*}
+%	\textnormal{home net exports of first type}	&=  \frac{n\tau^{1-\sigma}}{n\tau^{1-\sigma} + n^*} w^* L^*  - \frac{n^*\tau^{1-\sigma}}{n + n^*\tau^{1-\sigma}} w L \\
+%				&= \frac{\tau^{1-\sigma}wL^*}{\tau^{1-\sigma}n+n^*} \left[n - n^*\right]
+%	\end{align*}
+$$
+\frac{n\tau^{1-\sigma}}{n\tau^{1-\sigma} + n^*} w^* L^*  - \frac{n^*\tau^{1-\sigma}}{n + n^*\tau^{1-\sigma}} w L  = \frac{\tau^{1-\sigma}wL^*}{\tau^{1-\sigma}n+n^*} \left[n - n^*\right]
+$$
+\end{itemize}
 \end{frame}
 % -----------------------------------------
 \begin{frame}{The gist of it}
@@ -169,7 +324,7 @@ Attempt to relax symmetry assumption, address spatially correlated demand
 \end{frame}
 % -----------------------------------------
 \begin{frame}{Home-market effect in services trade}
-\href{http://www.jdingel.com/research/DGLM_MSTMS.pdf}{Dingel, Gottlieb, Lozinski, and Mourot (2023)}
+\href{http://www.jdingel.com/research/DGLM_MSTMS.pdf}{Dingel, Gottlieb, Lozinski, and Mourot (2024)}
 investigate market-size effects in trade in medical services between US regions
 \begin{itemize}
 \item Build procedure-level trade matrices from Medicare claims data
