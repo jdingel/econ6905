@@ -188,8 +188,7 @@ Differentiating the factor market clearing conditions yields,%
 \begin{equation*}
 \textrm{d}L=a_{1L}\textrm{d}y_{1}+a_{2L}\textrm{d}y_{2}\text{ and\ }\textrm{d}K=a_{1K}\textrm{d}y_{1}+a_{2K}\textrm{d}y_{2}
 \end{equation*}
-Defining $\lambda_{gL}=\frac{a_{gL}y_{i}}{L}$ and $\lambda_{gK}=\frac{%
-a_{gK}y_{i}}{K}$ this implies,%
+Defining $\lambda_{gL}=\frac{a_{gL}y_{g}}{L}$ and $\lambda_{gK}=\frac{a_{gK}y_{g}}{K}$, this implies
 \begin{equation*}
 \hat{L}=\lambda_{1L}\hat{y}_{1}+\left( 1-\lambda_{1L}\right) \hat{y}_{2}%
 \text{ and }\hat{K}=\lambda_{1K}\hat{y}_{1}+\left( 1-\lambda_{1K}\right) 
@@ -419,19 +418,19 @@ $\sigma_{g}^{0}\equiv-\frac{\partial \log L_{g}(w^{0}/p_{g}^{0})}{\partial \log 
 \begin{frame}{Simple environment yields shift-share exposure measure}
 \vspace{-4mm}
 \begin{equation*}
-    \hat{w}_{i} = \alpha_{w} + w \sum_{s}l_{is}^{0}\hat{\chi}_{s} + \epsilon_{w i}
+    \hat{w}_{i} = \alpha^{w} + \beta^{w} \sum_{s}l_{is}^{0}\hat{\chi}_{s} + \epsilon_{w i}
 	\qquad
-    \hat{L}_{i} = \alpha_{L} + L \sum_{s}l_{is}^{0}\hat{\chi}_{s} + \epsilon_{L i}
+    \hat{L}_{i} = \alpha^{L} + \beta^{L} \sum_{s}l_{is}^{0}\hat{\chi}_{s} + \epsilon_{L i}
 \end{equation*}
 \vspace{-4mm}
 \begin{itemize}{\small
-    \item Shift in labor demand, $\sum_{s}l_{is}^{0}\hat{\chi}_{s}$, is stronger in $i$ with higher $l_{is}^{0}$ in sectors with stronger shock $\hat{\chi}_{s}$.
-    \item $w \equiv \rho/(\phi+\sigma)$ and $L \equiv w$ control how much a higher $\hat{\chi}_{s}$ affects outcomes in regions specialized in sector $s$.
-    \item The constant and residual capture other shocks: $\alpha_{w} = E[\tilde{\epsilon}_{w i}]$ and $\epsilon_{w i} = \tilde{\epsilon}_{w i} - \alpha_{w}$ with
+    \item Shift in labor demand, $\sum_{s}l_{is}^{0}\hat{\chi}_{s}$, is greater in $i$ with higher $l_{is}^{0}$ in sectors with greater shock $\hat{\chi}_{s}$.
+    \item $\beta^{w} \equiv \rho/(\phi+\sigma)$ and $\beta^{L} \equiv \phi \beta^{w}$ control how much a higher $\hat{\chi}_{s}$ affects outcomes in regions specialized in sector $s$.
+    \item The constant and residual capture other shocks: $\alpha^{w} = E[\tilde{\epsilon}_{w i}]$ and $\epsilon_{w i} = \tilde{\epsilon}_{w i} - \alpha^{w}$ with
     $$ \tilde{\epsilon}_{w i} \equiv \frac{1}{\phi+\sigma}\left[-\hat{v}_{i} + \sum_{s}l_{is}^{0}(\hat{\mu}_{s} + \hat{\eta}_{is})\right] $$
     \item Exposure to other sectoral shocks (eg, productivity): $\sum_{s}l_{is}^{0}\hat{\mu}_{s}$
     \item Local supply and demand shocks: $\hat{v}_{i}$ and $\hat{\eta}_{is}$
-    \item See See \href{https://academic.oup.com/qje/article-abstract/134/4/1949/5552146}{Adao, Kolesar, Morales (2019)} on econometrics of shift-share designs
+    \item See \href{https://academic.oup.com/qje/article-abstract/134/4/1949/5552146}{Adao, Kolesar, Morales (2019)} on econometrics of shift-share designs
 }\end{itemize}
 \end{frame}
 % -----------------------------------------
