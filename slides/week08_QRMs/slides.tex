@@ -15,45 +15,31 @@ Jonathan Dingel\\
 \end{center}
 \end{frame}
 % -----------------------------------------
-\begin{frame}{This week: Quantitative spatial models}
-\href{https://doi.org/10.1146/annurev-economics-063016-103713}{Redding and Rossi-Hansberg (2017)}:
+\begin{frame}{Empirical observations about regional economies}
 \begin{itemize}
-\item A general-equilibrium approach to spatial variation:
-``locations are not independent observations in a cross-sectional regression but rather are systematically linked to one another through trade, commuting, and migration flows''
-\item Designed for data: 
-``These models are rich enough to incorporate first-order features of the data, such as large numbers of locations with heterogeneous geography, productivity, amenities, and local factors, as well as trade and commuting costs.''
+\item Economic activity is geographically concentrated (see last week) 
+\item Regions are connected via trade flows: most metropolitan areas spend more on shipments from other metros than on their own output (Allen Arkolakis 2025)
+\item The gravity equation for trade flows describes trade between regions well (Allen and Arkolakis 2025 graphs akin to those from Head and Mayer 2014)
+\item Trade costs seem essential to understanding the economic geography of some industries (e.g., Holmes and Stevens 2014 on sugar beet processing)
 \end{itemize}
-Language evolves, but let me distinguish beween
-quantitative regional economics (goods trade, mobile labor between cities-as-points)
-and
-quantitative urban economics (commuting flows in cities with internal geography)
 \end{frame}
 % -----------------------------------------
-\begin{frame}{Overview of quantitative spatial models (QSMs)}
-What is a QSM? One answer: Successor to ``new economic geography'' models
+\begin{frame}{This week: Quantitative regional models}
+\begin{itemize}
+\item Last week's models (i.e., Rosen-Roback) had no trade or spatial linkages
+\item Krugman (1991) introduces two-region model with trade costs and market-size consequences (core-periphery story is applied theory)
+\item Modern QRMs are multi-region models designed to be taken to data (quantitative counterfactual scenarios)
+\item[] \textcolor{gray}{Hallmarks (like QTMs): many locations, few elasticities, many shifters}
+\end{itemize}
+Within broader class of ``quantitative spatial models''
 \begin{itemize}{\small
-\item \href{https://www.aeaweb.org/articles?id=10.1257/jel.20181414}{Proost and Thisse} (Sec 5.2, 2019) ask but do not quite answer this question
-\item Illuminating contrast: Chapter 6 of \href{https://direct.mit.edu/books/book/2525/The-Spatial-EconomyCities-Regions-and}{Fujita, Krugman, Venables} on 
-``Many Regions and Continuous Space'' covers ``The Three-Region Case'', ``The Racetrack Economy'', and ``The Turing Approach'' (sine wave on circle)
-\item Hallmarks (like QTMs): many locations, few elasticities, many shifters
-\item Elasticities: agglomeration, congestion, trade
-}\end{itemize}
-How do we use them?
-\begin{itemize}{\small
-\item Emphasis on quantitative counterfactual scenarios, not new mechanisms
-}\end{itemize}
-What limits QSMs? Shortage of overidentification checks
-\begin{itemize}{\small
-\item Limited examination of functional-form assumptions (few, constant elasticites)
-\item Non-falsifiable calibrations (counterpart to ``sufficiently rich to explain the observed data as an equilibrium'' \href{https://doi.org/10.1146/annurev-economics-063016-103713}{Redding Rossi-Hansberg 2017})
-}\end{itemize}
-\end{frame}
-% -----------------------------------------
-\begin{frame}[plain]
-\begin{center}
-\only<1>{\includegraphics[height=.95\textheight]{../images/QSM_ngram.png}}
-\only<2>{\includegraphics[height=.95\textheight]{../images/QTM_CGE_ngram.png}}
-\end{center}
+\item A general-equilibrium approach:
+``locations are not independent observations in a cross-sectional regression but rather are systematically linked to one another through trade, commuting, and migration flows'' (\href{https://doi.org/10.1146/annurev-economics-063016-103713}{Redding \& Rossi-Hansberg 2017})
+\item Distinguish quantitative regional economics (goods and labor move between cities-as-points)
+from
+quantitative urban economics (commuting flows within cities)
+\item What is a QSM? \href{https://www.aeaweb.org/articles?id=10.1257/jel.20181414}{Proost and Thisse} (Sec 5.2, 2019) almost answer
+\par}\end{itemize}
 \end{frame}
 % -----------------------------------------
 \begin{frame}{Krugman ``Increasing Returns and Economic Geography'' (1991)}
@@ -304,6 +290,7 @@ Note $\tau=1\implies\nu=1$.
 \begin{itemize}
 {\small
 \item ``the model used throughout the book has a number of special features that make it less suitable for addressing some issues''
+\item ``As the authors disarmingly admit, the book `sometimes looks as if it should be entitled \textit{Games You Can Play with CES Functions}!'''
 \item ``Though $\sigma$ starts as a taste parameter, it ends up as an index of returns to scale
 \item ``the Dixit-Stiglitz model has almost nothing to say about individual firms''
 \item ``while costs may be fixed they are never sunk, so firms, industries, and even cities are always free to move''
@@ -358,12 +345,13 @@ Note $\tau=1\implies\nu=1$.
 \begin{frame}{Redding and Sturm (2008)}
 \begin{itemize}
 {\small
-	\item ``We exploit the division of Germany after the Second World War and the reunification of East and West Germany in 1990 as a source of exogenous variation to provide evidence for the causal importance of market access for economic development.''
+	\item ``We exploit the division of Germany after the Second World War and the reunification of East and West Germany in 1990 as a source of exogenous variation to provide evidence for the \textcolor{red}{causal} importance of market access for economic development.''
 	\item ``The key idea behind our empirical approach is that West German cities close to the new border experienced a disproportionate loss of market access relative to other West German cities.''
 	\item Extend Helpman (1998) to a multi-region version (assume that $\beta\epsilon>1 \Rightarrow$ unique equilibrium)
 	\item Difference-in-differences design compares proximate vs distant West German cities before and after division
 	\item Triple difference: ``the greater dependence of small cities on markets in other cities implies that this effect will be particularly pronounced for small cities.''
-}
+	\item[] \textcolor{gray}{Note the shift from qualitative applied theory question to quantitative empirical application}
+\par}
 \end{itemize}
 \end{frame}
 % -----------------------------------------
@@ -375,16 +363,21 @@ Note $\tau=1\implies\nu=1$.
 \end{frame}
 % -----------------------------------------
 \begin{frame}{Redding and Sturm (2008): Quantitative model fit}
-\begin{itemize}
+{\small Model can explain ``the quantitative magnitude of the relative decline of small and large cities along the East-West German border relative to other West German cities''\par}
+\begin{columns}
+\begin{column}{0.45\textwidth}
+	\begin{itemize}
 	{\small
-	\item Model can explain ``the quantitative magnitude of the relative decline of small and large cities along the East-West German border relative to other West German cities''
 	\item Choose parameter values to minimize the distance between small-large third difference in the simulation and data
 	\item Finding ``plausible parameter values'' is ``further evidence that their relative decline is indeed due to a loss of market access''
-	}
+	\item Contrast this fit check with non-falsifiable calibrations in later literature
+	\par}
 \end{itemize}
-\begin{center}
-\includegraphics[height=.53\textheight]{../images/ReddingSturm2008_fig6.pdf}
-\end{center}
+\end{column}
+\begin{column}{0.53\textwidth}
+\includegraphics[height=.70\textheight]{../images/ReddingSturm2008_fig6.pdf}
+\end{column}
+\end{columns}
 \end{frame}
 % -----------------------------------------
 \begin{frame}
