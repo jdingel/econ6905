@@ -44,14 +44,90 @@ Gross metropolitan product per capita rises with metro population:
 \end{frame}
 % -----------------------------------------
 \begin{frame}{Today's agenda}
+Three big ideas: Cities, spatial equilibrium, and agglomeration economies
 \begin{itemize}
+\item Measurement: Satellite images, spatial units, and what is a city?
 \item Spatial equilibrium in the Rosen-Roback framework
 \item Spatial equilibrium and the marginal resident
-\item Evidence of agglomeration economies
-\item Spatial equilibrium with increasing returns (Henderson 1974)
+\item Agglomeration economies (local increasing returns)
 \item Developing-economy cities
-\item What is a city?
 \end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Data on lights at night}
+\begin{itemize}
+	\item Defense Meteorological Satellite Program-Operational Linescan System (DMSP-OLS) for 1992-2011
+	versus
+	Visible Infrared Imaging Radiometer Suite (VIIRS) for 2011 onwards
+	\item Lights are more useful for predicting GDP in cross section than time series (Chen and Nordhaus 2019 on both DMSP and VIIRS)
+	\item \href{https://www.mdpi.com/2072-4292/11/9/1057}{Chen and Nordhaus (2019)}: high-resolution VIIRS lights better predict MSA GDP than state GDP (urban vs rural; lights do not explain value-added GDP in agriculture and forestry)
+	\item \href{https://ideas.repec.org/p/wai/econwp/24-08.html}{Gibson, Kim, Li (2024)}: ``these GDP-luminosity elasticities vary especially by spatial scale and metro status, and also by period and remote sensing source. The elasticities mainly capture extensive margins of luminosity.''
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Data and measurement: US geographic units}
+\begin{columns}\begin{column}{0.68\textwidth}{\footnotesize
+Census block ($\sim$\href{https://www.census.gov/geographies/reference-files/time-series/geo/tallies.html}{8 million}; half unpopulated) \vspace{-1mm}
+\begin{itemize}\itemsep-0.2em
+    \item Smallest geographic unit used by the US Census
+    \item Bounded by streets, roads, streams, or other features
+\end{itemize}
+Census tract ($\sim$84,000) \vspace{-1mm}
+\begin{itemize}\itemsep-0.2em
+    \item Designed to have homogeneous characteristics
+    \item Usually 1,200-8,000 residents (optimally $\sim$4,000)
+	\item This is ``neighborhood'' in most social-science research
+\end{itemize}
+ZIP code ($\sim$40,000 defined by USPS) \vspace{-1mm}
+\begin{itemize}\itemsep-0.2em
+	\item Based on postal volumes
+\end{itemize}
+County (and county equivalents) ($\sim$3,143) \vspace{-1mm}
+\begin{itemize}\itemsep-0.2em
+    \item Administrative/legal unit for local government services
+\end{itemize}
+Core-based statistical area ($\sim$926 defined by OMB) \vspace{-1mm}
+\begin{itemize}\itemsep-0.2em
+    \item Metropolitan and micropolitan statistical areas
+	\item Urban core and counties linked by commuting flows
+\end{itemize}
+}\end{column}
+\begin{column}{0.30\textwidth}
+\href{https://www.nyc.gov/assets/planning/download/pdf/about/publications/maps/mn-census-tracts-map-rotated.pdf}{%
+\includegraphics[width=\textwidth]{../images/IAB_census_tracts.png}}\\ \ \\
+\href{https://censusreporter.org/profiles/31000US35620-new-york-newark-jersey-city-ny-nj-metro-area/}{%
+\includegraphics[width=\textwidth]{../images/NYC_MSA.png}}
+\end{column}\end{columns}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Modifiable areal unit problem}
+Statistics and estimates depend on spatial units
+\begin{center}
+\includegraphics[height=0.40\textheight]{../images/MAUP-Scale-Effect.jpg}\\
+\includegraphics[height=0.40\textheight]{../images/MAUP-Gerrymeandering.png}\\
+Images from \href{https://gisgeography.com/maup-modifiable-areal-unit-problem/}{GISGeography}
+\end{center}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{What is a city?}
+\begin{itemize}
+	\item Municipality versus county versus metropolitan area versus commuting zone
+	\item An integrated labor market defined by commuting ties? (cf. \href{https://www.aeaweb.org/articles?id=10.1257/aer.20151507}{Monte et al 2018})
+	\item What to do absent commuting flows? (\href{https://doi.org/10.1016/j.jue.2019.05.005}{Dingel, Miscio, Davis 2021})
+	\item Discretization vs continuous linkages (\href{https://ideas.repec.org/a/oup/restud/v72y2005i4p1077-1106.html}{Duranton and Overman 2005})
+	%\item Know the modifiable areal unit problem (MAUP)
+	%\item (Related: Are agglomeration economies about size or density?)
+\end{itemize}
+\begin{columns}
+\begin{column}{0.48\textwidth}
+\hspace{5mm}
+\includegraphics[height=0.55\textheight]{../images/RozenfeldRybskiGabaixMakse2011_fig6.pdf}
+\end{column}
+\begin{column}{0.48\textwidth}
+Today we study agglomeration without geography:
+discrete cities are islands without bilateral spatial linkages
+\end{column}
+\end{columns}
 \end{frame}
 % -----------------------------------------
 \begin{frame}{Spatial equilibrium}
@@ -91,9 +167,6 @@ Indifference conditions
 \item Firm has zero profit (i.e., unit costs equal 1)
 \end{itemize}
 \end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Workers: Indirect Utility Condition}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \frametitle{Workers: Preferences and budget constraint}
 Utility is $u(x, l^c, s)$
@@ -116,9 +189,9 @@ Let $\lambda  = \lambda(w, r, s)$ be the marginal utility of a dollar of income,
 V_w = \lambda >0
 \qquad 
 V_r = -\lambda l^c <0 
-\qquad 
 \implies
 V_r = - V_w l^c
+\quad \text{via Roy's identity}
 \end{equation*}
 \end{frame}
 \begin{frame}
@@ -144,9 +217,6 @@ V_r &= -\lambda l^c =  -\Gamma s^{\theta_W} r^{-(1-\gamma)} (1-\gamma)\left(\fra
 \end{align*}
 \end{itemize}
 \end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Firms: No Profit Condition}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \frametitle{Firms: Unit cost function}
 CRS production with cost function $C(X, w,r,s)$ 
@@ -156,7 +226,7 @@ CRS production with cost function $C(X, w,r,s)$
 \item $L^p$ is total amount of land used by firms
 \item $N$ is total employment \medskip
 \end{itemize}
-From Shepard's Lemma, we have
+From Shepard's Lemma (derivative of cost function wrt factor price equals factor demand), we have
 \begin{align*}
 c_w &= N/X >0 \\
 c_r &= L^p/X >0
@@ -165,7 +235,7 @@ c_r &= L^p/X >0
 \begin{frame}
 \frametitle{Example: Cobb-Douglas production}
 Suppose the production function is
-$$X=f(N,L^p)= s^{\theta_F} N^\alpha L^{1-\alpha}$$
+$$X=f(N,L^p,s)= s^{\theta_F} N^\alpha (L^p)^{1-\alpha}$$
 Let $\mathcal{A} \equiv \alpha^{-\alpha} (1-\alpha)^{-(1-\alpha)}$.
 Then the cost function is
 \begin{equation*}
@@ -187,14 +257,6 @@ c_w = N/X >0
 c_r = L^p/X >0
 \end{equation*}
 \end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Equilibrium}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Exogenous Model Parameters}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \frametitle{Model recap}
 \begin{columns}
@@ -228,9 +290,6 @@ Endogenous outcomes:
 \end{itemize}
 \end{center}
 \end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Equilibrium: Indifference Conditions}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \frametitle{Equilibrium concept: Two key indifference conditions}
  In equilibrium, workers and firms are indifferent across cities with different levels of $s$ and endogenously varying wages $w(s)$ and rents $r(s)$:
@@ -453,23 +512,91 @@ the marginal resident must be indifferent
 \end{itemize}
 \end{frame}
 % -----------------------------------------
+\begin{frame}{The geographic concentration of economic activity}
+{\footnotesize People are concentrated. Are industries concentrated? Yes.}
+\begin{columns}
+\begin{column}{0.49\textwidth}
+\includegraphics[width=0.90\textwidth]{../images/Ahlfeldtetal2020_fig2b.pdf}\\
+{\scriptsize Figure from \href{https://cep.lse.ac.uk/_NEW/PUBLICATIONS/abstract.asp?index=7318}{Ahlfeldt, Albers \& Behrens (2020)}\par}
+\end{column}
+\begin{column}{0.49\textwidth}
+\includegraphics[width=1.05\textwidth]{../images/Economist_20160416_CNM985.png} \\
+\end{column}
+\end{columns}
+\begin{itemize}{\small
+	\item \href{https://doi.org/10.1086/262098}{Ellison and Glaeser (1997)} ``dartboard approach'' to address internal vs external economies
+	\item \href{https://doi.org/10.1111/0034-6527.00362}{Duranton and Overman (2005)} for continuous space\par
+}\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Local increasing returns: Urbanization vs localization economies}
+Agglomeration economies are the benefits of more people (Marshallian trinity)
+\begin{enumerate}
+	\item Lower costs of trading goods
+	\item Lower costs of finding the right worker
+	\item Lower costs of exchanging ideas
+\end{enumerate}
+\textit{Urbanization} economies are benefits of total scale, regardless of industry,
+while 
+\textit{localization} economies are benefits of more activity in same industry
+(\href{https://doi.org/10.1016/S1574-0080(87)80009-3}{Henderson 1987})
+\begin{itemize}
+\item Henderson (1974) model with localization economies: ``because cities of different types specialize in the production of different traded goods,''
+differences in scale elasticity generate differences in city size
+\end{itemize}
+Looking at growth effects,
+\href{https://doi.org/10.1086/261856}{Glaeser, Kallal, Scheinkman, Shleifer (1992)} contrast
+``Marshall-Arrow-Romer'' same-industry knowledge spillovers 
+and
+``Jane Jacobs'' between-industry knowledge spillovers
+\end{frame}
+% -----------------------------------------
+\begin{frame}{What explains the intense concentration of economic activity?}
+{Before we discuss these agglomeration economies, consider the alternative hypothesis:
+exogenous ``locational fundamentals'' independent of population\par}
+\vspace{3mm}
+\begin{columns}
+\begin{column}{0.56\textwidth}	
+{Places may have advantages, regardless of population, that pull in more people\par}
+{First-nature causes for agriculture and mining: what's in the ground?\par}
+\includegraphics[height=0.40\textheight]{../images/HolmesStevens2004_fig4.pdf}
+\end{column}
+\begin{column}{0.43\textwidth}	
+\begin{itemize}
+\item Plausible:
+Half the US population lives in coastal counties (oceans plus Great Lakes), only 13\% of land area
+(\href{https://www.jstor.org/stable/40215936}{Rappaport, Sachs 2003})
+\item Implausible: Locational fundamentals cannot explain Seattle's Microsoft-led resurgence nor Datang's sock specialization
+\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
 % -----------------------------------------
 \begin{frame}{Evidence of agglomeration economies}
-People are concentrated. Are industries concentrated? Yes.
-\begin{itemize}{\small
-	\item Ellison and Glaeser (1997) ``dartboard approach'' to address internal vs external economies
-	\item Duranton and Overman (2005) for continuous space
-}\end{itemize}
-Identify agglomeration channels empirically
-\begin{itemize}{\small
-	\item Estimate directly (faces peer-effects problem)
-	\item Infer from observed spatial equilibrium
-	\item Test for multiple equilibria
+\begin{itemize}{
+	\item Estimate from observed spatial equilibrium, tackling endogeneity and sorting problems
+	\item Test for multiple equilibria (sufficiently strong agglomeration forces imply multiple equilibria)
 	\item \href{https://www.journals.uchicago.edu/doi/abs/10.1086/653714}{Greenstone, Hornbeck, Moretti (2010)} use ``million-dollar plants'' to estimate agglomeration economies
-  (cf \href{https://onlinelibrary.wiley.com/doi/abs/10.1111/ecin.12339}{Patrick 2016})
-	\item Combes and Gobillon - ``\href{https://www.sciencedirect.com/science/article/pii/B9780444595171000052}{The Empirics of Agglomeration Economies}'' (\textit{Handbook} 2015)
-	\item Lin and Rauch - ``\href{https://www.sciencedirect.com/science/article/pii/S0166046220303136}{What future for history dependence in spatial economics?}''
+  (cf. \href{https://onlinelibrary.wiley.com/doi/abs/10.1111/ecin.12339}{Patrick 2016})
 }\end{itemize}
+See Combes and Gobillon - ``\href{https://www.sciencedirect.com/science/article/pii/B9780444595171000052}{The Empirics of Agglomeration Economies}'' (\textit{Handbook} 2015)
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Estimating agglomeration economies}
+Revisit that plot of wages against city size
+{\footnotesize (\href{https://www.nber.org/system/files/chapters/c7978/c7978.pdf}{Combes, Duranton, Gobillon, Roux 2010})}
+\begin{itemize}
+\item Endogeneity problem: exogenous productivity attracts more workers
+\item Sorting problem: higher-wage workers may sort into larger cities
+\item Instrumental variables for endogenous quantity of labor from geology or history
+(e.g., century-ago population, soil quality, climate)
+\item[] {\small \textcolor{gray}{Historical IVs requires persistence -- in labor supply, not labor demand}}
+\item Sorting problem can be addressed using longitudinal data on workers, introducing worker fixed effects
+{\small \textcolor{gray}{Like Abowd, Kramarz, Margolis (1999) regressions; see {de la Roca and Puga (2017)} and {Carry, Kleinman, Nimier-David (2025)}}}
+\item One needs to tackle endogeneity and sorting simultaneously
+\item CDGR 2010 say density elasticity of wages is about 0.2:
+OLS is 0.05; IV is 0.04; worker FEs is 0.033; IV + worker FEs is 0.027
+\end{itemize}
 \end{frame}
 % -----------------------------------------
 \begin{frame}{Bleakley and Lin 2012: Portage and Path Dependence}
@@ -502,130 +629,31 @@ These factors may provide guidance on when history matters, and when it does not
 \end{itemize}
 \end{frame}
 % -----------------------------------------
-\begin{frame}{(Homogeneous) agglomeration: Henderson (1974)}
+\begin{frame}{Classic model of agglomeration: Henderson (1974)}
 ``The Sizes and Types of Cities'' addresses basic, fundamental questions about a system of cities in general equilibrium
 \begin{itemize}
 \item Why do cities exist? 
 \only<2>{\textcolor{gray}{``because there are technological economies of scale in production or consumption''}}
-\item Are cities too large or too small?
-\only<2>{\textcolor{gray}{a stability argument says that cities tend to be too large}}
 \item Why do cities of different sizes exist?
 \only<2>{\textcolor{gray}{
 ``because cities of different types specialize in the production of different traded goods''}}
+\item Are cities too large or too small?
+\only<2>{\textcolor{gray}{a stability argument says that cities tend to be too large}}
 \end{itemize}
 \end{frame}
 % -----------------------------------------
-\begin{frame}{Henderson (1974) environment}
+\begin{frame}{Optimal city size vs equilibrium city size}
 \begin{itemize}
-\item Factors: land $L$, labor $N$, capital $K$
-\item Tradables production (external economies a la Chipman)
-\begin{equation*}
-    X_1^{1-\rho_1} = L_{1}^{\alpha_1} K_{1}^{\beta_1} N_{1}^{\gamma_1}
-    \qquad
-    \alpha_1 + \beta_1 + \gamma_1 = 1,
-    \rho_1\in(0,1)
-\end{equation*}
-\item Housing production
-\begin{equation*}
-    X_3 = L_{3}^{\alpha_3} K_{3}^{\beta_3} N_{3}^{\gamma_3}
-    \qquad
-    \alpha_3 + \beta_3 + \gamma_3 = 1,
-\end{equation*}
-\item Land sites produced by labor
-\begin{equation*}
-    L =  N_0^{1/(1-z)}
-    \qquad
-    z < 0, z'(N)<0
-\end{equation*}
-\item Clear factor markets with prices $p_N, p_K, p_L$
-\begin{equation*}
-    N_0 + N_1 + N_3  = N , \quad
-    K_1 + K_3  = K , \quad
-    L_1 + L_3  = L 
-\end{equation*}
-\item Cobb-Douglas preferences ($U=x_1^a x_2^b x_3^c$) with income $y$, import of good 2, and prices $q$ deliver indirect utility
-\begin{equation*}
-    U \propto y q_1^{-a} q_2^{-b} q_3^{-c}
-\end{equation*}
-\end{itemize}
-\end{frame}
-% -----------------------------------------
-\begin{frame}{Capitalists and workers}
-Different (stark) assumptions about capital ownership: 
-\begin{itemize}
-\item each laborer owns equal capital stock (Assumption A)
-\item capital owners live outside of cities (Assumption B)
-\end{itemize}
-Utility components for labor income and capital income
-\begin{align*}
-U_N &
-\propto p_N q_1^{-a} q_2^{-b} q_3^{-c}
-\\
-U_K &
-\propto \bar{p}_K \frac{\bar{K}}{\bar{N}} q_1^{-a} q_2^{-b} q_3^{-c}
-\end{align*}
-Solving for optimal and equilibrium city sizes
-\begin{itemize}
-    \item Optimum: maximize $U_N + U_K$, given the determination of $U_N$, $U_K$, and $p_K$ through simultaneous location and investment of labor and capital in cities in the economy 
-    \item Equilibrium: atomistic choices of capital owners, firms, and laborers
-\end{itemize}
-\end{frame}
-% -----------------------------------------
-\begin{frame}{Utility and factor prices}
-\begin{columns}
-\begin{column}{.48\textwidth}
-\includegraphics[width=1.0\textwidth]{../images/Henderson1974_fig1.pdf}
-\end{column}
-\begin{column}{.5\textwidth}
-\begin{itemize}
-\item $\alpha_1 > \rho_1$ (site intensity vs IRS) is sufficient for both $p_K$ and $U_N$ to exhibit interior maxima
-\item $p_K$ curve has peak to right of $U_N$ and $U_K$ peak because $U_K$ is $p_K$ deflated by $q_3^{-c}$
-\item Assumption B curves peak to right of Assumption A curves because capitalist income doesn't bid up housing prices
-\item Why isn't ``two identical cities at point C'' stable?
-\end{itemize}
-\end{column}
-\end{columns}
-\end{frame}
-% -----------------------------------------
-\begin{frame}{Optimal city size}
-\begin{columns}
-\begin{column}{.48\textwidth}
-\includegraphics[width=1.0\textwidth]{../images/Henderson1974_fig2.pdf}
-\end{column}
-\begin{column}{.5\textwidth}
-\begin{itemize}
-\item For Assumption A, maximize the vertical sum of $U_N$ and $U_K$
-\item Planner has total population $N$ and faces integer constraint
-\item Start second city when $N$ is twice $N(U_N^*,U_K^*)$
-\item[] (Starting second city earlier is not a stable optimum)
-\item Figure 3 is more complicated due to Assumption B and the worker vs capitalist disagreement on optimal city size
-\end{itemize}
-\end{column}
-\end{columns}
-\end{frame}
-% -----------------------------------------
-\begin{frame}{Equilibrium city size}
-\begin{columns}
-\begin{column}{.48\textwidth}
-\includegraphics[width=1.0\textwidth]{../images/Henderson1974_fig4.pdf}
-\end{column}
-\begin{column}{.5\textwidth}
-\begin{itemize}
-\item Why is $N(\text{small})$ a bit of a fudge?
-\item Atomistic equilibrium with particular dynamics is at $N(E)$, way past both peaks
-\item City corporation attains optimal city sizes under Assumption B
-\item City corporation achieves $N(J)$ under Assumption A
-\end{itemize}
-{\footnotesize BDRN (2014): ``there is a coordination failure in city formation so that any population size between optimal city size and grossly oversized cities -- leaving their residents with zero consumption -- can occur in equilibrium.''\par}
-\end{column}
-\end{columns}
-\end{frame}
-% -----------------------------------------
-\begin{frame}{Henderson (1974) on heterogeneous cities}
-\begin{itemize}
-    \item ``Our second type of city specializes in the production of another type of traded good, say, $X_2$.''
-    \item ``Different types of cities differ in size because production parameters, in particular $\alpha_i$ and $\rho_i$, differ between the traded goods of each type of city.''
-    \item ``Although utility levels will be equalized between cities, wage rates and housing prices will vary with city type and size.''
+\item If productivity rises with size but congestion costs eventually dominate, then the average return to city size is a single-peaked function
+\item Spatial equilibrium equates average returns across cities
+\item Henderson (1974): An equilibrium on the rising part of the average-return curve is \textit{unstable}:
+adding a person would make that city more attractive
+\item Thus, stable equilibria have cities that are too large
+\item See \href{https://doi.org/10.1016/j.jue.2018.08.004}{Albouy, Behrens, Robert-Nicoud, Seegert (2019)}
+on central planner versus city-level planners versus ``self-organization'' (free migration)
+\item Heterogeneous fundamentals mean that average returns differ when marginal returns are equal:
+equalizing average returns undoes optimal allocation
+\item[] \textcolor{gray}{Optimal sizing is not the same as optimal policy, which introduces regional transfers (trade deficits); see \href{https://doi.org/10.1016/bs.hesreg.2025.06.005}{Fajgelbaum and Gaubert (2025)}}
 \end{itemize}
 \end{frame}
 % -----------------------------------------
@@ -643,28 +671,12 @@ crime
 }\end{itemize}
 \end{frame}
 % -----------------------------------------
-\begin{frame}{What is a city?}
-\begin{itemize}
-	\item Municipality versus county versus metropolitan area versus commuting zone
-	\item An integrated labor market defined by commuting ties? (c.f. \href{https://www.aeaweb.org/articles?id=10.1257/aer.20151507}{Monte et al 2018})
-	\item What to do absent commuting flows? (\href{https://doi.org/10.1016/j.jue.2019.05.005}{Dingel, Miscio, Davis 2021})
-	\item Discretization vs continuous linkages (\href{https://ideas.repec.org/a/oup/restud/v72y2005i4p1077-1106.html}{Duranton and Overman 2005})
-	\item Know the modifiable areal unit problem (MAUP)
-	\item (Related: Are agglomeration economies about size or density?)
-\end{itemize}
-\hspace{1in}
-\includegraphics[height=0.50\textheight]{../images/RozenfeldRybskiGabaixMakse2011_fig6.pdf}
-\end{frame}
-% -----------------------------------------
-\begin{frame}{Data on lights at night}
-\begin{itemize}
-	\item Defense Meteorological Satellite Program-Operational Linescan System (DMSP-OLS) for 1992-2011
-	versus
-	Visible Infrared Imaging Radiometer Suite (VIIRS) for 2011 onwards
-	\item Lights are more useful for predicting GDP in cross section than time series (Chen and Nordhaus 2019 on both DMSP and VIIRS)
-	\item \href{https://www.mdpi.com/2072-4292/11/9/1057}{Chen and Nordhaus (2019)}: high-resolution VIIRS lights better predict MSA GDP than state GDP (urban vs rural; lights do not explain value-added GDP in agriculture and forestry)
-	\item \href{https://ideas.repec.org/p/wai/econwp/24-08.html}{Gibson, Kim, Li (2024)}: ``these GDP-luminosity elasticities vary especially by spatial scale and metro status, and also by period and remote sensing source. The elasticities mainly capture extensive margins of luminosity.''
-\end{itemize}
+\begin{frame}{This week has omitted spatial linkages like trade costs}
+County-level presence of four industries in 2007
+\begin{center}
+\includegraphics[height=0.73\textheight]{../images/GervaisJensen_fig1.jpg} \\
+{\footnotesize \href{https://doi.org/10.1016/j.jinteco.2019.03.003}{Gervais and Jensen (2019)}, Figure 1}
+\end{center}
 \end{frame}
 % -----------------------------------------
 \begin{frame}{Next week}
