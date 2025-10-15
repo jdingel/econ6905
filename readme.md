@@ -131,7 +131,7 @@ If you’re going to be a trade economist, you ought to own the following books:
 
 - Ahfeldt, Gabriel M., Stephen J. Redding, Daniel M. Sturm, and Nikolaus Wolf. 2015. "[The Economics of Density: Evidence from the Berlin Wall](http://onlinelibrary.wiley.com/doi/abs/10.3982/ECTA10876)." *Econometrica,* 83(6): 2127–2189.
 
-- Redding, Stephen J. "[Quantitative urban models](https://www.youtube.com/watch?v=2IfSeRHJyVo)." Urban Economics Association, July 2020.
+- Redding, Stephen J. "[Quantitative urban models](https://www.youtube.com/watch?v=2IfSeRHJyVo)." Urban Economics Association, *YouTube*, July 2020.
 
 - Redding, Stephen J. "[Quantitative urban economics](https://doi.org/10.1016/bs.hesreg.2025.06.007)." *Handbook of Regional and Urban Economics*, 2025.
 
