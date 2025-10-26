@@ -63,7 +63,7 @@ When deriving this result, you might consult Section 3.2 of Enrico Moretti's "Lo
 
 I conjecture that a naive border discontinuity design is invalid in an off-the-shelf quantitative urban model.
 
-Use the baseline model introduced in the week 9 slides, augmented with exogenous residential amenities as in Ahlfeldt et al. (2015) or Appendix C.7.3 of Dingel and Tintelnot (2023).
+Use the baseline model introduced in the week 9 slides, augmented with exogenous residential amenities as in Ahlfeldt et al. (2015) or Appendix C.7.3 of Dingel and Tintelnot (2025).
 Consider an amenity improvement in one residential location ($\hat{B}_{i} > 1$).
 We want to trace out the implications of this improvement for rents (this would be one way of learning the value of a decrease in local water pollution, for example).
 
