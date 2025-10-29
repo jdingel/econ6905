@@ -138,7 +138,7 @@ If you’re going to be a trade economist, you ought to own the following books:
 
 #### Week 10: Identification, calibration, and exact hat algebra
 
--   Dingel, Jonathan I. and Felix Tintelnot. 2023. "[Spatial Economics for Granular Settings](http://www.jdingel.com/research/DingelTintelnotSEGS.pdf)." Working paper.
+-   Dingel, Jonathan I. and Felix Tintelnot. 2025. "[Spatial Economics for Granular Settings](http://www.jdingel.com/research/DingelTintelnotSEGS.pdf)." Working paper.
 
 #### Week 11: Skill-biased agglomeration
 
