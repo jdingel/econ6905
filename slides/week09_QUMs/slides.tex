@@ -18,8 +18,8 @@ Jonathan Dingel\\
 \begin{frame}{This week: Quantitative urban models}
 Subset of QSMs featuring commuting (choose residence-workplace pair)
 \begin{itemize}
-\item QSM's gravity equation features cross-hauling of homogeneous labor
-\item Contrast with the canonical urban model (see week 9)\\
+\item QUM's gravity equation features cross-hauling of homogeneous labor
+\item Contrast with the canonical monocentric-city model
 \item[] \textcolor{gray}{Link to Davis (1995) on intra-industry trade}
 \end{itemize}
 \smallskip
@@ -36,20 +36,21 @@ While GE machinery developed recently, gravity is a staple of urban economics:
 \item Commuting frees us to separate choices of home and work locations
 \item A monocentric city with one employment area may be too stylized for many applications
 \end{itemize}
-\href{https://www.nber.org/papers/w33130}{Redding (2024)}:
-{``Perhaps the most common empirical application is to transport infrastructure improvements (e.g., railroads, roads, public transit), but they also provide frameworks to evaluate zoning and land use regulations, other place-based policy interventions, and the implications of new communication technologies.''\par}
+{\small\href{https://www.nber.org/papers/w33130}{Redding (2024)}:
+{``Perhaps the most common empirical application is to transport infrastructure improvements (e.g., railroads, roads, public transit), but they also provide frameworks to evaluate zoning and land use regulations, other place-based policy interventions, and the implications of new communication technologies.''\par}}
 \begin{itemize}{\small
+\item Freeway disamenities (Brinkman and Lin 2024)
 \item Los Angeles subway system (Chris Severen)
 \item Bus rapid transit in Bogota (Nick Tsivanidis)
 \item Commuting and formality in Mexico City (Roman David Zarate)
 \item Steam railway in 19\textsuperscript{th} century London (Heblich Redding Sturm 2020)
-\item Transportation infrastructure with congestion (Allen Arkolakis 2022)
 \item Revitalizing empty blocks in Detroit (Owens et al 2020)
+\item Transportation infrastructure with congestion (Allen Arkolakis 2022)
 }\end{itemize}
 \end{frame}
 %---------------------------------------------------------------------
 \begin{frame}{Baseline model: Economic environment}
-\textcolor{gray}{This is Dingel and Tintelnot (2023) with ARSW (2015) notation for $\beta$, $z$, $d$, $ij$}
+\textcolor{gray}{This is Dingel and Tintelnot (2025) with ARSW (2015) notation for $\beta$, $z$, $d$, $ij$}
 \begin{itemize}
 \item
 Each location has productivity $A$ and land endowment $T$
@@ -70,6 +71,8 @@ U_{ij}^{o} = \epsilon \ln\left(\frac{w_j}{r_i^{1-\beta} P^\beta d_{ij}}\right) +
 \qquad
 z_{ij}^{o} \stackrel{\text{iid}}{\sim} \text{T1EV}
 \end{equation*}
+\item Labor-supply elasticity equals commuting elasticity $\epsilon$
+\item $\epsilon \to \infty$ is the Rosen-Roback case
 \end{itemize}
 \end{frame}
 %---------------------------------------------------------------------
@@ -101,7 +104,8 @@ T_i
 &\forall i,j
 \label{eqn:tradeeqlbm:landsmarketclearing} 
 \end{align}
-$\left(\frac{1+\epsilon}{\sigma + \epsilon}\right) \left(\frac{(1-\beta) \epsilon}{1+(1-\beta) \epsilon}\right) \leq \frac{1}{2} \implies$ unique equilibrium (Allen Arkolakis Li 2023)
+\textcolor{gray}{Uniqueness: Sufficiently elastic labor demand or sufficiently small land share
+$\left(\frac{1+\epsilon}{\sigma + \epsilon}\right) \left(\frac{(1-\beta) \epsilon}{1+(1-\beta) \epsilon}\right) \leq \frac{1}{2} \implies$ unique equilibrium (Allen Arkolakis Li 2023)}
 \end{frame}
 % -------------------------------------------------------------------------------
 \begin{frame}{Baseline model: Counterfactual outcomes by exact hat algebra}
@@ -167,9 +171,9 @@ Compare log changes to eliminate the denominator:
 =
 \hat{A}_{j^{*}}^{\frac{\beta\varepsilon}{1+\varepsilon(1-\beta)}}
 \end{equation*}
-With no commuting, \textit{residential} land supply $T_j$ is a brake on \textit{employment} expansion in $j$.
-Lower housing expenditure share (higher $\beta$) raises employment elasticity.
-\textcolor{gray}{($\beta = 1$ makes $T_j$ irrelevant)}
+With no commuting, \textit{residential} land supply $T_{j^*}$ is a brake on \textit{employment} expansion in $j^*$.
+Lower land expenditure share (higher $\beta$) raises employment elasticity.
+\textcolor{gray}{($\beta = 1$ makes $T_{j^*}$ irrelevant)}
 \end{frame}
 % -----------------------------------------
 \begin{frame}{Commuting and the productivity elasticity of employment (2/3)}
@@ -206,8 +210,8 @@ $$
 =
 \hat{A}_{j^{*}}^{\varepsilon}
 $$
-With costless commuting, the productivity elasticity of employment is independent of the housing expenditure share $\beta$.
-Choices of workplace and residences are wholly separated.
+With costless commuting, the productivity elasticity of employment is independent of the land expenditure share $\beta$.
+Choices of workplace and residences are wholly separated (everyone is a teleworker).
 \end{frame}
 % -----------------------------------------
 \begin{frame}{Commuting and the productivity elasticity of employment (3/3)}
@@ -240,7 +244,7 @@ ARSW is often referred to as ``the Berlin Wall paper'':
 \end{itemize}
 Won the \href{https://www.econometricsociety.org/society/awards}{2018 Frisch Medal} for best applied paper in \textit{Econometrica}:
 {\small ``The paper provides an outstanding example of how to credibly and transparently use a quasi-experimental approach to structurally estimate model parameters that can serve as critical inputs for counterfactual policy analyses.''
-(\textcolor{red}{c.f.} \href{https://www.dropbox.com/s/8kwtwn30dyac18s/intro.pdf?dl=0}{Haile})\par}
+(\textcolor{red}{cf.} \href{https://www.dropbox.com/s/8kwtwn30dyac18s/intro.pdf?dl=0}{Haile})\par}
 \end{frame}
 % -----------------------------------------
 \begin{frame}{Dividing Berlin}
@@ -271,9 +275,9 @@ Won the \href{https://www.econometricsociety.org/society/awards}{2018 Frisch Med
 \end{itemize}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{ARSW model: Workers }
+\begin{frame}{ARSW model: Preferences }
 \begin{itemize}
-\item Aggregate consumption index for worker $o$ residing in block $i$ and working in block $j$:
+\item Utility for worker $o$ residing in block $i$ and working in block $j$:
 \begin{equation*}
 C_{ijo} = \frac{B_{i} z_{ijo}}{d_{ij}}
 \left( \frac{c_{ij}}{\beta} \right)^{\beta } \left( \frac{\ell
@@ -284,7 +288,7 @@ _{ij }}{1-\beta} \right)^{1-\beta },\qquad 0<\beta <1
 \begin{column}{0.50\textwidth}
 \begin{itemize}
 \item Consumption of numeraire final good $c_{ij}$
-\item Residential floor space $\ell_{ij}$ at price $Q_{i}$
+\item Residential floor space $\ell_{ij}$ at price $Q_{i}$ \textcolor{gray}{(sorry)}
 \end{itemize}
 \end{column}
 \begin{column}{0.40\textwidth}
@@ -303,11 +307,12 @@ U_{ijo} = z_{ijo} B_{i} w_{j} Q_{i}^{\beta-1} / d_{ij},
 \begin{equation*}
 F(z_{ijo})=e^{-T_{i} E_{j} z_{ijo}^{-\epsilon }},\qquad T_{i}, E_{j} >0,\ \epsilon >1
 \end{equation*}
+\item[] \textcolor{gray}{If $x$ has a Fr\'{e}chet distribution, then $\ln(x)$ has a Gumbel distribution}
 \end{itemize}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{ARSW model: Location decisions}
-\begin{itemize}
+\begin{frame}{ARSW model: Location decisions within Berlin}
+\begin{itemize}{\footnotesize
 \item Probability worker chooses to live in $i$ and work in $j$ is
 \begin{equation*} \label{eq:com_prob}
 \pi _{ij}= \frac{T_{i} E_{j} \left( d_{ij}
@@ -315,16 +320,23 @@ Q_{i}^{1-\beta} \right)^{-\epsilon} \left( B_{i} w_{j} \right)^{\epsilon}}{%
 \sum_{r=1}^{S} \sum_{s=1}^{S} T_{r} E_{s} \left( d_{rs} Q_{r}^{1-\beta}
 \right)^{-\epsilon} \left( B_{r} w_{s} \right)^{\epsilon}} \equiv \frac{\Phi_{ij}}{\Phi} .
 \end{equation*}
+\item People choose Berlin (or not) before idiosyncratic shocks  $z_{ijo}$ are realized.
+Indifference equates expected utility in Berlin to reservation utility:
+\begin{equation*} \label{eq:pm}
+\mathbb{E} \left[\max_{ij} U_{ij}^{o} \right]  = \gamma \left[ \sum_{r=1}^{S} \sum_{s=1}^{S} T_{r} E_{s} \left( d_{rs}
+Q_{r}^{1-\beta} \right)^{-\epsilon} \left( B_{r} w_{s} \right)^{\epsilon} %
+\right]^{1/\epsilon} = \bar{U},  
+\end{equation*}
 \item Residential and workplace choice probabilities
 \begin{equation*} \label{eq:ch_prob}
-\pi_{Ri} = \sum_{j=1}^{S} \pi_{ij} = \frac{\sum_{j=1}^{S} \Phi_{ij}}{\Phi}, \qquad  \pi_{Mj} = \sum_{i=1}^{S} \pi_{ij} = \frac{\sum_{i=1}^{S} \Phi_{ij}}{\Phi}.
+\pi_{Ri} = \sum_{j=1}^{S} \pi_{ij} = \frac{1}{\Phi} \sum_{j=1}^{S} \Phi_{ij}, \qquad  \pi_{Mj} = \sum_{i=1}^{S} \pi_{ij} = \frac{1}{\Phi}\sum_{i=1}^{S} \Phi_{ij}.
 \end{equation*}
-\item Conditional on living in block $i$, the probability that a worker commutes to block $j$ follows a gravity equation:
+\item Conditional on living in block $i$, the probability that a worker commutes to block $j$ %follows a gravity equation:
 \begin{equation*}
 \pi _{ij|i}=\frac{ E_{j} \left( w_{j} / d_{ij} \right)^{\epsilon}}{
 \sum_{s=1}^{S} E_{s} \left( w_{s} / d_{is} \right)^{\epsilon}},
 \end{equation*}
-\end{itemize}
+}\end{itemize}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{ARSW model: Commuting }
@@ -335,47 +347,29 @@ H_{Mj}=\sum_{i=1}^{S} \frac{E_{j}\left(
 w_{j}/d_{ij}\right) ^{\epsilon }}{\sum_{s=1}^{S}E_{s}\left( w_{s}/d_{is}\right)
 ^{\epsilon }} H_{Ri}, \qquad d_{ij} = e^{\kappa \tau_{ij}}.
 \end{equation*} \smallskip
-\item This labor-supply equation will be useful to determine equilibrium wages. 
-\end{itemize}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{ARSW model: Consumers}
-\begin{itemize}
-\item Consumers decide before idiosyncratic shocks  $z_{ijo}$  are realized whether to move to the city or not.
-\item Population mobility implies that expected utility equals reservation utility level:
-\begin{equation*} \label{eq:pm}
-\mathbb{E} \left[ U \right]  = \gamma \left[ \sum_{r=1}^{S} \sum_{s=1}^{S} T_{r} E_{s} \left( d_{rs}
-Q_{r}^{1-\beta} \right)^{-\epsilon} \left( B_{r} w_{s} \right)^{\epsilon} %
-\right]^{1/\epsilon} = \bar{U},  
-\end{equation*}
-\item Residential amenities are influenced by both fundamentals ($b_{i}$) and spillovers ($\Omega_{i}$)
-\[
- B_{i} = b_{i} \Omega_{i}^{\eta}, \qquad \Omega_{i} \equiv \left[ \sum\limits_{s=1}^{S} e^{-\rho \tau_{is}} \left( \frac{H_{Rs}}{K_s} \right) \right].
-\]
+\item This is the labor-supply curve for workplace $j$
 \end{itemize}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{ARSW model: Production}
 \begin{itemize}
-\item A single final good (numeraire) is produced under conditions of perfect competition, constant returns to scale and zero trade costs with a larger economy:
+\item A single final good (numeraire) is produced by competitive firms with constant returns to scale (and no trade costs):
 \[
-y_{j} = A_{j} \left( H_{Mj} \right)^{\alpha} \left( L_{Mj} \right)^{1-\alpha},\qquad 0<\alpha <1,
+y_{j} = A_{j} \left( H_{Mj} \right)^{\alpha} \left( L_{Mj} \right)^{1-\alpha},\qquad 0<\alpha <1
 \]
 \item $H_{Mj}$ is workplace employment 
 \item $L_{Mj}$ is measure of floor space used commercially
-\item Productivity ($A_j$) depends on fundamentals ($a_j$) and spillovers ($\Upsilon_{j}$):
-\[
-A_{j} = a_{j} \Upsilon_{j}^{\lambda}, \qquad \Upsilon_{j} \equiv \left[ \sum\limits_{s=1}^{S} e^{-\delta \tau_{js}} \left( \frac{H_{Ms}}{K_s} \right) \right],
-\]
-\item $\delta$ is the rate of decay of spillovers
-\item $\lambda$ captures the relative importance of spillovers
-\textcolor{gray}{(Pardon the clash with $\lambda_{ij}$)}
+\item Isocost curve in commercial floor space $q_j$ and labor $w_j$ with shifter $A_j$:
+\begin{equation*} \label{eq:zp}
+q_{j}=(1-\alpha )\left( \frac{\alpha }{w_{j}}\right) ^{\frac{\alpha }{%
+1-\alpha }}A_{j}^{\frac{1}{1-\alpha }}
+\end{equation*}
 \end{itemize}
 \end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{ARSW model: Land prices}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{ARSW model: Floor space prices}
 \begin{itemize}
-\item The share of floor space used commerically:
+\item The share of floor space used commercially:
 \begin{equation*} \label{eq_na}
 \theta_i = 1 \quad \text{if} \qquad q_i> \xi_i Q_i,
 \end{equation*}
@@ -386,38 +380,29 @@ A_{j} = a_{j} \Upsilon_{j}^{\lambda}, \qquad \Upsilon_{j} \equiv \left[ \sum\lim
 \theta_i = 0 \quad  \text{if} \qquad q_i < \xi_i Q_i.
 \]
 \item $\xi_i \geq 1$ represents the tax equivalent of regulations restricting commercial land use
-\item Assume observed land price is maximum of commerical and residential price: $\mathbb{Q}_{i} = \max\{q_i,Q_i\}$
+\item Assume observed land price is maximum of commercial and residential price: $\mathbb{Q}_{i} = \max\{q_i,Q_i\}$
 \end{itemize}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{ARSW model: Production}
+\begin{frame}{ARSW model: Floor-space- and land-market clearing}
 \begin{itemize}
-\item Firms choose a block of production, effective employment and commercial land use to maximize profits taking as given goods and factor prices, productivity and the locations of other firms/workers
-\item Zero profits imply for the price of commercial land $q_{j}$:
-\begin{equation*} \label{eq:zp}
-q_{j}=(1-\alpha )\left( \frac{\alpha }{w_{j}}\right) ^{\frac{\alpha }{%
-1-\alpha }}A_{j}^{\frac{1}{1-\alpha }}.
-\end{equation*}
-\end{itemize}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{ARSW model: Land Market Clearing}
-\begin{itemize}
-\item Utility max implies demand for residential floor space:
-\begin{equation*} \label{eq:res_mc}
-(1-\theta_{i}) L_{i} = \frac{ (1-\beta) \mathbb{E}(w \mid i) }{Q_i} H_{Ri}.
-\end{equation*}
-\item Profit max implies demand for commercial floor space:
-\begin{equation*} \label{eq:com_mc}
-\theta_{i} L_{i} = H_{Mi} \left( \frac{(1-\alpha) A_{i}}{q_{i}} \right)^{\frac{1}{\alpha}}.
-\end{equation*}
-\item Floor space $L$ supplied by a competitive construction sector using geographic land $K$ and capital $M$ as inputs
+\item Floor space $L$ is supplied competitively using Cobb-Douglas combination of local land $K_i$ at price $\mathbb{R}_{i}$ and freely traded capital input $M$
 \begin{equation*}
-L_{i} = \varphi_{i} K_{i}^{1-\mu} , \qquad \varphi_{i}=M_{i}^{\mu},
+L_{i} = M_{i}^{\mu} K_{i}^{1-\mu}
+\implies
+\mathbb{Q}_{i} = \chi \mathbb{R}_{i}^{1-\mu}
 \end{equation*}
-\item Density of development $(\varphi_{i})$ from land market clearing:
+\item Cobb-Douglas demand for residential floor space:
+\begin{equation*} \label{eq:res_mc}
+(1-\theta_{i}) L_{i} = \frac{ (1-\beta) \mathbb{E}(w \mid i) }{Q_i} H_{Ri}
+\end{equation*}
+\item Cobb-Douglas demand for commercial floor space:
+\begin{equation*} \label{eq:com_mc}
+\theta_{i} L_{i} = \left( \frac{(1-\alpha) A_{i}}{q_{i}} \right)^{\frac{1}{\alpha}} H_{Mi}
+\end{equation*}
+\item Density of development $(M_{i}^{\mu})$ from land-market clearing:
 \[
-\varphi_{i} = \frac{L_{i}}{K_{i}^{1-\mu}} = \frac{(1-\theta_{i}) L_{i} + \theta_{i} L_{i}}{K_{i}^{1-\mu}}
+M_{i}^{\mu} = \frac{L_{i}}{K_{i}^{1-\mu}} = \frac{(1-\theta_{i}) L_{i} + \theta_{i} L_{i}}{K_{i}^{1-\mu}}
 \]
 \end{itemize}
 \end{frame}
@@ -433,9 +418,28 @@ no arbitrage between alternative uses of land, %\eqref{eq_na},
 residential choice probability $\pi_{Ri}$, % in \eqref{eq:ch_prob}),
 workplace choice probability $\pi_{Mi}$, % in \eqref{eq:ch_prob})),
 and indifference with reservation utility. %\eqref{eq:pm}. 
+\item Notice that $B_i$ and $A_j$ are exogenous in this proposition
 \end{itemize}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Amenity and productivity spillovers}
+\begin{itemize}
+\item Productivity ($A_j$) depends on fundamentals ($a_j$) and spillovers ($\Upsilon_{j}$):
+\[
+A_{j} = a_{j} \Upsilon_{j}^{\lambda}, \qquad \Upsilon_{j} \equiv \left[ \sum\limits_{s=1}^{S} e^{-\delta \tau_{js}} \left( \frac{H_{Ms}}{K_s} \right) \right],
+\]
+\item $\delta$ is the rate of decay of spillovers
+\item $\lambda$ captures the relative importance of spillovers
+\textcolor{gray}{(Pardon the clash with $\lambda_{ij}$)}
+\item Residential amenities are influenced by both fundamentals ($b_{i}$) and spillovers ($\Omega_{i}$)
+\[
+ B_{i} = b_{i} \Omega_{i}^{\eta}, \qquad \Omega_{i} \equiv \left[ \sum\limits_{s=1}^{S} e^{-\rho \tau_{is}} \left( \frac{H_{Rs}}{K_s} \right) \right].
+\]
+\item These local externalities are the heart of the paper
+\item[] {\footnotesize \textcolor{gray}{Subsequent research allows explicit trips to enjoy amenities (Hausman, Samuels, Cohen, Sasson  2025) or consume non-traded services (Miyauchi, Nakajima, Redding 2025)}\par}
+\end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Overview of remainder of paper}
 \begin{itemize}
 \item Relate land prices to distance to pre-war CBD
@@ -530,13 +534,13 @@ Land prices are normalized to have a mean of 1 in each year.
 1928--1936 is placebo test.
 Most of 1936--1986 change occurs by 1966.
 \begin{center}
-\includegraphics[height=.90\textheight]{../images/ARSW_Figure3.pdf}
+\includegraphics[height=.87\textheight]{../images/ARSW_Figure3.pdf}
 \end{center}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Gravity regression for commuting}
+\begin{frame}{Gravity regression for commuting between districts}
 \vspace{-2mm}
-Log commuters from residence district $I$ to workplace district $J$ (Jensen's inequality):
+Log commuters from residence $I$ to workplace $J$ (Jensen's inequality):
 \begin{equation*}
 \ln \pi_{IJ} = - \nu \tau_{IJ}  + \vartheta_{I} + \varsigma_{J} + e_{IJ},
 \end{equation*}
@@ -559,6 +563,7 @@ $\omega_{j} \equiv \tilde{w}_{j}^{\epsilon} = E_j w_{j}^{\epsilon}$
 \ln\left(\frac{\tilde{A}_{jt}}{\bar{\tilde{A}}_{t}} \right) = (1-\alpha) \ln \left(\frac{\mathbb{Q}_{jt}}{\bar{\mathbb{Q}}_t} \right) + \frac{\alpha}{\epsilon} \ln \left(\frac{\omega_{jt}}{\bar{\omega}_t} \right)
 \end{equation*}
 where $\bar{\tilde{A}}_t = \exp(1/S \sum_{s=1}^{S} \ln \tilde{A}_{st})$ (geometric mean)
+\item[] \textcolor{gray}{Zero-profit condition of Rosen-Roback model}
 \item High floor prices and wages require high final good productivity for zero profits to be satisfied 
 \end{itemize}
 \end{frame}
@@ -577,7 +582,8 @@ $\zeta_{Ri} = 1$ or $\zeta_{Ri} = \xi_{i}$ based on land use
 - \frac{1}{\epsilon} \ln \left(\frac{W_{it}}{\bar{W}_t} \right)
 \end{equation*}
 where $W_{it} = \sum_{s=1}^{S} \omega_{st} / e^{\nu \tau_{ist}}$  and variables with an upper bar denote that variable's geometric mean.
-\item High floor prices and high residence employment must be explained either by high wage commuting access or high amenities.  
+\item[] \textcolor{gray}{If $\epsilon = \infty$, this is Rosen-Roback indifference condition}
+\item High floor prices and high residence employment must be explained either by high wage commuting access or high amenities
 \item (So far not making assumptions about the relative importance of production and residential externalities versus fundamentals) 
 \end{itemize}
 \end{frame}
@@ -711,8 +717,8 @@ Section 7 uses fraction of Berlin commutes under 30 minutes during division:
 \begin{itemize}
 \item Estimates of very localized externalities (``The economics of density'')
 \item[] e.g., Stuart S. Rosenthal and William C. Strange ``\href{https://www.aeaweb.org/articles?id=10.1257/jep.34.3.27}{How Close Is Close? The Spatial Reach of Agglomeration Economies}'' \textit{JEP} 2020
-\item Canonical model commuting within a city
-\item[] i.e., the baseline model descibed in Dingel and Tintelnot (2023) at start of this class
+\item Canonical model of commuting within a city
+\item[] i.e., the baseline model described in Dingel and Tintelnot (2025) at start of this class
 \end{itemize}
 \end{frame}
 % -----------------------------------------
@@ -722,7 +728,7 @@ Davis, Gregory (2021) - ``\href{https://www.nber.org/papers/w29045}{Place-Based 
 \item
 \href{https://academic.oup.com/qje/article-abstract/135/2/959/5697213}{Fajgelbaum and Gaubert (2020)} and subsequent papers
 prescribe fiscal transfers (trade deficits) to high-MU-of-tradables places
-(cf \href{https://www.brookings.edu/wp-content/uploads/2008/03/2008a_bpea_glaeser.pdf}{Glaeser and Gottlieb 2008})
+(cf. \href{https://www.brookings.edu/wp-content/uploads/2008/03/2008a_bpea_glaeser.pdf}{Glaeser and Gottlieb 2008})
 \item
 Idiosyncratic errors terms are uninsured and affect location choices, the level of utility, and marginal utility
 \item 
