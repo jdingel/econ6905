@@ -32,7 +32,8 @@ using the CES Armington model of trade as our running example:
 \item ``Econometric identification really means just one thing: model parameters or features being uniquely determined from the observable population that generates the data.'' (\href{https://www.aeaweb.org/articles?id=10.1257/jel.20181361}{Lewbel 2019})
 \item For a parameter to be identified, alternative values of that parameter must imply different distributions of the observable data.
 \item Identification presumes structure: Identification of a structural feature (i.e., a parameter) is only defined in the context of a class defined by a maintained hypothesis (a ``model'').
-\item ``The study of identification logically precedes estimation, inference, and testing.'' (\href{https://www.aeaweb.org/articles?id=10.1257/jel.20181361}{Lewbel 2019}) 
+\item ``identification logically precedes estimation, inference, and testing.'' %(\href{https://www.aeaweb.org/articles?id=10.1257/jel.20181361}{Lewbel 2019}) 
+\item A model is or is not point identified. (cf. ``better identification'')
 \end{itemize}
 {\footnotesize \textcolor{gray}{Asides: Name your errors terms (are those supply shocks or demand shocks in the residual?). ``Consideration of underlying structure is needed to convincingly argue that covariates included in the model as controls will actually function as they are intended.''}\par}
 \end{frame}
@@ -75,7 +76,7 @@ for any $\mu_{i} > 0$.
 }
 \end{frame}
 % -----------------------------------------
-\begin{frame}{Are  Armington model parameters identified by trade flows?}
+\begin{frame}{Are CES Armington model parameters identified by trade flows?}
 Suppose you want to identify \textit{relative} trade costs, $\tau_{ij} / \tau_{jj}$.
 Normalize $\tau_{jj} = 1 \ \forall j$.
 \medskip
@@ -152,8 +153,32 @@ Researchers often use import tariffs and freight charges, which provide needed a
 \end{itemize}
 \end{frame}
 % -----------------------------------------
+\begin{frame}{Given the trade elasticity, trade flows are sufficient}
+\begin{itemize}
+\item
+Given trade flows $X_{ij}$, the trade elasticity $\epsilon$, and
+the assumption $T_i = L_i = \tau_{ii} = 1 \ \forall i$,
+there exists a (unique) solution for $\tau_{ij}$
+\item
+Therefore,
+there exist parameter values consistent with the observed sufficient statistics
+for \textit{any} (non-negative) trade matrix
+\\ \textcolor{gray}{$\tau_{ii} = 1$ normalization does presume $X_{ii} > 0$ \\ obviously the parameter vector is not unique}
+\item
+In other words, this is a ``saturated'' model:
+$N(N-1)$ degrees of freedom in $\tau_{ij}$
+accommodate $N(N-1)$ observable outcomes
+without any restrictions
+\item[] \textcolor{gray}{Trade matrix has $N^2$ elements. Why is one row redundant?}
+\item 
+Bottom line: Any trade matrix $\{X_{ij}\}_{ij}$ can be rationalized by bilateral trade costs
+\end{itemize}
+\end{frame}
+% -----------------------------------------
 \begin{frame}{Factory-gate prices do not discipline the Armington model much}
 \begin{itemize}
+\item
+So far, we use only trade volumes (values), not distinguishing prices and quantities
 \item
 Recall that bilateral trade costs $\tau_{ij}$ are isomorphic to bilateral preference shifters $\beta_{ij}$ in the Armington model (week 1).
 \item
@@ -234,11 +259,11 @@ is \textit{insufficient} to compute the zero-gravity scenario
 because that requires knowing $\hat{\tau}_{ij} = \frac{\tau_{jj}}{\tau_{ij}}$.
 \end{frame}
 % -----------------------------------------
-\begin{frame}{The sufficient statistics are observed shares}
+\begin{frame}{Given the trade elasticity, trade shares are sufficient}
 \begin{itemize}
 \item
 Given trade flows data \textcolor{gray}{(including the diagonal)},
-you possess the sufficient statistics
+you observe the sufficient statistics
 $\lambda_{ij} \equiv \frac{X_{ij}}{X_j}$ and $\gamma_{ij} \equiv \frac{X_{ij}}{Y_i}$
 \item
 Given trade flows $X_{ij}$, the trade elasticity $\epsilon$, and
@@ -248,7 +273,7 @@ there exists a (unique) solution for $\tau_{ij}$
 Therefore,
 there exist parameter values consistent with the observed sufficient statistics
 for \textit{any} (non-negative) trade matrix
-\\ \textcolor{gray}{$\tau_{ii} = 1$ normalization does presume $X_{ii} > 0$ \\ obviously the parameter value is not unique}
+\\ \textcolor{gray}{$\tau_{ii} = 1$ normalization does presume $X_{ii} > 0$ \\ obviously the parameter vector is not unique}
 \item
 Ergo, feel free to use the observed baseline shares $\lambda_{ij}$ and $\gamma_{ij}$
 without estimating $T_i$, $L_i$, and $\tau_{ij}$
@@ -302,6 +327,11 @@ When you force a simple model to fit a complicated world and you don't get stand
 \textcolor{gray}{(Using sufficient statistics does not require you to use an unfalsifiable model)}
 \end{frame}
 % -----------------------------------------
+\begin{frame}{Sufficient statistics and model validation}
+\href{https://doi.org/10.1146/annurev.economics.050708.142910}{Chetty (2009)}:
+{``A second potential weakness of sufficient-statistic formulas is that they are more easily misapplied than structural methods. This is because one can draw policy conclusions from a sufficient-statistic formula without assessing the validity of the model upon which it is based\dots In contrast, because structural methods require full estimation of the model, policy conclusions can be drawn only from models that fit the data.''\par}
+\end{frame}
+% -----------------------------------------
 \begin{frame}{A saturated model may still be falsifiable}
 \begin{itemize}
 \item We cannot use baseline shares (nor prices) to evaluate the model
@@ -320,12 +350,12 @@ Estimate on subsets of countries and see if elasticities are common
 \begin{frame}{The CES/IIA model with one elasticity does not fit the data}
 {\small
 \href{https://www.aeaweb.org/articles?id=10.1257/aer.20150956}{Adao, Costinot, and Donaldson (2017)} study reduced exchange economies:
-\begin{itemize}
+\begin{itemize}\itemsep-0.1em
 \item ``the mixed CES demand system allows data to speak to whether this independence of irrelevant alternatives embodied in CES holds empirically''
 \item ``the deviations from IIA\dots are a systematic feature of the data\dots related to the similarity of competitors in terms of per capita GDP''
 \end{itemize}
 \href{https://www.aeaweb.org/articles?id=10.1257/aer.20190781}{Lind, Ramondo (2023)} develop a Ricardian model with richer productivity patterns:
-\begin{itemize}
+\begin{itemize}\itemsep-0.1em
 \item ``By relaxing the independence assumptions used in the literature, the model generates import demand systems spanning the entire generalized extreme value (GEV) class (McFadden 1978, 1981).''
 \item ``significant sharing of technologies across countries and sectors\dots manifests in considerable heterogeneity in correlation in productivity, which, in turn, changes the answers to standard counterfactuals''
 \item ``our [latent factor model] estimates capture quite accurately departures from IIA within and across sectors''
@@ -370,11 +400,11 @@ although quantitative work often requires strong assumptions on functional forms
 ''\par}
 \end{frame}
 % -----------------------------------------
-\begin{frame}{Dingel and Tintelnot (2023)}
+\begin{frame}{Dingel and Tintelnot (2025)}
 The calibrated-shares procedure can perform poorly in high-dimensional settings because matching (noisy) observed shares amount to overfitting the model parameters.
-Go to Dingel and Tintelnot (2023) slidedeck.
+Go to Dingel and Tintelnot (2025) slidedeck.
 First half of paper concerns this overfitting problem.
-Second half of paper will be covered later in course.
+Second half of paper introduces a finite model to quantify uncertainty.
 \end{frame}
 % -----------------------------------------
 \end{document}
