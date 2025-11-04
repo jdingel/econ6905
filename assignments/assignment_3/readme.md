@@ -28,7 +28,7 @@ at least 25 percent of the employment in the county is accounted for by workers 
 Look at the [map of core-based statistical areas for New York state in 2010](https://www2.census.gov/geo/maps/metroarea/stcbsa_pg/Dec2009/cbsa2009_NY.pdf).
 Look at the [OMB notice in the Federal Register](https://www.govinfo.gov/content/pkg/FR-2010-06-28/pdf/2010-15605.pdf) and at "6.2.2 Current Practice in the World" in [Duranton (2015)](https://ideas.repec.org/h/spr/advchp/978-4-431-55390-8_6.html).
 - Download the block-to-block commuting data for New York state (for primary jobs) from the [LEHD Origin-Destination Employment Statistics (LODES)](https://lehd.ces.census.gov/data/): [
-ny_od_main_JT01_2010.csv.gz](https://lehd.ces.census.gov/data/lodes/LODES8/ny/od/ny_od_main_JT00_2010.csv.gz). 
+ny_od_main_JT01_2010.csv.gz](https://lehd.ces.census.gov/data/lodes/LODES8/ny/od/ny_od_main_JT01_2010.csv.gz). 
 The [FIPS code](https://www.census.gov/programs-surveys/geography/guidance/geo-identifiers.html) for a Census block is 15 digits; the first 11 digits identify the tract to which the block belongs.
 Aggregate the observations to the level of Census tracts (so your data set contains tract-to-tract commuting counts).
 - Propose a "core" for the metro area.
