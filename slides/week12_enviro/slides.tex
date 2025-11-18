@@ -51,8 +51,8 @@ Three themes for today's whirlwind tour of spatial environmental economics
 \begin{itemize}
 \item Clean Air Act Amendments of 1970 requires the Environmental Protection Agency to annually assign each county to either nonattainment or attainment status for each of five pollutants if above either:
 \begin{itemize}
-\item Threshold 1: the annual geometric mean concentration exceeds 75 $\mu$ g/m$^{3}$
-\item Threshold 2: the second-highest daily concentration exceeds 260 $\mu$ g/m$^{3}$
+\item Threshold 1: the annual geometric mean concentration exceeds 75 $\mu$g/m$^{3}$
+\item Threshold 2: the second-highest daily concentration exceeds 260 $\mu$g/m$^{3}$
 \end{itemize}
 \item In their nonattainment counties, states are required to develop plant-specific regulations for every major source of pollution
 \item Local rules mandate investments in state-of-the-art pollution abatement equipment
@@ -67,6 +67,10 @@ Three themes for today's whirlwind tour of spatial environmental economics
 \begin{frame}{Nonattainment counties have TSP decreases and house-price increases}
 \only<1>{\includegraphics[width=0.49\textwidth]{../images/week12/ChayGreenstone2005_fig4.pdf}}
 \only<1>{\includegraphics[width=0.49\textwidth]{../images/week12/ChayGreenstone2005_fig5.pdf}}
+\begin{itemize}\itemsep0em {\footnotesize
+\item \textcolor{gray}{Annual threshold is vertical bar at 75 $\mu$g/m$^{3}$}
+\item \textcolor{gray}{Daily threshold violated by non-attainment counties to left of vertical bar}
+}\end{itemize}
 \end{frame}
 % -----------------------------------------
 \begin{frame}{Cross-sectional and first-difference regressions suffer OVB}
@@ -75,7 +79,7 @@ Three themes for today's whirlwind tour of spatial environmental economics
 \end{center}
 \end{frame}
 % -----------------------------------------
-\begin{frame}{2SLS estimates using nonattainment IVs}
+\begin{frame}{2SLS estimates using mid-decade nonattainment IVs}
 \begin{center}
 \includegraphics[height=0.86\textheight]{../images/week12/ChayGreenstone2005_tab5.pdf}
 \end{center}
@@ -122,7 +126,7 @@ Also relates to debates about poor people's higher exposure to environmental dis
 \item
 Ordnance Survey maps show roads, railway, rivers, canals, the outline of each building and their use, and chimneys
 \item 
-Georeference $\geq 5,000$ chimneys and use associated building description, assigned to one of 11 industrial categories by textual analysis
+Georeference $\geq 5,000$ chimneys and use associated building description, assigned to one of 11 industrial categories by textual analysis (keyword matching)
 \item 
 Compute coal use per chimney from coal use per worker, total employment, and count of chimneys\par
 }\end{itemize}
@@ -141,9 +145,9 @@ Residential sources: assume domestic chimneys are uniformly distributed within c
 }\end{itemize}
 \end{column}
 \begin{column}{0.50\textwidth}
-{\small Estimated pollution correlates with 1915 deposits\par}
+{\small Estimated pollution correlates with 1915 deposits across Manchester neighborhoods\par}
 \includegraphics[height=0.60\textheight]{../images/week12/HeblichTrewZylberberg2021_fig5.pdf}\\
-{\small \textcolor{gray}{More polluted places have more dark moths}\par}
+{\small \textcolor{gray}{More polluted places have more dark moths, who benefit from soot as camouflage}\par}
 \end{column}
 \end{columns}
 \end{frame}
