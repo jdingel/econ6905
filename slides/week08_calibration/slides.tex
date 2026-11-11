@@ -1,6 +1,6 @@
 \documentclass[11pt,notes=hide,aspectratio=169]{beamer}
 \input{../week00/slides_settings.tex}
-\setbeamertemplate{footline}{\begin{center}\textcolor{gray}{Dingel -- Topics in Trade -- \semester -- Week 10 -- \insertframenumber}\end{center}}
+\setbeamertemplate{footline}{\begin{center}\textcolor{gray}{Dingel -- Topics in Trade -- \semester -- Week 8 -- \insertframenumber}\end{center}}
 \begin{document}
 % -----------------------------------------
 \begin{frame}[plain]
@@ -9,7 +9,7 @@
 \textcolor{columbiadarkblue}{ECON G6905\\
 Topics in Trade\\ 
 Jonathan Dingel\\
-\semester, Week 10}
+\semester, Week 8}
 \vfill 
 \includegraphics[width=0.4\textwidth]{../images/Columbia_logo.png}
 \end{center}
@@ -35,7 +35,7 @@ using the CES Armington model of trade as our running example:
 \item ``identification logically precedes estimation, inference, and testing.'' %(\href{https://www.aeaweb.org/articles?id=10.1257/jel.20181361}{Lewbel 2019}) 
 \item A model is or is not point identified. (cf. ``better identification'')
 \end{itemize}
-{\footnotesize \textcolor{gray}{Asides: Name your errors terms (are those supply shocks or demand shocks in the residual?). ``Consideration of underlying structure is needed to convincingly argue that covariates included in the model as controls will actually function as they are intended.''}\par}
+{\footnotesize \textcolor{gray}{Asides: Name your error terms (are those supply shocks or demand shocks in the residual?). ``Consideration of underlying structure is needed to convincingly argue that covariates included in the model as controls will actually function as they are intended.''}\par}
 \end{frame}
 % -----------------------------------------
 \begin{frame}{Are CES Armington model parameters identified by trade flows?}
@@ -266,7 +266,7 @@ Given trade flows data \textcolor{gray}{(including the diagonal)},
 you observe the sufficient statistics
 $\lambda_{ij} \equiv \frac{X_{ij}}{X_j}$ and $\gamma_{ij} \equiv \frac{X_{ij}}{Y_i}$
 \item
-Given trade flows $X_{ij}$, the trade elasticity $\epsilon$, and
+Given non-negative trade flows $X_{ij}$, the trade elasticity $\epsilon$, and
 the assumption $T_i = L_i = \tau_{ii} = 1 \ \forall i$,
 there exists a (unique) solution for $\tau_{ij}$
 \item
@@ -289,7 +289,7 @@ without estimating $T_i$, $L_i$, and $\tau_{ij}$
 \href{https://doi.org/10.1093/restud/rdu035}{Caliendo and Parro (2015)}:\\
 {\small
 ``we can solve for the general equilibrium of the model without needing to estimate parameters which are difficult to identify in the data, [such] as productivities and iceberg trade costs.''
-(\textcolor{red}{c.f.} \href{https://www.aeaweb.org/articles?id=10.1257/jel.20181361}{Lewbel 2019})
+(\textcolor{red}{cf.} \href{https://www.aeaweb.org/articles?id=10.1257/jel.20181361}{Lewbel 2019})
 \par}
 \end{frame}
 % -----------------------------------------
@@ -336,7 +336,7 @@ When you force a simple model to fit a complicated world and you don't get stand
 \begin{itemize}
 \item We cannot use baseline shares (nor prices) to evaluate the model
 \item The CES model of trade flows is a demand system and we know how to test demand systems
-\textcolor{gray}{(at least, the one-elasticity straightjacket of CES/IIA)}
+\textcolor{gray}{(at least, the one-elasticity straitjacket of CES/IIA)}
 \item One approach: Estimate an encompassing specification and test the parameter restrictions imposed by CES
 \textcolor{gray}{(e.g., Hausman and McFadden (1984) test IIA logit by estimating a nested-logit specification and testing whether $\lambda = 1$)}
 \item Other tests specifically leverage IIA:
@@ -400,9 +400,9 @@ although quantitative work often requires strong assumptions on functional forms
 ''\par}
 \end{frame}
 % -----------------------------------------
-\begin{frame}{Dingel and Tintelnot (2025)}
+\begin{frame}{Dingel and Tintelnot (2026)}
 The calibrated-shares procedure can perform poorly in high-dimensional settings because matching (noisy) observed shares amount to overfitting the model parameters.
-Go to Dingel and Tintelnot (2025) slidedeck.
+Go to Dingel and Tintelnot (2026) slidedeck.
 First half of paper concerns this overfitting problem.
 Second half of paper introduces a finite model to quantify uncertainty.
 \end{frame}

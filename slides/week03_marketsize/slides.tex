@@ -1,6 +1,6 @@
 \documentclass[11pt,notes=hide,aspectratio=169]{beamer}
 \input{../week00/slides_settings.tex}
-\setbeamertemplate{footline}{\begin{center}\textcolor{gray}{Dingel -- Topics in Trade -- \semester -- Week 6 -- \insertframenumber}\end{center}}
+\setbeamertemplate{footline}{\begin{center}\textcolor{gray}{Dingel -- Topics in Trade -- \semester -- Week 3 -- \insertframenumber}\end{center}}
 \begin{document}
 % -----------------------------------------
 \begin{frame}[plain]
@@ -9,7 +9,7 @@
 \textcolor{columbiadarkblue}{ECON G6905\\
 Topics in Trade\\ 
 Jonathan Dingel\\
-\semester, Week 6}
+\semester, Week 3}
 \vfill 
 \includegraphics[width=0.4\textwidth]{../images/Columbia_logo.png}
 \end{center}
@@ -20,6 +20,7 @@ Jonathan Dingel\\
 	\item Topic: Increasing returns and the home-market effect
 	\item Classic: Krugman (1980) [print this; we'll go through it in detail]
 	\item Main paper: Market Size and Trade in Medical Services
+	\item This puts the Armington model and estimated gravity regressions to work 
 \end{itemize}
 \end{frame}
 % -----------------------------------------
@@ -46,14 +47,11 @@ Jonathan Dingel\\
 \begin{frame}{A short history of size in theory}
 \begin{itemize}
 	\item \href{https://books.google.com/books?id=fJM_cAAACAAJ}{Linder (1961)} posits that home demand is a source of comparative advantage such that rich countries will produce high-quality products
-	%\item %Corden (1970): http://tradediversion.net/2013/10/11/a-prescient-note-on-the-home-market-effect-by-max-corden/
 	\item '60s \& '70s: Theorists struggle to link market size and specialization
 	\item \href{https://assets.aeaweb.org/assets/production/journals/aer/top20/70.5.950-959.pdf}{Krugman (1980)} formalizes two-sector, two-country predictions for (1) exogenous demand differences and (2) country size differences
 	\item Widely used case is freely traded CRS good and costly-to-trade IRS varieties
 	\item Early 2000s: Empirical work correlates market size with sectoral composition
 	\item 2010s: Income-driven demand composition in theory and empirics
-%	\item Fajgelbaum, Grossman, Helpman (2011) link income levels to quality specialization
-%	\item Matsuyama (2015) links income levels to sectoral specialization
 \end{itemize}
 \end{frame}
 % -----------------------------------------
@@ -99,7 +97,7 @@ p/w & = \beta + \alpha/(Lc)
 n &= \frac{L}{\alpha + \beta x}
 &\text{(13)}
 \end{align*}
-Population growth and free-trade are comparative statics in $L$
+Population growth and free trade are comparative statics in $L$
 \end{frame}
 % -----------------------------------------
 \begin{frame}{Krugman (AER 1980)}
@@ -135,11 +133,11 @@ Transport costs ($g$), relative demand (call it $r$), relative wage ($\omega \eq
 \begin{align*}{\small
 r
 &=
-\left(\frac{p}{p^{*}}\right)^{1/(1-\theta)}g^{\theta/(1-\theta)}
+\left({p}/{p^{*}}\right)^{1/(1-\theta)}g^{\theta/(1-\theta)}
 \\
 r^{*}
 &=
-\left(\frac{p}{p^{*}}\right)^{-1/(1-\theta)}g^{\theta/(1-\theta)}
+\left({p}/{p^{*}}\right)^{-1/(1-\theta)}g^{\theta/(1-\theta)}
 &
 \text{(12)}
 \\

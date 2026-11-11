@@ -1,6 +1,6 @@
 \documentclass[10pt,notes=hide,aspectratio=169]{beamer}
 \input{../week00/slides_settings.tex}
-\setbeamertemplate{footline}{\begin{center}\textcolor{gray}{Dingel -- Topics in Trade -- \semester -- Week 4 -- \insertframenumber}\end{center}}
+\setbeamertemplate{footline}{\begin{center}\textcolor{gray}{Dingel -- Topics in Trade -- \semester -- Week 2 -- \insertframenumber}\end{center}}
 \begin{document}
 % -----------------------------------------
 \begin{frame}[plain]
@@ -9,7 +9,7 @@
 \textcolor{columbiadarkblue}{ECON G6905\\
 Topics in Trade\\ 
 Jonathan Dingel\\
-\semester, Week 4}
+\semester, Week 2}
 \vfill 
 \includegraphics[width=0.4\textwidth]{../images/Columbia_logo.png}
 \end{center}
@@ -62,7 +62,7 @@ A broad notion of ``distance'' does well:
 \includegraphics[width=0.9\textwidth]{../images/HeadMayer2014_fig2.pdf}
 \end{frame}
 % -----------------------------------------
-\begin{frame}{Is gravity's goodness of fitness impressive? (Lai and Trefler 2002)}
+\begin{frame}{Is gravity's goodness of fit impressive? (Lai and Trefler 2002)}
 \begin{equation*}
 X_{ij} = {\frac{Y_i}{\Omega_i}} \times {\frac{X_j}{\Phi_j}} \times \phi_{ij}
 \end{equation*}
@@ -101,13 +101,13 @@ You need to get the shocks and the elasticities right.
 \end{frame}
 % -----------------------------------------
 \begin{frame}{Allen, Arkolakis, Takahashi (2020): ``Universal Gravity''}
-Setup
+Setup:
 \begin{itemize}
-\item Models with iceberg bilateral trade costs, CES aggregate demand, CES aggregate supply, exogenous trade deficits
+\item Models with one sector, iceberg bilateral trade costs, CES aggregate demand, CES aggregate supply, exogenous trade deficits
 \item Aggregate supply elasticity is non-zero with roundabout production or labor mobility
-\item Not covered: models with variable elasticities, multiple factors of production, or intertemporal decisions
+\item Not covered: models with variable elasticities, multiple sectors, multiple factors of production, or intertemporal decisions
 \end{itemize}
-Results
+Results:
 \begin{itemize}
 \item Sufficient conditions for existence, uniqueness, and interiority
 \item Counterfactual predictions of these gravity models depend on the elasticities of supply and demand (and observed data)
@@ -124,7 +124,7 @@ Importing the gravity model into urban economics:
 \begin{itemize}
 	\item Gravity for commuting flows: 
 	\href{https://doi.org/10.1016/0191-2615(83)90023-1}{Anas (1983)},
-	Ahlfeldt Redding Sturm Wolf (2015), Monte Redding Rossi-Hansberg (2018), Owens Rossi-Hansberg Sarte (2020), Severen (2019), Tsivanidis (2019), Dingel and Tintelnot (2023)
+	Ahlfeldt Redding Sturm Wolf (2015), Monte Redding Rossi-Hansberg (2018), Owens Rossi-Hansberg Sarte (2020), Severen (2019), Tsivanidis (2019), Dingel and Tintelnot (2026)
 	\item Gravity for consumption in the city:
 	Davis Dingel Monras Morales (2019), Allen Arkolakis Li (2015), Miyauchi Nakajima Redding (2021)
 \end{itemize}
@@ -290,7 +290,19 @@ $$
 $$
 \item Given this panel setting, you should use $it$, $jt$, and $ij$ fixed effects
 \item Typical example: a dummy for WTO membership or preferential trade agreements is an observed covariate in $\tilde{\phi}_{ijt}$
-\item {\small \href{https://doi.org/10.1007/978-3-031-49849-7_16}{Ruzicska et al (2024)}: ``By most metrics, machine learning models only marginally outperform the gravity equation. The high explanatory power achieved by all models is primarily due to their ability to explain cross-sectional variation rather than time-series changes.''\par}
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Gravity in a panel setting: Recent developments}
+\begin{itemize}
+\item Staggered treatments: 
+\href{https://doi.org/10.1257/app.20230089}{Nagengast and Yotov (2025)} nest Wooldridge's heterogeneity-robust extended TWFE estimator for staggered diff-in-diffs within the structural gravity model: TWFE's ``forbidden comparisons'' using already-treated pairs as controls bias RTA estimates downward by more than 50\%, so their estimated RTA effect on members' trade roughly doubles ($\sim$18\% $\to$ $\sim$46\%)
+\item Instrumental variables for PPML HDFE:
+\href{https://www.lebow.drexel.edu/sites/default/files/2026-04/cgpa_paper_2026_11-instrumental-variable.pdf}{Kwon, Larch, Yoon, Yotov (2026)}
+provide \texttt{ivppmlhdfe} for Stata and Julia.
+Unlike exogenous PPML, IV estimator suffers incidental-parameter bias, so correct with split-panel jackknife with bootstrapped standard errors
+\item vs. machine learning: { \href{https://doi.org/10.1007/978-3-031-49849-7_16}{Ruzicska et al (2024)}: 
+\item[] ``By most metrics, machine learning models only marginally outperform the gravity equation. The high explanatory power achieved by all models is primarily due to their ability to explain cross-sectional variation rather than time-series changes.''\par}
 \end{itemize}
 \end{frame}
 % -----------------------------------------
@@ -453,7 +465,7 @@ X_{ij} = {\frac{Y_i}{\Omega_i}} \times {\frac{X_j}{\Phi_j}} \times \phi_{ij}
 	\item Each day of delay at port reduces trade by $\sim 1\%$
 	\item Delays have a relatively greater impact on exports of time-sensitive goods, such as perishable crops
 \end{itemize}
-\item \href{https://www.sciencedirect.com/science/article/pii/S0022199615001403}{Bernhofen, El-Sahlid, Kneller (JIE 2016)} ``Estimating the effects of the container revolution on world trade''
+\item \href{https://www.sciencedirect.com/science/article/pii/S0022199615001403}{Bernhofen, El-Sahli, Kneller (JIE 2016)} ``Estimating the effects of the container revolution on world trade''
 \begin{itemize}
 	\item Diff-in-diffs design using staggered intro of container facilities across countries and product variation in container usage
 	\item North-North trade shows cumulative ATE of 17\%  after five years
@@ -647,7 +659,7 @@ or simply the possibility that the stylized and parametric quantitative gravity 
 \end{frame}
 % -----------------------------------------
 \begin{frame}[plain]
-Next week: Multiple factors of production
+Next week: Increasing returns and home-market effects
 \end{frame}
 % -----------------------------------------
 \end{document}
