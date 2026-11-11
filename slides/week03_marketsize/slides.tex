@@ -1,6 +1,6 @@
 \documentclass[11pt,notes=hide,aspectratio=169]{beamer}
 \input{../week00/slides_settings.tex}
-\setbeamertemplate{footline}{\begin{center}\textcolor{gray}{Dingel -- Topics in Trade -- \semester -- Week 6 -- \insertframenumber}\end{center}}
+\setbeamertemplate{footline}{\begin{center}\textcolor{gray}{Dingel -- Topics in Trade -- \semester -- Week 3 -- \insertframenumber}\end{center}}
 \begin{document}
 % -----------------------------------------
 \begin{frame}[plain]
@@ -9,7 +9,7 @@
 \textcolor{columbiadarkblue}{ECON G6905\\
 Topics in Trade\\ 
 Jonathan Dingel\\
-\semester, Week 6}
+\semester, Week 3}
 \vfill 
 \includegraphics[width=0.4\textwidth]{../images/Columbia_logo.png}
 \end{center}
@@ -20,6 +20,7 @@ Jonathan Dingel\\
 	\item Topic: Increasing returns and the home-market effect
 	\item Classic: Krugman (1980) [print this; we'll go through it in detail]
 	\item Main paper: Market Size and Trade in Medical Services
+% Week 3: \item This puts the Armington model and estimated gravity regressions to work 
 \end{itemize}
 \end{frame}
 % -----------------------------------------
@@ -37,6 +38,8 @@ Jonathan Dingel\\
 	\item Intuition: Size is advantageous when there are economies of scale
 	\item Implications: strategic trade policy, multiple equilibria
 	\item Formalizing the idea proved challenging
+	%\item With homogeneous demand, larger economy may capture IRS sector %See top of page 832 of Grossman and Rossi-Hansberg (QJE 2010)
+	%\item With heterogeneous demand, larger domestic market may yield competitive advantage
 \end{itemize}
 	\item A ``home-market effect'', in which an economy with greater domestic demand is a (net) exporter of that good, distinguishes new trade theories from neoclassical models
 	\item Empirical challenge is inferring ``greater demand'' from observed equilibrium
@@ -99,7 +102,7 @@ p/w & = \beta + \alpha/(Lc)
 n &= \frac{L}{\alpha + \beta x}
 &\text{(13)}
 \end{align*}
-Population growth and free-trade are comparative statics in $L$
+Population growth and free trade are comparative statics in $L$
 \end{frame}
 % -----------------------------------------
 \begin{frame}{Krugman (AER 1980)}
@@ -135,11 +138,11 @@ Transport costs ($g$), relative demand (call it $r$), relative wage ($\omega \eq
 \begin{align*}{\small
 r
 &=
-\left(\frac{p}{p^{*}}\right)^{1/(1-\theta)}g^{\theta/(1-\theta)}
+\left({p}/{p^{*}}\right)^{1/(1-\theta)}g^{\theta/(1-\theta)}
 \\
 r^{*}
 &=
-\left(\frac{p}{p^{*}}\right)^{-1/(1-\theta)}g^{\theta/(1-\theta)}
+\left({p}/{p^{*}}\right)^{-1/(1-\theta)}g^{\theta/(1-\theta)}
 &
 \text{(12)}
 \\
@@ -213,6 +216,10 @@ $L>L^{*} \iff \omega > 1$. Contrast with DFS `77.
 	%\includegraphics[width=0.2\textwidth]{../images/Krugman1980Fig2.pdf}
 	\item Krugman's home-market effect: The market with relatively greater demand for a product type is a net exporter of that type.
 	\item Home net exports of first type are
+%	\begin{align*}
+%	\textnormal{home net exports of first type}	&=  \frac{n\tau^{1-\sigma}}{n\tau^{1-\sigma} + n^*} w^* L^*  - \frac{n^*\tau^{1-\sigma}}{n + n^*\tau^{1-\sigma}} w L \\
+%				&= \frac{\tau^{1-\sigma}wL^*}{\tau^{1-\sigma}n+n^*} \left[n - n^*\right]
+%	\end{align*}
 $$
 \frac{n\tau^{1-\sigma}}{n\tau^{1-\sigma} + n^*} w^* L^*  - \frac{n^*\tau^{1-\sigma}}{n + n^*\tau^{1-\sigma}} w L  = \frac{\tau^{1-\sigma}wL^*}{\tau^{1-\sigma}n+n^*} \left[n - n^*\right]
 $$

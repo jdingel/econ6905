@@ -1,0 +1,781 @@
+\documentclass[11pt,notes=hide,aspectratio=169]{beamer}
+\input{../week00/slides_settings.tex}
+\setbeamertemplate{footline}{\begin{center}\textcolor{gray}{Dingel -- Topics in Trade -- \semester -- Week 13 -- \insertframenumber}\end{center}}
+\begin{document}
+% -----------------------------------------
+\begin{frame}[plain]
+\setcounter{framenumber}{0}
+\begin{center}
+\large
+\textcolor{columbiadarkblue}{ECON G6905\\
+Topics in Trade\\ 
+Jonathan Dingel\\
+\semester, Week 13}
+\vfill 
+\includegraphics[width=0.5\textwidth]{../images/Columbia_logo.png}
+\end{center}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Outline of today}
+\begin{itemize}
+\item Basics of commercial policy (instruments, agreements, implementation)
+\item Economic analysis of tariffs: incidence, passthrough, terms of trade
+\item Optimal tariffs in theory
+\item Recent empirical work on recent trade policy
+\end{itemize}
+\bigskip
+\small{Last-class reminders: assignment 4 (see Courseworks) and final exam}
+\end{frame}
+% -----------------------------------------
+\section{Basics of commercial policy (instruments, agreements, implementation)}
+\begin{frame}{Instruments of commercial policy}
+\begin{itemize}
+\item An import tariff is a tax: a customs duty on an imported good
+\item Most tariffs are \textit{ad valorem} (a percentage of the price) tariffs
+$p = p^{*}(1+t)$
+\item \textit{Specific} (per unit) tariffs more common in agriculture (\& history)
+$p = p^{*} + t$
+\item Export subsidy is a payment to domestic producers for each unit exported
+$p = p^{*} (1+s)$
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Recent evolution of average tariff rates}
+\vspace{-5mm}
+\begin{center}
+{ \scriptsize \href{https://www.google.com/publicdata/explore?ds=d5bncppjof8f9_&ctype=l&strail=false&bcs=d&nselm=h&met_y=tariff_rate&fdim_y=computation_method:1&fdim_y=trade_status:2&scale_y=lin&ind_y=false&rdim=world&idim=country:CHN:CAN:USA:MEX:VNM:BRA:JPN&ifdim=world&ind=false}{Tariff rate - Simple mean - most favored nation}}\\
+\includegraphics[height=0.68\textheight]{../images/week13_tradepolicy/appliedMFNtariffssimpleaverage_WorldBankdata.png}\\
+\includegraphics[height=0.20\textheight]{../images/week13_tradepolicy/US_tariff_rate.png}
+\hfill
+\includegraphics[height=0.20\textheight]{../images/week13_tradepolicy/trump_april2board.png}
+\hfill
+\href{https://www.tradewartracker.com/}{\includegraphics[height=0.20\textheight]{../images/week13_tradepolicy/tradewartracker.png}}
+\end{center}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Trade agreements and the GATT/WTO system}
+\begin{itemize}{\small
+\item Since WWII, multilateral trading system has been governed by General Agreement on Tariffs and Trade (GATT) $\to$ World Trade Organization (WTO)
+\item Its non-discrimation principles are ``\href{https://www.youtube.com/watch?v=y1DW-xPGgdI}{national treatment}'' and ``\href{https://www.youtube.com/watch?v=Q5_Bh-Y48_E}{most favored nation}''
+\item {GATT Article XXIV allows countries to form customs unions or free-trade areas covering most goods.
+\href{https://web.archive.org/web/20131107225336/https://www.cfr.org/trade/truth-trade/p7606}{Bhagwati (2005)}: ``central principle of nondiscrimination has been virtually destroyed\dots PTAs, which the architects of the GATT thought would be minor exceptions, have now swallowed up the trading system''\par}
+\item Even MFN isn't reliably applied (\href{https://timesofislamabad.com/22-Nov-2016/pakistan-extends-mfn-to-all-countries-except-india-israel}{Pakistan exempts Israel, India};
+\href{https://economictimes.indiatimes.com/news/politics-and-nation/pakistans-most-favoured-nation-status-crapped/articleshow/68018002.cms?from=mdr}{India on Pakistan}; \href{https://crsreports.congress.gov/product/pdf/IF/IF12071}{US v Russia and Belarus})
+\item Countries negotiate bound rates, not applied rates (India and Turkey have lots of headroom; China and US have little water in the tariffs)
+\item WTO negotiations have stalled since Doha round died in 2008
+\par}\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{The contents of trade agreements}
+\begin{itemize}
+{\small
+\item Preferential Trade Agreement (PTA): reduces trade barriers between members
+\item[] e.g. US-Colombia, US-Korea FTAs
+\item Free Trade Area (FTA):  members eliminate formal trade barriers
+\item[] e.g. NAFTA, ASEAN (Association of Southeast Asian Nations)
+\item Customs Union (CU): FTA + common external tariff
+\item[] e.g. Mercosur (Common Southern Market)
+\item Common market: CU + free movement of services, capital and labor
+\item[] e.g. European Economic Community (EEC)
+\item Single market: Common market + harmonized economic policies
+\item[] e.g. European Union
+}
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Classification of goods}
+\begin{itemize}
+\item Harmonized System (HS): Developed by the World Customs Organization, used by more than 200 countries as basis for collection of customs duties and international trade statistics
+\item First six digits of HS product codes are international standards
+\item Member countries establish further digits -- US has 8 digits for customs duties and 10 digits for statistical collection
+\item Product classification is \href{https://tax.thomsonreuters.com/blog/onesource/classification-of-goods-and-compliance-requirements-in-india-international-trade/}{more important than you might expect}
+\begin{itemize}
+\item {\footnotesize ``Problems with ambiguity in product description, differing classifications among importing countries, and frequent changes in guidance were the most frequently cited product classification challenges.'' (\href{https://tax.thomsonreuters.com/site/wp-content/private/pdf/gtm/gtm-survey-report-2016.pdf}{TR/KPMG 2016})\par}
+\item {\footnotesize ``The new tariffs apply only to wine in bottles of 2 liters or less. Steiner's company is importing wine in 20- or 40-foot shipping containers, with a giant pouch inside. Think of the world's largest wine-in-a-box.'' (\href{https://www.npr.org/2019/10/25/773380390/where-theres-a-wine-there-s-a-way}{NPR 2019})\par}
+\end{itemize}
+\end{itemize}
+\textcolor{gray}{\small Also see Armen Khederlarian's \href{https://github.com/akhederlarian/trade-phd/tree/main/notes}{lecture} on tariff definitions and customs data}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Reading Chapter 61 of the 2011 US HTS} 
+{\footnotesize excerpt from 2011 \href{http://hts.usitc.gov/}{Harmonized Tariff Schedule}, Ch 61: ``Articles of apparel and clothing accessories, knitted or crocheted''\par}
+\vspace{-2mm}
+\begin{center}\includegraphics[height=0.75\textheight]{../images/week13_tradepolicy/htswomen.pdf}\end{center}
+\vspace{-1mm}
+\begin{itemize}
+{\scriptsize
+	\item Column 1 ``general'' means most favored nation (MFN) rate
+	\item \href{https://help.cbp.gov/app/answers/detail/a_id/310/\~/column-1-\%2F-column-2-\%2F-mfn-\%2F-ntr---countries-the-u.s.-can-do-business-with}{Column 2} lack normal trade relations (Cuba, North Korea)
+	\item synthetic vs artificial is polymers vs transformed natural stuff\par}
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Reading Chapter 61 of the US HTS}
+\begin{center}\includegraphics[height=0.75\textheight]{../images/week13_tradepolicy/htsmen.pdf}\end{center}
+\begin{itemize}
+{\scriptsize
+	\item {Tariff engineering: ``\href{https://www.marketplace.org/2019/05/29/theres-a-reason-your-columbia-shirt-has-a-tiny-pocket-near-your-waistline/}{There's a reason your Columbia shirt has a tiny pocket near your waistline}''\par} %(Marketplace 2019)
+	\item {Verifying declared classifications: ``\href{https://www.npr.org/templates/transcript/transcript.php?storyId=133120017}{A Meat Grinder for Fabric'' (NPR 2011)} \par}
+	\item {``\href{https://www.nytimes.com/2007/04/28/business/28gender.html}{In Apparel, All Tariffs Aren’t Created Equal}'', NYT 2007\par}
+}
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Variation in US import tariffs (2009 rates)}
+\begin{center}\includegraphics[height=0.70\textheight]{../images/week13_tradepolicy/ustariffs2.pdf}\end{center}
+\begin{itemize}{\footnotesize
+	\item \href{https://www.wto.org/english/thewto_e/glossary_e/tariff_peaks_e.htm}{Tariff peaks} are unusually high tariffs.
+	\href{https://www.cato.org/blog/us-eu-trade-talks-dont-forget-about-tariffs}{Examples of US tariff peaks}:
+	light trucks (25\%), wool sweaters (16\%), tuna (35\%), leather (20\%)
+	\item Japan's \href{https://www.nytimes.com/2014/01/10/business/international/japanese-begin-to-question-rices-sacred-place.html}{rice tariff} is \href{https://www.customs.go.jp/english/tariff/2024_02_01/data/e_10.htm}{402 yen/kg}. Could \href{https://www.nytimes.com/1992/09/21/world/us-sushi-tokyo-frets-sushi-boy-says-yes.html}{smuggle rice as sushi}?
+}\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Misclassification and tax evasion}
+{\small Ray Fisman and Shang-Jin Wei - \href{https://www0.gsb.columbia.edu/mygsb/faculty/research/pubfiles/1596/resolve.pdf}{Tax Rates and Tax Evasion: Evidence from ``Missing Imports'' in China} (\textit{JPE} 2004):\par}
+\begin{minipage}{.47\textwidth}
+{\scriptsize Tax evasion, by its very nature, is difficult to observe. We quantify the effects of tax rates on tax evasion by examining the relationship in China between the tariff schedule and the ``evasion gap,'' which we define as the difference between Hong Kong's reported exports to China at the product level and China's reported imports from Hong Kong. Our results imply that a one-percentage-point increase in the tax rate is associated with a 3 percent increase in evasion. Furthermore, the evasion gap is negatively correlated with tax rates on closely related products, suggesting that evasion takes place partly through misclassification of imports from higher-taxed categories to lower-taxed ones, in addition to underreporting the value of imports.\par}
+\end{minipage}
+\begin{minipage}{.52\textwidth}
+\begin{center}
+\includegraphics[width=0.95\textwidth]{../images/week13_tradepolicy/FismanWei2004_Fig3.pdf} \\
+\href{https://www.proquest.com/docview/2116859587/4EC51739F11E4751PQ/}{\includegraphics[width=.9\textwidth]{../images/week13_tradepolicy/WSJ20181008.png}}
+\end{center}
+\end{minipage}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Tax avoidance and evasion in the recent trade war}
+{\small ``\href{http://proxy.uchicago.edu/login?url=https://search.ebscohost.com/login.aspx?direct=true&db=bth&AN=147046582&site=eds-live&scope=site}{Delta Skirts Trump Tariffs by Sending Airbus Jets on Tour}'', 17 Nov 2020}\\
+{\footnotesize
+sidestepping millions of dollars in US tariffs on European jetliners by initially routing them far outside the country to such places as Amsterdam, Tokyo and El Salvador.\dots
+The Delta strategy rests on language that classifies planes as used once they've flown for any reason other than testing and delivery.
+Tariffs on new-plane imports then don't apply, even if the aircraft are soon flying to the US.
+\par}
+Dian Zhang, ``\href{https://stories.usatodaynetwork.com/data_stories/the-game-of-numbers/}{The Game of Numbers}'', \textit{USA Today}, 31 Aug 2019
+\includegraphics[height=0.55\textheight]{../images/week13_tradepolicy/GateHouse_2019_1.jpg}
+\includegraphics[height=0.55\textheight]{../images/week13_tradepolicy/GateHouse_2019_2.png}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Rules of origin in preferential trade deals}
+\begin{itemize}{\small
+	\item PTAs like NAFTA, CUs like EU, and GSP schemes like AGOA
+	must define goods' origins so only imports from partners are eligible for lower tariff rates
+	\item With imported intermediate inputs, ``where'' was a good made?
+	\href{https://www.wto.org/english/thewto_e/whatis_e/tif_e/agrm9_e.htm\#origin}{Rules of origin}
+	\item Rules of origin can discourage firms from buying intermediates imported from the most efficient suppliers
+	\item Manufacturers in developing economies \href{http://www.intracen.org/uploadedFiles/intracenorg/invisiblebarriers.pdf}{say} ROOs are most troublesome non-tariff barrier
+	\item Preference utilization:
+	\href{https://ec.europa.eu/transparency/regdoc/rep/1/2019/EN/COM-2019-455-F1-EN-MAIN-PART-1.PDF}{only 37\%} of EU exports to Canada pay CETA tariffs; %ANNEXE 2: PREFERENCE UTILISATION RATES ON EU EXPORTS
+	\href{https://www.bangkokpost.com/business/news/1213649/struggling-with-free-trade}{50\%} for Thai exporters;
+	very low \href{https://unctad.org/news/simpler-rules-origin-needed-boost-free-trade-africa-study-shows}{within COMESA}
+	\item NAFTA's final-goods ROOs \href{https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2726564}{reduced Mexican imports of intermediate goods} from non-NAFTA sources more in goods that had stricter ROOs and larger preference margins [US govt \href{https://2016.export.gov/logistics/eg_main_018132.asp}{guide} to NAFTA qualifying]
+	\item \href{http://voxeu.org/article/rise-and-fall-chinese-african-apparel-exports}{AGOA's weak rules of origin} led Chinese textile manufacturers to exploit AGOA-eligible countries as transshipment corridors
+	\item See my \href{https://tradediversion.net/2016/10/25/measuring-rules-of-origin/}{blog post} for details
+}\end{itemize}
+\end{frame}
+% -----------------------------------------
+% -----------------------------------------
+\begin{frame}{Trade-policy uncertainty}
+Uncertainty about US tariffs on China depressed Chinese exports
+\begin{itemize}
+	\item ``Column two'' tariff rates for exporting nations without normal trade relations (NTR): Cuba and North Korea
+	\item China granted permanent NTR by joining WTO in 2001, eliminating \href{https://www.youtube.com/watch?v=5dTuhJXDUOA}{annual legislative approval}.
+	Reduction in policy uncertainty increased China's exports to US 22\%-30\% (\href{http://voxeu.org/article/does-policy-uncertainty-reduce-economic-activity}{Limao and Handley 2013})
+	\item US employment declined in manufacturing industries with bigger gap between column 1 and 2 tariff rates (\href{http://www.aeaweb.org/articles?id=10.1257/aer.20131578}{Pierce and Schott 2016})
+\end{itemize}
+Studies of other uncertainty:
+\begin{itemize}
+	\item Threats of anti-dumping duties reduce exports {\small (\href{http://voxeu.org/article/protectionist-threats-jeopardise-international-trade}{Crowley, Song, Meng 2017})}
+	\item Negative correlation between world trade growth and policy uncertainty {\small (\href{https://voxeu.org/content/how-policy-uncertainty-hurt-world-trade-2019}{Constantinescu, Ruta,  Mattoo 2019})}
+\end{itemize}
+Can anyone think of a contemporary source of trade-policy uncertainty?
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Raising tariffs above MFN levels}
+WTO agreements allow temporary tariffs exceeding MFN bounds:
+\begin{enumerate}
+	\item \textit{Countervailing duties} to negate foreign government subsidies
+	\item \textit{Anti-dumping duties} are remedy for material injury when foreign exporters sell below cost or home-market price
+	\item \textit{National safeguards}: \href{https://www.wto.org/english/tratop_e/safeg_e/safeg_info_e.htm}{WTO agreement} allows ``safeguard actions'' to protect a specific domestic industry from an \textit{unforeseen} increase of imports of any product which is causing, or which is likely to cause, serious injury to the industry.
+	No need to show that a country is competing unfairly or dumping
+\end{enumerate}
+\end{frame}
+% -----------------------------------------
+% -----------------------------------------
+\begin{frame}{Partial-equilibrium analysis of tariffs in competitive model}
+\begin{columns}
+\begin{column}{0.60\textwidth}
+\includegraphics[height=0.80\textheight]{../images/week13_tradepolicy/AmitiReddingWeinstein2019_fig1.pdf}
+\end{column}
+\begin{column}{0.38\textwidth}{\small
+Consumers lose $A+B$.\\
+Tariff revenue is $A+C$.\\
+Deadweight loss is $B+D$.\\
+Foreigners lose $C+D$.\\
+Home gains $C-B$.
+\medskip
+Perfectly elastic export supply curve makes $C=D=0$ and full passthrough of tariff to import price.
+\par}\end{column}
+\end{columns}
+{\footnotesize Domestic consumers and foreign exporters each bear some of the burden of the tax, in proportions depending on the elasticities of supply and demand.\par}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Unilateral optimal tariff (partial-equilibrium analysis)}
+The optimal unilateral tariff is the inverse of the foreign export supply elasticity
+\begin{itemize}
+\item
+Write the foreign export supply curve in inverse form as $p = p^{*}(m)$
+\item
+The cost of imports is $m \cdot p^*(m)$, so the marginal cost of imports is
+$$
+p^*(m) + m \left[\frac{dp^*(m)}{dm}\right] > p^*(m)
+$$
+\item
+Rewrite as $\text{MC} = p^*(m) \left[1 + \frac{1}{\zeta^*}\right]$, where $\zeta^*$ is export supply elasticity
+\item
+Because $p = p^*(m)(1 + \tau)$, where $\tau$ is the (ad valorem) tariff rate on imports, the optimal tariff that equates $p = \text{MC}$ is
+$$
+\tau = \frac{1}{\zeta^*}
+$$
+\item
+For a small open economy, $\zeta^* = \infty$
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Optimal export taxes (partial-equilibrium, competitive model)}
+\begin{columns}
+\begin{column}{0.43\textwidth}
+\includegraphics[width=1.1\textwidth]{../images/week13_tradepolicy/weinstein_optimalexporttax.pdf}\\
+\textcolor{gray}{\footnotesize $t$ is not ad valorem in this diagram}
+\end{column}
+\begin{column}{0.56\textwidth}
+\begin{itemize}\itemsep0em {\small
+\item Optimal tax equates marginal revenue to marginal cost
+\item Write inverse demand for Home exports as $p^* = p^*(x)$
+\item Revenue is $x \cdot p^*(x)$, so marginal revenue is $p^*(x) + x \left[\frac{dp^*(x)}{dx}\right]$
+\item Marginal revenue, rewritten, is $p^*(x) \left[1 + \frac{1}{\varepsilon^*}\right]$, where $\varepsilon^*$ is foreign import demand elasticity
+\item Assume marginal cost is $p$
+\item $p^* = p(1 + t)$, where $t$ is the ad valorem export tax rate
+\item Equating $p^*(x) \left[1 + \frac{1}{\varepsilon^*}\right]$ to $p = p^*(x)/(1+t)$ means
+the optimal export tax is $t = \frac{-1}{\varepsilon^* + 1}$
+\item
+For a small open economy, $\varepsilon^* = - \infty$
+\par}\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Tariffs in general equilibrium}
+Lerner's symmetry theorem (1936): An import tariff and an export tax are equivalent in their consequences!
+\begin{itemize}
+{\small
+	\item Suppose goods $X$ and $Y$ have world prices $P_X^*$ and $P_Y^*$, domestic prices $P_X$ and $P_Y$, there are no trade costs, and Home imports $X$
+	\item Import tariff of $t$: $P_X = P_X^* (1+t) \ (\text{and } P_Y=P_Y^*) \Rightarrow \frac{P_X}{P_Y} = (1+t) \frac{P_X^*}{P_Y^*}$
+	\item Export tax of $t$: $P_Y^* = P_Y (1+t) \ (\text{and } P_X=P_X^*) \Rightarrow \frac{P_X}{P_Y} = (1+t) \frac{P_X^*}{P_Y^*}$
+	\item Intuition 1: Taxing imports makes their domestic production more attractive, drawing resources away from export production
+	\item Intuition 2: If trade is balanced, reducing total imports must reduce total exports
+	\item Intuition 3: $S - I = X - M$ so an import tariff that doesn't alter intertemporal decision ($S-I$) doesn't alter the trade balance
+}
+\end{itemize}
+An economy-wide import tax should not be analyzed through a one-good, partial-equilibrium diagram.
+See \href{https://www.aeaweb.org/articles?id=10.1257/aeri.20170006}{Costinot and Werning (2019)} for a modern treatment.
+\end{frame}
+% -----------------------------------------
+% -----------------------------------------
+\begin{frame}{Competitive models: Optimal tariffs manipulate the terms of trade}
+\begin{itemize}
+\item Consider Home using trade taxes to set international (Foreign's) prices
+\item Recall revenue and expenditure functions from Dixit and Norman (1980)
+\item Foreign's net import demands are $m^* = e^{*}_{p^*}(p^*,u^*) - r^{*}_{p^*}(p^*,v^*)$ with $p^* \cdot m^*(p^*) = 0$. Foreign's net exports are $-m^*$.
+\item Home's utility from its imports is $u = \phi(m)$ at $m=-m^*(p^*)$ with $p \propto \phi_m(m)$
+\item Trade taxes are $t = p - p^*$ but there is one numeraire in each country, so import vs export labels are still arbitrary
+\item A price change $\textrm{d} p^*$ spurs foreign net supply change $\textrm{d} m = -m^{*}_{p^*}(p^*)\textrm{d} p^*$
+\item Change in home utility is $\textrm{d} u = \phi_m(m) \textrm{d} m = - \phi_m(-m^*) m^{*}_{p^*}(p^*)\textrm{d} p^* = - \alpha p \cdot m^{*}_{p^*}(p^*)\textrm{d} p^*$
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Competitive models: Optimal tariffs manipulate the terms of trade}
+$\textrm{d} u = \phi_m(m) \textrm{d} m = - \phi_m(-m^*) m^{*}_{p^*}(p^*)\textrm{d} p^* = - \alpha p \cdot m^{*}_{p^*}(p^*)\textrm{d} p^*$
+\begin{itemize}
+\item Optimal tariffs FOC is $p^T m^{*}_{p^*}(p^*) =0$, aka $(p^* + t)^T m^{*}_{p^*}(p^*) =0$
+\item One interpretation: Differentiate the trade-balance condition ${p^*}^{T} m^*(p^*) = 0$
+$${p^*}^{T} m_{p^*}^*(p^*) + m^{*T} = 0 \implies {p^*}^{T} m_{p^*}^*(p^*) = - m^{*T}$$
+\item Thus the optimal tariffs FOC is
+$$t^{T} m_{p^*}^*(p^*) = m^{*T}$$
+\item[] \textcolor{gray}{\scriptsize ``This looks like a formula involving the elasticity of the foreign offer curve.'' (DN p.152)}
+\item With two goods (pick common numeraire with no tax), write FOC as  
+$$
+\frac{t}{p^*} p^* m^*_{p^*}(p^*) = m^*
+\implies
+\frac{t}{p^*} = \frac{1}{p^* m^*_{p^*}(p^*) / m^*}
+$$
+so the percentage tariff is the inverse of Foreign's supply elasticity
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+% -----------------------------------------
+\begin{frame}{Trade policy and income redistribution}
+\begin{itemize}
+\item Tariffs are inferior to lump sum taxes or indirect commodity taxes, so trade policy is third-best instrument
+\item ``When the home country cannot improve its terms of trade, there is still no role for tariffs; domestic redistribution is better achieved by means of commodity taxation.'' (DN80 p.175)
+\item \href{http://www.sciencedirect.com.proxy.uchicago.edu/science/article/pii/S1573440405800085}{Rodrik (1995)}: ``Saying that trade policy exists because it serves to transfer income to favored groups is a bit like saying Sir Edmund Hillary climbed Mt. Everest because he wanted to get some mountain air.''
+\item Adao, Becko, Costinot, Donaldson (2025): ``Why is Trade Not Free? A Revealed Preference Approach''. ``Redistributive trade protection accounts for about a third of US tariff variation\dots mostly driven by differences in welfare weights across sectors of employment.'' (See footnote 7 on others taxes.)
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Tariffs in single-sector CES Armington model}
+\begin{align*}
+p_{ij} &= Y_i \tau_{ij} (1+t_{ij})/Q_i
+\\
+\phi_{ij} &\equiv \tau_{ij} (1+t_{ij})
+\\
+X_{ij} &=
+\frac{(Y_i \phi_{ij} / Q_i)^{-\epsilon}}{\sum_{l} (Y_l \phi_{lj} / Q_l)^{-\epsilon}} E_j
+\\
+E_j &=
+Y_j + T_j = Y_j + \sum_{i} \frac{t_{ij}}{1+t_{ij}} X_{ij}
+\\
+\pi_{j} &\equiv \sum_i \lambda_{ij} \in (0,1)
+\\
+\hat{C}_j
+&=
+\left(\frac{1-\pi_j}{1-\pi'_j}\right)\hat{\lambda}_{jj}^{-1/\epsilon}
+\end{align*}
+{\scriptsize $\pi_j$ denotes the share of tariff revenues in country $j$'s total expenditure}
+\end{frame}
+% -----------------------------------------
+%%TODO
+% -----------------------------------------
+\begin{frame}{Unilaterally optimal tariffs in single-sector CES Armington model}
+\begin{columns}
+\begin{column}{0.66\textwidth}
+\includegraphics[height=0.85\textheight]{../images/week13_tradepolicy/CostinotRodriguezClare2014_fig4dot1.pdf}
+\end{column}
+\begin{column}{0.33\textwidth}
+\begin{itemize}
+\item Costinot and Rodriguez-Clare (2014) compute unilaterally optimal tariffs starting from $t=0$
+\item Gros (1987): optimal tariff is $t_j = 1/(\epsilon \lambda_{jj})$ with two countries
+\item $\lambda_{jj} \approx 1 \implies t_j = 1/5$
+\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Nash equilibrium tariffs in a two-good competitive model}
+\begin{columns}
+\begin{column}{0.45\textwidth}
+\includegraphics[height=0.85\textheight]{../images/week13_tradepolicy/Grossman2016_fig1.pdf}\\
+{\tiny \href{https://doi.org/10.1016/bs.hescop.2016.04.016}{Grossman (2016)}, Figure 1}
+\end{column}
+\begin{column}{0.53\textwidth}
+\begin{itemize}
+\item Johnson (1953): Static game played by welfare-maximizing governments
+\item Home chooses $t$ to maximize $W(t,t^*)$ 
+\item Foreign chooses $t^*$ to max $W^*(t,t^*)$
+\item $WW$ is Home's iso-welfare curve
+\item $RR$ is Home's best-response function
+\item Nash equilibrium is point $E$
+\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Efficient tariffs and international cooperation}
+\begin{columns}
+\only<1>{\begin{column}{0.49\textwidth}\includegraphics[height=0.85\textheight]{../images/week13_tradepolicy/Grossman2016_fig2.pdf}}
+\only<2>{\begin{column}{0.55\textwidth}\includegraphics[height=0.85\textheight]{../images/week13_tradepolicy/MattooRutaStaiger2025_fig1.pdf}}
+\end{column}
+\only<1>{\begin{column}{0.49\textwidth}}
+\only<2>{\begin{column}{0.43\textwidth}}
+\begin{itemize}
+\only<1>{
+\item Each country's optimal tariff is a beggar-thy-neighbor policy raising its own welfare at expense of other country and global efficiency
+\item There is a $CC$ locus of Pareto-superior points (that involve lower tariff for both countries: trade liberalization)
+}
+\item The Mayer (1981) locus of efficient points is $1 = (1+t)(1+t^*)$
+\only<2>{
+\item \href{https://web.mit.edu/krugman/www/negot.html}{Krugman (1997)}: ``This `optimal tariff' argument, however, plays almost no role in real-world disputes over trade policy.''
+(cf. \href{https://www.aeaweb.org/articles?id=10.1257/aer.101.4.1238}{Bagwell Staiger 2011})
+}
+\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Preferential trade agreements: Trade creation and trade diversion}
+\begin{columns}
+\begin{column}{0.60\textwidth}
+\begin{itemize}
+\item Starting from a non-discriminatory tariff, suppose Home reduces its tariff on one foreign country and not the other
+\item Trade creation: Substitution from domestic supply to imports because of tariff decrease
+\item Trade diversion: Substitution from least-cost foreign supplier to less-taxed foreign supplier
+\item Trade diversion reduces welfare if tariff revenue loss exceeds in consumer surplus gain
+\end{itemize}
+\end{column}
+\begin{column}{0.38\textwidth}
+\includegraphics[height=0.85\textheight]{../images/week13_tradepolicy/trade-diversion-uk-new-zealand.png}
+\end{column}
+\end{columns}
+See my \href{https://tradediversion.net/2021/04/05/a-reminder-about-the-definition-of-trade-diversion/}{2021 blog post} for example of confusion
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Recent empirical work on recent trade policy}
+\href{https://doi.org/10.17310/ntj.2019.3.05}{Irwin (2019)}: ``Perhaps surprisingly, few studies provide direct empirical evidence on whether changes in a country's tariffs affect its import prices.''
+Today, I'll describe two papers:
+\begin{itemize}{\small
+\item \href{https://www.aeaweb.org/articles?id=10.1257/aer.20190611}{Flaaen, Hortacsu, Tintelnot (2020)}: ``The Production Relocation and Price Effects of US Trade Policy: The Case of Washing Machines''
+\item \href{https://doi.org/10.1093/qje/qjz036}{Fajgelbaum, Goldberg, Kennedy, Khandelwal (2020)}: ``The Return to Protectionism''
+}\end{itemize}
+You should also look at
+\begin{itemize}{\small
+\item \href{https://www.aeaweb.org/articles?id=10.1257/jep.33.4.187}{Amiti, Redding, Weinstein (2019)}: ``The Impact of the 2018 Tariffs on Prices and Welfare''
+\item \href{https://www.aeaweb.org/articles?id=10.1257/aeri.20190536}{Cavallo, Gopinath, Neiman, Tang (2021)}: ``Tariff Pass-Through at the Border and at the Store: Evidence from US Trade Policy''
+\item[] Passthrough to import prices is 0.95 and to retail prices is 0.04
+\item[] US export prices to China fell by $1/3$ of retaliatory tariff rate
+}\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Context: US tariffs of 2018}
+{\footnotesize Trade war launched in January 2018 with US import duties of 30 percent on solar panels and duties of 20--50 percent on washing machines. Plot of average US tariff rate:\par}
+\begin{center}
+\includegraphics[height=0.73\textheight]{../images/week13_tradepolicy/AmitiReddingWeinstein2019_fig3.png}\\
+\vspace{-3mm}
+{\scriptsize \href{https://www.aeaweb.org/articles?id=10.1257/jep.33.4.187}{Amiti, Redding, Weinstein (2019)} Figure 3}
+\end{center}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Flaaen, Hortacsu, Tintelnot (2020) on washing machines}
+Series of US import restrictions on washing machines
+\begin{itemize}
+\item Antidumping duties against Korea and Mexico in 2012
+\item Antidumping duties against China in 2016
+\item Safeguard tariffs against all exporting countries in 2018 
+\end{itemize}
+Substantial data for this final good:
+\begin{itemize}
+\item Domestic prices at the model level by week
+\item Other appliances by the same brands as control group
+\item Trade flows of final goods and intermediate inputs
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Flaaen, Hortacsu, Tintelnot (2020): Main findings}
+Production relocation affects magnitude and sign of tariff elasticity of prices
+\begin{itemize}
+\item 2012: Production shifted from Korea to China; large \textit{decline} in US laundry equipment CPI
+\item 2016: Production shifted from China to Vietnam and Thailand; little change in US import prices
+\item 2018: Production shifts to the United States; large price increases
+\end{itemize}
+Findings also highlight the importance of
+\begin{itemize}
+\item price changes of complementary goods
+\item price changes of domestic producers with stable market shares
+\end{itemize}
+Estimate consumer cost to be $\sim$820,000 USD per job created from 2018 safeguard tariffs (net of tariff revenues)
+\end{frame}
+% -----------------------------------------
+\begin{frame}{U.S. imports of washing machines by country}
+\includegraphics[height=0.95\textheight]{../images/week13_tradepolicy/FlaaenHortacsuTintelnot2020_fig1a_wp.pdf}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Korea exports of washing machine parts rose after offshoring}
+\begin{center}
+\includegraphics[height=0.92\textheight]{../images/week13_tradepolicy/FlaaenHortacsuTintelnot2020_fig1b_wp.pdf}
+\end{center}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Third-country effects: Canadian and Korean imports}
+\includegraphics[width=\textwidth]{../images/week13_tradepolicy/FlaaenHortacsuTintelnot2020_fig1cd.pdf}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Lower import prices from China and southeast Asia}
+\begin{center}
+\includegraphics[height=0.93\textheight]{../images/week13_tradepolicy/FlaaenHortacsuTintelnot2020_fig3.pdf}
+\end{center}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Retail price data}
+\textit{Gap Intelligence} collects data from retailers in 22 US metro areas:
+\begin{itemize}
+\item Weekly panel at retailer-brand-model level from March 3, 2013 to Dec 31, 2018 
+\item 5 major household appliances: washers, dryers, ranges, dishwashers, and refrigerators
+\item Variables: retail price, availability, date of first appearance, product characteristics (capacity, color, energy efficiency rating, etc.)
+\end{itemize}
+Sample restrictions:
+\begin{itemize}
+\item 5 major brands: LG, Samsung, Whirlpool, Maytag, and G.E.
+\item 5 national retailers: JC Penney, Best Buy, Lowe's, Sears, and Home Depot
+\item For laundry machines, exclude machines with both washing and drying functions
+\item Start from mid July 2014
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Price regression}
+\begin{align*} 
+  p_{irt} = \quad & \lambda_{C(i)t} +  \mathbf{X}_i \beta + b_{B(i)C(i)} + \sum_{a=2}^{25} \alpha_{C(i)}^{a} \mathbf{1}(\text{age}_{it}=a)  + \gamma_{r} +  \epsilon_{irt}.
+\end{align*} 
+\begin{itemize}
+  \item $i$ - model, $r$ - retailer, $t$ - time (measured by week)
+  \item $C(i)$ - product category (washer, dryer,...)
+  \item $B(i)$ - brand (Samsung, Whirlpool, ...)
+  \item $\mathbf{X}_i$ - vector of characteristics of model $i$ 
+  \item $\lambda_{C(i)t}$ - product category week fixed effect
+  \item $b_{B(i)C(i)}$ - brand and product category specific fixed effect 
+  \item $\gamma_{r}$ - retailer fixed effect. 
+  \item $\text{age}_{it}$ - age of a product measured in months. 
+  \item Baseline specification: with model characteristics as controls
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Time fixed effects from log price regression, CPI for laundry equipment}
+\begin{center}
+\includegraphics[height=0.92\textheight]{../images/week13_tradepolicy/FlaaenHortacsuTintelnot2020_fig4.pdf}
+\end{center}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Estimating the price effects of import restrictions}
+\begin{itemize}
+\item Prices changes may be driven by other factors (e.g., changes in steel price, aggregate demand changes for appliances)
+\item Use ranges as the omitted category (similar steel content and import share to washers)
+\end{itemize}
+\begin{equation*}
+p_{irt} =  \lambda_{C(i)t}^{d}  +  \mathbf{X}_i \beta + b_{B(i)C(i)}  + \sum_{a=2}^{25} \alpha_{C(i)}^{a} \mathbf{1}(\text{age}_{it}=a)  + \gamma_{r} + \ell_t +  \epsilon_{irt}.
+\end{equation*}  
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Price changes around China antidumping duties and safeguard tariffs}
+\begin{center}
+\includegraphics[height=0.93\textheight]{../images/week13_tradepolicy/FlaaenHortacsuTintelnot2020_fig5.pdf}
+\end{center}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Price effect accounting for differential pre-trend}
+\includegraphics[height=0.95\textheight]{../images/week13_tradepolicy/FlaaenHortacsuTintelnot2020_tab1.pdf}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{With safeguards, all (domestic and imported) brands raised prices}
+\begin{center}
+\includegraphics[height=0.92\textheight]{../images/week13_tradepolicy/FlaaenHortacsuTintelnot2020_tab2.pdf}
+\end{center}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Why did the price of dryers increase?}
+Residential washing machines are typically sold jointly (often, as paired models) with clothes dryers
+\begin{itemize}
+\item Roughly three-quarters of the washers have a matched dryer model (often with either gas or electric versions). 
+\item Focusing solely on the electric models, in over 85 percent of our weekly observations, these matched models report the \textit{exact same dollar price}
+\item Price correlation between these matched models is over 0.95, while the correlation of price changes is 0.82.
+\item The Pearson rank correlation of sales for a brand's washer and dryers in a given retailer ranges from 0.9 to 0.95, depending on the retailer, while the correlation is typically lower (0.3--0.9) for other appliances pairs.  
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Why the increase in prices by domestic producers?}
+\begin{itemize}
+\item Textbook competitive model: rising marginal costs as domestic producers expand their market shares
+\item But domestic producers' market shares remained stable from 2017-2018
+\item More likely: brands have market power, ability to raise prices
+\item Industry exhibits an HHI above 2000, classified by DOJ as ``moderately concentrated''	
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Cost (to consumers) per job created }
+\begin{itemize}
+\item Costs to consumers increased by about 1.5 billion USD on an annual basis 
+\item About 82 million USD of tariff revenue collected 
+\item Company reports of increase in domestic employment attributed to this policy of about 1,800 workers
+\item Annual cost to consumers of roughly 820,000 USD per job created (after netting out the collected tariff revenues).
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{ Fajgelbaum, Goldberg, Kennedy, and Khandelwal (2020)}
+What were the effects on trade volumes and prices?
+\begin{itemize}
+	\item Use tariffs to identify import demand and export supply elasticities
+\end{itemize}
+What were the aggregate and regional impacts on the US economy?
+\begin{itemize}
+	\item Embed elasticities in G.E. model and compute impacts of trade war
+\end{itemize}
+Main results:
+\begin{enumerate}
+	\item Imports of targeted varieties: -31.7\%
+	\item Tariffs completely passed through to tariff-inclusive import price
+	\item Consumer loss: -.27\% GDP
+	\item[] Aggregate effect -.04\% GDP
+	\item Higher import protection in electorally competitive counties
+	\item[] Republican counties most negatively affected due to retaliation
+\end{enumerate}
+\end{frame}
+\begin{frame}{Event Study}
+Compare trends of targeted varieties relative to untargeted varieties:
+\begin{equation*}
+	\ln y_{igt}=\alpha_{ig}+\alpha_{gt}+\alpha_{it}
+	+\sum_{j=-6}^{3}\beta_{0j}\mathbf{1}\left(\text{event}_{ig}=j\right)+ \beta_{1j}\mathbf{1}\left(\text{event}_{ig}=j\right)\times \text{target}_{ig}+\epsilon_{igt}
+\end{equation*}
+\vspace{-5mm}
+\begin{itemize}
+	\item Fixed effects: variety $(\alpha_{ig})$, product-time $(\alpha_{gt})$, country-time $(\alpha_{it})$
+	\item cluster: country, HS8
+\end{itemize}
+Event date:
+\begin{itemize}
+	\item $ig\in$ targeted products: assign date of tariff implementation
+	\item $ig\notin$ targeted products:
+	\begin{itemize}
+		\item assign earliest event date within NAICS4
+		\item if no NAICS4, use: NAICS3, NAICS2, or February 2018
+	\end{itemize}
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Event study: US importers paid the tariffs}
+\begin{center}
+\includegraphics[height=.85\textheight]{../images/week13_tradepolicy/FGKK_2019_VoxEU_figure1.png} \\
+{\small Figure from \href{https://voxeu.org/article/return-protectionism}{Fajgelbaum, Goldberg, Khandelwal, Kennedy (2019)}}
+\end{center}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{US demand system}
+Nested CES demand within tradeable sector 
+\begin{itemize}
+	\item By origin within imports of a product
+	\item Across imported products
+	\item Between imports and domestic \\~\\
+\end{itemize}
+Tiers:
+\begin{itemize}
+	\item Bottom: HS10 Import demand: $m_{g}=\left(\sum_{i}a_{ig}^{\frac{1}{{\color{blue}\sigma}}}m_{ig}^{\frac{{\color{blue}\sigma}-1}{{\color{blue}\sigma}}}\right)^{\frac{{\color{blue}\sigma}}{{\color{blue}\sigma}-1}}$
+	\item Middle: 4-digit NAICS import demand: $M_{s}=\left(\sum_{g\in\mathcal{G}_{s}}a_{Mg}^{\frac{1}{{\color{blue}\eta}}}m_{g}^{\frac{{\color{blue}\eta}-1}{{\color{blue}\eta}}}\right)^{\frac{{\color{blue}\eta}}{{\color{blue}\eta}-1}}$
+	\item Upper: sector demand: $C_{s}+I_{s}=\left(A_{Ds}^{\frac{1}{{\color{blue}\kappa}}}D_{s}^{\frac{{\color{blue}\kappa}-1}{{\color{blue}\kappa}}}+A_{Ms}^{\frac{1}{{\color{blue}\kappa}}}M_{s}^{\frac{{\color{blue}\kappa}-1}{{\color{blue}\kappa}}}\right)^{\frac{{\color{blue}\kappa}}{{\color{blue}\kappa}-1}}$
+\end{itemize}
+\end{frame}
+\begin{frame}{Variety-level import demand and export supply curves}
+\begin{itemize}
+	\item Imports and exports of product g from country i: 
+	\begin{align*}
+		m_{igt}	&= A_{igt}\left(\left({\color{red}1+\tau_{igt}}\right)p_{igt}^{*}\right)^{-{\color{blue}\sigma}} \\
+		p_{igt}^{*}	&= z_{igt}^{*}m_{igt}^{{\color{blue}\omega^{*}}}
+	\end{align*}
+	\item Estimate:
+	\begin{align*}
+		\Delta\ln m_{igt} &= \alpha_{gt}^{M}+\alpha_{it}^{M}+\alpha_{is}^{M}-{\color{blue}\sigma}\Delta\ln\left(\left({\color{red}1+\tau_{igt}}\right)p_{igt}^{*}\right)+\varepsilon_{igt}^{M} \\
+		\Delta\ln p_{igt}^{*} &= \alpha_{gt}^{X}+\alpha_{it}^{X}+\alpha_{is}^{X}+{\color{blue}\omega^{*}}\Delta\ln m_{igt}+\varepsilon_{igt}^{X}
+	\end{align*}
+	\item Instrument both the duty-inclusive price $(1+\tau_{igt})p_{igt}^{*}$ in equation (8) and imports $m_{igt}$ in equation (9) using $\tau_{igt}$
+	\item {\color{red}$\tau_{igt}$} identifies both elasticities if uncorrelated with supply/demand shocks
+	(Romalis 2007, Zoutman, Gavrilova, and Hopland 2018)
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Intuition for two elasticities from one tax}
+\begin{center}
+	\includegraphics[scale=.75]{../images/week13_tradepolicy/FGKK_Felix_intuition.pdf}
+\end{center}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Variety-level elasticites: $\sigma=2.53$, $\omega^{*}=-0.002$}
+\begin{center}
+\includegraphics[height=.92\textheight]{../images/week13_tradepolicy/FGKK2020_tab4.pdf}
+\end{center}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Other elasticities}
+\begin{itemize}
+	\item Aggregate tariffs to product and sector level to estimate upper nests
+	\item Across imported HS-10 products: $s_{Mgt}=a_{Mg}\left(\frac{p_{Mg}}{P_{Ms}}\right)^{1-{\color{blue}\eta}}$
+	\begin{itemize}
+		\item Estimate {\color{blue}$\hat{\eta}$}=\input{../images/week13_tradepolicy/FGKK/t0_d1_stat_eta1_b.tex}(\emph{se} \input{../images/week13_tradepolicy/FGKK/t0_d1_stat_eta1_se.tex}\unskip) 
+		\item Targeted product imports fall \input{../images/week13_tradepolicy/FGKK/t0_d1_stat1_product_vhat_b.tex}\unskip\%
+		\item No impact of tariffs on product-level import price indexes
+	\end{itemize}
+	\item Between imports and domestic in 4-digit NAICS: $\frac{P_{Ms}M_{s}}{P_{Ds}D_{s}}=\frac{A_{Ms}}{A_{Ds}}\left(\frac{P_{Ms}}{P_{Ds}}\right)^{1-{\color{blue}\kappa}} $
+	\begin{itemize}
+		\item Estimate {\color{blue}$\hat{\kappa}$}= \input{../images/week13_tradepolicy/FGKK/t0_d1_stat_kappa1_b.tex}(\emph{se} \input{../images/week13_tradepolicy/FGKK/t0_d1_stat_kappa1_se.tex}\unskip)
+		\item Targeted sector imports fall \input{../images/week13_tradepolicy/FGKK/t0_d1_stat1_sector_vhat_b.tex}\unskip\%
+	\end{itemize}
+	\item Variety-level exports: $x_{ig}=a_{ig}^{*}\left({\color{red}\left(1+\tau_{ig}^{*}\right)}p_{ig}^{X}\right)^{-{\color{blue}\sigma^{*}}}$
+	\begin{itemize}
+		\item Estimate $\hat{{\color{blue}\sigma^{*}}}$=\input{../images/week13_tradepolicy/FGKK/t0_d1_sigmastar_b.tex}(\emph{se} 0\input{../images/week13_tradepolicy/FGKK/t0_d1_sigmastar_se.tex}\unskip)
+		\item Targeted variety exports fall \input{../images/week13_tradepolicy/FGKK/t0_d1_xstat_variety_vhat_b.tex}\unskip\%
+	\end{itemize}
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Aggregate impacts}
+\begin{align*}
+	{\color{purple}-\mathbf{m}'\Delta\mathbf{p}^{M}}+{\color{olive}\mathbf{x}'\Delta\mathbf{p}^{X}}+\Delta R=EV \quad {\text{\tiny\color{blue} ( Dixit \& Norman 80 )}}
+\end{align*}
+\begin{itemize}
+	\item Neoclassical model (static, flexible prices, immobile labor)
+	\item US demand
+	\begin{itemize}
+		\item Cobb-Douglas over 88 traded sectors, 1 non-traded sector
+		\item Within sector: CES $({\color{blue}\sigma,\eta,\kappa})$ over products and countries
+	\end{itemize}
+	\item US supply
+	\begin{itemize}
+		\item Cobb-Douglas in labor and capital (fixed), intermediate inputs (may adjust)
+		\item 3,067 US counties
+	\end{itemize}
+	\item Trade partners
+	\begin{itemize}
+		\item Movements along variety-level demand $({\color{blue}\sigma^{*}})$ and supply $({\color{blue}\omega^{*}})$ curves
+	\end{itemize}
+	\item Matched to 2016 County Business Patterns, I-O tables, trade 
+\end{itemize}
+\end{frame}
+\begin{frame}{Import prices}
+\begin{align*}
+	\hat{p}_{ig}&=\frac{{\color{blue}\omega^{*}}}{1+{\color{blue}\omega^{*}\sigma}}\left(\hat{E_{s}}+\left({\color{blue}\kappa}-1\right)\hat{P_{s}}+\left({\color{blue}\eta}-{\color{blue}\kappa}\right)\hat{P}_{Ms}+\left({\color{blue}\sigma}-{\color{blue}\eta}\right)\hat{p}_{gM}\right)+\frac{1}{1+{\color{blue}\omega^{*}\sigma}}{\color{red}\frac{d\tau_{ig}}{1+\tau_{ig}}} \\
+	&\approx{\color{red}\frac{d\tau_{ig}}{1+\tau_{ig}}}
+\end{align*}
+Implies:
+\begin{itemize}
+	\item ${\color{purple}\mathbf{m}'\Delta\mathbf{p}^{M}}$= \input{../images/week13_tradepolicy/FGKK/chi1_us1_star1_evm_b0_pct.tex}\unskip\% of GDP
+	\item import share of GDP (15\%) $\times$ targeted share of imports (13\%) $\times$ avg. tariff increase (14\%)
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Export prices}
+\begin{equation*}
+	\hat{p}_{ig}^{X}
+	=
+	\hat{p}_{s}
+	=
+	\frac{1}{\Phi_{s}}\left(\widehat{\text{DomExp}}_{s}+\widehat{\text{Tariff}}_{s}+\hat{Cost_{s}}\right)
+\end{equation*}
+\begin{align*}
+	\widehat{\text{DomExp}}_{s}	&\equiv\frac{P_{Ds}D_{s}}{p_{s}Q_{s}}\hat{E_{s}} \\
+	\widehat{\text{Tariff}}_{s}	&\equiv\left({\color{blue}\kappa}-1\right)\sum_{g\in\mathcal{G}_{s}}\sum_{i\in\mathcal{I}}\frac{P_{Ds}D_{s}}{p_{s}Q_{s}}\frac{p_{ig}m_{ig}}{E_{s}}{\color{red}\frac{d\tau_{ig}}{1+\tau_{ig}}}-{\color{blue}\sigma^{*}}\sum_{g\in\mathcal{G}_{s}}\sum_{i\in\mathcal{I}}\frac{p_{Dg}x_{ig}}{p_{s}Q_{s}}{\color{red}\frac{d\tau_{ig}^{*}}{1+\tau_{ig}^{*}}} \\
+	\widehat{\text{Cost}}_{s}	&\equiv\frac{\alpha_{I,s}}{\alpha_{K,s}}\hat{\phi}_{s}+\sum_{r\in\mathcal{R}}\frac{p_{s}Q_{sr}}{p_{s}Q_{s}}\frac{\alpha_{L,s}}{\alpha_{K,s}}\hat{w}_{sr} \\
+	\Phi_{s}	&\equiv\frac{1-\alpha_{K,s}}{\alpha_{K,s}}+\frac{P_{Ds}D_{s}}{p_{s}Q_{s}}\frac{P_{Ds}D_{s}}{E_{s}}+\frac{P_{Ds}D_{s}}{p_{s}Q_{s}}\left(1-\frac{P_{Ds}D_{s}}{E_{s}}\right){\color{blue}\kappa}+\left(1-\frac{P_{Ds}D_{s}}{p_{s}Q_{s}}\right){\color{blue}\sigma^{*}}
+\end{align*}
+${\color{olive}\mathbf{x}'\Delta\mathbf{p}^{X}}=0$\input{../images/week13_tradepolicy/FGKK/chi1_us1_star1_evx_b0_pct.tex}\unskip\% of GDP
+= export share of GDP (7\%) $\times$ export price increase (0.7\%)
+\end{frame}
+% -----------------------------------------
+\begin{frame}[t,shrink=20]{Aggregate impacts}\label{aggresults}
+\vspace{-1.5em}
+\begin{equation*}
+{\color{purple}\underbrace{-\mathbf{m}'\Delta\mathbf{p}^{M}}_{EV^{M}}}+{\color{olive}\underbrace{\mathbf{x}'\Delta\mathbf{p}^{X}}_{EV^{X}}}+\Delta R=EV
+\end{equation*}
+\begin{center}
+\includegraphics[height=.90\textheight]{../images/week13_tradepolicy/FGKK2020_tab8.pdf}
+\end{center}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{US tariffs, retaliation, and 2016 GOP presidential vote share}
+\begin{center}
+\includegraphics[height=0.9\textheight]{../images/week13_tradepolicy/FGKK2020_fig7.pdf}
+\end{center}
+\end{frame}
+% -----------------------------------------
+\begin{frame}{Wrapping up}
+\begin{itemize}
+\item The final exam is in-person on Monday, December 15
+\item Thanks for taking the class!
+\end{itemize}
+\end{frame}
+% -----------------------------------------
+% -----------------------------------------
+\end{document}

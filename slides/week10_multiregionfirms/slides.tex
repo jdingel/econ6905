@@ -1,6 +1,6 @@
 \documentclass[11pt,notes=hide,aspectratio=169]{beamer}
 \input{../week00/slides_settings.tex}
-\setbeamertemplate{footline}{\begin{center}\textcolor{gray}{Dingel -- Topics in Trade -- Week 12 -- \insertframenumber}\end{center}}
+\setbeamertemplate{footline}{\begin{center}\textcolor{gray}{Dingel -- Topics in Trade -- \semester -- Week 10 -- \insertframenumber}\end{center}}
 \usepackage{listings}
 \input{../week00/listings_julia_setup.tex}
 \input{../week00/listings-stata.tex}
@@ -13,7 +13,7 @@
 \textcolor{columbiadarkblue}{ECON G6905\\
 Topics in Trade\\ 
 Jonathan Dingel\\
-Spring \the\year, Week 13}
+\semester, Week 10}
 \vfill 
 \includegraphics[width=0.4\textwidth]{../images/Columbia_logo.png}
 \end{center}
@@ -55,6 +55,7 @@ A \textit{foreign affiliate} is an establishment located in a host ($\neq$ sourc
 \item Multinational firms generate 28\% of global GDP, 23\% of employment, and 55\% of world exports
 {\footnotesize(\href{https://www.oecd.org/industry/ind/MNEs-in-the-global-economy-policy-note.pdf}{OECD 2018}, \href{https://www.oecd-ilibrary.org/science-and-technology/multinational-enterprises-in-domestic-value-chains_9abfa931-en}{OECD 2019})}
 \item Foreign-owned firms account for 51\% of Chinese exports; joint ventures account for 26\% {\footnotesize(\href{http://users.ox.ac.uk/~econ0451/ChinaCredit.pdf}{Manova, Wei, Zhang 2015})}
+%{\footnotesize(\href{https://www.oecd.org/industry/ind/MNEs-in-the-global-economy-policy-note.pdf}{OECD 2018})}
 \item US firms' \href{https://apps.bea.gov/iTable/iTable.cfm?ReqID=2&step=1}{foreign affiliate sales} of \$7.7 trillion versus \href{https://www.census.gov/foreign-trade/statistics/highlights/annual.html}{exports} of \$2.5 trillion.
 \end{itemize}
 \begin{center}
@@ -105,7 +106,7 @@ A larger share of imports are intrafirm in capital- and research-intensive indus
 % -----------------------------------------
 \begin{frame}{A gravity equation for foreign affiliate activity}
 \begin{itemize}
-	\item Recall the ``niave'' gravity equation using GDP: $X_{od} = \lambda \frac{\text{GDP}_o^{\alpha} \text{GDP}_d^{\beta}}{\text{distance}_{od}^{\gamma}}$
+	\item Recall the ``naive'' gravity equation using GDP: $X_{od} = \lambda \frac{\text{GDP}_o^{\alpha} \text{GDP}_d^{\beta}}{\text{distance}_{od}^{\gamma}}$
 	\item Now make $X_{od}$ global sales by affiliates in $d$ owned by parent in $o$
 	\item Distance coefficient for affiliates sales  $\gamma \approx .61$ less negative than distance coefficient for exports $\gamma \approx 1$
 \end{itemize}
@@ -221,18 +222,18 @@ Mrazova, Neary ``\href{https://doi.org/10.1093/jeea/jvy024}{Selection Effects wi
 % -----------------------------------------
 \begin{frame}{Investment facilitates local customization}
 \begin{itemize}
-\item Exporting's ``concentration'' requires selling the same product
+	\item Exporting's ``concentration'' requires selling the same product
+		\begin{itemize}
+			\item Demand dissimilarity favors foreign affiliate over exporting
+			\item Foreign affiliate can customize products to local demand
+			\item \href{https://hbr.org/2005/12/regional-strategies-for-global-leadership}{Ford COO}: ``The single biggest barrier to globalization [in autos]\dots is the relatively cheap cost of motor fuel in the US\dots creates an accompanying disparity in\dots the most fundamental of vehicle characteristics: size and power.'' (cf. \href{https://doi.org/10.1016/j.jinteco.2017.11.001}{Cosar et al 2018})
+		\end{itemize}
+	\item Export platforms
 	\begin{itemize}
-	\item Demand dissimilarity favors foreign affiliate over exporting
-	\item Foreign affiliate can customize products to local demand
-	\item \href{https://hbr.org/2005/12/regional-strategies-for-global-leadership}{Ford COO}: ``The single biggest barrier to globalization [in autos]\dots is the relatively cheap cost of motor fuel in the US\dots creates an accompanying disparity in\dots the most fundamental of vehicle characteristics: size and power.'' (cf. \href{https://doi.org/10.1016/j.jinteco.2017.11.001}{Cosar et al 2018})
+		\item Plant in one foreign market can serve others via exports
+		\item E.g., Ford Focus had five assembly plants serving different regions
+		\item Spatially correlated characteristics, e.g. demand similarities, favor a ``regional'' strategy that captures (some) concentration benefits while avoiding interregional trade costs
 	\end{itemize}
-\item Export platforms
-\begin{itemize}
-	\item Plant in one foreign market can serve others via exports
-	\item E.g., Ford Focus had five assembly plants serving different regions
-	\item Spatially correlated characteristics, e.g. demand similarities, favor a ``regional'' strategy that captures (some) concentration benefits while avoiding interregional trade costs
-\end{itemize}
 \end{itemize}
 \end{frame}
 % -----------------------------------------
@@ -543,7 +544,7 @@ County $i$, case $c$, plant $k$, industry $s$, year $t$
 \begin{frame}{Summary}
 Multinational and multi-region firms appear very important, and there's lots of exciting research on this topic recently
 \vspace{2cm}
-Next week: Research consultations
+Next week: Skill-biased agglomeration
 \end{frame}
 % -----------------------------------------
 \end{document}
