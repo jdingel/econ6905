@@ -146,7 +146,7 @@ If you’re going to be a trade economist, you ought to own the following books:
 - Balboni, Clare and Joseph S. Shapiro. 2025. "[Spatial Environmental Economics](https://doi.org/10.1016/bs.hesreg.2025.06.008)." In *Handbook of Regional and Urban Economics*, Vol. 6, 585-652.
 - Domínguez-Iino, Tomás. 2023. "[Spatial Economics and Environmental Policies](https://doi.org/10.1007/978-3-319-57365-6_416-1)." In K.F. Zimmermann (ed.), *Handbook of Labor, Human Resources and Population Economics*.
 
-## Week 14: Overflow and research consultations
+#### Week 14: Overflow and research consultations
 
 ### Topics covered in other years (not spring 2027)
 
