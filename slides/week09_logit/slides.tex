@@ -188,9 +188,9 @@ Here, I'll focus on the estimation and computational elements
 \begin{frame}{Observed behavior, spatial frictions, social frictions}
 \vspace{-1mm}
 \begin{center}
-\includegraphics[height=.47\textheight]{../images/weekW/DDMM2019_rdfm_timehome_density.pdf}
-\includegraphics[height=.47\textheight]{../images/weekW/DDMM2019_rdfm_timework_density.pdf}\\
-\includegraphics[height=.47\textheight]{../images/weekW/DDMM2019_rdfm_eucl_density.pdf}
+\includegraphics[height=.47\textheight]{../images/week11/DDMM2019_rdfm_timehome_density.pdf}
+\includegraphics[height=.47\textheight]{../images/week11/DDMM2019_rdfm_timework_density.pdf}\\
+\includegraphics[height=.47\textheight]{../images/week11/DDMM2019_rdfm_eucl_density.pdf}
 \end{center}
 \end{frame}
 % -----------------------------------------
@@ -382,12 +382,12 @@ using Distributions; mean_util = rand(1_000_000);
 }\end{itemize}
 \vspace{-3mm}
 \begin{center}
-\only<1>{Asian reviewers: Social frictions\\ \includegraphics[height=0.6\textheight]{../images/weekW/bootstrap_param_mainspec_social_asian.png} }
-\only<2|handout:0>{Black reviewers: Social frictions\\ \includegraphics[height=0.6\textheight]{../images/weekW/bootstrap_param_mainspec_social_black.png} }
-\only<3>{Asian reviewers: Spatial frictions\\ \includegraphics[height=0.6\textheight]{../images/weekW/bootstrap_param_mainspec_spatial_asian.png} }
-\only<4|handout:0>{Black reviewers: Spatial frictions\\ \includegraphics[height=0.6\textheight]{../images/weekW/bootstrap_param_mainspec_spatial_black.png} }
-\only<5>{Spatial frictions in minimum-time specification $\nu_{ijlt} = \nu_{ijt} \ \forall l$\\ \includegraphics[width=1.0\textwidth]{../images/weekW/bootstrap_param_mintime_spatial.png} }
-\\ \includegraphics[width=0.4\textwidth]{../images/weekW/bootstrap_param_legend.png}
+\only<1>{Asian reviewers: Social frictions\\ \includegraphics[height=0.6\textheight]{../images/week11/bootstrap_param_mainspec_social_asian.png} }
+\only<2|handout:0>{Black reviewers: Social frictions\\ \includegraphics[height=0.6\textheight]{../images/week11/bootstrap_param_mainspec_social_black.png} }
+\only<3>{Asian reviewers: Spatial frictions\\ \includegraphics[height=0.6\textheight]{../images/week11/bootstrap_param_mainspec_spatial_asian.png} }
+\only<4|handout:0>{Black reviewers: Spatial frictions\\ \includegraphics[height=0.6\textheight]{../images/week11/bootstrap_param_mainspec_spatial_black.png} }
+\only<5>{Spatial frictions in minimum-time specification $\nu_{ijlt} = \nu_{ijt} \ \forall l$\\ \includegraphics[width=1.0\textwidth]{../images/week11/bootstrap_param_mintime_spatial.png} }
+\\ \includegraphics[width=0.4\textwidth]{../images/week11/bootstrap_param_legend.png}
 \end{center}
 \only<5>{}
 \end{frame}
@@ -396,7 +396,7 @@ using Distributions; mean_util = rand(1_000_000);
 You can bootstrap any function of the parameters (i.e., any downstream object)
 \vspace{-1mm}
 \begin{center}
-\includegraphics[height=0.86\textheight]{../images/weekW/DDMM2019_table6panelA.png}
+\includegraphics[height=0.86\textheight]{../images/week11/DDMM2019_table6panelA.png}
 \end{center}
 \end{frame}
 % -----------------------------------------
@@ -434,11 +434,11 @@ Changes in commuter counts ($\ell'_{k\bar{n}}-\ell_{k\bar{n}}$)
 }
 \vspace{-2mm}
 \begin{center}
-\includegraphics[width=.43\textwidth]{../images/weekW/slopes_intercepts_densities_continuum_labor_0_2.488905_1.09.eps}
-\includegraphics[width=.43\textwidth]{../images/weekW/MSE_ratio_histogram_continuum_labor_0_2.488905_1.09.eps}
+\includegraphics[width=.43\textwidth]{../images/week11/slopes_intercepts_densities_continuum_labor_0_2.488905_1.09.eps}
+\includegraphics[width=.43\textwidth]{../images/week11/MSE_ratio_histogram_continuum_labor_0_2.488905_1.09.eps}
 \\
 \resizebox{0.8\textwidth}{!}{
-\input{../images/weekW/sumstats_continuum_labor_0_1.09.tex}
+\input{../images/week11/sumstats_continuum_labor_0_1.09.tex}
 }
 \end{center}
 \end{frame}
@@ -451,14 +451,14 @@ Changes in commuter counts ($\ell'_{k\bar{n}}-\ell_{k\bar{n}}$)
 via finite-sample draws from pre- and post- DGPs
 }
 \begin{center}
-\includegraphics[width=.43\textwidth]{../images/weekW/slopes_intercepts_densities_iid_labor_0_2.488905_1.09.eps}
-\includegraphics[width=.43\textwidth]{../images/weekW/MSE_ratio_histogram_iid_labor_0_2.488905_1.09.eps}
+\includegraphics[width=.43\textwidth]{../images/week11/slopes_intercepts_densities_iid_labor_0_2.488905_1.09.eps}
+\includegraphics[width=.43\textwidth]{../images/week11/MSE_ratio_histogram_iid_labor_0_2.488905_1.09.eps}
 \end{center}
 \vspace{-3mm}
 \begin{columns}
 \begin{column}{0.78\textwidth}
 \resizebox{\textwidth}{!}{
-\input{../images/weekW/sumstats_iid_labor_0_1.09.tex}
+\input{../images/week11/sumstats_iid_labor_0_1.09.tex}
 }
 \end{column}
 \end{columns}
@@ -568,9 +568,9 @@ depends on the particular realized vectors of idiosyncratic preferences
 \begin{center}
 \begin{tabular}{cc}
 Changes in residents & Changes in workers \\
-\includegraphics[width=0.50\linewidth]{../images/weekW/fixednu_puncertainty_scatter_res.eps}
+\includegraphics[width=0.50\linewidth]{../images/week11/fixednu_puncertainty_scatter_res.eps}
 &
-\includegraphics[width=0.50\linewidth]{../images/weekW/fixednu_puncertainty_scatter_emp.eps}
+\includegraphics[width=0.50\linewidth]{../images/week11/fixednu_puncertainty_scatter_emp.eps}
 \end{tabular}
 \end{center}
 \end{frame}
@@ -579,9 +579,9 @@ Changes in residents & Changes in workers \\
 \begin{center}
 \begin{tabular}{cc}
 { Changes in rents} & { Changes in wages}\\
-\includegraphics[width=0.50\linewidth]{../images/weekW/fixednu_puncertainty_scatter_rent.eps}
+\includegraphics[width=0.50\linewidth]{../images/week11/fixednu_puncertainty_scatter_rent.eps}
 &
-\includegraphics[width=0.50\linewidth]{../images/weekW/fixednu_puncertainty_scatter_wage.eps}
+\includegraphics[width=0.50\linewidth]{../images/week11/fixednu_puncertainty_scatter_wage.eps}
 \end{tabular}
 \end{center}
 \end{frame}
